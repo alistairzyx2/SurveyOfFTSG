@@ -1,0 +1,55 @@
+\section{Methods}
+\label{sec:methods}
+To ensure the reproducibility, transparency, and comprehensiveness of this review, we adhered to a systematic literature review methodology tailored to the intersection of artificial intelligence and quantitative finance, designed in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA 2020) guidelines. The completed PRISMA 2020 checklist is provided as Supplementary Information. This section outlines our protocols for literature retrieval, inclusion/exclusion criteria, data extraction, and the dimensions utilized for synthesizing the gathered research.
+
+\subsection{Literature Retrieval Strategy}
+Our primary objective was to capture the state-of-the-art advancements in financial time-series generation, particularly focusing on the paradigm shift driven by generative AI over recent years. 
+
+\textbf{Search Databases:} We conducted exhaustive searches across premier academic databases and preprint repositories to ensure broad coverage of both peer-reviewed and cutting-edge unpublished works. The primary databases included Google Scholar, DBLP, Web of Science, Scopus, and arXiv.
+
+\textbf{Search Keywords:} To construct a robust search query, we combined terms related to the financial domain, time-series data, and generative tasks. The primary Boolean search strings included: 
+(\textit{``financial time-series generation''} OR \textit{``synthetic financial data''} OR \textit{``market simulation generative model''}) AND (\textit{``financial diffusion model''} OR \textit{``financial GAN''} OR \textit{``time-series imputation finance''} OR \textit{``financial foundation models''}).
+
+\textbf{Time Frame and Publication Types:} Given the rapid evolution of deep generative models, we restricted our primary search window to papers published or uploaded between \textbf{2021 and early 2026 (including early-access and preprints)}. We included articles from high-impact journals (e.g., \textit{Information Sciences}, \textit{Expert Systems with Applications}, \textit{Quantitative Finance}), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI), and highly cited arXiv preprints that represent significant methodological breakthroughs.
+
+After full-text screening, the final corpus comprises 131 studies, each assigned to a unique primary task category: extrapolation (54), imputation (29), and synthesis (48). Multi-task or cross-cutting contributions are discussed in the relevant sections but are not double-counted in task-level comparison tables.
+
+\subsection{Inclusion and Exclusion Criteria}
+As illustrated in Figure \ref{fig:lit_dist}, to maintain a high signal-to-noise ratio and ensure strict relevance to the core theme of FTSG, all retrieved papers underwent a two-stage screening process (title/abstract screening followed by full-text review) based on the following criteria:
+
+\textbf{Inclusion Criteria:}
+\begin{itemize}
+    \item Papers that explicitly formulate and address the generation, imputation, or fully synthetic simulation of financial time-series data.
+    \item Studies that propose novel generative architectures (e.g., GANs, diffusion models, LLMs) specifically adapted for financial contexts.
+    \item Research that establishes unified evaluation protocols, benchmarks, or datasets for synthetic financial data.
+\end{itemize}
+
+\textbf{Exclusion Criteria:}
+\begin{itemize}
+    \item Purely predictive or forecasting studies that treat outputs strictly as deterministic point estimates without a generative, distributional, or probabilistic perspective.
+    \item General time-series generation papers that lack an identifiable and empirically tested financial application (e.g., solely tested on weather or traffic data).
+    \item Outdated surveys or methodologies that do not incorporate modern deep learning or generative AI techniques, unless necessary for historical context.
+\end{itemize}
+
+\subsection{Data Extraction and Coding Protocol}
+For each paper that met the inclusion criteria, we executed a structured data extraction protocol. Two independent reviewers (authors) coded the literature to extract key metadata, minimizing subjective bias. The extracted fields included:
+\begin{itemize}
+    \item \textbf{Task Type:} Extrapolation, imputation, micro-level synthesis, or macro-level market simulation.
+    \item \textbf{Model Family:} Statistical/probabilistic, discriminative deep learning, GAN-based, diffusion/score-based, or foundation/LLM-based models.
+    \item \textbf{Data Modality:} Univariate vs. multivariate, frequency (high-frequency order book vs. daily/monthly returns), and conditioning variables (e.g., text, macroeconomic indicators).
+    \item \textbf{Evaluation Metrics:} The specific quantitative and qualitative metrics used to validate the generated outputs (e.g., MSE, Wasserstein distance, stylized facts, downstream utility).
+    \item \textbf{Code/Data Availability:} Whether the authors open-sourced their codebases or utilized public benchmark datasets.
+\end{itemize}
+
+\subsection{Review Dimensions and Taxonomy Synthesis}
+The extracted data were synthesized and are presented in the Results and Discussion sections along six unified analytical dimensions:
+\begin{enumerate}
+    \item \textbf{Task Formulation:} Defining the mathematical boundaries and generative objectives of extrapolation, imputation, and synthesis (presented in the Problem Formulation and A Two-Level Taxonomy subsection).
+    \item \textbf{Model Design:} Analyzing how specific generative architectures are engineered to overcome financial data challenges (detailed across the Extrapolation, Imputation, and Synthesis subsections).
+    \item \textbf{Applications:} Examining how extrapolation, imputation, and synthesis support downstream quantitative workflows (presented in the Applications subsection).
+    \item \textbf{Evaluation Protocol:} Critiquing how the financial realism and empirical validity of generated series are quantified (presented in the Evaluation Protocols subsection).
+    \item \textbf{Datasets and Benchmarks:} Summarizing the empirical foundations upon which generative models are trained and benchmarked (presented in the Data Resources and Benchmarks subsection).
+    \item \textbf{Open Challenges and Roadmap:} Identifying theoretical and practical bottlenecks requiring future research interventions (presented in the Discussion section).
+\end{enumerate}
+
+By rigorously adhering to this methodology, this survey transitions from a mere enumeration of literature to a systematic, evaluation-oriented resource paper, providing a highly reliable foundation for researchers in the field.

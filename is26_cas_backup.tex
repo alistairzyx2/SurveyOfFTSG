@@ -1,0 +1,132 @@
+\documentclass[a4paper,fleqn]{cas-sc}
+
+\usepackage[authoryear,longnamesfirst]{natbib}
+\usepackage{amssymb}
+\usepackage{amsmath}
+\usepackage{float}
+\usepackage{graphicx}
+\usepackage{booktabs}
+\usepackage{multirow}
+%\usepackage[edges]{forest}
+\usepackage{xcolor}
+
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.95}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{8}
+
+% ===== 导言区补充 =====
+\usepackage[T1]{fontenc}
+% \usepackage{newtxtext,newtxmath}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
+% \usepackage[numbers,sort&compress]{natbib}
+\usepackage[edges]{forest}
+\usepackage{float}
+
+\renewcommand{\topfraction}{0.95}
+\renewcommand{\bottomfraction}{0.95}
+\renewcommand{\textfraction}{0.05}
+\renewcommand{\floatpagefraction}{0.95}
+\setcounter{topnumber}{4}
+\setcounter{bottomnumber}{4}
+\setcounter{totalnumber}{8}
+
+% CAS class's \printemails/\printorcid/\printurls use
+%   \tex_let:D \thefootnote \relax \footnotetext{...}
+% which leaves hyperref's \Hy@footnote@currentHref empty (no prior \footnotemark),
+% triggering "Ignoring empty anchor" warnings from \maketitle.
+% Pre-populate the anchor with a stable non-empty value; \footnotemark will
+% overwrite it for regular numbered footnotes, so the title-page unnumbered
+% notes (and only those) pick up this fallback.
+\makeatletter
+\AtBeginDocument{%
+  \ifx\Hy@footnote@currentHref\@empty
+    \gdef\Hy@footnote@currentHref{titlepage.titlenote}%
+  \fi
+}
+\makeatother
+
+\begin{document}
+\let\WriteBookmarks\relax
+
+\shorttitle{A Systematic Survey of Financial Time-Series Generation}    
+\shortauthors{Zhang et al.}  
+
+\title [mode = title]{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}  
+
+\author[1,2]{Yingxiao Zhang}[orcid=0009-0004-7065-241X]
+\ead{zhangyx20@gmail.com}
+\credit{Conceptualization, Methodology, Writing - Original Draft}
+
+\author[3]{Jiaxin Duan}[orcid=0009-0000-9417-5036]
+\ead{jiaxdan@gmail.com}
+\credit{Validation, Formal analysis, Writing - Review \& Editing}
+
+\author[1,2]{Yue Zou}[orcid=0000-0002-3928-8924]
+\ead{ying9345@163.com}
+\credit{Validation, Formal analysis, Writing - Review \& Editing}
+
+\author[1]{Ke Feng}[orcid=0000-0003-4530-8025]
+\cormark[1]
+\ead{fengke@pku.edu.cn}
+\credit{Supervision, Project administration}
+
+\author[4]{Jing Xiao}[orcid=0000-0001-9615-4749]
+\cormark[1]
+\ead{xiaojing661@pingan.com.cn}
+\credit{Supervision, Project administration}
+
+
+\affiliation[1]{organization={School of Software and Microelectronics, Peking University},
+            city={Beijing},
+            country={China}}
+
+\affiliation[2]{organization={Pingan Bank Co. Ltd},
+            city={Shenzhen},
+            country={China}}
+
+\affiliation[3]{organization={China Electronics Cloud Technology Co., Ltd},
+            city={Beijing},
+            country={China}}
+
+\affiliation[4]{organization={Pingan Group Co., Ltd},
+            city={Shenzhen},
+            country={China}}
+
+\cortext[1]{Corresponding author (Ke Feng, Jing Xiao)}
+
+\input{sections/00_abstract.tex}
+
+
+
+\begin{keywords}
+Financial time-series generation \sep Generative AI \sep Time-series extrapolation \sep Time-series imputation \sep Time-series synthesis
+\end{keywords}
+
+\maketitle
+
+\input{sections/01_introduction.tex}
+\input{sections/02_methodology.tex}
+\input{sections/03_problem_taxonomy.tex}
+\input{sections/04_extrapolation.tex}
+\input{sections/05_imputation.tex}
+\input{sections/06_synthesis.tex}
+\input{sections/07_applications.tex}
+\input{sections/08_evaluation.tex}
+\input{sections/09_data_resources.tex}
+\input{sections/10_challenges.tex}
+\input{sections/11_conclusion.tex}
+
+\printcredits
+
+\newpage
+\bibliographystyle{cas-model2-names}
+\bibliography{ultimate_complete}
+
+\end{document}

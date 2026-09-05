@@ -1,0 +1,91 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs,multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
+\usepackage{caption}
+\usepackage[edges]{forest}
+\usepackage{float}
+\usepackage{microtype}
+
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!70!black,citecolor=blue!70!black,urlcolor=blue!70!black]{hyperref}
+
+% npj Artificial Intelligence requirement: unnumbered section headings
+\setcounter{secnumdepth}{0}
+
+% Title, Authors, and Affiliations
+\title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}}
+
+\author{
+  Yingxiao Zhang$^{1,2}$, 
+  Jiaxin Duan$^{3}$, 
+  Yue Zou$^{1,2}$, 
+  Ke Feng$^{1,*}$, 
+  Jing Xiao$^{4,*}$
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\vspace{-2em}
+\begin{center}
+\footnotesize
+$^{1}$School of Software and Microelectronics, Peking University, Beijing, China\\[0.3em]
+$^{2}$Pingan Bank Co., Ltd., Shenzhen, China\\[0.3em]
+$^{3}$China Electronics Cloud Technology Co., Ltd., Beijing, China\\[0.3em]
+$^{4}$Pingan Group Co., Ltd., Shenzhen, China\\[0.5em]
+$^{*}$Corresponding authors. E-mail: \texttt{fengke@pku.edu.cn} (K. Feng); \texttt{xiaojing661@pingan.com.cn} (J. Xiao)
+\end{center}
+\vspace{1.5em}
+
+% Abstract (single paragraph, 150-200 words, no subheadings)
+\input{sections/00_abstract.tex}
+
+% Introduction (no subheadings)
+\input{sections/01_introduction.tex}
+
+% Results (compulsory subheadings)
+\section{Results}
+\input{sections/03_problem_taxonomy.tex}
+\input{sections/04_extrapolation.tex}
+\input{sections/05_imputation.tex}
+\input{sections/06_synthesis.tex}
+\input{sections/07_applications.tex}
+\input{sections/08_evaluation.tex}
+\input{sections/09_data_resources.tex}
+
+% Discussion (no subheadings, integrates challenges, limitations, conclusions)
+\input{sections/10_challenges.tex}
+
+% Methods (compulsory subheadings, placed after Discussion)
+\input{sections/02_methodology.tex}
+
+% Declarations (6 mandatory statements)
+\input{sections/12_declarations.tex}
+
+% References (Nature sequential numbered format)
+\newpage
+\bibliographystyle{naturemag}
+\bibliography{ultimate_complete}
+
+% Figures and Tables (placed after References per IRDM instructions)
+\newpage
+\input{sections/13_figures.tex}
+
+\newpage
+\input{sections/14_tables.tex}
+
+\end{document}

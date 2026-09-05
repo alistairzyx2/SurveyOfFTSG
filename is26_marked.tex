@@ -1,0 +1,119 @@
+\documentclass[11pt,a4paper]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\setstretch{1.15}
+
+\usepackage{amsmath,amssymb,amsfonts}
+\usepackage{graphicx}
+\usepackage{booktabs,multirow}
+\usepackage{xcolor,colortbl}
+\usepackage{tikz}
+\usetikzlibrary{positioning,calc,arrows.meta}
+\usepackage{caption}
+\usepackage[edges]{forest}
+\usepackage{float}
+\usepackage{microtype}
+\usepackage[normalem]{ulem}
+
+
+\newcommand{\revadd}[1]{\textcolor{blue}{#1}}
+\newcommand{\revdel}[1]{\textcolor{red}{\sout{#1}}}
+
+
+\usepackage[numbers,sort&compress]{natbib}
+\usepackage[colorlinks=true,linkcolor=blue!70!black,citecolor=blue!70!black,urlcolor=blue!70!black]{hyperref}
+
+% npj Artificial Intelligence requirement: unnumbered section headings
+\setcounter{secnumdepth}{0}
+
+% Title, Authors, and Affiliations
+\title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}\\[0.4em]\normalsize\textcolor{blue}{\textbf{[Marked-Up Manuscript Tracking Technical Check Revisions]}}}
+
+\author{
+  Yingxiao Zhang$^{1,2}$, 
+  Jiaxin Duan$^{3}$, 
+  Yue Zou$^{1,2}$, 
+  Ke Feng$^{1,*}$, 
+  Jing Xiao$^{4,*}$
+}
+
+\date{}
+
+\begin{document}
+
+\maketitle
+
+\noindent\fcolorbox{blue!70!black}{blue!5}{%
+\begin{minipage}{0.97\textwidth}
+\vspace{0.4em}
+\textbf{\textcolor{blue!80!black}{\small Summary of Technical Check Revisions (IRDM Restructuring)}}\\[0.3em]
+\footnotesize
+This marked-up version highlights the structural and stylistic modifications implemented in response to the Technical Check from \textit{npj Artificial Intelligence}:
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \textbf{Author Affiliations:} Affiliations sequentially numbered ($^{1,2,3,4}$) with city and country explicitly identified for all institutions.
+\item \textbf{Unstructured Abstract:} Condensed into a single cohesive paragraph (179 words) without internal section headings.
+\item \textbf{Unnumbered Headings:} Implemented \texttt{\textbackslash setcounter\{secnumdepth\}\{0\}}; all section number cross-references updated to explicit heading titles.
+\item \textbf{IRDM Article Organization:} Main text structured as \textbf{Abstract} $\rightarrow$ \textbf{Introduction} (unstructured) $\rightarrow$ \textbf{Results} (compulsory subheadings) $\rightarrow$ \textbf{Discussion} (no subheadings; absorbed former Conclusions) $\rightarrow$ \textbf{Methods} (compulsory subheadings; placed after Discussion).
+\item \textbf{Mandatory Declarations:} Integrated 6 declarations directly into the main file before References (\textit{Data Availability, Code Availability, Acknowledgements, Funding, Author Contributions, Competing Interests}). Differentiated author initials as \textit{Y. Zhang} and \textit{Y. Zou}.
+\item \textbf{Nature Numbered Bibliography:} Citations and reference list formatted in sequential numerical order using \texttt{naturemag.bst}.
+\item \textbf{Float Reorganization:} All figure environments and tables repositioned after References in dedicated sections (\textit{Figure Legends and Figures, Tables}).
+\item \textbf{Extended Figure Legends:} Captions enhanced with bold summarizing titles, bodies under 350 words, spelled-out abbreviations, and verbal descriptions of color coding and symbols.
+\end{itemize}
+\vspace{0.4em}
+\end{minipage}%
+}
+\vspace{1em}
+
+
+\vspace{-2em}
+\begin{center}
+\footnotesize
+$^{1}$School of Software and Microelectronics, Peking University, Beijing, China\\[0.3em]
+$^{2}$Pingan Bank Co., Ltd., Shenzhen, China\\[0.3em]
+$^{3}$China Electronics Cloud Technology Co., Ltd., Beijing, China\\[0.3em]
+$^{4}$Pingan Group Co., Ltd., Shenzhen, China\\[0.5em]
+$^{*}$Corresponding authors. E-mail: \texttt{fengke@pku.edu.cn} (K. Feng); \texttt{xiaojing661@pingan.com.cn} (J. Xiao)
+\end{center}
+\vspace{1.5em}
+
+% Abstract (single paragraph, 150-200 words, no subheadings)
+\input{sections/00_abstract.tex}
+
+% Introduction (no subheadings)
+\input{sections/01_introduction.tex}
+
+% Results (compulsory subheadings)
+\section{Results}
+\input{sections/03_problem_taxonomy.tex}
+\input{sections/04_extrapolation.tex}
+\input{sections/05_imputation.tex}
+\input{sections/06_synthesis.tex}
+\input{sections/07_applications.tex}
+\input{sections/08_evaluation.tex}
+\input{sections/09_data_resources.tex}
+
+% Discussion (no subheadings, integrates challenges, limitations, conclusions)
+\input{sections/10_challenges.tex}
+
+% Methods (compulsory subheadings, placed after Discussion)
+\input{sections/02_methodology.tex}
+
+% Declarations (6 mandatory statements)
+\input{sections/12_declarations.tex}
+
+% References (Nature sequential numbered format)
+\newpage
+\bibliographystyle{naturemag}
+\bibliography{ultimate_complete}
+
+% Figures and Tables (placed after References per IRDM instructions)
+\newpage
+\input{sections/13_figures.tex}
+
+\newpage
+\input{sections/14_tables.tex}
+
+\end{document}

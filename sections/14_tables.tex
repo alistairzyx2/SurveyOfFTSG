@@ -1,0 +1,189 @@
+\section*{Tables}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Comparison of this survey with the six prior surveys cited in the literature comparison. \textbf{FTSE/FTSI/FTSS} columns use \checkmark/\texttimes\ for whether the sub-task is a first-class topic ($\triangle$ = mentioned but no dedicated section). \textbf{Eval.} distinguishes a unified \emph{protocol} from per-paper \emph{metrics}. \textbf{Datasets} indicates whether financial benchmarks are inventoried. \textbf{\# refs} is the count of references cited in each survey. \textbf{Window} is the publication-year range of each survey's references.}
+\label{tab:related_surveys}
+\renewcommand{\arraystretch}{1.18}
+\begin{tabular}{l c c c l l c l}
+\toprule
+\textbf{Survey} & \textbf{FTSE} & \textbf{FTSI} & \textbf{FTSS} & \textbf{Eval.} & \textbf{Datasets} & \textbf{\# refs} & \textbf{Window} \\
+\midrule
+\citet{Survey1}            & \checkmark & \texttimes & \texttimes & None    & Multimodal TS & 93  & 2005--2024 \\
+\citet{Survey2}            & \checkmark & $\triangle$ & \texttimes & None    & General TS        & 123 & 2017--2024 \\
+\citet{Survey3}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 287 & 2000--2024 \\
+\citet{Survey4}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 285 & 2000--2024 \\
+\citet{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
+\citet{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
+\midrule
+\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{131} & \textbf{2021--early 2026} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\vspace{2em}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Unified Task-Technique-Evaluation Mapping for Financial Time-Series Generation.}
+\label{tab:mapping}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{2cm} p{2.5cm} p{5.5cm} p{2.5cm} p{3.5cm}}
+\toprule
+\textbf{Task} & \textbf{Model Family} & \textbf{Representative Approaches} & \textbf{Data Type} & \textbf{Primary Evaluation} \\
+\midrule
+\multirow{3}{*}{\textbf{Extrapolation}} & Deep Sequence & SGP-LSTM \citep{SGP-LSTM1} & Prices, Returns & MSE, Directional Accuracy \\
+ & Diffusion Models & TimeGrad \citep{rasul2021timegrad} & Multivariate Series & CRPS, Predictive Likelihood \\
+ & Foundation Models & Chronos \citep{ansari2024chronos}, FinCast \citep{zhu2025fincast} & Multi-asset & Zero-shot MSE, MAE \\
+\midrule
+\multirow{2}{*}{\textbf{Imputation}} & Tensor Methods & RegTensor \citep{zhou2023regtensor} & Fundamentals & Reconstruction Error \\
+ & Diffusion Models & CSDI \citep{tashiro2021csdi}, TimeDiT \citep{TimeDiT} & Missing Prices & Temporal Coherence \\
+\midrule
+\multirow{3}{*}{\textbf{Synthesis}} & GANs & QuantGAN \citep{wiese2020} & Returns & Stylized Facts \\
+ & Diffusion Models & CoFinDiff \citep{tanaka2025cofindiff} & Scenarios & Distributional Fidelity \\
+ & Controllable & Market-GAN \citep{xia2024market} & Order Flow (LOB) & Downstream Utility \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\vspace{2em}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Comprehensive Comparison of Financial Time-Series Extrapolation Paradigms}
+\label{tab:extrapolation_comparison}
+\renewcommand{\arraystretch}{1.3}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lp{3.5cm}p{4cm}p{4.5cm}p{4cm}}
+\toprule
+\textbf{Paradigm} & \textbf{Output Format} & \textbf{Key Strengths} & \textbf{Primary Limitations} & \textbf{Typical Financial Use Cases} \\
+\midrule
+\textbf{Predictive Models} & Deterministic point forecasts & Extremely fast inference; highly interpretable methodologies. & Lacks robust uncertainty quantification; fails to model tail risks. & High-frequency trading; algorithmic order execution. \\
+\textbf{GANs} & Sampled stochastic trajectories & Produces sharp, multi-modal sequences without iterative sampling. & Prone to severe training instability and mode collapse. & Scenario generation; counterfactual stress testing. \\
+\textbf{Diffusion Models} & Sampled stochastic trajectories & Achieves strong distributional fidelity and stable convergence. & Iterative sampling process induces prohibitive computational latency. & Risk management; complex portfolio optimization. \\
+\textbf{Foundation Models} & Zero-shot probabilistic forecasts & Exhibits promising cross-domain generalization and rapid adaptability. & Suffers from potential hallucination and difficult text-series data alignment. & Dynamic asset allocation; broad market backtesting. \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\newpage
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Comparative Analysis of Financial Time-Series Imputation Frameworks}
+\label{tab:imputation_comparison}
+\renewcommand{\arraystretch}{1.3}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lp{3.5cm}p{4cm}p{4.5cm}}
+\toprule
+\textbf{Methodology} & \textbf{Core Mechanism} & \textbf{Key Advantages} & \textbf{Primary Limitations} \\
+\midrule
+\textbf{Matrix/Tensor Completion} & Low-rank factorization & Highly computationally efficient; effective on sparse data. & Fails to capture non-linear volatility clustering. \\
+\textbf{Tree-Based (Random Forest)} & Non-linear ensemble regression & Extremely robust to high missing rates (e.g., 50\%+). & Struggles with high-frequency temporal dependencies. \\
+\textbf{GAN-Based Models} & Adversarial distribution matching & Sharp interpolations; mitigates drift via gradient penalties. & Mode collapse; unstable training on extreme outages. \\
+\textbf{Diffusion Models} & Conditional reverse denoising & State-of-the-art fidelity; preserves cross-asset correlations. & High inference latency prohibitive for real-time systems. \\
+\textbf{LLM/Graph Frameworks} & Bipartite graphs \& textual prompting & Excels on mixed-type (categorical/numerical) tabular data. & Heavy computational footprint; context-window limits. \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\vspace{2em}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Comparative Overview of Financial Time-Series Synthesis Paradigms}
+\label{tab:synthesis_comparison}
+\renewcommand{\arraystretch}{1.3}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{lp{3.5cm}p{4cm}p{4.5cm}}
+\toprule
+\textbf{Model Paradigm} & \textbf{Core Methodology} & \textbf{Primary Strengths} & \textbf{Key Limitations} \\
+\midrule
+\textbf{Wasserstein GANs} & Adversarial minimax game with Earth Mover's distance & Rapid inference; highly effective for targeted metric alignment. & Susceptible to mode collapse; struggles with microstructural nuance. \\
+\textbf{Diffusion \& SDEs} & Iterative forward noising and reverse score-matching & Exceptional distributional fidelity; easily integrates financial priors (e.g., GBM). & Computationally intensive sampling process limits real-time utility. \\
+\textbf{Large Market Models} & Transformer-based discrete sequence modeling & Scales to asynchronous tick data; enables interactive agent simulation. & Requires massive computational infrastructure and vast order-flow datasets. \\
+\textbf{DP-Generators} & Differentially private gradient clipping & Ensures strict regulatory compliance and data anonymization. & Incurs a harsh trade-off between privacy bounds ($\epsilon$) and data utility. \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\vspace{2em}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{A Unified Evaluation Checklist for Financial Time-Series Generation.}
+\label{tab:evaluation_checklist}
+\resizebox{\textwidth}{!}{
+\begin{tabular}{p{3.5cm} p{5.5cm} p{3.5cm} p{4cm}}
+\toprule
+\textbf{Evaluation Dimension} & \textbf{Key Metrics / Methods} & \textbf{Primary Task Suitability} & \textbf{Reflects Financial Validity?} \\
+\midrule
+\textbf{Point-wise Accuracy} & MSE, MAE, RMSE, MAPE & Extrapolation, Imputation & Low (Ignores market dynamics) \\
+\textbf{Distributional Fidelity} & Wasserstein Distance, MMD, KL Divergence, Cross-Correlation & Synthesis, Extrapolation & Medium (Captures static shapes) \\
+\textbf{Stylized Facts} & ACF of squared returns, Tail Index, Kurtosis, Leverage effect tests & Synthesis, Simulation & High (Domain-specific realism) \\
+\textbf{Downstream Utility} & Train-on-Synthetic, Test-on-Real (TSTR); Train-on-Real, Test-on-Real (TRTR); Sharpe Ratio of trained agents; VaR/ES accuracy & All Tasks & High (Practical applicability) \\
+\textbf{Privacy \& Security} & Distance-to-Closest Record (DCR), Differential Privacy $\epsilon$ & Synthesis (Data Sharing) & N/A (Focuses on compliance) \\
+\bottomrule
+\end{tabular}
+}
+\end{table*}
+
+\newpage
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Summary of Recent Financial Time-Series Generation Benchmarks.}
+\label{tab:datasets}
+\begin{tabular}{p{3.5cm} c p{4.5cm} c c}
+\toprule
+\textbf{Dataset / Benchmark} & \textbf{Tasks} & \textbf{Primary Data Sources} & \textbf{Split Ratio} & \textbf{Scale (Approx.)} \\
+\midrule
+\textbf{FinTSB} \citep{hu2025fintsb} & Extrapolation / Imputation & Chinese A-share, NYSE, NASDAQ & 7:1:2 & 150M points \\
+\rowcolor{gray!10}
+\textbf{GIFT-EVAL} \citep{GIFT-EVAL} & Forecasting & 27 datasets (Stock, Crypto, FX, etc.) & Various & 144,380 series \\
+\textbf{TFB} \citep{TFB} & Forecasting & Broad finance domain & Various & 2.1M series \\
+\rowcolor{gray!10}
+\textbf{FinTSBridge} \citep{wang2025fintsbridge} & Extrapolation / Imputation & S\&P 500, NASDAQ, FTSE, CSI 300 & 7:1:2 & 86,978 series \\
+\textbf{TSGBench} \citep{ang2023tsgbench} & Synthesis / Simulation & GOOGL, Global Exchanges & 9:0:1 & 13,213 series \\
+\textbf{CTBench} \citep{ang2025ctbench} & Synthesis & Cryptocurrencies on Binance & 9:0:1 & 530 series \\
+\textbf{FinMultiTime} \citep{FinMultiTime} & Extrapolation & S\&P 500, HS 300 & N/A & 6M points \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\vspace{2em}
+
+\begin{table*}[!ht]
+\centering
+\scriptsize
+\caption{Literature Retrieval and Screening Statistics.}
+\label{tab:retrieval_stats}
+\begin{tabular}{p{5cm} p{2cm} p{2cm} p{3cm}}
+\toprule
+\textbf{Screening Stage} & \textbf{Count} & \textbf{Retained} & \textbf{Primary Reason for Exclusion} \\
+\midrule
+Initial Keyword Search & 2,568 & 2,568 & N/A \\
+Title/Abstract Screening & 2,568 & 604 & Not financial data / Pure deterministic forecasting \\
+Full-text Review & 604 & \textbf{131} & Weak financial validation / Duplicated preprints \\
+\midrule
+\multicolumn{4}{l}{\textbf{Primary Task Assignment}} \\
+\quad Extrapolation & & 54 & \\
+\quad Imputation & & 29 & \\
+\quad Synthesis / Simulation & & 48 & \\
+\bottomrule
+\end{tabular}
+\begin{flushleft}
+\textit{Note: Each of the 131 retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g., forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not double-counted.}
+\end{flushleft}
+\end{table*}

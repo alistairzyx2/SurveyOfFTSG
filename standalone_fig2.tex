@@ -1,0 +1,94 @@
+\documentclass[11pt]{article}
+\usepackage[margin=0.5cm,papersize={22cm,14cm}]{geometry}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb}
+\usepackage{xcolor}
+\usepackage[edges]{forest}
+\pagestyle{empty}
+
+\definecolor{ColorExtrapolation}{RGB}{240, 245, 255}
+\definecolor{ColorImputation}{RGB}{240, 255, 240}
+\definecolor{ColorAugmentation}{RGB}{255, 245, 235}
+\definecolor{BorderGray}{RGB}{180, 180, 180}
+
+\tikzset{
+  root/.style={fill=gray!20, font=\bfseries\small, draw=black, line width=0.8pt},
+  midnode/.style={font=\bfseries\scriptsize, draw=BorderGray, line width=0.6pt},
+  extrap/.style={fill=ColorExtrapolation},
+  imput/.style={fill=ColorImputation},
+  aug/.style={fill=ColorAugmentation}
+}
+
+\begin{document}
+\begin{center}
+\resizebox{0.95\linewidth}{!}{
+\begin{forest}
+  for tree={
+    scale=0.8,
+    grow'=0,
+    forked edge,
+    draw=BorderGray,
+    line width=0.5pt,
+    rounded corners=2pt,
+    fill=white,
+    font=\scriptsize,
+    anchor=west,
+    edge={draw=gray!80, line width=0.6pt},
+    l sep=12pt,
+    s sep=5pt,
+    tier/.pgfmath=tier
+  }
+  [Financial Time Series Generation, root, text width=4.5cm, align=center
+    [Financial Time Series Extrapolation, extrap, midnode, text width=4.2cm
+      [Statistical Frameworks, extrap, midnode
+        [{ARIMA, GARCH}, extrap, text width=10cm]
+      ]
+      [Deep Learning Models, extrap, midnode
+        [{\textit{\underline{Hybrid LSTMs}}: LSTM, RNN, PEC-W, CEEMDAN-Informer-LSTM, SGP-LSTM, IRM}, extrap, text width=10cm]
+      ]
+      [Generative Learning Models, extrap, midnode
+        [{\textit{\underline{GAN-based Models}}: GAN, WaveGAN, N-BEATS-GAN, WGAN-GP}, extrap, text width=10cm]
+        [{\textit{\underline{Diffusion Models}}: DDPM, TimeGrad, TimeDiT}, extrap, text width=10cm]
+      ]
+      [Time-series Foundation Models, extrap, midnode
+        [{\textit{\underline{Fine-tuned LLM}}: Chronos, OneFitsAll, TimeHF}, extrap, text width=10cm]
+        [{\textit{\underline{Edited LLM}}: StockTime, LLM4FTS, LLM-PS, Time-LLM, CALF}, extrap, text width=10cm]
+        [{\textit{\underline{Emerging FMs}}: FinCast}, extrap, text width=10cm]
+      ]
+    ]
+    [Financial Time Series Imputation, imput, midnode, text width=4.2cm
+      [Statistical Methods, imput, midnode
+        [{\textit{\underline{Temporal Disaggregation \& Interpolation}}: Chow-Lin, Kernel Ridge Regression (RKHS), KNN, MICE, Random Forest}, imput, text width=10cm]
+      ]
+      [Machine Learning, imput, midnode
+        [{\textit{\underline{Factorization Methods}}: NMTucker, RegTensor}, imput, text width=10cm]
+      ]
+      [Deep Learning Models, imput, midnode
+        [{\textit{\underline{Sequence Reconstruction Models}}: BiGRU-BiLSTM with GMDH Decoder}, imput, text width=10cm]
+      ]
+      [Generative Learning Models, imput, midnode
+        [{\textit{\underline{Adversarial Imputation Models}}: GAIN, CWGAN-GP, ImputeGAN, AttnWGAIN}, imput, text width=10cm]
+        [{\textit{\underline{Diffusion-based Imputation Models}}: CSDI, Score-CDM, SSSD, TimeDiT, LSCD}, imput, text width=10cm]
+      ]
+      [Advanced Frameworks, imput, midnode
+        [{\textit{\underline{Foundation Models \& Dual Graph}}: LLM-Forest, MTabGen, Dual-Bipartite Graph Network}, imput, text width=10cm]
+      ]
+    ]
+    [Financial Time Series Synthesis, aug, midnode, text width=4.2cm
+      [Micro-level Synthesis, aug, midnode
+        [{\textit{\underline{Classical Models}}: SDEs (GBM, Heston Model)}, aug, text width=10cm]
+        [{\textit{\underline{Generative Adversarial Networks (GANs)}}: WGAN, WGAN-GP, QuantGAN, RSQGAN, DAT-CGAN, Jinkou, TAIL-GAN}, aug, text width=10cm]
+        [{\textit{\underline{Diffusion / SDE-based Models}}: TimeGrad, SGM, CoFinDiff, FinDiff}, aug, text width=10cm]
+      ]
+      [Macro-level Simulation$^{*}$, aug, midnode
+        [{\textit{\underline{Conditional GANs}}: CoMeTS-GAN, CTS-GAN, Market-GAN, MacroSynth, GAN-MoEx}, aug, text width=10cm]
+        [{\textit{\underline{Conditional DMs}}: TRADES, DiGA}, aug, text width=10cm]
+        [{\textit{\underline{Large Market Models}}: MarS}, aug, text width=10cm]
+      ]
+    ]
+  ]
+\end{forest}
+}
+\end{center}
+\end{document}
