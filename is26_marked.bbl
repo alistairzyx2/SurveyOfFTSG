@@ -8,8 +8,8 @@
 \bibitem[Zhao et~al.(2025)Zhao, Zhang, Wei, Xu, He, Sun, and
   You]{zhao2025timeseriesscientistgeneralpurposeaiagent}
 \bibinfo{author}{Zhao, H.} \emph{et~al.}
-\newblock \bibinfo{title}{Timeseriesscientist: A general-purpose ai agent for
-  time series analysis} (\bibinfo{year}{2025}).
+\newblock \bibinfo{title}{{TimeSeriesScientist}: A general-purpose {AI} agent
+  for time series analysis} (\bibinfo{year}{2025}).
 \newblock \urlprefix\url{https://arxiv.org/abs/2510.01538}.
 \newblock \eprint{2510.01538}.
 
@@ -29,7 +29,7 @@
 
 \bibitem[Kwon and Lee(2024)]{style-facts}
 \bibinfo{author}{Kwon, S.} \& \bibinfo{author}{Lee, Y.}
-\newblock \bibinfo{title}{Can gans learn the stylized facts of financial time
+\newblock \bibinfo{title}{Can {GANs} learn the stylized facts of financial time
   series?}
 \newblock In \emph{\bibinfo{booktitle}{{ICAIF}}} (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://doi.org/10.1145/3677052.3698661}.
@@ -45,7 +45,8 @@
 \bibitem[Wiese et~al.(2020)Wiese, Knobloch, Korn, and Muller]{wiese2020}
 \bibinfo{author}{Wiese, M.}, \bibinfo{author}{Knobloch, R.},
   \bibinfo{author}{Korn, R.} \& \bibinfo{author}{Muller, P.}
-\newblock \bibinfo{title}{Quantgans: deep generation of financial time series}.
+\newblock \bibinfo{title}{{QuantGANs}: deep generation of financial time
+  series}.
 \newblock \emph{\bibinfo{journal}{Quantitative Finance}}
   \textbf{\bibinfo{volume}{20}}, \bibinfo{pages}{1419--1440}
   (\bibinfo{year}{2020}).
@@ -80,13 +81,13 @@
   Shchur, Rangapuram, Robinson, G{\"u}nnemann, et~al.]{ansari2024chronos}
 \bibinfo{author}{Ansari, A.~F.} \emph{et~al.}
 \newblock \bibinfo{title}{Chronos: Learning the language of time series}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2403.07815}}
-  (\bibinfo{year}{2024}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2024}).
+\newblock \eprint{2403.07815}.
 
 \bibitem[Jin et~al.(2024)Jin, Ma, Chu, and Wen]{Time-LLM}
 \bibinfo{author}{Jin, M.}, \bibinfo{author}{Ma, L.}, \bibinfo{author}{Chu, Z.}
   \& \bibinfo{author}{Wen, Q.}
-\newblock \bibinfo{title}{Time-llm: Time series forecasting by reprogramming
+\newblock \bibinfo{title}{{Time-LLM}: Time series forecasting by reprogramming
   large language models}.
 \newblock In \emph{\bibinfo{booktitle}{{ICLR}}} (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://openreview.net/forum?id=Unb5CVPtae}.
@@ -146,7 +147,7 @@
   \& \bibinfo{author}{Jiang, C.}
 \newblock \bibinfo{title}{{FinTSB}: A comprehensive and practical benchmark for
   financial time series forecasting} (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{2502.18834}.
 
 \bibitem[Qiu et~al.(2024)Qiu, Hu, Zhou, Wu, Du, Zhang, Guo, Zhou, Jensen,
   Sheng, and Yang]{TFB}
@@ -164,7 +165,8 @@
 
 \bibitem[Kim et~al.(2021)]{kim2021}
 \bibinfo{author}{Kim, J.} \emph{et~al.}
-\newblock \bibinfo{title}{A review of garch modeling in financial time series}.
+\newblock \bibinfo{title}{A review of {GARCH} modeling in financial time
+  series}.
 \newblock \emph{\bibinfo{journal}{Journal of Financial Econometrics}}
   (\bibinfo{year}{2021}).
 
@@ -178,8 +180,8 @@
 \bibitem[Qin et~al.(2025)Qin, Li, Cai, and Ding]{qin2025}
 \bibinfo{author}{Qin, A.}, \bibinfo{author}{Li, B.}, \bibinfo{author}{Cai, C.}
   \& \bibinfo{author}{Ding, D.}
-\newblock \bibinfo{title}{Advances in lstm architectures for financial sequence
-  modeling}.
+\newblock \bibinfo{title}{Advances in {LSTM} architectures for financial
+  sequence modeling}.
 \newblock \emph{\bibinfo{journal}{Expert Systems with Applications}}
   (\bibinfo{year}{2025}).
 
@@ -331,8 +333,8 @@
 
 \bibitem[Stekhoven and B{\"u}hlmann(2012)]{stekhoven2012}
 \bibinfo{author}{Stekhoven, D.~J.} \& \bibinfo{author}{B{\"u}hlmann, P.}
-\newblock \bibinfo{title}{Missforest—non-parametric missing value imputation
-  for mixed-type data}.
+\newblock \bibinfo{title}{{MissForest}—non-parametric missing value
+  imputation for mixed-type data}.
 \newblock \emph{\bibinfo{journal}{Bioinformatics}}
   \textbf{\bibinfo{volume}{28}}, \bibinfo{pages}{112--118}
   (\bibinfo{year}{2012}).
@@ -340,7 +342,7 @@
 \bibitem[Khuwaja et~al.(2023)Khuwaja, Khowaja, and Dev]{NDDP}
 \bibinfo{author}{Khuwaja, P.}, \bibinfo{author}{Khowaja, S.~A.} \&
   \bibinfo{author}{Dev, K.}
-\newblock \bibinfo{title}{Adversarial learning networks for fintech
+\newblock \bibinfo{title}{Adversarial learning networks for {FinTech}
   applications using heterogeneous data sources}.
 \newblock \emph{\bibinfo{journal}{{IEEE} Internet Things J.}}
   (\bibinfo{year}{2023}).
@@ -356,7 +358,7 @@
 \bibitem[Wang et~al.(2021)]{wang2021bigru}
 \bibinfo{author}{Wang, X.} \emph{et~al.}
 \newblock \bibinfo{title}{Multivariate time series imputation using
-  bigru-bilstm and polynomial regression}.
+  {BiGRU}-{BiLSTM} and polynomial regression}.
 \newblock \emph{\bibinfo{journal}{Expert Systems with Applications}}
   (\bibinfo{year}{2021}).
 
@@ -380,7 +382,7 @@
 \bibitem[Wang et~al.(2025)Wang, Cui, Guo, and Ning]{wang2025attn}
 \bibinfo{author}{Wang, L.}, \bibinfo{author}{Cui, Y.}, \bibinfo{author}{Guo,
   Z.} \& \bibinfo{author}{Ning, P.}
-\newblock \bibinfo{title}{{AttnWGAIN}: Attention-based wasserstein gan for
+\newblock \bibinfo{title}{{AttnWGAIN}: Attention-based wasserstein {GAN} for
   missing financial data imputation}.
 \newblock \emph{\bibinfo{journal}{Expert Systems with Applications}}
   (\bibinfo{year}{2025}).
@@ -394,7 +396,7 @@
 
 \bibitem[Wang et~al.(2024)]{wang2024cwgain}
 \bibinfo{author}{Wang, S.} \emph{et~al.}
-\newblock \bibinfo{title}{{CWGAIN-GP}: Conditional wasserstein gan with
+\newblock \bibinfo{title}{{CWGAIN-GP}: Conditional wasserstein {GAN} with
   gradient penalty for contiguous missing data}.
 \newblock \emph{\bibinfo{journal}{Quantitative Finance}}
   (\bibinfo{year}{2024}).
@@ -418,7 +420,7 @@
 
 \bibitem[Zhang et~al.(2024)Zhang, Wang, Miao, Chen, Fan, and Zhang]{Score-CDM}
 \bibinfo{author}{Zhang, S.} \emph{et~al.}
-\newblock \bibinfo{title}{Score-cdm: Score-weighted convolutional diffusion
+\newblock \bibinfo{title}{Score-{CDM}: Score-weighted convolutional diffusion
   model for multivariate time series imputation}.
 \newblock In \emph{\bibinfo{booktitle}{{IJCAI}}} (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://www.ijcai.org/proceedings/2024/282}.
@@ -426,7 +428,7 @@
 \bibitem[Zhang et~al.(2024)Zhang, Wang, Tan, Wang, Liu, Zhang, and
   Wang]{SaSDim}
 \bibinfo{author}{Zhang, S.} \emph{et~al.}
-\newblock \bibinfo{title}{Sasdim: Self-adaptive noise scaling diffusion model
+\newblock \bibinfo{title}{{SaSDim}: Self-adaptive noise scaling diffusion model
   for spatial time series imputation}.
 \newblock In \emph{\bibinfo{booktitle}{{IJCAI}}} (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://www.ijcai.org/proceedings/2024/283}.
@@ -592,7 +594,7 @@
 \bibitem[Sun et~al.(2023)Sun, Deng, Chen, and Parkes]{DAT-CGAN}
 \bibinfo{author}{Sun, H.}, \bibinfo{author}{Deng, Z.}, \bibinfo{author}{Chen,
   H.} \& \bibinfo{author}{Parkes, D.~C.}
-\newblock \bibinfo{title}{Decision-aware conditional gans for time series
+\newblock \bibinfo{title}{Decision-aware conditional {GANs} for time series
   data}.
 \newblock In \emph{\bibinfo{booktitle}{{ICAIF}}} (\bibinfo{year}{2023}).
 \newblock \urlprefix\url{https://doi.org/10.1145/3604237.3626855}.
@@ -627,14 +629,14 @@
 \bibinfo{author}{Takahashi, T.} \& \bibinfo{author}{Mizuno, T.}
 \newblock \bibinfo{title}{Generation of synthetic financial time series by
   diffusion models} (\bibinfo{year}{2024}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{2410.18897}.
 
 \bibitem[Kim et~al.(2025)Kim, Choi, and Kim]{kim2025gbm}
 \bibinfo{author}{Kim, G.}, \bibinfo{author}{Choi, S.} \& \bibinfo{author}{Kim,
   Y.}
 \newblock \bibinfo{title}{A diffusion-based generative model for financial time
   series via geometric brownian motion} (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{CoRR preprint / arXiv}.
+\newblock \eprint{2507.19003}.
 
 \bibitem[Masi et~al.(2023)Masi, Conti, Bartolini, and Vyetrenko]{CoMeTS-GAN}
 \bibinfo{author}{Masi, G.}, \bibinfo{author}{Conti, M.},
@@ -654,15 +656,14 @@
 \bibitem[Xia et~al.(2024)Xia, Wang, Zhang, and Chen]{xia2024market}
 \bibinfo{author}{Xia, H.}, \bibinfo{author}{Wang, J.}, \bibinfo{author}{Zhang,
   L.} \& \bibinfo{author}{Chen, W.}
-\newblock \bibinfo{title}{{Market-GAN}: A two-stage gan-based framework for
+\newblock \bibinfo{title}{{Market-GAN}: A two-stage {GAN}-based framework for
   controllable financial market generation} (\bibinfo{year}{2024}).
-\newblock \bibinfo{note}{ArXiv preprint}.
 
 \bibitem[Kazadaev et~al.(2024)Kazadaev, Pozdnyakov, and Makarov]{GAN-MoEx}
 \bibinfo{author}{Kazadaev, M.}, \bibinfo{author}{Pozdnyakov, V.} \&
   \bibinfo{author}{Makarov, I.}
-\newblock \bibinfo{title}{Time series generation with gans for momentum effect
-  simulation on moscow stock exchange}.
+\newblock \bibinfo{title}{Time series generation with {GANs} for momentum
+  effect simulation on moscow stock exchange}.
 \newblock In \emph{\bibinfo{booktitle}{{CIFEr}}} (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://doi.org/10.1109/CIFEr62890.2024.10772763}.
 
@@ -679,14 +680,14 @@
   \bibinfo{author}{Velardi, P.}
 \newblock \bibinfo{title}{{TRADES}: Generating realistic market simulations
   with diffusion models} (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{CoRR preprint / arXiv}.
+\newblock \eprint{2502.07071}.
 
 \bibitem[Huang et~al.(2024)Huang, Liu, Liu, and Bian]{huang2024diga}
 \bibinfo{author}{Huang, Y.-H.}, \bibinfo{author}{Liu, Y.},
   \bibinfo{author}{Liu, W.} \& \bibinfo{author}{Bian, J.}
 \newblock \bibinfo{title}{Controllable financial market generation with
   diffusion guided meta agent} (\bibinfo{year}{2024}).
-\newblock \bibinfo{note}{CoRR preprint / arXiv}.
+\newblock \eprint{2408.12991}.
 
 \bibitem[Li et~al.(2025)Li, Liu, Fang, and Bian]{li2025mars}
 \bibinfo{author}{Li, J.}, \bibinfo{author}{Liu, W.}, \bibinfo{author}{Fang, S.}
@@ -728,8 +729,8 @@
 \bibinfo{author}{Tao, R.} \emph{et~al.}
 \newblock \bibinfo{title}{Efficient generation of financial time series via
   diffusion distillation}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2406.11223}}
-  (\bibinfo{year}{2024}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2024}).
+\newblock \eprint{2406.11223}.
 
 \bibitem[Oppel et~al.(2025)]{oppel2025}
 \bibinfo{author}{Oppel, J.} \emph{et~al.}
@@ -765,7 +766,7 @@
 \bibinfo{author}{Lu, J.} \& \bibinfo{author}{Ding, D.}
 \newblock \bibinfo{title}{A hybrid approach on conditional {GAN} for portfolio
   analysis} (\bibinfo{year}{2022}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{2208.07159}.
 
 \bibitem[Yoon et~al.(2018)Yoon, Jordon, and van~der Schaar]{yoon2018gain}
 \bibinfo{author}{Yoon, J.}, \bibinfo{author}{Jordon, J.} \&
@@ -786,7 +787,7 @@
 \bibinfo{author}{Emaan, K.~U.}
 \newblock \bibinfo{title}{Improving credit card fraud detection through
   transformer-enhanced {GAN} oversampling} (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{2509.19032}.
 
 \bibitem[Liu et~al.(2021)Liu, Zhang, and Wang]{liu2021classification}
 \bibinfo{author}{Liu, X.}, \bibinfo{author}{Zhang, Z.} \&
@@ -794,14 +795,13 @@
 \newblock \bibinfo{title}{Classification of imbalanced credit scoring data sets
   based on ensemble method with the weighted-hybrid-sampling}
   (\bibinfo{year}{2021}).
-\newblock \bibinfo{note}{ArXiv preprint}.
 
 \bibitem[Byrd et~al.(2019)Byrd, Hybinette, and Balch]{byrd2019abides}
 \bibinfo{author}{Byrd, D.}, \bibinfo{author}{Hybinette, M.} \&
   \bibinfo{author}{Balch, T.~H.}
 \newblock \bibinfo{title}{{ABIDES}: Towards high-fidelity market simulation for
   {AI} research} (\bibinfo{year}{2019}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{1904.12066}.
 
 \bibitem[Amrouni et~al.(2021)Amrouni, Moulin, Vann, Vyetrenko, Balch, and
   Veloso]{amrouni2021abides}
@@ -819,14 +819,13 @@
 \newblock \bibinfo{title}{How to evaluate trading strategies: Single agent
   market replay or multiple agent interactive simulation?}
   (\bibinfo{year}{2019}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{1906.12010}.
 
 \bibitem[Rollins and Cliff(2020)]{rollins2020which}
 \bibinfo{author}{Rollins, M.} \& \bibinfo{author}{Cliff, D.}
 \newblock \bibinfo{title}{Which trading agent is best? using a threaded
   parallel simulation of a financial market changes the pecking-order}
   (\bibinfo{year}{2020}).
-\newblock \bibinfo{note}{ArXiv preprint}.
 
 \bibitem[Gao et~al.(2021)Gao, Lui, and Hernandez-Leal]{gao2021robust}
 \bibinfo{author}{Gao, Y.}, \bibinfo{author}{Lui, K. Y.~C.} \&
@@ -866,7 +865,7 @@
   Y.} \& \bibinfo{author}{Huang, Z.}
 \newblock \bibinfo{title}{{CTBench}: Cryptocurrency time series generation
   benchmark} (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{ArXiv preprint; see also VLDB 2025 Endow.}
+\newblock \eprint{2508.02758}.
 
 \bibitem[Wang et~al.(2025)Wang, Gao, Zhang, and Zhang]{wang2025fintsbridge}
 \bibinfo{author}{Wang, Y.}, \bibinfo{author}{Gao, T.}, \bibinfo{author}{Zhang,
@@ -874,52 +873,46 @@
 \newblock \bibinfo{title}{{FinTSBridge}: A new evaluation suite for real-world
   financial prediction with advanced time series models}
   (\bibinfo{year}{2025}).
-\newblock \bibinfo{note}{ArXiv preprint}.
+\newblock \eprint{2503.06928}.
 
 \bibitem[Narasimhan and Jiang(2024)]{narasimhan2024timeweaver}
 \bibinfo{author}{Narasimhan, S.} \& \bibinfo{author}{Jiang, W.}
 \newblock \bibinfo{title}{Time weaver: Specificity in conditional time series
   generation}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2401.01234}}
-  (\bibinfo{year}{2024}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2024}).
+\newblock \eprint{2403.02682}.
 
 \bibitem[Zhong et~al.(2024)Zhong, Lin, Yang, and Chen]{lobench2025}
 \bibinfo{author}{Zhong, M.}, \bibinfo{author}{Lin, Y.}, \bibinfo{author}{Yang,
   P.} \& \bibinfo{author}{Chen, L.}
 \newblock \bibinfo{title}{Representation learning of limit order book: A
   comprehensive study and benchmarking}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2412.01802}}
-  (\bibinfo{year}{2024}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2024}).
+\newblock \eprint{2412.01802}.
 
 \bibitem[Jiang et~al.(2024)Jiang, Yang, Cui, Jin, Wang, Li, Huang, Sun, and
   Wang]{finmaster2025}
 \bibinfo{author}{Jiang, J.} \emph{et~al.}
-\newblock \bibinfo{title}{Finmaster: A holistic benchmark for mastering
+\newblock \bibinfo{title}{{FinMaster}: A holistic benchmark for mastering
   full-pipeline financial workflows with llms}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2412.18025}}
-  (\bibinfo{year}{2024}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2024}).
+\newblock \eprint{2412.18025}.
 
 \bibitem[Yu et~al.(2025)Yu, Guo, Yuan, Kang, Zhao, Qin, Huang, Hu, and
   Zhou]{tsrbench2026}
 \bibinfo{author}{Yu, F.} \emph{et~al.}
 \newblock \bibinfo{title}{Tsrbench: A comprehensive multi-task multi-modal time
   series reasoning benchmark for generalist models}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2502.13840}}
-  (\bibinfo{year}{2025}).
-
-\bibitem[Jing et~al.(2026)]{jing2026tsaqa}
-\bibinfo{author}{Jing, Y.} \emph{et~al.}
-\newblock \bibinfo{title}{Tsaqa: Time series analytics question answering}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:2601.12345}}
-  (\bibinfo{year}{2026}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2025}).
+\newblock \eprint{2502.13840}.
 
 \bibitem[Arjovsky et~al.(2019)Arjovsky, Bottou, Gulrajani, and
   Lopez-Paz]{arjovsky2019invariant}
 \bibinfo{author}{Arjovsky, M.}, \bibinfo{author}{Bottou, L.},
   \bibinfo{author}{Gulrajani, I.} \& \bibinfo{author}{Lopez-Paz, D.}
 \newblock \bibinfo{title}{Invariant risk minimization}.
-\newblock \emph{\bibinfo{journal}{arXiv preprint arXiv:1907.02893}}
-  (\bibinfo{year}{2019}).
+\newblock \emph{\bibinfo{journal}{arXiv preprint}}  (\bibinfo{year}{2019}).
+\newblock \eprint{1907.02893}.
 
 \bibitem[Peters et~al.(2016)Peters, B{\"u}hlmann, and
   Meinshausen]{peters2016causal}
@@ -999,7 +992,7 @@
 \bibitem[Cao et~al.(2024)Cao, Ye, Zhang, and Liu]{TimeDiT}
 \bibinfo{author}{Cao, D.}, \bibinfo{author}{Ye, W.}, \bibinfo{author}{Zhang,
   Y.} \& \bibinfo{author}{Liu, Y.}
-\newblock \bibinfo{title}{Timedit: General-purpose diffusion transformers for
+\newblock \bibinfo{title}{{TimeDiT}: General-purpose diffusion transformers for
   time series foundation model}.
 \newblock \emph{\bibinfo{journal}{CoRR}}  (\bibinfo{year}{2024}).
 \newblock \eprint{2409.02322}.
@@ -1007,7 +1000,7 @@
 \bibitem[Aksu et~al.(2024)Aksu, Woo, Liu, Liu, Liu, Savarese, Xiong, and
   Sahoo]{GIFT-EVAL}
 \bibinfo{author}{Aksu, T.} \emph{et~al.}
-\newblock \bibinfo{title}{Gift-eval: {A} benchmark for general time series
+\newblock \bibinfo{title}{{GIFT}-eval: {A} benchmark for general time series
   forecasting model evaluation}.
 \newblock \emph{\bibinfo{journal}{CoRR}}  (\bibinfo{year}{2024}).
 \newblock \urlprefix\url{https://doi.org/10.48550/arXiv.2410.10393}.
@@ -1016,7 +1009,7 @@
 \bibitem[Xu et~al.(2025)Xu, Xiang, Liu, Wang, Ma, Zhang, Xu, and
   Zhang]{FinMultiTime}
 \bibinfo{author}{Xu, W.} \emph{et~al.}
-\newblock \bibinfo{title}{Finmultitime: {A} four-modal bilingual dataset for
+\newblock \bibinfo{title}{{FinMultiTime}: {A} four-modal bilingual dataset for
   financial time-series analysis}.
 \newblock \emph{\bibinfo{journal}{CoRR}}  (\bibinfo{year}{2025}).
 \newblock \urlprefix\url{https://doi.org/10.48550/arXiv.2506.05019}.

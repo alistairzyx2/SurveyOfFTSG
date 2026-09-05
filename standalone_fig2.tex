@@ -1,5 +1,5 @@
 \documentclass[11pt]{article}
-\usepackage[margin=0.5cm,papersize={22cm,14cm}]{geometry}
+\usepackage[margin=0.5cm,papersize={22cm,16.5cm}]{geometry}
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 \usepackage{amsmath,amssymb}
@@ -42,49 +42,49 @@
   [Financial Time Series Generation, root, text width=4.5cm, align=center
     [Financial Time Series Extrapolation, extrap, midnode, text width=4.2cm
       [Statistical Frameworks, extrap, midnode
-        [{ARIMA, GARCH}, extrap, text width=10cm]
+        [{ARIMA, GARCH}, extrap, text width=10cm, tier=leaf]
       ]
       [Deep Learning Models, extrap, midnode
-        [{\textit{\underline{Hybrid LSTMs}}: LSTM, RNN, PEC-W, CEEMDAN-Informer-LSTM, SGP-LSTM, IRM}, extrap, text width=10cm]
+        [{\textit{\underline{Hybrid LSTMs}}: LSTM, RNN, PEC-W, CEEMDAN-Informer-LSTM, SGP-LSTM, IRM}, extrap, text width=10cm, tier=leaf]
       ]
       [Generative Learning Models, extrap, midnode
-        [{\textit{\underline{GAN-based Models}}: GAN, WaveGAN, N-BEATS-GAN, WGAN-GP}, extrap, text width=10cm]
-        [{\textit{\underline{Diffusion Models}}: DDPM, TimeGrad, TimeDiT}, extrap, text width=10cm]
+        [{\textit{\underline{GAN-based Models}}: GAN, WaveGAN, N-BEATS-GAN, WGAN-GP}, extrap, text width=10cm, tier=leaf]
+        [{\textit{\underline{Diffusion Models}}: DDPM, TimeGrad, TimeDiT}, extrap, text width=10cm, tier=leaf]
       ]
       [Time-series Foundation Models, extrap, midnode
-        [{\textit{\underline{Fine-tuned LLM}}: Chronos, OneFitsAll, TimeHF}, extrap, text width=10cm]
-        [{\textit{\underline{Edited LLM}}: StockTime, LLM4FTS, LLM-PS, Time-LLM, CALF}, extrap, text width=10cm]
-        [{\textit{\underline{Emerging FMs}}: FinCast}, extrap, text width=10cm]
+        [{\textit{\underline{Fine-tuned LLM}}: Chronos, OneFitsAll, TimeHF}, extrap, text width=10cm, tier=leaf]
+        [{\textit{\underline{Edited LLM}}: StockTime, LLM4FTS, LLM-PS, Time-LLM, CALF}, extrap, text width=10cm, tier=leaf]
+        [{\textit{\underline{Emerging FMs}}: FinCast}, extrap, text width=10cm, tier=leaf]
       ]
     ]
     [Financial Time Series Imputation, imput, midnode, text width=4.2cm
       [Statistical Methods, imput, midnode
-        [{\textit{\underline{Temporal Disaggregation \& Interpolation}}: Chow-Lin, Kernel Ridge Regression (RKHS), KNN, MICE, Random Forest}, imput, text width=10cm]
+        [{\textit{\underline{Temporal Disaggregation \& Interpolation}}:\\[1ex] Chow-Lin, Kernel Ridge Regression (RKHS), KNN, MICE, Random Forest}, imput, text width=10cm, tier=leaf]
       ]
       [Machine Learning, imput, midnode
-        [{\textit{\underline{Factorization Methods}}: NMTucker, RegTensor}, imput, text width=10cm]
+        [{\textit{\underline{Factorization Methods}}: NMTucker, RegTensor}, imput, text width=10cm, tier=leaf]
       ]
       [Deep Learning Models, imput, midnode
-        [{\textit{\underline{Sequence Reconstruction Models}}: BiGRU-BiLSTM with GMDH Decoder}, imput, text width=10cm]
+        [{\textit{\underline{Sequence Reconstruction Models}}: BiGRU-BiLSTM with GMDH Decoder}, imput, text width=10cm, tier=leaf]
       ]
       [Generative Learning Models, imput, midnode
-        [{\textit{\underline{Adversarial Imputation Models}}: GAIN, CWGAN-GP, ImputeGAN, AttnWGAIN}, imput, text width=10cm]
-        [{\textit{\underline{Diffusion-based Imputation Models}}: CSDI, Score-CDM, SSSD, TimeDiT, LSCD}, imput, text width=10cm]
+        [{\textit{\underline{Adversarial Imputation Models}}:\\[1ex] GAIN, CWGAN-GP, ImputeGAN, AttnWGAIN}, imput, text width=10cm, tier=leaf]
+        [{\textit{\underline{Diffusion-based Imputation Models}}:\\[1ex] CSDI, Score-CDM, SSSD, TimeDiT, LSCD}, imput, text width=10cm, tier=leaf]
       ]
       [Advanced Frameworks, imput, midnode
-        [{\textit{\underline{Foundation Models \& Dual Graph}}: LLM-Forest, MTabGen, Dual-Bipartite Graph Network}, imput, text width=10cm]
+        [{\textit{\underline{Foundation Models \& Dual Graph}}: LLM-Forest, MTabGen, Dual-Bipartite Graph Network}, imput, text width=10cm, tier=leaf]
       ]
     ]
     [Financial Time Series Synthesis, aug, midnode, text width=4.2cm
       [Micro-level Synthesis, aug, midnode
-        [{\textit{\underline{Classical Models}}: SDEs (GBM, Heston Model)}, aug, text width=10cm]
-        [{\textit{\underline{Generative Adversarial Networks (GANs)}}: WGAN, WGAN-GP, QuantGAN, RSQGAN, DAT-CGAN, Jinkou, TAIL-GAN}, aug, text width=10cm]
-        [{\textit{\underline{Diffusion / SDE-based Models}}: TimeGrad, SGM, CoFinDiff, FinDiff}, aug, text width=10cm]
+        [{\textit{\underline{Classical Models}}: SDEs (GBM, Heston Model)}, aug, text width=10cm, tier=leaf]
+        [{\textit{\underline{Generative Adversarial Networks (GANs)}}:\\[1ex] WGAN, WGAN-GP, QuantGAN, RSQGAN, DAT-CGAN, Jinkou, TAIL-GAN}, aug, text width=10cm, tier=leaf]
+        [{\textit{\underline{Diffusion / SDE-based Models}}: TimeGrad, SGM, CoFinDiff, FinDiff}, aug, text width=10cm, tier=leaf]
       ]
       [Macro-level Simulation$^{*}$, aug, midnode
-        [{\textit{\underline{Conditional GANs}}: CoMeTS-GAN, CTS-GAN, Market-GAN, MacroSynth, GAN-MoEx}, aug, text width=10cm]
-        [{\textit{\underline{Conditional DMs}}: TRADES, DiGA}, aug, text width=10cm]
-        [{\textit{\underline{Large Market Models}}: MarS}, aug, text width=10cm]
+        [{\textit{\underline{Conditional GANs}}:\\[1ex] CoMeTS-GAN, CTS-GAN, Market-GAN, MacroSynth, GAN-MoEx}, aug, text width=10cm, tier=leaf]
+        [{\textit{\underline{Conditional DMs}}: TRADES, DiGA}, aug, text width=10cm, tier=leaf]
+        [{\textit{\underline{Large Market Models}}: MarS}, aug, text width=10cm, tier=leaf]
       ]
     ]
   ]

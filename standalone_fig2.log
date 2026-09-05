@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  5 SEP 2026 00:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  5 SEP 2026 15:54
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -646,11 +646,11 @@ LaTeX Font Info:    ... okay on input line 23.
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
 * modes: 
 * h-part:(L,W,R)=(14.22636pt, 597.50789pt, 14.22636pt)
-* v-part:(T,H,B)=(14.22636pt, 369.88585pt, 14.22636pt)
+* v-part:(T,H,B)=(14.22636pt, 441.01773pt, 14.22636pt)
 * \paperwidth=625.96062pt
-* \paperheight=398.33858pt
+* \paperheight=469.47046pt
 * \textwidth=597.50789pt
-* \textheight=369.88585pt
+* \textheight=441.01773pt
 * \oddsidemargin=-58.04362pt
 * \evensidemargin=-58.04362pt
 * \topmargin=-95.04362pt
@@ -723,20 +723,20 @@ L3 programming layer <2025-01-18>
  ***********
  ) 
 Here is how much of TeX's memory you used:
- 28219 strings out of 474662
- 645050 string characters out of 5751108
- 1052338 words of memory out of 5000000
- 50939 multiletter control sequences out of 15000+600000
+ 27978 strings out of 474662
+ 641412 string characters out of 5751108
+ 1049811 words of memory out of 5000000
+ 50698 multiletter control sequences out of 15000+600000
  568490 words of font info for 63 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 133i,13n,137p,1608b,3394s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 133i,13n,137p,1608b,3337s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6
 .pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx0
 800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
 bx1000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
 /sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
 per/sfti0800.pfb>
-Output written on standalone_fig2.pdf (1 page, 125226 bytes).
+Output written on standalone_fig2.pdf (1 page, 125037 bytes).
 PDF statistics:
  37 PDF objects out of 1000 (max. 8388607)
  23 compressed objects within 1 object stream
