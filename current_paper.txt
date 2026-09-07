@@ -1,0 +1,2547 @@
+===== PAGE 1 =====
+Financial Time-Series Generation: A Systematic Survey of
+Taxonomy, Evaluation, Datasets, and Open Challenges
+Yingxiao Zhang1,2, Jiaxin Duan3, Yue Zou1,2, Ke Feng1,∗, Jing Xiao4,∗
+1School of Software and Microelectronics, Peking University, Beijing, China
+2Pingan Bank Co., Ltd., Shenzhen, China
+3China Electronics Cloud Technology Co., Ltd., Beijing, China
+4Pingan Group Co., Ltd., Shenzhen, China
+∗Corresponding authors. E-mail: fengke@pku.edu.cn (K. Feng); xiaojing661@pingan.com.cn (J. Xiao)
+Abstract
+The rapid advancement of generative artiﬁcial intelligence has catalyzed a paradigm
+shift in quantitative ﬁnance, transitioning from traditional point forecasting toward com-
+prehensive ﬁnancial time-series generation (FTSG) across extrapolation, imputation, and
+full-scale data synthesis. This transition is motivated by the critical need to simulate rare
+market regimes, reconstruct incomplete historical records, and produce privacy-preserving
+synthetic environments for stress testing and trading execution. However, empirical ﬁnancial
+properties—including heavy tails, volatility clustering, non-stationarity, and regime shifts—
+pose severe hurdles for generic generative frameworks. In this systematic survey, we review
+130 studies from 2021 to early 2026 to bridge the gap between machine learning capabilities
+and econometric validity. We introduce a two-level taxonomy structuring the domain across
+task formulations and algorithmic families, and establish a multi-dimensional evaluation
+protocol encompassing distributional ﬁdelity, stylized facts preservation, and downstream
+utility. Furthermore, we catalog curated ﬁnancial databases and benchmark suites while ad-
+dressing empirical dataset construction pitfalls. Finally, we identify pivotal open challenges
+in causal representation learning, econometrically bounded modeling, and online adapta-
+tion under distribution shifts. This review provides a standardized roadmap for developing
+robust, domain-aligned ﬁnancial generative models.
+Introduction
+Time-series analysis (TSA)[1,2] has long been a central pillar of quantitative ﬁnance, providing
+the mathematical foundation for modeling market dynamics, assessing risk, and pricing complex
+assets[3]. Traditionally, TSA in ﬁnance was synonymous with forecasting: predicting the next
+price movement, the future volatility level, or the impending macroeconomic shift. However, as
+the ﬁnancial industry becomes increasingly data-driven and algorithmic, the demand has evolved
+from mere point estimation to the comprehensive generation of plausible market scenarios. This
+paradigm shift has given rise to Financial Time-Series Generation (FTSG), a domain that
+extends beyond forecasting to include the synthesis of entirely new data, the imputation of
+incomplete price records, and the extrapolation of diverse ﬁnancial products.
+1
+===== PAGE 2 =====
+The motivation for FTSG is deeply rooted in the structural limitations of real-world ﬁnan-
+cial data. Unlike text or images, ﬁnancial markets are characterized by a low signal-to-noise
+ratio, extreme non-stationarity, and abrupt regime shifts triggered by geopolitical events or
+macroeconomic policy changes. Furthermore, empirical ﬁnancial distributions frequently ex-
+hibit "stylized facts" such as heavy tails, volatility clustering, and leverage eﬀects[4]. While
+historical data contains instances of these phenomena, critical events like market crashes or sud-
+den liquidity droughts are inherently rare. Consequently, discriminative models trained solely
+on historical records often suﬀer from overﬁtting and fail to generalize during crises. FTSG
+addresses this by creating high-ﬁdelity, privacy-preserving synthetic data that can augment
+training sets, simulate counterfactual stress-testing scenarios, and train robust reinforcement
+learning agents in simulated environments.
+Across the task taxonomy of this survey, we use FTSG to denote the umbrella research
+domain (Financial Time-Series Generation), while FTSE, FTSI, and FTSS denote the three
+task-level formulations for extrapolation, imputation, and synthesis, respectively. This termi-
+nology is used consistently throughout the paper and is summarized again in the Problem
+Formulation and Taxonomy and Applications sections.
+The rapid integration of Generative AI (GAI), as demonstrated in Figure 1, including Gener-
+ative Adversarial Networks (GANs)[5–7], Denoising Diﬀusion Probabilistic Models (DDPMs)[8,9],
+and Large Language Models (LLMs)[10,11]—into ﬁnancial modeling has produced a fragmented
+and rapidly expanding body of literature. While several surveys have attempted to capture
+these advancements[12–17], they suﬀer from notable limitations in technical and methodological
+aspects.
+First, the majority of existing surveys remain heavily skewed toward forecasting (extrapo-
+lation) and classiﬁcation, often treating generation merely as an auxiliary data augmentation
+step rather than a standalone class of problems encompassing synthesis and imputation. Sec-
+ond, most reviews are organized strictly by model architecture (e.g., "A Survey of LLMs in
+Finance" or "Diﬀusion Models for Time Series"), which obscures the fundamental diﬀerences in
+task formulation, supervision signals, and conditioning contexts inherent in ﬁnancial applica-
+tions. Third, and most critically, existing literature lacks a systematic discussion on evaluation
+protocols. Assessing a synthetic ﬁnancial sequence requires moving beyond generic point-wise
+error metrics (like MSE or MAE) to evaluate cross-sectional dependence, tail-risk preservation,
+and downstream utility—areas where current surveys oﬀer little standardization or critical syn-
+thesis. Finally, there is a scarcity of resource-oriented reviews that comprehensively catalog
+ﬁnancial benchmarks, datasets, and the practical biases (e.g., survivorship bias) that plague
+empirical ﬁnancial research.
+To substantiate these gaps concretely, Table 1 positions our survey against the six prior sur-
+veys cited above along ﬁve explicit dimensions: task coverage (whether each of the three FTSG
+sub-tasks—extrapolation (FTSE), imputation (FTSI), and synthesis (FTSS)—is treated as a
+ﬁrst-class topic), evaluation treatment (whether a multi-dimensional protocol is provided, be-
+yond per-paper metric tables), dataset cataloging (whether FTSG-relevant ﬁnancial benchmarks
+are systematically inventoried), number of references in the bibliography, and time window of
+coverage. The table conﬁrms that no prior survey jointly covers all three FTSG sub-tasks with
+a dedicated evaluation protocol and a curated ﬁnancial dataset catalog; each gap maps to one
+of the four motivating critiques above and motivates a corresponding contribution of our survey
+discussed below.
+2
+===== PAGE 3 =====
+To address these critical gaps, this paper provides a systematic, evaluation-oriented survey
+of FTSG, focusing on the intersection of generative AI and ﬁnancial econometrics over the past
+ﬁve years (2021–early 2026). We elevate the discourse from a mere enumeration of literature to
+a structured problem formulation and benchmarking perspective. Our main contributions are
+fourfold:
+• A Task-Technique Two-Level Taxonomy: By comprehensively reviewing 130 studies
+published in 2021–early 2026, we propose a novel hierarchical classiﬁcation system that
+decouples the what (extrapolation, imputation, synthesis) from the how (statistical, deep
+discriminative, GANs, diﬀusion, foundation models), enabling a clearer mapping of speciﬁc
+generative techniques to their optimal ﬁnancial use cases.
+• A Systematic Evaluation Framework: We introduce a comprehensive, multi-dimensional
+evaluation protocol for FTSG. Moving beyond generic reconstruction metrics, we estab-
+lish a uniﬁed checklist encompassing distributional ﬁdelity, stylized facts preservation,
+downstream utility, and robustness against regime shifts.
+• A Comprehensive Resource Synthesis: We compile and categorize a wide array of
+public data resources, APIs, and emerging benchmark suites (e.g., FinTSB[18], TFB[19])
+speciﬁcally relevant to ﬁnancial generation, alongside a critical discussion of practical
+dataset construction issues.
+• Identiﬁcation of Open Challenges: We synthesize the literature to identify critical
+bottlenecks in ﬁnancial validity, proposing actionable future directions such as ﬁnancial-
+theory-informed generative modeling and causal representation learning.
+The remainder of this paper is organized according to the IRDM structure. The Results sec-
+tion presents our core survey ﬁndings across six thematic subsections: problem formulation and
+two-level taxonomy, task-speciﬁc analyses of extrapolation, imputation, and synthesis, down-
+stream quantitative applications, evaluation protocols for ﬁnancial realism, and data resources
+with benchmarks. The Discussion section critically examines pressing open challenges and future
+research directions, synthesizing the implications for ﬁnancial generative modeling. Finally, the
+Methods section details the systematic literature retrieval strategy, PRISMA-compliant screen-
+ing protocol, inclusion criteria, and coding procedures governing this survey.
+Results
+Problem Formulation and A Two-Level Taxonomy
+Problem Setup
+To establish a rigorous conceptual foundation, Figure 2 presents a comprehensive two-level
+hierarchical taxonomy that structures the entire ﬁnancial time-series generation landscape across
+task formulations and algorithmic families. Let X = {x1, x2, . . . , xT } denote a multivariate
+ﬁnancial time series, where each xt ∈Rd represents a vector of ﬁnancial variables (e.g., asset
+prices, returns, trading volumes, or limit order book states) at time step t. Financial time series
+are inherently stochastic, heavily inﬂuenced by non-stationary market regimes, and exhibit
+complex inter-variable dependencies. The core objective of Financial Time-Series Generation
+3
+===== PAGE 4 =====
+(FTSG) is to learn a probabilistic generative model Pθ capable of producing synthetic sequences
+ˆX that capture both the marginal distributions and the temporal dynamics of the true data-
+generating process Pdata.
+Task-Level Taxonomy
+As illustrated in Figure 3, we organize FTSG into three distinct problem formulations based on
+the generation context:
+• Financial Time-Series Extrapolation: A conditional, forward-looking generation task.
+Given a historical preﬁx x1:t, the goal is to generate future trajectories xt+1:T .
+The
+predictive distribution is modeled as P(xt+1:T | x1:t; θ) = QT
+i=t+1 P(xi | x1:i−1; θ). This
+encompasses probabilistic forecasting, where the output is a set of plausible future paths
+rather than a single point estimate.
+• Financial Time-Series Imputation: A bidirectional, closed-format generation task.
+Let M ∈{0, 1}T be a binary mask indicating missing values. Given an incomplete se-
+quence with missing elements xmiss = x ⊙M and observed elements xobs = x ⊙(1 −M),
+the objective is to reconstruct the missing data while preserving local and global statistical
+coherence: P(xmiss | xobs; θ).
+• Synthetic Sequence Generation / Data Synthesis: An unconditional or conditionally-
+guided generation task aimed at creating entirely new data manifolds. The model learns
+to map a latent noise variable z ∼N(0, I) (and optionally a condition c such as market
+regime or volatility target) to a realistic sequence: ˆX = Gθ(z, c), aiming to minimize the
+divergence between the generated distribution Pg and the real distribution Pdata.
+Technique-Level Taxonomy
+To map the rapid evolution of algorithmic approaches, we classify the underlying generative
+techniques into the following families:
+1. Statistical and Probabilistic Methods: Classical approaches such as ARIMA and
+GARCH, which model conditional mean and variance based on rigid mathematical as-
+sumptions.
+2. Discriminative Deep Sequence Models: Recurrent Neural Networks (RNNs) and
+hybrid LSTMs optimized via pointwise loss functions.
+3. Adversarial Generative Models (GANs): Frameworks utilizing generator-discriminator
+dynamics (e.g., WGAN-GP) to implicitly learn the data distribution.
+4. Diﬀusion / Score-Based Models: Models that learn to reverse a gradual noising
+process, oﬀering stable training and high-ﬁdelity distribution matching.
+5. Foundation Models / LLM-Based Models: Recent adaptations of large pre-trained
+transformers to the time-series domain, enabling zero-shot generation and cross-modal
+reasoning.
+4
+===== PAGE 5 =====
+6. Controllable and Multimodal Generative Models: Advanced architectures designed
+to generate sequences conditioned on textual instructions, macroeconomic indicators, or
+speciﬁc volatility regimes.
+The detailed classiﬁcation of FTSG methods, organized by task and technique, is summa-
+rized in Figure 2 for a clear overview.
+Mapping Tasks to Techniques
+Table 2 provides a uniﬁed mapping of these tasks to the corresponding techniques, highlighting
+the evolution from deterministic prediction to ﬂexible, scenario-based generative paradigms.
+Speciﬁcally, for the extrapolation task, the landscape spans from deep sequence architectures
+(e.g., SGP-LSTM) that forecast prices and returns using deterministic metrics like MSE, to
+advanced diﬀusion and foundation models (e.g., TimeGrad, Chronos, and FinCast).
+These
+newer paradigms handle multivariate and multi-asset series, shifting the evaluation focus toward
+probabilistic measures (CRPS) and zero-shot capabilities. In the realm of imputation, missing
+fundamentals and prices are primarily addressed using tensor methods (RegTensor) and diﬀusion
+models (CSDI, TimeDiT), where performance is gauged by reconstruction error and temporal
+coherence. Finally, for data synthesis, generative frameworks such as QuantGAN and CoFinDiﬀ
+are employed to simulate realistic returns, market scenarios, and complex limit order ﬂows.
+Consequently, the evaluation criteria for synthesis shift entirely away from point-wise accuracy,
+prioritizing instead the preservation of stylized facts, distributional ﬁdelity, and the practical
+downstream utility of the generated data.
+Financial Time-Series Extrapolation
+Problem Characteristics
+Financial Time-Series Extrapolation (FTSE) is formally deﬁned as the task of generating future
+trajectories xt+1:T given a historical context x1:t. Unlike traditional point forecasting, modern
+FTSE is approached as a probabilistic conditional generation problem: learning the conditional
+distribution p(xt+1:T |x1:t) to capture the inherent uncertainty and multi-modal nature of ﬁ-
+nancial markets. This shift acknowledges that ﬁnancial markets are stochastic systems with
+complex, time-varying dynamics.
+The problem exhibits several distinct characteristics that diﬀerentiate it from general se-
+quence extrapolation:
+1. Causality Constraint: The generation must be strictly causalfuture values depend solely
+on past observations without any look-ahead bias. This is analogous to autoregressive
+language modeling, but with continuous, real-valued tokens.
+2. Non-Stationarity: Financial time series exhibit time-varying statistical properties (e.g.,
+changing volatility regimes, structural breaks). The conditional distribution p(xt+1:T |x1:t)
+itself evolves over time, requiring models to adapt to distributional shifts.
+3. Low Signal-to-Noise Ratio: Market data is dominated by noise, making it challenging
+to separate genuine predictive signals from random ﬂuctuations.
+This often leads to
+overﬁtting in deterministic models.
+5
+===== PAGE 6 =====
+4. High-Dimensional Dependencies: In multi-variate settings, assets exhibit complex
+cross-sectional dependencies (e.g., lead-lag relationships, sector correlations). Modeling
+these dependencies is crucial for coherent joint generation.
+Formally, the objective is to learn a generator Gθ that maps the context x1:t to a distribution
+over future sequences, often parameterized as a set of samples {x(i)
+t+1:T }N
+i=1. The evaluation met-
+rics extend beyond point-wise accuracy (e.g., MSE) to probabilistic scoring rules (e.g., CRPS,
+Energy Score) and domain-speciﬁc ﬁnancial utility measures (e.g., portfolio returns, risk met-
+rics).
+Classical and Hybrid Predictive Models
+Classical statistical frameworks have historically provided the mathematical bedrock for mod-
+eling ﬁnancial time-series dynamics through rigorous probabilistic assumptions. A prominent
+example is the Auto-Regressive Integrated Moving Average (ARIMA) model[20], which explic-
+itly formulates temporal dependencies by combining autoregressive (AR) processes, diﬀerencing
+(I) to achieve stationarity, and moving average (MA) components. For a given time series yt,
+an ARIMA(p, d, q) speciﬁcation is mathematically expressed as:
+∇dyt = c +
+p
+X
+i=1
+ϕi∇dyt−i +
+q
+X
+j=1
+θjεt−j + εt
+(1)
+where ∇d represents the d-th order diﬀerence operator, ϕi and θj are the AR and MA coeﬃcients
+respectively, and εt ∼N(0, σ2) acts as white noise. While ARIMA models are eﬀective at isolat-
+ing linear relationships, they inherently fail to encompass complex market phenomena such as
+volatility clustering and heavy-tailed distributions. To capture these time-varying variance dy-
+namics, the Generalized Autoregressive Conditional Heteroskedasticity (GARCH) framework[21]
+was introduced. The conditional variance σ2
+t in a GARCH(p, q) model is iteratively deﬁned by
+past squared innovations and past variances:
+σ2
+t = ω +
+p
+X
+i=1
+αiε2
+t−i +
+q
+X
+j=1
+βjσ2
+t−j
+(2)
+where ω > 0, αi ≥0, and βj ≥0. Although extensions like EGARCH further accommodate
+asymmetric leverage eﬀects resulting from negative shocks, these purely parametric methods
+struggle to scale to high-dimensional dependencies and intricate non-linear patterns.
+To address the constraints of classical statistical models, the ﬁeld transitioned toward deep
+learning architectures, particularly Recurrent Neural Networks (RNNs) and Long Short-Term
+Memory (LSTM) networks[22–26]. LSTMs leverage a sophisticated gating mechanismcomprising
+forget (ft), input (it), and output (ot) gates alongside a cell state (Ct) and hidden state (ht)to
+eﬀectively capture long-range temporal dependencies without suﬀering from severe vanishing
+6
+===== PAGE 7 =====
+gradients:
+ft = σ(Wf · [ht−1, xt] + bf)
+(3)
+it = σ(Wi · [ht−1, xt] + bi)
+(4)
+˜Ct = tanh(WC · [ht−1, xt] + bC)
+(5)
+Ct = ft ⊙Ct−1 + it ⊙˜Ct
+(6)
+ot = σ(Wo · [ht−1, xt] + bo)
+(7)
+ht = ot ⊙tanh(Ct)
+(8)
+However, when standard LSTMs are optimized using traditional pointwise loss functions such
+as the Mean Squared Error (MSE), deﬁned as LMSE = 1
+n
+Pn
+i=1(yi −ˆyi)2, they often overﬁt the
+ubiquitous noise present in ﬁnancial data.
+Consequently, recent literature has pivoted towards sophisticated hybrid strategies that
+couple deep learning backbones with domain-speciﬁc signal processing or invariant learning
+techniques to enhance robustness. Denoising-based hybrids, for example, incorporate explicit
+signal decomposition to systematically separate underlying predictive trends from stochastic
+market noise. The PEC-W model[25] leverages the Discrete Wavelet Transform (DWT) to split
+raw input series into multi-resolution scale and wavelet representations:
+x(t) =
+X
+k
+cJ,kϕJ,k(t) +
+J
+X
+j=1
+X
+k
+dj,kψj,k(t)
+(9)
+where ϕ and ψ denote the scaling and wavelet functions. These denoised approximation coeﬃ-
+cients provide a cleaner input signal for the LSTM, a concept similarly explored by CEEMDAN
+(Complete Ensemble Empirical Mode Decomposition with Adaptive Noise)-Informer-LSTM[24],
+which decomposes the signal into intrinsic mode functions.
+Beyond denoising, feature engi-
+neering hybrids seek to automate the discovery of robust predictive inputs. The SGP-LSTM
+framework[26] employs Symbolic Genetic Programming to iteratively evolve technical indicators,
+steering the search via a multi-objective ﬁtness function that balances return, consistency, and
+predictive correlation (IC):
+Fitness = TopR + λ1 × Monotonicity + λ2 × IC
+(10)
+Finally, invariant learning hybrids target the problem of distributional shifts across varying
+market regimes. The Invariant Risk Minimization (IRM) approach proposed by Cao et al.[27]
+enforces the extraction of representations that hold true regardless of whether the market is
+in a bullish, bearish, or sideways phase, minimizing an objective that penalizes environmental
+variance:
+LIRM = Re(w · Φ)
+|
+{z
+}
+Empirical risk
++γ
+∇w|w=1.0Re(w · Φ)
+2
+2
+|
+{z
+}
+Invariant penalty
+(11)
+where Φ acts as the representation function and w is a linear classiﬁer. Despite these multi-
+faceted improvements, hybrid predictive architectures ultimately generate deterministic point
+forecasts, fundamentally limiting their capacity to model the full predictive distribution essential
+for robust ﬁnancial scenario generation.
+7
+===== PAGE 8 =====
+Generative Models for Extrapolation
+Recognizing the intrinsic limitations of deterministic forecasting, the paradigm of generative
+models shifts the focus toward learning the underlying data distribution p(x) or the conditional
+probability p(xt+1:T |x1:t).
+This transition allows practitioners to sample multiple plausible
+future trajectories, accommodating the multi-modal uncertainty inherent in ﬁnancial markets.
+Early eﬀorts in this domain heavily utilized Generative Adversarial Networks (GANs)[5,7], which
+deploy a generator G and a discriminator D locked in a competitive minimax game.
+The
+generator synthesizes sequences from historical context x1:t and a latent noise vector z, while the
+discriminator attempts to distinguish real historical samples from the generated distributions:
+min
+G max
+D Ex∼pdata[log D(x)] + Ez∼pz[log(1 −D(G(z)))]
+(12)
+While conceptually elegant, GANs are notoriously diﬃcult to train on volatile ﬁnancial data,
+frequently suﬀering from mode collapse and unstable convergence. To mitigate these issues, spe-
+cialized adaptations have been devised. WaveGAN[28] incorporates a multi-resolution DWT de-
+noising mechanism combined with a Wasserstein GAN equipped with Gradient Penalty (WGAN-
+GP)[29]. The WGAN-GP loss enforces a Lipschitz constraint to prevent vanishing gradients:
+LWGAN-GP = E˜x∼pg[D(˜x)] −Ex∼pdata[D(x)] + λEˆx∼pˆx[(∥∇ˆxD(ˆx)∥2 −1)2]
+(13)
+where ˆx represents a convex interpolation of real and generated instances. Concurrently, models
+like N-BEATS-GAN[30] fuse interpretable basis expansions[31] with an adversarial framework,
+modeling future values as a sum of trend and seasonality bases ˆy = PN
+i=1 Basisi(θi). While these
+modiﬁcations enhance stability and interpretability, GANs often yield over-smoothed samples
+that fail to encapsulate the sharp, multi-modal nature of empirical return distributions.
+To achieve higher ﬁdelity in distribution matching, Denoising Diﬀusion Probabilistic Models
+(DDPMs)[8] have emerged as a more stable and expressive alternative. Diﬀusion frameworks sys-
+tematically destroy structured data by injecting Gaussian noise over T forward stepsq(xt|xt−1) =
+N(xt; √1 −βtxt−1, βtI)and then learn a parameterized reverse process pθ(xt−1|xt) = N(xt−1; µθ(xt, t), σ2
+t I)
+to reconstruct the signal. The optimization simpliﬁes to predicting the incrementally added
+noise ϵ:
+Lsimple = Et,x0,ϵ[∥ϵ −ϵθ(xt, t)∥2]
+(14)
+For context-conditioned ﬁnancial generation, TimeGrad[9] integrates an RNN-based encoder
+with a score-based diﬀusion decoder, generating future states via Langevin dynamics where the
+context encoding c steers the reverse sampling:
+xt−1 =
+1
+√αt
+
+xt −
+βt
+√1 −¯αt
+ϵθ(xt, t, c)
+
++ σtz
+(15)
+Addressing the limitations of recurrent architectures in capturing extended dependencies, TimeDiT[32]
+replaces the RNN with a Diﬀusion Transformer. Utilizing patch embeddings and multi-head at-
+tention, TimeDiT operates on a µ-parameterized loss function, explicitly aligning the predicted
+8
+===== PAGE 9 =====
+mean of the reverse process with its theoretical target:
+L =
+T
+X
+t=1
+Eq(xtar
+t
+|xcon
+0
+)
+
+∥µ(xtar
+t
+, xcon
+0
+) −µθ(xtar
+t
+, t|xcon
+0
+)∥2
+(16)
+An alternative diﬀusion formulation leverages continuous-time score matching, optimizing a
+score network to approximate the gradient of the log-density:
+Lscore = Et,x0,ϵ
+h
+∥ϵ −σt∇xt log pθ(xt)∥2i
+(17)
+While diﬀusion and score-based models generate high-ﬁdelity distributions with sharp multi-
+modal properties, their iterative sampling procedures introduce signiﬁcant inference latency,
+presenting an ongoing challenge for high-frequency ﬁnancial applications.
+Time Series Foundation Models
+Inspired by the transformative success of Large Language Models (LLMs) in natural language
+processing[12,13,33], current research is heavily invested in adapting the "pre-train, then ﬁne-tune"
+paradigm to ﬁnancial time-series extrapolation. These Foundation Models are trained on mas-
+sive, heterogeneous datasets to derive generalized temporal representations, eﬀectively enabling
+zero-shot inference and cross-domain adaptation. The primary challenge in this domain is bridg-
+ing the continuous numerical space of ﬁnancial data with the discrete, tokenized vocabulary na-
+tively processed by transformer-based LLMs. Tokenization-based ﬁne-tuning strategies directly
+address this by casting forecasting as a next-token prediction task. For instance, Chronos[10]
+scales time-series observations and maps them into a ﬁxed dictionary of tokens using quantile
+binning:
+token(x) = arg min
+i
+|x −qi|
+(18)
+where qi represent pre-computed quantiles. While this approach beneﬁts from robust zero-shot
+generalization, the inherent discretization process sacriﬁces ﬁne-grained numerical precision.
+Conversely, patch-based ﬁne-tuning techniques, as exempliﬁed by OneFitsAll[34], bypass dis-
+cretization by segmenting the time-series into sequences of sub-series patches. Each patch is
+projected into the high-dimensional embedding space of the LLM via a linear transformation:
+Epatch = Wpxpatch + bp
+(19)
+These continuous patch embeddings are then prepended as visual-like tokens, fully preserving
+numerical ﬁdelity while seamlessly leveraging the LLM’s cross-patch attention mechanisms.
+As illustrated in Figure 4, beyond conventional ﬁne-tuning, sophisticated model editing
+and reprogramming approaches have emerged to align disparate modalities using lightweight
+adapters, averting the computational burden of full-parameter updates. StockTime[35] enriches
+time-series representations by encoding high-frequency tick data alongside handcrafted textual
+summaries (e.g., "bullish engulﬁng pattern") via a dual-encoder.
+Similarly, frameworks like
+LLM4FTS[36] and LLM-PS[37] utilize Dynamic Time Warping (DTW) and text-translation mod-
+ules to bridge the semantic divide between raw price trajectories and natural language descrip-
+tions. A more fundamental alignment is achieved through Prompt-as-Preﬁx reprogramming,
+popularized by Time-LLM[38].
+This technique steers frozen LLMs by projecting time-series
+9
+===== PAGE 10 =====
+patches onto a set of learned "text prototypes" P ∈RM×d using cross-attention dynamics:
+αij = softmax
+(Wqxi) · (Wkpj)⊤
+√
+d
+
+(20)
+˜xi =
+X
+j
+αijpj
+(21)
+The resulting reprogrammed patches act as informative preﬁxes for the frozen language model.
+Expanding upon this, the CALF architecture[39] employs a dual-branch structure fortiﬁed by
+consistency losses to strictly minimize the discrepancy between textual and temporal feature
+distributions.
+In parallel, researchers are developing purpose-built forecasting architectures that integrate
+domain-speciﬁc inductive biases directly into the foundation model backbone. TimeHF[40] in-
+troduces a time-series policy optimization (TSPO) framework that aligns generative outputs
+with speciﬁc ﬁnancial human preferences, such as maximizing risk-adjusted returns, using rein-
+forcement learning from human feedback (RLHF):
+LTSPO = −Eτ∼πθ[R(τ)] + βKL[πθ∥πref]
+(22)
+where πθ denotes the policy (generative model) parameterized by θ, τ ∼πθ is a sampled
+generation trajectory, R(τ) is the reward function that scores trajectory quality according to
+human ﬁnancial preferences, β controls the strength of the KL-divergence regularization, and
+πref is the frozen reference policy that prevents catastrophic drift from pre-trained behavior.
+FinCast[41] attacks the multi-scale nature of market data using a sparse Mixture-of-Experts
+(MoE) backbone enhanced with learnable frequency embeddings. To ensure the model delivers
+both accurate point estimates and reliable probabilistic bounds, it optimizes a joint Point-
+Quantile loss:
+LPQ = λ1Lpoint + λ2Lquantile
+(23)
+Lquantile =
+X
+q
+ρq(y −ˆyq),
+ρq(u) = u(q −I(u < 0))
+(24)
+where Lpoint handles deterministic accuracy and the pinball loss Lquantile governs risk coverage,
+yielding highly robust zero-shot performance across diverse asset classes.
+Emerging Trends
+Moving forward, the ﬁeld is poised to tackle several critical bottlenecks that limit the operational-
+ization of generative models in live ﬁnancial systems. A primary objective is the development
+of uniﬁed hybrid architectures that can seamlessly amalgamate the low-latency inference speeds
+of discriminative models with the distributional robustness of diﬀusion frameworks, potentially
+leveraging sophisticated knowledge distillation techniques.
+Concurrently, there is an urgent
+need to redeﬁne evaluation protocols; existing metrics such as the Continuous Ranked Prob-
+ability Score (CRPS) must be augmented with practical ﬁnancial utility measures, including
+risk-adjusted returns and maximum drawdowns, to ensure models align with authentic trading
+objectives. Furthermore, future iterations of generative models must incorporate causal con-
+straints that respect intricate market microstructures, fundamentally eliminating the look-ahead
+10
+===== PAGE 11 =====
+biases that persistently plague synthetic market simulators. Finally, advancing computationally
+eﬃcient ﬁne-tuning protocols will be paramount to ensure that massive foundation models can
+rapidly adapt to sudden structural regime shifts without succumbing to catastrophic forgetting.
+Summarization
+The progressive evolution of ﬁnancial time-series extrapolation models demonstrates a clear over-
+arching trajectory in machine learning: transitioning from deterministic, discriminative point
+predictors to expressive generative distribution learners, and ultimately culminating in large-
+scale foundation models. As synthesized in Table 3, each methodological paradigm presents
+distinct trade-oﬀs between inferential speed, distributional ﬁdelity, and generalization capabil-
+ity. Classical and hybrid predictive models, such as ARIMA and LSTM-based architectures,
+retain their dominance in latency-sensitive environments like high-frequency execution algo-
+rithms, where rapid point forecasting is paramount.
+However, their structural inability to
+quantify tail-risk and multimodal uncertainty severely restricts their utility in comprehensive
+risk management. To resolve this, generative architecturesnotably GANs and diﬀusion mod-
+elsexcel in scenario generation and stress testing by synthesizing highly realistic, multi-modal
+market trajectories. Recent studies often report that diﬀusion models yield better calibrated
+distributions than GAN baselines, although this gain typically comes at the cost of substantially
+higher computational burden during iterative reverse-sampling. Time-series foundation models
+have recently become an important direction by exhibiting unprecedented zero-shot forecasting
+capabilities, enabling the deployment of predictive systems across previously unseen assets or
+shifting market regimes. Despite these breakthroughs, foundation models still grapple with per-
+sistent challenges regarding temporal alignment, cross-modal semantic gaps, and the propensity
+to hallucinate implausible ﬁnancial patterns over extended horizons.
+Financial Time-Series Imputation
+Problem Formulation and Characteristics
+Financial time-series imputation is fundamentally formulated as a bidirectional, closed-format
+generation task. Given a multivariate sequence X ∈RT×d and a corresponding binary indicator
+mask M ∈{0, 1}T×d where mt,i = 1 denotes a missing value, the objective is to learn a
+conditional distribution p(Xmiss|Xobs; θ) to accurately reconstruct the missing elements Xmiss =
+X ⊙M conditioned strictly on the observed elements Xobs = X ⊙(1 −M).
+In ﬁnancial contexts, the missingness mechanismsMissing Completely At Random (MCAR),
+Missing At Random (MAR), and Missing Not At Random (MNAR)present unique challenges.
+MNAR is particularly prevalent due to structural market events such as sudden trading halts
+during market crashes or asynchronous trading hours across global exchanges. Consequently,
+imputation models must conquer two primary domain-speciﬁc hurdles: (1) managing contiguous
+missingness, where extended data outages corrupt long temporal windows, and (2) maintaining
+strict cross-variable consistency without introducing look-ahead bias, which is critical to ensure
+that historical backtests of trading strategies remain structurally valid.
+11
+===== PAGE 12 =====
+Statistical, Interpolation, and Machine Learning Baselines
+Early methodologies treated ﬁnancial imputation primarily as a matrix completion or inter-
+polation problem rooted in strict econometric assumptions. The classic Chow-Lin method[42]
+remains a foundational statistical approach for temporal disaggregation, frequently integrated
+with LASSO regression to estimate high-frequency (e.g., monthly) values from low-frequency
+(e.g., quarterly) observations using auxiliary market indicators. Later, machine learning tech-
+niques such as KNN, MICE, and Random Forests (e.g., missForest[43]) oﬀered ﬂexible, non-
+parametric alternatives for tabular data imputation. The heterogeneous-data adversarial learn-
+ing network proposed for FinTech applications by Khuwaja et al.[44] is included here as a related
+data-driven baseline. Operating in a continuous functional space, Kernel Ridge Regression[45]
+estimates missing discount curves by projecting noisy bond prices into a Reproducing Kernel
+Hilbert Space (RKHS). This framework minimizes a weighted least-squares objective regular-
+ized with exponential weighting to deliberately suppress wild extrapolations during periods of
+high volatility.
+As datasets expanded, traditional machine learning models such as K-Nearest Neighbors
+(KNN), Multiple Imputation by Chained Equations (MICE), and Random Forest imputation[43]
+were widely adopted. Random Forest imputation, in particular, leverages ensemble decision
+trees to dynamically predict missing values by capturing complex, non-linear feature interactions.
+Empirical studies demonstrate that in speciﬁc ﬁnancial contexts—such as corporate distress
+prediction—Random Forest frameworks can surprisingly outperform advanced deep learning
+alternatives, particularly when data sparsity is extreme (e.g., missing rates of 40–50%).
+Tensor Factorization and Deep Sequential Approaches
+To accommodate higher-dimensional non-linearities and multivariate temporal dependencies, re-
+search progressed toward deep interpolation and tensor decomposition networks. Deep sequen-
+tial fusion architectures, such as the BiGRU-BiLSTM framework proposed by Wang et al.[46],
+capture bidirectional temporal ﬂows and employ a Group Method of Data Handling (GMDH)
+polynomial regression decoder to reconstruct complex missing patterns in multivariate series.
+Concurrently, tensor factorization models emerged as highly eﬃcient solutions for structural
+missingness. NMTucker[47] introduced a non-linear Matryoshka Tucker decomposition, system-
+atically replacing linear core operations with neural network-based reconstructions and enforcing
+recursive core constraints to mitigate overﬁtting on sparse ﬁnancial tensors. Expanding upon
+this, RegTensor[48] facilitates fast, non-linear coupled tensor completion across multiple sparse
+datasets.
+By sharing factor matrices across tensors, it captures latent cross-market dynam-
+ics while strictly enforcing uncorrelated temporal embeddings via an orthogonal regularization
+penalty:
+LRegTensor = Lrecon + λ∥U⊤U −I∥2
+F
+(25)
+where U represents the temporal factor matrix and λ controls the orthogonal constraint. While
+computationally eﬃcient, these models occasionally fail to capture the high-frequency volatility
+jumps inherent to tick-level ﬁnancial data.
+12
+===== PAGE 13 =====
+Adversarial and Generative Imputation Dynamics
+To overcome the smoothing eﬀects typical of standard interpolators, Generative Adversarial
+Networks (GANs) formulate missing data recovery as a competitive game.
+However, stan-
+dard GANs frequently suﬀer from severe distributional incoherencecommonly referred to as
+"drift"during contiguous data outages. To directly address this, AttnWGAIN[49] substitutes tra-
+ditional convolutional layers with diagonal masked attention blocks, explicitly forcing the gen-
+erator to jointly learn temporal and feature-wise correlations without accessing masked future
+tokens. Similarly, ImputeGAN[50] leverages an Informer-based generator utilizing probabilistic
+sparse attention, signiﬁcantly reducing the O(L2) computational complexity of long-sequence
+dependencies while maintaining ﬁdelity.
+To rigorously enforce distributional stability across extensive missing windows, the CWGAIN-
+GP framework[51] employs a Conditional Wasserstein GAN fortiﬁed with a Gradient Penalty.
+By conditioning the adversarial game on the observation mask M and enforcing Lipschitz con-
+tinuity, it successfully bounds the generative drift, ensuring that the synthetic interpolations
+mathematically align with the heavy-tailed distributions of surrounding observable ﬁnancial
+regimes.
+Diﬀusion and Foundation Models for Missing Data
+Score-based diﬀusion models have recently established a new state-of-the-art in ﬁnancial im-
+putation by treating missing value reconstruction as a conditional generative process. These
+architectures deﬁne a forward process that adds Gaussian noise strictly to the missing regions
+(or the entire sequence, masked subsequently), and optimize a reverse denoising step conditioned
+on Xobs:
+Ldiff = Ex0,ϵ,t[∥ϵ −ϵθ(xt, t, Xobs)∥2]
+(26)
+A seminal architecture in this domain is CSDI[52], which utilizes a dual 2D-attention mechanism
+to seamlessly integrate temporal dynamics and cross-feature correlations. Subsequent works
+such as LSSDM, Score-CDM, and SaSDim[53–55] further advanced this paradigm. To eliminate
+the "boundary disharmony" problemunrealistic volatility jumps at the borders of observed and
+imputed regionsadvanced diﬀusion models incorporate explicit consistency constraints across
+temporal and spatial horizons[56], as well as cross-variable boundaries[57].
+Furthermore, models like LSCD[58] and SPDM[59] employ frequency-domain transformations
+to map 1D time series into 2D periodic representations. This isolates stable macroeconomic cycli-
+cal components from high-frequency market microstructure noise during the denoising phase.
+Expanding this to transformer scales, TimeDiT[32] introduces a Diﬀusion Transformer (DiT)
+utilizing a uniﬁed masking strategy, uniquely enabling ﬁne-tuning-free model editing. This al-
+lows quantitative analysts to directly inject external physical constraints or market heuristics
+into the sampling trajectory.
+Simultaneously, Large Language Models (LLMs) have been ingeniously adapted for hetero-
+geneous tabular and sequential data imputation. LLM-Forest[60] pioneers an ensemble approach
+utilizing graph-augmented prompts. It constructs bipartite graphs to map data entries to fea-
+ture values, utilizing hierarchical merging to retrieve nearest neighbors. These neighbors serve as
+few-shot prompts for a forest of LLMs, resolving the ﬁnal imputed value via conﬁdence-weighted
+voting. Additionally, frameworks like MTabGen[61] bridge diﬀusion dynamics and mixed-type
+13
+===== PAGE 14 =====
+tabular formats by running parallel forward processes for categorical and continuous numerical
+features, unifying them via columnar embeddings.
+Emerging Trends
+Recent literature underscores a deﬁnitive paradigm shift toward handling complex, non-random
+missing patterns through specialized extensions of these generative frameworks. As comprehen-
+sively documented in recent methodological surveys by Shan et al.[62] and Du et al.[63], the ﬁeld
+is rapidly moving away from isolated point-interpolators toward uniﬁed, context-aware sequence
+modelers. We highlight three critical emerging trends driving this evolution.
+Uniﬁed Multi-Task Architectures: Instead of treating imputation as an isolated prepro-
+cessing step, modern models increasingly solve related ﬁnancial tasks simultaneously to improve
+representational learning. For example, Miao et al.[64] propose coupled diﬀusion models that
+jointly perform forecasting and imputation, leveraging shared latent representations to enforce
+temporal consistency. To enhance structural robustness, Zhang et al.[65] utilize dual-attention
+networks to simultaneously capture local and global dependencies, while Cai et al.[66] employ
+Temporal Graph Networks (TGNs) to map dynamic cross-asset spillovers during fragmented
+market outages[67]. Furthermore, Zhang et al.[68] extend this paradigm beyond numerical data,
+advancing multi-modal frameworks that integrate textual sentiment to inform the imputation
+of missing price data.
+High-Frequency and Microstructure Imputation: A second major trend focuses on
+the granular complexities of high-frequency trading (HFT) and Limit Order Book (LOB) data.
+Standard daily-level imputers often fail at the microstructural level; thus, Bamford et al.[69] and
+Shankar et al.[70] have proposed specialized deep learning architectures and benchmark suites
+that strictly respect LOB queue dynamics and volume imbalances. To bridge the gap between
+generative ﬁdelity and the stringent latency requirements of HFT systems, Nater and Khayati[71]
+introduce scalable probabilistic imputation techniques that bypass the computational overhead
+of iterative diﬀusion without sacriﬁcing distributional shape.
+Regime-Awareness and Stress-Testing Protocols: Finally, the evaluation of imputa-
+tion models has matured to account for market non-stationarity. Recognizing that structural
+breaks often coincide with missing data (e.g., trading halts), Qian et al.[72] and Gao et al.[73]
+introduce dynamic, regime-aware score-based models speciﬁcally designed to adapt to shifting
+market volatility. Crucially, a growing body of work advocates for stratiﬁed stress-testing eval-
+uation protocols.
+Wi et al.[74] emphasize that imputation ﬁdelity must be validated during
+simulated market crashes rather than strictly during stationary periods, ensuring that imputed
+data maintains structural integrity when risk managers need it most. Complementing this rigor-
+ous evaluation, Wang et al.[75] formally investigate the pervasive issue of look-ahead bias in deep
+learning imputers, establishing strict cross-validation guidelines to ensure that reconstructed his-
+torical sequences do not inadvertently leak future market information into backtesting pipelines.
+Summarization
+The landscape of ﬁnancial missing data recovery is deﬁned by a rigorous trade-oﬀbetween
+computational eﬃciency and generative ﬁdelity, as synthesized in Table 4. The empirical case
+for diﬀusion-based imputation is, however, less settled than the tabular taxonomy above might
+suggest. The most-cited diﬀusion imputer, CSDI[52], reports a 40–65% improvement over prob-
+14
+===== PAGE 15 =====
+abilistic baselines and a 5–20% improvement over deterministic baselines—but on healthcare
+and environmental datasets, not ﬁnancial. Direct head-to-head benchmarks that put diﬀusion
+imputers (CSDI, TimeDiT, LSCD) on the same ﬁnancial dataset as GAN imputers (GAIN, At-
+tnWGAIN, ImputeGAN, CWGAIN-GP) are not standard in the literature, and the few within-
+paper comparisons that exist (e.g. Score-CDM vs GAIN on air-quality or electricity data) do not
+transfer cleanly to the ﬁnancial regime of contiguous missingness and regime-switching volatil-
+ity. The honest reading is therefore: diﬀusion models are the most promising current direction
+for high-ﬁdelity imputation under contiguous missingness, but the claim that they “stand unri-
+valed” for ﬁnancial imputation speciﬁcally rests on architectural plausibility and on transferred
+evidence rather than on a published ﬁnancial benchmark. Tensor factorization and tree-based
+methods remain preferable when the constraint is large-scale historical-database throughput
+rather than peak reconstruction quality.
+Financial Time-Series Synthesis
+Problem Formulation and Characteristics
+Financial Time-Series Synthesis (FTSS) refers to the systematic, algorithmic generation of
+statistically credible and temporally coherent synthetic sequences. The overarching objective
+is to enlarge or enrich the empirical sample space upon which downstream quantitative models
+and trading agents are trained.
+Unlike extrapolation (which predicts the continuation of a
+partial series) or imputation (which mathematically restores broken or missing intervals), FTSS
+is designed to create entirely new, unobserved data manifolds from scratch.
+Formally, the
+goal is to learn a generative model pθ(X) that closely approximates the true multidimensional
+data-generating distribution pdata(X), enabling unconditional or condition-guided sampling of
+synthetic market trajectories ˆX.
+The primary functions of FTSS include restoring population heterogeneity, rebalancing ex-
+tremely heavy-tailed historical episodes to correct dataset skewness, and providing controlled,
+counterfactual market regimes for rigorous stress testing. As shown in Figure 5, methodologi-
+cally, the literature can be categorized across two distinct scales: micro-level synthesis, which
+focuses on generating univariate or low-dimensional asset prices and return sequences, and
+macro-level market simulation, which attempts to reproduce complex, asynchronous market
+microstructures such as order ﬂows and full Limit Order Books (LOB).
+Micro-Level Synthesis: Asset Returns and Pricing Dynamics
+Micro-level synthesis targets the generation of asset price trajectories and return sequences,
+serving primarily as a sophisticated data augmentation mechanism. Early applications of stan-
+dard Generative Adversarial Networks (GANs) in this domain frequently suﬀered from severe
+training instability and mode collapse, largely due to the unique "stylized facts" of ﬁnancial
+data, such as pronounced volatility clustering and non-Gaussian heavy tails.
+To overcome these barriers, the ﬁeld rapidly transitioned to Wasserstein GANs (WGAN)[7],
+which replace the structurally unstable Jensen-Shannon divergence with the Wasserstein-1
+(Earth Mover’s) distance. The optimization objective focuses on minimizing:
+W1(Pr, Pg) =
+inf
+γ∈Π(Pr,Pg) E(x,˜x)∼γ[∥x −˜x∥]
+(27)
+15
+===== PAGE 16 =====
+where Π(Pr, Pg) denotes the set of all joint distributions mapping the real distribution Pr to the
+generated distribution Pg. The WGAN family was extended for ﬁnance in several methodolog-
+ically distinct directions, which we now unpack critically.
+QuantGAN[6] established the WGAN+TCN template for multi-step unconditional price-
+path generation.
+Its veriﬁcation protocol relies on reproducing eight classical stylized facts
+(leverage, volatility clustering, heavy tails, absence of autocorrelation in returns, long-memory in
+absolute returns, etc.) on synthetic S&P 500 paths; subsequent work[6] reports that QuantGAN-
+generated trajectories pass all eight checks while the baseline convolutional GAN fails on at least
+three. QuantGAN is, however, restricted to univariate return series—a limitation that every
+constraint-aware variant below explicitly tries to relax.
+RSQGAN[76] injects regime awareness into the generator by conditioning on a latent regime
+variable (typically inferred via a hidden Markov model over historical returns). The reported
+value proposition is distributional alignment across regimes rather than within a single regime:
+paths sampled under the bull regime should resemble bull-period historical paths, and likewise
+for bear and transition periods. The conditioning mechanism is comparatively cheap (a single
+discrete regime index appended to the noise input) and is the only one of the four that does
+not require a custom loss function.
+DAT-CGAN[77] reformulates the GAN objective around decision-related quantities rather
+than marginal distributions. Concretely, the discriminator is trained against a multi-Wasserstein
+loss evaluated on portfolio-level statistics (e.g. cumulative PnL, Sharpe, drawdown) computed on
+rolling windows of the generated path. The authors demonstrate on a multi-time-step portfolio-
+choice task that DAT-CGAN improves generative quality on both the underlying data and on
+decision-related quantities relative to strong GAN baselines. The cost is a loss function that is
+harder to optimize: training stability degrades when the decision-statistic set grows.
+Jinkou[78] imposes state-variable constraints that keep generated trajectories consistent
+with economically meaningful drivers (e.g. macro factors, implied volatility surfaces). Unlike
+the other three, Jinkou is positioned for scenario generation rather than return-path generation,
+which makes it a natural bridge from micro-level synthesis to macro-level market simulation.
+TAIL-GAN[79] stands apart from the other three because its training criterion is not a diver-
+gence over the data distribution at all but a risk-functional score based on the joint elicitability
+of Value-at-Risk (VaR) and Expected Shortfall (ES). The discriminator is optimized against
+the Acerbi–Szekely scoring function, which is the standard backtesting score for VaR/ES; the
+generator therefore receives gradient signal dominated by tail outcomes rather than by typical
+samples. This matters because, as Cont et al.[79] argue explicitly, Wasserstein- or cross-entropy-
+based losses are sample-dominated and structurally fail to capture tail events—which is exactly
+the regime regulators care about. Their empirical evaluation compares Tail-GAN against a His-
+torical Simulation baseline and a plain WGAN on a ﬁve-name universe (AAPL, AMZN, GOOG,
+JPM, QQQ) for the period 2019-11 to 2019-12. On out-of-sample VaR/ES estimation for static
+buy-and-hold, mean-reversion, and trend-following strategies, the reported OOS relative errors
+are: Historical Simulation ∼10.4%, WGAN ∼26.9%, Tail-GAN ∼10.1%—i.e. Tail-GAN closes
+most of the gap to the oracle, while a vanilla WGAN does roughly 2.5× worse. On the more de-
+manding score-based test of distributional ﬁdelity under dynamic strategies, Tail-GAN achieves
+a 21.3% rejection rate versus WGAN’s 11.4% and historical simulation’s 0%—the higher rejec-
+tion rate being preferable, since it indicates the synthetic distribution is distinguishable from
+the test set in the way real markets are. Two limitations temper the result: (i) the headline
+16
+===== PAGE 17 =====
+numbers are on a one-month training window with ﬁve names, so scalability to a full S&P 500
+universe required eigenportfolio-based dimensionality reduction, with Tail-GAN(Eig) at 25.6%
+OOS error versus Historical Simulation at 25.9% (a much smaller gap); (ii) Tail-GAN does not
+target stylized-fact reproduction—its evaluation is risk-functional only, so it is complementary
+to rather than substitutable for QuantGAN/RSQGAN.
+Despite the improvements brought by WGANs, score-based Diﬀusion models have been
+increasingly applied to multi-asset return synthesis with the explicit goal of preserving cross-
+sectional correlation matrices. The empirical case for this claim is, however, mostly within-paper
+rather than cross-paper: CoFinDiﬀ[80], Fin-DDPM[81], and GBM-Diﬀ[82] each report better
+cross-correlation preservation against their own GAN baselines on their own chosen datasets,
+but a shared benchmark that pits all three against the same WGAN/QuantGAN family on
+the same multi-asset universe is not currently standard practice. The forward diﬀusion process
+systematically corrupts real ﬁnancial data x0 over T steps by adding Gaussian noise:
+q(xt|xt−1) = N(xt;
+p
+1 −βtxt−1, βtI)
+(28)
+where βt dictates the variance schedule. A parameterized neural network θ then learns the
+reverse denoising process:
+pθ(xt−1|xt) = N(xt−1; µθ(xt, t), Σθ(xt, t))
+(29)
+This rigorous score-matching technique allows models like Fin-DDPM and CoFinDiﬀ[80,81] to
+achieve stronger distributional stability than standard GAN-based generators while reducing
+the risk of mode collapse. To ensure that the generated noise mathematically respects ﬁnan-
+cial reality, models such as GBM-Diﬀand Fin-Denoiser[29,82] structurally incorporate Geomet-
+ric Brownian Motion (GBM) priors directly into the diﬀusion stochastic diﬀerential equations
+(SDEs), guaranteeing ﬁnancially sound baseline sequences.
+Macro-Level Market Simulation: Microstructure and Order Flows
+Macro-level simulation elevates the generative objective from simple price paths to the reproduc-
+tion of complex market microstructures and multi-agent interactive environments. By generat-
+ing realistic Limit Order Books (LOB) and order ﬂows, these models facilitate the high-ﬁdelity
+validation of execution strategies without exposing institutions to real capital risk.
+Macro-level market simulation has progressed through three architectural generations, and
+a careful reading of the empirical evidence suggests that the strongest claims about the diﬀu-
+sion/LMM generation need to be qualiﬁed.
+Generation 1: Conditional GANs for correlated price paths. The earliest macro-
+simulation GANs aimed to reproduce the cross-asset correlation structure that vanilla WGANs
+miss. Masi et al.[83] explicitly model correlated stock-market time series by injecting a learnable
+correlation block into the generator, evaluated on the LOBSTER limit-order-book dataset. Isti-
+aque et al.[84] extend this idea to conditional simulation, conditioning on macro state variables
+so that the generated regime matches a user-supplied label. Xia et al.[85] (Market-GAN) go fur-
+ther with a two-stage pipeline in which the ﬁrst stage generates a market state and the second
+stage generates price paths conditioned on it. These three papers share a common limitation:
+their empirical evaluation is mostly on stylized-fact reproduction, and the downstream utility
+17
+===== PAGE 18 =====
+(i.e. “does the synthetic data actually improve trading agents trained on it?”) is rarely reported.
+Kazadaev et al.[86] reports a momentum-eﬀect-speciﬁc benchmark on Moscow Stock Exchange
+data and shows GAN-synthetic trajectories reproduce the observed momentum premium; this
+is one of the few macro-simulation papers with an economic downstream task as the headline
+metric.
+Generation 2: Macroeconomic conditioning. Alex et al.[87] (MacroSynth) directly
+condition on macroeconomic factor panels (CPI, rates, credit spreads) so that generated market
+scenarios are internally consistent with a speciﬁed macro state.
+The reported evaluation is
+downstream mean-variance and risk-parity allocations computed on synthetic samples, with the
+synthetic allocations showing sign-consistent risk premia relative to history. The methodological
+advance here is that the conditioning signal is itself an economic primitive, not a latent regime
+inferred from the data—a useful design choice for stress-testing use cases where the user speciﬁes
+the macro scenario in advance.
+Generation 3: Diﬀusion and Large Market Models. The most recent generation
+of macro-simulation work has moved to diﬀusion and discrete-token foundation models. Berti
+et al.[88] propose TRADES, a transformer-based denoising diﬀusion engine conditioned on mar-
+ket state for LOB order-ﬂow simulation.
+The headline empirical claim is a 3.27- and 3.48-
+point improvement on the predictive score (MAE between real-data-trained and synthetic-data-
+trained price-prediction models) over the prior state of the art on two stocks. The authors
+themselves note that “there is a notable absence of quantitative metrics for evaluating genera-
+tive market simulation models in the literature”—the ﬁeld has been inventing its own evaluation
+protocols, which makes between-paper comparison fragile. Huang et al.[89] (DiGA / DigMA)
+split the problem into two stages: a conditional diﬀusion model over time-evolving distribution
+parameters of mid-price return rate and order arrival rate, and a meta-agent with ﬁnancial eco-
+nomic priors that samples orders from the learned distributions. This decomposition sidesteps
+the diﬃculty of directly diﬀusing over discrete order sequences. Li et al.[90] (MarS) push the
+boundary furthest by training a Large Market Model (LMM)—a transformer foundation model
+over discrete order tokens, analogous to a language model over text—and report order-level
+interactive simulation that is responsive to user-injected orders.
+Critical synthesis. Two honest caveats apply to the Generation-3 claims. First, all three
+diﬀusion/LMM papers report improvements over a small set of in-paper baselines, not over a
+shared benchmark, so the apparent dominance of diﬀusion over GANs in macro simulation is
+a within-paper claim rather than a cross-paper empirical fact. Second, the diﬀusion and LMM
+papers report evaluation on at most two stocks (TRADES) or single datasets (DiGA, MarS);
+whether the reported ﬁdelity survives a regime change (e.g. 2008 crisis, 2020 COVID) is not
+established. The survey’s earlier claim that “macro-level LOB simulation and controllable text-
+to-market generation are still in their infancy” is therefore better supported than the implicit
+“diﬀusion vastly outperforms GANs” reading: the ﬁeld has demonstrably advanced methodolog-
+ically (transformer denoising, LMM-style discrete tokenization, meta-agent decomposition), but
+the empirical case for production deployment remains open. We ﬂag this as a measurement gap
+the ﬁeld would beneﬁt from closing.
+18
+===== PAGE 19 =====
+Privacy-Preserving and Regulation-Aware Generation
+The ﬁnancial industry is heavily bottlenecked by strict data-sharing regulations (e.g., GDPR,
+CCPA). Synthetic data generation provides a mathematically viable pathway to share propri-
+etary datasets across institutional boundaries without violating compliance standards. Models
+such as NVF-DPGAN[91] directly incorporate Diﬀerential Privacy (DP) mechanisms into the
+generative training process. By clipping gradients and injecting calibrated noise during the
+discriminator’s optimization, the framework mathematically guarantees that the generated syn-
+thetic sequences cannot be reverse-engineered to leak sensitive information regarding individual
+retail trading accounts or institutional proprietary alpha signals. The ongoing central research
+focus in this sub-domain is optimizing the delicate trade-oﬀbetween strict privacy bounds (ϵ)
+and the downstream predictive utility of the resulting synthetic series.
+Emerging Trends
+Recent literature reﬂects a rapid maturation of ﬁnancial synthesis, particularly transition-
+ing away from unconditional generation toward highly controllable, context-aware frameworks.
+Rather than treating synthesis as a purely statistical exercise, recent models simultaneously
+condition on diverse metadata and partially observed signals to dictate the semantic direction
+of the synthetic output[92].
+For instance, Lozano et al.[93] propose advanced dual-sourced diﬀusion networks that align
+text-based market sentiment directly with numerical trajectory generation, ensuring exception-
+ally high temporal coherence across modalities. Parallel to improvements in ﬁdelity, there is a
+critical push to reduce the computational burden of generative sampling. Tao et al.[94] introduce
+novel distillation techniques speciﬁcally designed to accelerate the generation process, a criti-
+cal requirement for deploying synthetic simulators in live, high-frequency trading environments.
+Finally, Oppel et al.[95] demonstrate how these advanced conditional generators are practically
+utilized, embedding them into dynamic stress-testing pipelines to evaluate institutional portfolio
+resilience under highly speciﬁc, synthetically engineered counterfactual crises.
+Summarization
+Data synthesis currently represents the most dynamic and rapidly evolving branch of Finan-
+cial Time-Series Generation (FTSG). As summarized in Table 5, the ﬁeld relies on a diverse
+array of generative architectures, each serving distinct institutional needs. While micro-level
+return generation has reached a high level of mathematical maturityreliably capturing volatil-
+ity clustering and cross-asset correlations via diﬀusion modelsmacro-level LOB simulation and
+controllable text-to-market generation are still in their infancy. Moving forward, the transition
+towards computationally eﬃcient, privacy-preserving, and condition-speciﬁc market simulators
+will signiﬁcantly democratize algorithmic trading research and enhance the capability of ﬁnan-
+cial institutions to conduct rigorous, counterfactual stress testing.
+Applications
+This section zooms out to the downstream use-cases that actually justify an FTSG model in
+a quantitative-ﬁnance workﬂow. We organize the discussion along the task axis (FTSE, FTSI,
+FTSS) and end with a cross-cutting paragraph on shared infrastructure (RL training gyms,
+19
+===== PAGE 20 =====
+risk-management sandboxes, and synthetic-data sharing). Throughout, we restrict ourselves
+to peer-reviewed or peer-reproducible works whose authors explicitly evaluate against a real
+downstream application rather than only on statistical ﬁdelity.
+Applications of FTSE
+FTSE is the most mature sub-task in deployment. The classical use-case is to feed extrapolated
+point or quantile forecasts into a downstream decision module, and the strongest evidence that
+this works comes from the deep-reinforcement-learning (DRL) literature.
+FinRL[96] and its
+successor FinRL-Meta[97] treat pretrained time-series forecasters (LSTM, Transformer, or more
+recently LLM-based adapters) as the observation pipeline for PPO/A2C/SAC trading agents
+trained on Dow-30 and S&P-500 constituents; their empirical study reports that agents whose
+observation encoders are ﬁrst ﬁne-tuned on FTSE targets achieve higher Sharpe and lower maxi-
+mum drawdown than agents trained on raw OHLCV. Hierarchical extensions such as HRPM[98]
+couple a portfolio-management FTSE head with a separate order-execution head, explicitly ac-
+counting for price slippage when large extrapolation errors are ampliﬁed by capital allocation.
+More recently, LLM-driven forecasters (Time-LLM[38], CALF[39]) have been evaluated as the
+predictor component inside FinRL-style pipelines, with consistent gains on A-share and crypto
+benchmarks.
+A second, often-overlooked use of FTSE is volatility and risk forecasting. TAIL-GAN[79] is
+explicitly designed to satisfy the joint elicitability of Value-at-Risk and Expected Shortfall, and
+its authors plug the tail-respecting generator into a VaR back-test to demonstrate regulatory-
+grade coverage.
+On the option-pricing side, deep generative models of the underlying (e.g.,
+quant GAN variants) have been used to produce Monte-Carlo paths that replace historical
+resampling for pricing exotic payoﬀs, where the FTSE tail behavior dominates pricing error.
+FTSE outputs also feed stochastic-portfolio-optimization engines: Hybrid CGAN for Portfolio
+Analysis[99] trains a conditional GAN whose label is the Markowitz risk-aversion level, and
+the resulting synthetic future paths are scored by an optimizer that selects weights without
+committing to a single forecast.
+Applications of FTSI
+FTSI is most often deployed in production at the data-engineering layer, where its outputs
+feed classical pipelines rather than a learning agent.
+GAIN[100] introduced the generative-
+adversarial imputation paradigm and remains a baseline in many open ﬁnance datasets for han-
+dling missing quotes during oﬀ-hours, ticker delistings, and exchange halts. Subsequent work
+has tightened the ﬁt between GAN imputation and ﬁnancial time structure: ImputeGAN[50]
+and AttnWGAIN[49] replace generic CNN backbones with Informer and diagonal-masked atten-
+tion respectively, both reporting smaller distributional drift on the K-line dataset than linear
+or MICE baselines. Beyond price reconstruction, missing-data scenarios in ﬁnance also arise
+at the macro layer. FCI[101] uses Bayesian factor imputation to keep Financial Condition In-
+dices computable during incomplete-reporting periods (e.g., during COVID-era reporting lags),
+demonstrating that imputed macro factors can materially change the sign of the indicator rela-
+tive to linear interpolation.
+A second family of applications concerns downstream classiﬁer performance on ﬁnancial
+tabular data. For instance, evaluations of Transformer-enhanced GAN oversampling[102] report
+20
+===== PAGE 21 =====
+that synthesizing minority fraud transactions yields substantial gains in detection recall com-
+pared to heuristic interpolation baselines such as SMOTE on standard credit-card transaction
+benchmarks; similarly, in credit-scoring ensembles[103], GAN-augmented minority classes mate-
+rially reduce false-negative rates. These studies reinforce that, in the ﬁnancial setting, generative
+imputation and augmentation are rarely the ﬁnal product; rather, they serve as value-adding
+pre-processing steps whose utility is judged by downstream predictive metrics.
+Applications of FTSS
+FTSS is the sub-task with the broadest and most consequential deployment surface. We organize
+it along the natural lifecycle of a quantitative strategy.
+Strategy backtesting and replay.
+ABIDES[104] and its Gym-compatible successor ABIDES-
+Gym[105] are agent-based discrete-event simulators that wrap a synthetic limit-order-book gen-
+erator in an OpenAI Gym interface, enabling head-to-head backtests of RL agents that interact
+with thousands of background traders. Balch et al.[106] compare single-agent market replay
+against multi-agent interactive simulation and ﬁnd that the interactive mode systematically re-
+orders the leaderboard of public trading algorithms — a striking demonstration that the choice
+of an FTSS simulation backbone can ﬂip strategy rankings. Rollins and Cliﬀ[107] extend this
+with a threaded parallel simulator, scaling ABIDES-style order generation to high agent counts,
+and reproduce qualitatively diﬀerent “pecking orders” of strategies compared with single-agent
+replay.
+Stress testing, scenario generation and risk management.
+GAN- and diﬀusion-based
+synthesizers are increasingly used to manufacture counterfactual or Black-Swan scenarios that
+historical samples cannot supply.
+TAIL-GAN[79] produces tail scenarios that satisfy joint
+VaR/ES elicitability and are consumed by bank-level stress-testing frameworks; the authors
+explicitly demonstrate that the synthesized tails pass the Basel back-tests where naive block-
+bootstrap fails. Hybrid CGAN for Portfolio Analysis[99] generates market scenarios conditioned
+on risk aversion, allowing a portfolio engine to be re-evaluated against thousands of hypothetical
+regimes in seconds. On the macro-ﬁnance side, MacroSynth[87] conditions on macroeconomic
+factors to produce co-occurring crash and bull-run scenarios, and the authors show that down-
+stream mean-variance and risk-parity allocations computed on the synthetic samples exhibit
+sign-consistent risk premia relative to the historical record. Diﬀusion-based generators are en-
+tering the same niche: CoFinDiﬀ[80] is evaluated as a scenario engine for a portfolio whose
+weights are re-optimized on each generated window, and Fin-Denoiser[29] supplies high-SNR
+scenarios for risk models that are notoriously sensitive to data artifacts.
+Trading-agent training environments.
+Perhaps the most visible deployment of FTSS is
+as a training environment for RL trading agents. FinRL-Meta[97] ships near-real market en-
+vironments built from Yahoo Finance and CCXT feeds and demonstrates that DRL agents
+pre-trained on these synthetic-augmented environments generalize better to the held-out test
+year than agents trained only on the historical window — a result that is reproduced across
+DOW-30, S&P-500 and crypto-asset universes. MarS[90] extends this idea to the order level
+by generating asynchronous event streams, allowing agents to be evaluated on metrics such
+21
+===== PAGE 22 =====
+as realized spread and adverse-selection cost that are invisible to bar-level environments. Ro-
+bust Risk-Sensitive RL Agents[108] stress-test the resulting agents by perturbing the synthetic
+environment, showing that risk-aware training reduces performance variance by an order of
+magnitude across random seeds. Collectively, these works establish FTSS as the substrate for
+“sim-to-real” transfer in ﬁnancial RL.
+Privacy-preserving data sharing and regulatory scenarios.
+Synthetic ﬁnancial data is
+a recognized route to overcome the friction between data sharing and the privacy constraints im-
+posed by GDPR, CCPA, and the equivalent Chinese PIPL. Six Levels of Privacy[109] proposes
+a six-tier framework and demonstrates empirically that synthetic equities, options and LOB
+samples generated by TimeGAN, QuantGAN, and diﬀusion variants preserve aggregate utility
+(Sharpe ratios, correlation matrices, tail-event counts) while reducing membership-inference vul-
+nerability to near-baseline. Privacy Measurement in Tabular Synthetic Data[110] formalizes the
+corresponding evaluation protocol that quantiﬁes the privacy/utility frontier. On the regulatory
+side, Balch et al.[109] argue that FTSS pipelines can produce synthetic benchmark datasets for
+third-party model validation without exposing proprietary positions, a direction that has begun
+to attract policy and supervisory attention in public-sector pilot studies. This shift reframes
+FTSG not only as a research artifact but as compliance infrastructure.
+Cross-cutting Use: Synthetic Datasets as Benchmarks
+Beyond the per-task applications above, FTSG has produced a small but rapidly maturing
+ecosystem of benchmark datasets that are themselves reusable scientiﬁc infrastructure.
+TS-
+GBench[111] provides paired real/synthetic time-series collections for GOOGL and FX series
+and is consumed by downstream papers as a standardized ﬁdelity benchmark. CTBench[112]
+extends this to Binance cryptocurrency markets, where extreme volatility makes synthetic-
+data quality both harder to achieve and more consequential. FinTSB[18] and FinTSBridge[113]
+package millions of Chinese A-share, NYSE and NASDAQ trajectories together with pre-
+deﬁned train/valid/test splits, lowering the cost of entry for new FTSG research and mak-
+ing FTSE/FTSI results directly comparable. These benchmarks invert the typical deployment
+pipeline: rather than synthesizing data to ﬁt a model, the model is now ﬁtted to a benchmark
+whose provenance, statistics and license are publicly auditable. This is a subtle but important
+shift for reproducibility and regulatory acceptance.
+In summary, FTSE, FTSI, and FTSS are not merely three academic formulations of the
+same underlying problem. Each maps onto a distinct, value-generating workﬂow in industry.
+FTSE plugs into decision engines (trading agents, portfolio optimizers, risk models); FTSI
+into data-engineering layers (data cleaning, augmentation for tabular classiﬁers); and FTSS
+into simulation infrastructure (RL training, stress testing, privacy-preserving sharing).
+The
+applications in this section collectively motivate the breadth of design choices catalogued in the
+taxonomy and task-speciﬁc generation subsections.
+22
+===== PAGE 23 =====
+Evaluation Protocols
+Why Generic Generation Metrics are Insuﬃcient
+Evaluation remains one of the most critical, yet under-standardized, aspects of ﬁnancial time-
+series generation. In conventional supervised learning or computer vision tasks, performance is
+often adequately measured by generic metrics like Mean Squared Error (MSE), Fréchet Inception
+Distance (FID), or visual realism. However, FTSG involves multiple competing objectives where
+visual similarity or pointwise accuracy does not equate to ﬁnancial validity.
+A synthetic sequence might achieve a low MSE or MAE against a ground-truth trajectory,
+yet entirely fail to preserve crucial dynamics such as volatility clustering or tail-risk behavior,
+rendering it useless for stress testing. Conversely, generic metrics cannot evaluate whether gener-
+ated data improves a trading agent’s performance in a downstream simulation. Financial data’s
+noise, non-stationarity, and regime-dependent nature demand that evaluation protocols go be-
+yond generic reconstruction. In this section, we systematically organize evaluation practices
+into ﬁve dimensions, culminating in a uniﬁed evaluation checklist.
+Fidelity-Oriented Evaluation
+A primary objective of Financial Time-Series Generation (FTSG) is to approximate the under-
+lying multivariate data-generating distribution closely. Fidelity-oriented evaluation rigorously
+quantiﬁes the statistical divergence between the synthetic sequences ˆX and the empirical obser-
+vations X. This assessment spans several mathematical dimensions:
+• Distributional Similarity: To evaluate whether the model captures the marginal distri-
+butions of returns or prices, optimal transport and probabilistic divergences are employed.
+The 1-Wasserstein distance between the empirical distribution Pr and the generated dis-
+tribution Pg measures the minimum cost required to transform one distribution into the
+other:
+W1(Pr, Pg) =
+inf
+γ∈Π(Pr,Pg) E(x,y)∼γ[∥x −y∥]
+(30)
+where Π(Pr, Pg) is the set of all joint distributions with marginals Pr and Pg. Additionally,
+the Maximum Mean Discrepancy (MMD) is utilized to evaluate distances in a Reproducing
+Kernel Hilbert Space (RKHS) H with kernel k:
+MMD2(Pr, Pg) = E[k(x, x′)] + E[k(y, y′)] −2E[k(x, y)]
+(31)
+where x, x′ ∼Pr and y, y′ ∼Pg.
+• Temporal Dependence: Financial data is fundamentally sequential.
+The generator
+must capture auto-regressive dynamics and lead-lag relationships. This is mathematically
+veriﬁed by comparing the Autocorrelation Function (ACF) of the generated returns ˆrt
+with the empirical returns rt. For a given lag k, the ACF is deﬁned as:
+ρk = Cov(rt, rt−k)
+Var(rt)
+(32)
+The Mean Absolute Error (MAE) between the empirical ACF vector and the synthetic
+ACF vector serves as a standard metric for temporal ﬁdelity.
+23
+===== PAGE 24 =====
+• Cross-Sectional Dependence: In multivariate generation, the covariance structure
+among assets dictates portfolio-level risk. Cross-sectional ﬁdelity is evaluated by comput-
+ing the Frobenius norm of the diﬀerence between the empirical correlation matrix Σr and
+the synthetic correlation matrix Σg:
+Ecorr = ∥Σr −Σg∥F =
+v
+u
+u
+t
+N
+X
+i=1
+N
+X
+j=1
+(σr,ij −σg,ij)2
+(33)
+• Spectral and Frequency-Domain Similarity: To ensure that cyclical macroeconomic
+patterns and the low signal-to-noise ratio are maintained, spectral evaluation applies the
+Fast Fourier Transform (FFT) to convert sequences into the frequency domain. The Power
+Spectral Density (PSD) of the synthetic data is then compared against the real data to
+penalize generators that produce over-smoothed, frequency-deﬁcient signals.
+Financial Validity Evaluation
+A distinctive, non-negotiable requirement of FTSG is that generated sequences must adhere to
+established ﬁnancial theories and principles. High distributional similarity does not guarantee
+the preservation of empirical “stylized facts”the universal, non-linear statistical regularities ob-
+served across global ﬁnancial markets. Evaluation must mathematically verify the presence of
+these facts:
+• Heavy Tails and Kurtosis: Financial returns are notoriously non-Gaussian, exhibiting
+excess kurtosis and fat tails. To quantify the generator’s ability to produce extreme tail
+events (e.g., black swan crashes), researchers measure the sample kurtosis κ = E[(rt−µ)4]
+σ4
+and estimate the tail index α using the Hill estimator.
+For the upper tail, ordering
+observations as X(1) ≥X(2) ≥· · · ≥X(n), the Hill estimator for a threshold k is:
+ˆα =
+ 
+1
+k
+k
+X
+i=1
+ln X(i) −ln X(k+1)
+!−1
+(34)
+The synthetic sequence must yield an ˆα closely matching that of historical data.
+• Volatility Clustering: A fundamental market property where large price variations are
+followed by large variations. A valid generator must replicate this slow-decaying memory
+in variance. This is evaluated by computing the autocorrelation of squared returns r2
+t or
+absolute returns |rt| over extended lags, verifying that ρk(|rt|) > 0 for large k.
+• Leverage Eﬀect: This asymmetric phenomenon dictates that negative returns increase
+future volatility more severely than positive returns of the same magnitude. It is rigorously
+quantiﬁed by the cross-correlation between past returns and future squared returns at lag
+τ > 0:
+L(τ) = Corr(rt, r2
+t+τ)
+(35)
+A ﬁnancially valid synthetic dataset must exhibit L(τ) < 0 for small τ.
+• Tail Risk Preservation (VaR and ES): Synthetic data used for institutional stress-
+testing must not systematically underestimate market risk. Generative ﬁdelity is audited
+24
+===== PAGE 25 =====
+using Value-at-Risk (VaR) and Expected Shortfall (ES). For a conﬁdence level 1 −α (e.g.,
+99%), VaR is the quantile of the return distribution:
+VaRα = inf{z ∈R | P(rt ≤z) ≥1 −α}
+(36)
+While ES measures the expected loss conditional on exceeding the VaR threshold:
+ESα = E[rt | rt ≤VaRα]
+(37)
+Signiﬁcant deviations between empirical and synthetic VaR/ES indicate a dangerous
+smoothing of downside risk.
+Downstream Utility Evaluation
+To bridge the gap between theoretical machine learning metrics and practical ﬁnance, an in-
+creasingly adopted paradigm evaluates generated data strictly based on its utility in executing
+downstream ﬁnancial tasks. If synthetic data enhances the performance of algorithmic systems,
+it possesses intrinsic value.
+• Forecasting Improvement (TSTR vs. TRTR): This protocol evaluates the generator
+as a data augmentation engine. A predictive model fθ is trained entirely on generated data
+ˆX and evaluated on real, out-of-sample data Xtest. This Train-on-Synthetic, Test-on-Real
+(TSTR) performance is compared against the Train-on-Real, Test-on-Real (TRTR) base-
+line. A TSTR predictive error (e.g., MSE or directional accuracy) that closely approaches
+or surpasses TRTR demonstrates exceptional generative utility.
+• Trading Agent Training and Simulation: By deploying the generative model as
+an interactive market environment, Reinforcement Learning (RL) trading agents can be
+trained on millions of synthetic episodes. The utility of the generator is subsequently
+quantiﬁed by the ﬁnancial performance of the agent when deployed on real out-of-sample
+data, measured via the annualized Sharpe Ratio (SR) and Maximum Drawdown (MDD):
+SR = E[Rp −Rf]
+p
+Var(Rp)
+,
+MDD = max
+τ∈(0,T)
+maxt∈(0,τ) Pt −Pτ
+maxt∈(0,τ) Pt
+
+(38)
+where Rp is portfolio return, Rf is the risk-free rate, and Pt is the portfolio value at time
+t.
+Robustness, Controllability, and Privacy
+As generative architecturesparticularly foundation models and diﬀusion modelsbecome increas-
+ingly sophisticated, evaluation protocols must expand to audit advanced capabilities and regu-
+latory compliance.
+• Regime Robustness: Generic metrics calculated over long, blended time horizons ob-
+scure a model’s failure in speciﬁc contexts. Robustness evaluation partitions test data into
+discrete regimes (e.g., low-volatility bull markets vs. high-volatility crashes) using Hidden
+Markov Models (HMM) or variance thresholds. Models are evaluated on their ability to
+maintain stable generative ﬁdelity across these shifting boundaries.
+25
+===== PAGE 26 =====
+• Conditional Consistency: For multimodal or controllable generation (e.g., text-to-
+market or target-volatility synthesis), evaluation must quantify semantic alignment. This
+involves measuring the correlation between the conditioning input (e.g., a target VaR
+level) and the actualized metric in the generated sequence, ensuring the generator is not
+merely ignoring the prompt to produce unconditional mode-collapsed outputs.
+• Privacy Leakage and Memorization Risk: A critical motivation for FTSG is by-
+passing strict ﬁnancial data-sharing regulations (e.g., GDPR). To verify that a model has
+not simply memorized proprietary training data, the Distance-to-Closest Record (DCR)
+is computed:
+DCR(ˆx) =
+min
+x∈Xtrain ∥ˆx −x∥2
+(39)
+If the DCR distribution peaks near zero, the model suﬀers from severe privacy leakage.
+Furthermore, models optimized with Diﬀerential Privacy (DP) are evaluated against their
+(ϵ, δ)-DP bounds, analyzing the mathematical trade-oﬀbetween the privacy budget ϵ and
+the resulting degradation in downstream utility.
+A Uniﬁed Evaluation Checklist
+The lack of standardized evaluation frequently leads to contradictory claims regarding state-
+of-the-art performance in FTSG. To resolve this, we formalize a uniﬁed evaluation checklist,
+mapping the aforementioned rigorous metrics to their appropriate problem formulations.
+As detailed in Table 6, researchers must construct a composite evaluation protocol. For
+instance, an imputation model may prioritize pointwise accuracy (MSE) and temporal coherence,
+whereas a market simulation architecture must be rigorously audited against stylized facts
+(Kurtosis, Ljung-Box tests for volatility clustering) and downstream utility (TSTR). No single
+metric is suﬃcient; ﬁnancial validity emerges only at the intersection of distributional ﬁdelity,
+economic logic, and practical applicability.
+Emerging Trends in Evaluation and Benchmarking
+The evaluation of synthetic ﬁnancial data is rapidly transitioning from the isolated calculation
+of generic metrics toward comprehensive, standardized benchmark platforms. Recent literature
+reveals a deﬁnitive paradigm shift focused on multimodal reasoning, structural market con-
+straints, and full-pipeline ﬁnancial workﬂows. We categorize these emerging trends into three
+primary directions:
+1. Conditional Speciﬁcity and Scenario-Based Evaluation: Standard distribution-
+matching metrics often fail to evaluate whether a conditional generative model actually respects
+its conditioning metadata (e.g., speciﬁc market regimes or macroeconomic textual prompts). To
+address this, Narasimhan and Jiang[114] introduced Time Weaver, pioneering novel speciﬁcity
+metrics that explicitly penalize generative models for failing to reproduce metadata-speciﬁc
+features in the synthesized sequences.
+2. Market Microstructure and LOB Standardization: Evaluating high-frequency tick
+data and Limit Order Books (LOB) requires specialized protocols due to their asynchronous
+nature and stringent cross-feature constraints. Zhong et al.[115] recently introduced LOBench,
+the ﬁrst standardized benchmark speciﬁcally engineered for LOB representation and generation.
+26
+===== PAGE 27 =====
+Utilizing massive, real-world China A-share market data, LOBench establishes uniﬁed prepro-
+cessing pipelines and task-speciﬁc baselines, allowing researchers to evaluate generative ﬁdelity
+directly against microstructural properties such as queue dynamics and volume imbalances.
+3. Full-Pipeline Workﬂows and Multimodal Reasoning: Instead of treating time-
+series generation as an isolated algorithmic task, modern benchmarks evaluate synthetic data
+based on its utility within broader economic workﬂows. Jiang et al.[116] proposed FinMaster,
+a holistic benchmark featuring a dedicated FinSim module that evaluates how well generated
+synthetic, privacy-compliant ﬁnancial data replicates market dynamics for downstream corpo-
+rate auditing and accounting tasks.
+Similarly, comprehensive multi-modal benchmarks like
+TSRBench [117] have been introduced to stress-test the reasoning capabilities of Large Language
+Models (LLMs) over time-series data. These platforms reveal a critical insight for evaluation:
+strong semantic reasoning does not guarantee accurate context-aware numerical generation,
+highlighting the need for hybrid evaluation metrics that simultaneously score textual alignment
+and continuous mathematical ﬁdelity.
+Data Resources and Benchmarks
+The empirical foundation of Financial Time-Series Generation (FTSG) relies on the quality,
+granularity, and structure of the underlying data. Unlike static image datasets, ﬁnancial data
+is continuous, highly non-stationary, and prone to hidden biases. We systematically cluster
+these resources moving from raw modalities to curated databases, standardized benchmarks,
+and ultimately, the practical pitfalls of dataset construction.
+Raw Data Sources and Modalities
+Financial time series are not monolithic; they exhibit drastically diﬀerent statistical signatures
+depending on the asset class and sampling frequency. The rationale for clustering these sources
+lies in the speciﬁc generative challenges they present. We categorize raw FTSG data into four
+distinct modalities:
+1. Equities and Market Indices: Encompassing individual stocks (e.g., AAPL, TSLA)
+and aggregate indices (e.g., S&P 500, CSI 300). Sampled typically at daily or minutely
+frequencies, these series are the primary testbeds for unconditional synthesis and extrap-
+olation. They present fundamental generative challenges, including pronounced volatility
+clustering, fat-tailed distributions, and regime-shifting non-stationarity.
+2. High-Frequency Microstructure (LOB): Limit Order Books (LOB), tick-by-tick trades,
+and Level-2 quotes recorded at the millisecond or microsecond level. Generating LOB data
+is exceptionally complex due to its asynchronous nature and the strict spatial constraints
+required (e.g., bids must strictly remain below asks, and queue volumes dictate execu-
+tion). This data is essential for simulating interactive, multi-agent algorithmic trading
+environments.
+3. Macroeconomics and Fixed Income: Indicators such as Treasury yield curves, the
+Consumer Price Index (CPI), and Gross Domestic Product (GDP). Sampled at low fre-
+quencies (monthly or quarterly), these datasets reﬂect systemic economic health. The
+primary challenge here is severe data sparsity and the need to interpolate/impute missing
+values across shifting long-term economic cycles.
+27
+===== PAGE 28 =====
+4. Alternative Data and Textual Metadata: With the rise of multi-modal foundation
+models, purely numerical series are increasingly augmented with alternative data. This in-
+cludes macroeconomic news headlines, central bank policy texts, earnings call transcripts,
+and social media sentiment. This modality is crucial for training controllable generators
+and scenario-guided market simulators.
+Curated Databases and APIs
+Historically, raw ﬁnancial data is fragmented and optimized for human visualization. To fa-
+cilitate the massive data ingestion required by deep generative models, researchers rely on
+institutional databases and developer APIs:
+• Institutional and Academic Repositories: For rigorous backtesting and synthesis,
+Wharton Research Data Services (WRDS), the Center for Research in Security Prices
+(CRSP), and Compustat provide survivorship-bias-free equity data. For macroeconomic
+series, FRED (Federal Reserve Economic Data) remains the gold standard. In Chinese
+markets, CSMAR oﬀers comprehensive, high-quality A-share trading records.
+• Open-Source and Developer APIs: Platforms like Yahoo Finance and Investing.com
+are frequently accessed via open-source Python wrappers (yfinance). For programmatic,
+high-frequency access, APIs such as Alpha Vantage, Alpaca, and Polygon.io deliver mas-
+sive historical streams suitable for training large-scale predictive models.
+• Cryptocurrency Exchanges: Due to 24/7 trading and open data access, crypto markets
+have become highly popular for testing generative algorithms. Platforms like Binance and
+CoinMarketCap provide free API access to granular tick and volume data, capturing
+extreme volatility events ideal for stress-testing generation.
+Standardized Benchmarks and Evaluation Suites
+Historically, FTSG research relied on ad-hoc, proprietary data slices, severely hindering repro-
+ducibility and fair model comparison. The recent emergence of uniﬁed benchmark platforms
+marks a critical maturation in the ﬁeld. These benchmarks encapsulate vast datasets, pre-deﬁne
+chronological train/test/validation splits, and standardize evaluation metrics (e.g., masking ra-
+tios for imputation, prompt templates for forecasting).
+By providing a “level playing ﬁeld,” these suites allow researchers to disentangle algorithmic
+improvements from data-mining advantages. A summary of recent and authoritative FTSG
+benchmarks is provided in Table 7.
+Practical Issues in Dataset Construction
+Constructing ﬁnancial datasets for generative models is fraught with domain-speciﬁc pitfalls.
+A generative architecture, no matter how mathematically advanced, will learn and amplify the
+structural biases present in its training data. Key issues include:
+• Survivorship Bias: Datasets that only include currently active assets inadvertently ﬁlter
+out companies that went bankrupt or were delisted. Generative models trained on such
+data will synthesize artiﬁcially optimistic market trajectories and fail to accurately model
+the probability of asset default, ruining their utility for downside risk management.
+28
+===== PAGE 29 =====
+• Look-Ahead Bias in Alignment: This occurs when models are trained on information
+that was not publicly available at the timestamp of generation. A common pitfall in FTSG
+is using historically revised macroeconomic data (e.g., revised GDP ﬁgures published
+months later) rather than the "point-in-time" unrevised data, causing the generator to
+leak future realities.
+• Chronological Splitting vs.
+Random Masking: Unlike static images where inde-
+pendent and identically distributed (i.i.d.) random splitting is acceptable, ﬁnancial time
+series must be strictly partitioned chronologically.
+Randomly splitting overlapping se-
+quence windows leads to severe temporal data leakage. Similarly, in imputation tasks,
+random masking often fails to reﬂect the true missingness mechanisms (e.g., contiguous
+trading halts), leading to models that perform well on paper but fail in live environments.
+• Asynchronous Frequencies and Missingness: In multivariate generation (e.g., simu-
+lating a global portfolio), assets trade on diﬀerent global exchanges with distinct operating
+hours and holidays. Naively padding these datasets forward creates artiﬁcial zero-volatility
+spans, causing cross-sectional generators (like Diﬀusion models) to learn spurious ﬂat-line
+correlations.
+• Market Regime Imbalance: Historical datasets are overwhelmingly dominated by stan-
+dard, low-to-medium volatility market conditions.
+Without specialized sampling tech-
+niques, models suﬀer from severe class imbalance and will systematically fail to generate
+realistic, high-ﬁdelity crash scenarios (e.g., the 2020 COVID-19 ﬂash crash) simply because
+these events represent a fraction of the training distribution.
+Discussion
+Despite the rapid advancements in ﬁnancial time-series generation, several fundamental chal-
+lenges remain unresolved at the intersection of generative artiﬁcial intelligence and empirical
+ﬁnancial econometrics. Bridging the gap between statistical expressiveness and market validity
+requires addressing core bottlenecks in causality, theoretical boundedness, cross-modal integra-
+tion, and temporal non-stationarity.
+Causal and invariant representation learning.
+Current FTSG models often learn
+spurious correlations speciﬁc to a particular market environment or training window.
+This
+stems from a lack of explicit disentanglement between true causal factors (e.g., shifts in fun-
+damental central bank policies) and mere coincidental patterns (e.g., a speciﬁc high-frequency
+trading algorithm’s temporary market dominance). Consequently, models that assume data
+are Independent and Identically Distributed (i.i.d.) fail drastically when encountering novel
+market regimes due to severe out-of-distribution (OOD) shifts[118,119]. To address this, future
+FTSG frameworks must move toward environment-invariant learning. By treating speciﬁc mar-
+ket regimes (e.g., high vs. low volatility) as distinct training “environments,” techniques like
+Invariant Risk Minimization (IRM)[118] can be leveraged to eliminate spurious environmental
+correlations. Early attempts in forecasting demonstrate that enforcing representation invariance
+across regimes improves robustness[27]. Porting this paradigm to generative models will ensure
+that synthesized trajectories remain realistic even under unprecedented economic shifts.
+29
+===== PAGE 30 =====
+Econometrically bounded generation. A well-documented constraint of purely data-
+driven generative models (such as standard GANs and Diﬀusion Models) is that they can
+replicate past empirical distributions without guaranteeing adherence to established market mi-
+crostructure or stochastic process theory[120]. For instance, unconstrained models might gener-
+ate prices that breach arbitrage boundaries or fail to exhibit mean-reverting volatility. Drawing
+inspiration from Physics-Informed Neural Networks (PINNs) in the physical sciences[121], future
+research should focus on econometrically-bounded generation.
+Embedding economic priors—
+such as Geometric Brownian Motion (GBM), stochastic volatility models, or jump-diﬀusion
+processes for extreme events[122]—directly into the generator’s loss functions provides a power-
+ful white-box constraint. Recent advancements have successfully integrated GBM priors into
+score-matching diﬀusion models[80]. Expanding this to capture more complex stylized facts will
+ensure that synthesized sequences are not merely statistically plausible, but also economically
+rational.
+Multi-modal time series generation. Existing FTSG models broadly generate time-
+series data in isolation, neglecting the exogenous, multi-modal signals that drive actual market
+dynamics. However, ﬁnancial markets are multi-causal systems: a macroeconomic announce-
+ment (textual metadata) triggers shifts in order ﬂow (discrete events), which subsequently alter
+implied volatility surfaces (continuous manifolds).
+To capture this complexity, future work
+should pursue two promising avenues. First, cross-modal conditioned generation can encode
+broader heterogeneous data, such as central bank operations, limit order book states, and earn-
+ings call transcripts[92,93,123], using a uniﬁed representation space to precisely steer generative
+trajectories beyond narrow textual prompts[11,39]. Second, joint multi-modal generation involves
+the simultaneous generation of linked data streams. By jointly modeling limit order books, ﬁ-
+nancial news headlines, and derivative prices, generators can inherently learn cross-modal causal
+dependencies and lead-lag relationships[93], which is vital for simulating high-impact scenarios
+such as ﬂash crashes.
+Online adaptation under regime shifts. Despite the zero-shot capabilities of modern
+time-series foundation models, they remain susceptible to concept drift—the frequent distri-
+butional shifts triggered by evolving economic cycles or regulatory changes. Therefore, static
+generative models will inevitably degrade over time.
+To avoid the notorious “catastrophic
+forgetting” associated with ﬁne-tuning on new data[124,125], FTSG must transition toward on-
+line adaptation. One promising avenue is Bayesian Continuous Learning, utilizing Streaming
+Variational Bayes[126] to incrementally update the generator’s latent space as new market obser-
+vations arrive in real time. Alternatively, framing generation within an Online Reinforcement
+Learning framework[127], where the model receives rewards based on the real-time ﬁdelity of its
+synthetic samples relative to current market conditions, allows for near-instant calibration to
+abrupt regime shifts without retraining from scratch.
+Limitations, practical implications, and concluding outlook. While this survey syn-
+thesizes 130 studies spanning 2021 to early 2026, several intrinsic limitations characterize the
+current empirical literature. Primarily, existing benchmarks remain disproportionately concen-
+trated in liquid equity and cryptocurrency markets, with a comparative scarcity of standard-
+ized suites for ﬁxed income, credit derivatives, and illiquid alternative assets.
+Furthermore,
+the absence of universally accepted, open-source matching engine simulators hampers standard-
+ized, apples-to-apples comparisons of downstream execution utility. Nonetheless, our proposed
+two-level taxonomy successfully uniﬁes the ﬁeld across task-oriented and technique-driven di-
+30
+===== PAGE 31 =====
+mensions, providing a structured conceptual framework for future studies. By compiling cu-
+rated databases, establishing a multi-dimensional evaluation protocol, and identifying theoret-
+ical boundaries, this review provides a deﬁnitive foundation for researchers and practitioners
+developing next-generation ﬁnancial generative models.
+Methods
+To ensure the reproducibility, transparency, and comprehensiveness of this review, we adhered
+to a systematic literature review methodology tailored to the intersection of artiﬁcial intelli-
+gence and quantitative ﬁnance, designed in accordance with the Preferred Reporting Items for
+Systematic Reviews and Meta-Analyses (PRISMA 2020) guidelines. The completed PRISMA
+2020 checklist is provided as Supplementary Information. This section outlines our protocols
+for literature retrieval, inclusion/exclusion criteria, data extraction, and the dimensions utilized
+for synthesizing the gathered research.
+Literature Retrieval Strategy
+Our primary objective was to capture the state-of-the-art advancements in ﬁnancial time-series
+generation, particularly focusing on the paradigm shift driven by generative AI over recent
+years.
+Search Databases: We conducted exhaustive searches across premier academic databases
+and preprint repositories to ensure broad coverage of both peer-reviewed and cutting-edge un-
+published works.
+The primary databases included Google Scholar, DBLP, Web of Science,
+Scopus, and arXiv.
+Search Keywords: To construct a robust search query, we combined terms related to the
+ﬁnancial domain, time-series data, and generative tasks. The primary Boolean search strings
+included: (“ﬁnancial time-series generation” OR “synthetic ﬁnancial data” OR “market simula-
+tion generative model”) AND (“ﬁnancial diﬀusion model” OR “ﬁnancial GAN” OR “time-series
+imputation ﬁnance” OR “ﬁnancial foundation models”).
+Time Frame and Publication Types: Given the rapid evolution of deep generative
+models, we restricted our primary search window to papers published or uploaded between 2021
+and early 2026 (including early-access and preprints). We included articles from high-
+impact journals (e.g., Information Sciences, Expert Systems with Applications, Quantitative
+Finance), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI),
+and highly cited arXiv preprints that represent signiﬁcant methodological breakthroughs.
+After full-text screening, the ﬁnal corpus comprises 130 studies, each assigned to a unique
+primary task category: extrapolation (54), imputation (29), and synthesis (47). Multi-task or
+cross-cutting contributions are discussed in the relevant sections but are not double-counted in
+task-level comparison tables.
+Inclusion and Exclusion Criteria
+As illustrated in Figure 6, to maintain a high signal-to-noise ratio and ensure strict relevance
+to the core theme of FTSG, all retrieved papers underwent a two-stage screening process (ti-
+tle/abstract screening followed by full-text review) based on the following criteria:
+Inclusion Criteria:
+31
+===== PAGE 32 =====
+• Papers that explicitly formulate and address the generation, imputation, or fully synthetic
+simulation of ﬁnancial time-series data.
+• Studies that propose novel generative architectures (e.g., GANs, diﬀusion models, LLMs)
+speciﬁcally adapted for ﬁnancial contexts.
+• Research that establishes uniﬁed evaluation protocols, benchmarks, or datasets for syn-
+thetic ﬁnancial data.
+Exclusion Criteria:
+• Purely predictive or forecasting studies that treat outputs strictly as deterministic point
+estimates without a generative, distributional, or probabilistic perspective.
+• General time-series generation papers that lack an identiﬁable and empirically tested
+ﬁnancial application (e.g., solely tested on weather or traﬃc data).
+• Outdated surveys or methodologies that do not incorporate modern deep learning or
+generative AI techniques, unless necessary for historical context.
+Data Extraction and Coding Protocol
+For each paper that met the inclusion criteria, we executed a structured data extraction protocol.
+Two independent reviewers (authors) coded the literature to extract key metadata, minimizing
+subjective bias. The extracted ﬁelds included:
+• Task Type: Extrapolation, imputation, micro-level synthesis, or macro-level market
+simulation.
+• Model Family: Statistical/probabilistic, discriminative deep learning, GAN-based, diﬀusion/score-
+based, or foundation/LLM-based models.
+• Data Modality: Univariate vs. multivariate, frequency (high-frequency order book vs.
+daily/monthly returns), and conditioning variables (e.g., text, macroeconomic indicators).
+• Evaluation Metrics: The speciﬁc quantitative and qualitative metrics used to validate
+the generated outputs (e.g., MSE, Wasserstein distance, stylized facts, downstream util-
+ity).
+• Code/Data Availability: Whether the authors open-sourced their codebases or utilized
+public benchmark datasets.
+Review Dimensions and Taxonomy Synthesis
+The extracted data were synthesized and are presented in the Results and Discussion sections
+along six uniﬁed analytical dimensions:
+1. Task Formulation: Deﬁning the mathematical boundaries and generative objectives of
+extrapolation, imputation, and synthesis (presented in the Problem Formulation and A
+Two-Level Taxonomy subsection).
+32
+===== PAGE 33 =====
+2. Model Design: Analyzing how speciﬁc generative architectures are engineered to over-
+come ﬁnancial data challenges (detailed across the Extrapolation, Imputation, and Syn-
+thesis subsections).
+3. Applications: Examining how extrapolation, imputation, and synthesis support down-
+stream quantitative workﬂows (presented in the Applications subsection).
+4. Evaluation Protocol: Critiquing how the ﬁnancial realism and empirical validity of
+generated series are quantiﬁed (presented in the Evaluation Protocols subsection).
+5. Datasets and Benchmarks: Summarizing the empirical foundations upon which gener-
+ative models are trained and benchmarked (presented in the Data Resources and Bench-
+marks subsection).
+6. Open Challenges and Roadmap: Identifying theoretical and practical bottlenecks
+requiring future research interventions (presented in the Discussion section).
+By rigorously adhering to this methodology, this survey transitions from a mere enumeration
+of literature to a systematic, evaluation-oriented resource paper, providing a highly reliable
+foundation for researchers in the ﬁeld.
+Data Availability
+No new empirical primary datasets were generated during the current study. All benchmark
+datasets, curated databases, and public APIs reviewed and analyzed in this survey (including
+FinTSB, TFB, TSGBench, CTBench, FinTSBridge, WRDS, CRSP, and FRED) are derived
+from published literature and publicly accessible repositories as referenced in the Data Resources
+and Benchmarks subsection. The literature retrieval query logs and systematic extraction coding
+tables supporting the ﬁndings of this review are available from the corresponding authors upon
+reasonable request.
+Code Availability
+This work is a systematic literature survey and did not generate custom algorithmic codebases
+or software artifacts. All generative models, benchmark evaluation suites, and foundational
+model repositories discussed are publicly accessible via their respective cited publications and
+open-source repositories as cataloged throughout the manuscript.
+Acknowledgements
+The authors would like to thank the colleagues and members of the research group for construc-
+tive discussions that contributed to reﬁning the scope and taxonomy of this survey.
+Funding
+The authors declare that no funds, grants, or other ﬁnancial support were received during the
+preparation of this manuscript.
+33
+===== PAGE 34 =====
+Author Contributions
+Funding
+The authors declare that no funds, grants, or other ﬁnancial support were received during the
+preparation of this manuscript.
+Author Contributions
+Y. Zhang: Conceptualization, Methodology, Writing – Original Draft. J. Duan: Validation,
+Formal analysis, Writing – Review & Editing. Y. Zou: Validation, Formal analysis, Writing –
+Review & Editing. K. Feng: Supervision, Project administration. J. Xiao: Supervision, Project
+administration. All authors reviewed, discussed, and approved the ﬁnal submitted version of
+the manuscript.
+Competing Interests
+The authors declare no competing ﬁnancial or non-ﬁnancial interests.
+Competing Interests
+The authors declare no competing ﬁnancial or non-ﬁnancial interests.
+34
+===== PAGE 35 =====
+References
+1. Zhao, H. et al. TimeSeriesScientist: A general-purpose AI agent for time series analysis
+(2025). URL https://arxiv.org/abs/2510.01538. 2510.01538.
+2. Jiang, Y. et al. Multi-modal time series analysis: A tutorial and survey (2025). URL
+https://arxiv.org/abs/2503.13709. 2503.13709.
+3. Box, G. E., Jenkins, G. M., Reinsel, G. C. & Ljung, G. M. Time series analysis: forecasting
+and control (John Wiley & Sons, 2015).
+4. Kwon, S. & Lee, Y. Can GANs learn the stylized facts of ﬁnancial time series? In ICAIF
+(2024). URL https://doi.org/10.1145/3677052.3698661.
+5. Yoon, J., Jarrett, D. & van der Schaar, M.
+Time-series generative adversarial net-
+works. In NeurIPS (2019). URL https://proceedings.neurips.cc/paper/2019/hash/
+c9efe5f26cd17ba6216bbe2a7d26d490-Abstract.html.
+6. Wiese, M., Knobloch, R., Korn, R. & Muller, P. QuantGANs: deep generation of ﬁnancial
+time series. Quantitative Finance 20, 1419–1440 (2020).
+7. Naritomi, Y. & Adachi, T. Data augmentation of high frequency ﬁnancial data using gen-
+erative adversarial network. In Proceedings of the IEEE/WIC/ACM International Confer-
+ence on Web Intelligence (WI/IAT) (2020).
+8. Ho, J., Jain, A. & Abbeel, P. Denoising diﬀusion probabilistic models. In Advances in
+Neural Information Processing Systems (NeurIPS), vol. 33, 6840–6851 (2020).
+9. Rasul, K., Seward, C., Nouretdinov, I. & Vollgraf, R. Autoregressive denoising diﬀusion
+models for multivariate probabilistic time series forecasting. In International Conference
+on Machine Learning (ICML), 8857–8868 (PMLR, 2021).
+10. Ansari, A. F. et al. Chronos: Learning the language of time series. arXiv preprint (2024).
+2403.07815.
+11. Jin, M., Ma, L., Chu, Z. & Wen, Q. Time-LLM: Time series forecasting by reprogram-
+ming large language models. In ICLR (2024). URL https://openreview.net/forum?
+id=Unb5CVPtae.
+12. Zhang, X., Chowdhury, R. R., Gupta, R. K. & Shang, J. Large language models for time
+series: A survey. In IJCAI (2024). URL https://www.ijcai.org/proceedings/2024/
+921.
+13. Liang, Y. et al. Foundation models for time series analysis: A tutorial and survey. In
+KDD (2024). URL https://doi.org/10.1145/3637528.3671451.
+14. Kim, J., Kim, H., Kim, H., Lee, D. & Yoon, S. A comprehensive survey of deep learning
+for time series forecasting: architectural diversity and open challenges. Artif. Intell. Rev.
+(2025). URL https://doi.org/10.1007/s10462-025-11223-9.
+15. Kong, X. et al. Deep learning for time series forecasting: a survey. Int. J. Mach. Learn.
+Cybern. (2025). URL https://doi.org/10.1007/s13042-025-02560-w.
+35
+===== PAGE 36 =====
+16. Nie, Y. et al.
+A survey of large language models for ﬁnancial applications: Progress,
+prospects and challenges. CoRR (2024). URL https://doi.org/10.48550/arXiv.2406.
+11903. 2406.11903.
+17. Arsenault, P., Wang, S. & Patenaude, J. A survey of explainable artiﬁcial intelligence
+(XAI) in ﬁnancial time series forecasting. ACM Comput. Surv. (2025). URL https://doi.
+org/10.1145/3729531.
+18. Hu, Y., Liu, P., Zhu, Y. & Jiang, C. FinTSB: A comprehensive and practical benchmark
+for ﬁnancial time series forecasting (2025). 2502.18834.
+19. Qiu, X. et al. TFB: towards comprehensive and fair benchmarking of time series forecast-
+ing methods. Proc. VLDB Endow. (2024). URL https://www.vldb.org/pvldb/vol17/
+p2363-hu.pdf.
+20. Box, G. E. P. & Jenkins, G. M. Time series analysis: Forecasting and control (Holden-Day,
+1970).
+21. Kim, J. et al. A review of GARCH modeling in ﬁnancial time series. Journal of Financial
+Econometrics (2021).
+22. Zhang, X. et al. Multi-period learning for ﬁnancial time series forecasting. In KDD (2020).
+URL https://doi.org/10.1145/3690624.3709422.
+23. Qin, A., Li, B., Cai, C. & Ding, D. Advances in LSTM architectures for ﬁnancial sequence
+modeling. Expert Systems with Applications (2025).
+24. Li, J.-C., Sun, L.-P., Wu, X. & Tao, C. Enhancing ﬁnancial time series forecasting with
+hybrid deep learning: CEEMDAN-Informer-LSTM model. Applied Soft Computing 177,
+113241 (2025).
+25. Çalışkan, B. Enhancing recurrent neural networks for stock market forecasts through PEC-
+W framework.
+In 2025 IEEE Symposium on Computational Intelligence for Financial
+Engineering and Economics (CIFEr) (IEEE, 2025).
+26. Li, Q., Kamaruddin, N., Yuhaniz, S. S. & Al-Jaiﬁ, H. A. A. Forecasting stock prices changes
+using long-short term memory neural network with symbolic genetic programming. Scien-
+tiﬁc Reports 14, 422 (2024). URL https://doi.org/10.1038/s41598-023-50783-0.
+27. Cao, D. et al. Large scale ﬁnancial time series forecasting with multi-faceted model. In
+Proceedings of the Fourth ACM International Conference on AI in Finance, 472–480 (2023).
+URL https://doi.org/10.1145/3604237.3626868.
+28. Dai, Z., Xinyue, Z. & Youchen, W.
+WaveGAN: Wavelet-based generative adversarial
+networks for ﬁnancial time series. Quantitative Finance (2024).
+29. Wang, Z. & Ventre, C. A ﬁnancial time series denoiser based on diﬀusion models. In
+Proceedings of the ACM International Conference on AI in Finance (ICAIF) (2024).
+30. Dai, A., Filho, B., Sclip, C. & Chattoraj, D. N-BEATS-GAN: Interpretable generation of
+ﬁnancial sequences. Expert Systems with Applications (2026).
+36
+===== PAGE 37 =====
+31. Oreshkin, B. N., Carpov, D., Chapados, N. & Bengio, Y. N-BEATS: Neural basis expansion
+analysis for interpretable time series forecasting. In International Conference on Learning
+Representations (ICLR) (2020).
+32. Cao, Y. et al. TimeDiT: Diﬀusion transformers for time series generation. arXiv preprint
+(2024).
+33. Islam, M. K., Karmacharya, A., Sue, T. J. & Fox, J. Large language models for ﬁnancial
+aid in ﬁnancial time-series forecasting. In BigData (2024). URL https://doi.org/10.
+1109/BigData62323.2024.10824953.
+34. Zhou, T., Niu, P., Wang, X., Sun, L. & Jin, R. One ﬁts all: Power general time series anal-
+ysis by pretrained LM. In Advances in Neural Information Processing Systems (NeurIPS)
+(2023).
+35. Wang, A., Wang, B., Sun, C. & Lu, D.
+StockTime: Multi-modal fusion for ﬁnancial
+forecasting. arXiv preprint (2024).
+36. Liu, E. & Jia, F. LLM4FTS: Large language models for ﬁnancial time series. arXiv preprint
+(2025).
+37. Tang, G., Gong, H., Zhang, I. & Tao, J. LLM-PS: Time-to-text translation for ﬁnancial
+modeling. arXiv preprint (2025).
+38. Jin, M. et al. Time-LLM: Time series forecasting by reprogramming large language models.
+In International Conference on Learning Representations (ICLR) (2024).
+39. Liu, K., Dai, L., Li, M. & Xia, N. CALF: Consistency alignment for language and ﬁnance.
+arXiv preprint (2025).
+40. Qi, O., Lei, P., Zhang, Q. & Shen, R. TimeHF: Human feedback for time series foundation
+models. arXiv preprint (2025).
+41. Zhu, S., Chen, T., Qu, U. & Chung, V.
+FinCast: Zero-shot ﬁnancial forecasting via
+mixture of experts. arXiv preprint (2025).
+42. Chow, G. C. & Lin, A.-l. Best linear unbiased interpolation, distribution, and extrapolation
+of time series by related series. The review of Economics and Statistics 372–375 (1971).
+43. Stekhoven, D. J. & Bühlmann, P. MissForestnon-parametric missing value imputation for
+mixed-type data. Bioinformatics 28, 112–118 (2012).
+44. Khuwaja, P., Khowaja, S. A. & Dev, K.
+Adversarial learning networks for FinTech
+applications using heterogeneous data sources. IEEE Internet Things J. (2023). URL
+https://doi.org/10.1109/JIOT.2021.3100742.
+45. Smith, A. Discount curve estimation with kernel ridge regression. Journal of Financial
+Econometrics (2020).
+46. Wang, X. et al. Multivariate time series imputation using BiGRU-BiLSTM and polynomial
+regression. Expert Systems with Applications (2021).
+37
+===== PAGE 38 =====
+47. Varolgunes, M., Zhou, Y., Yu, H. & Uddin, M. NMTucker: Non-linear matryoshka tucker
+decomposition for tensor completion. Information Sciences (2023).
+48. Zhou, Y., Shang, X., Sylla, I. & Yu, H. RegTensor: Fast non-linear coupled tensor com-
+pletion with orthogonal regularization. Knowledge-Based Systems (2023).
+49. Wang, L., Cui, Y., Guo, Z. & Ning, P. AttnWGAIN: Attention-based wasserstein GAN
+for missing ﬁnancial data imputation. Expert Systems with Applications (2025).
+50. Qin, J. & Wang, Q. ImputeGAN: Informer-based generative adversarial network for long-
+sequence time-series imputation. Applied Soft Computing (2023).
+51. Wang, S. et al. CWGAIN-GP: Conditional wasserstein GAN with gradient penalty for
+contiguous missing data. Quantitative Finance (2024).
+52. Tashiro, Y., Song, J., Song, Y. & Ermon, S. CSDI: Conditional score-based diﬀusion mod-
+els for probabilistic time series imputation. In Advances in Neural Information Processing
+Systems, vol. 34, 24804–24816 (2021).
+53. Liang, G. et al. Latent space score-based diﬀusion model for probabilistic multivariate time
+series imputation. In ICASSP (2025). URL https://doi.org/10.1109/ICASSP49660.
+2025.10888912.
+54. Zhang, S. et al. Score-CDM: Score-weighted convolutional diﬀusion model for multivariate
+time series imputation. In IJCAI (2024). URL https://www.ijcai.org/proceedings/
+2024/282.
+55. Zhang, S. et al. SaSDim: Self-adaptive noise scaling diﬀusion model for spatial time series
+imputation. In IJCAI (2024). URL https://www.ijcai.org/proceedings/2024/283.
+56. Zhang, Y., Tan, X., Wang, L. & Wang, J. Spatial-temporal consistency in diﬀusion models
+for imputation. IEEE Transactions on Knowledge and Data Engineering (2024).
+57. Zhou, H., Zheng, Y., Wang, Q. & Zhou, T.
+Cross-variable dependency alignment in
+ﬁnancial diﬀusion imputation. Information Sciences (2024).
+58. Fons, E., Sztrajman, A., El-Laham, N. & Veloso, M. LSCD: Latent spectral conditional
+diﬀusion for ﬁnancial sequence imputation. arXiv preprint (2025).
+59. Zhang, K., Qiu, S., Liu, Y. & Cheng, J. SPDM: Spectral periodic diﬀusion models for
+multivariate imputation. arXiv preprint (2025).
+60. Chen, Y. et al. LLM-Forest: Ensemble large language models for tabular data imputation.
+arXiv preprint (2023).
+61. Liu, Z. et al. MTabGen: Mixed-type tabular data generation and imputation via diﬀusion
+models. arXiv preprint (2023).
+62. Shan, N., Li, J. & Oliva, P. Deep learning for irregular and missing ﬁnancial data: A
+review. IEEE Access (2021).
+38
+===== PAGE 39 =====
+63. Du, Y. et al. A comprehensive survey on deep learning for time-series imputation. IEEE
+Transactions on Pattern Analysis and Machine Intelligence (2024).
+64. Miao, P., Li, C. & Chen, X. Joint forecasting and imputation via coupled diﬀusion models.
+Applied Soft Computing (2025).
+65. Zhang, Y. et al. Robust ﬁnancial imputation via dual-attention networks. Information
+Sciences (2023).
+66. Cai, Y. et al. Temporal graph networks for ﬁnancial time-series imputation. Knowledge-
+Based Systems (2025).
+67. Chen, L. et al. Imputation strategies for fragmented ﬁnancial markets. Knowledge-Based
+Systems (2023).
+68. Zhang, J. et al. Advancing multi-modal imputation in quantitative ﬁnance. IEEE Trans-
+actions on Knowledge and Data Engineering (2025).
+69. Bamford, S., Fons, E., El-Laham, N. & Vyetrenko, S. High-frequency data imputation
+using deep learning and order book dynamics. Quantitative Finance (2023).
+70. Shankar, A., Chen, Z., van Deursen, A. & Hai, R. Benchmarking imputation algorithms
+for limit order book data. Quantitative Finance (2025).
+71. Nater, C. & Khayati, M.
+Scalable probabilistic imputation for high-frequency trading
+systems. Information Systems (2025).
+72. Qian, X., Zhang, L., Zhao, P. & Cheng, K. Dynamic regime-aware imputation for multi-
+variate time series. Information Sciences (2024).
+73. Gao, R. et al. Score-based models for non-stationary market data imputation. Expert
+Systems with Applications (2024).
+74. Wi, J., Shin, H. & Park, J. Generative imputation for ﬁnancial stress testing. Expert
+Systems with Applications (2023).
+75. Wang, H., Yang, Y., Sun, C., Wen, X. & Wang, K. Evaluating look-ahead bias in deep
+learning based ﬁnancial imputation. Journal of Financial Econometrics (2024).
+76. Huang, A., Khushi, M. & Suleiman, B. Regime-speciﬁc quant generative adversarial net-
+work: A conditional generative adversarial network for regime-speciﬁc deepfakes of ﬁnan-
+cial time series. Applied Sciences (2023).
+77. Sun, H., Deng, Z., Chen, H. & Parkes, D. C. Decision-aware conditional GANs for time
+series data. In ICAIF (2023). URL https://doi.org/10.1145/3604237.3626855.
+78. Rizzato, M., Wallart, J., Geissler, C., Morizet, N. & Boumlaik, N.
+Generative adver-
+sarial networks applied to synthetic ﬁnancial scenarios generation. Physica A: Statistical
+Mechanics and its Applications (2023).
+79. Cont, R., Mihai, C., Renyuan, X. & Chao, Z. Tail-GAN: Learning to simulate tail risk
+scenarios. Management Science (2025).
+39
+===== PAGE 40 =====
+80. Tanaka, Y., Takayanagi, T., Piao, Z. & Izumi, K. CoFinDiﬀ: Controllable ﬁnancial diﬀu-
+sion model for time series generation. In Proceedings of the International Joint Conference
+on Artiﬁcial Intelligence (IJCAI) (2025).
+81. Takahashi, T. & Mizuno, T. Generation of synthetic ﬁnancial time series by diﬀusion
+models (2024). 2410.18897.
+82. Kim, G., Choi, S. & Kim, Y. A diﬀusion-based generative model for ﬁnancial time series
+via geometric brownian motion (2025). 2507.19003.
+83. Masi, G., Conti, M., Bartolini, N. & Vyetrenko, S. On correlated stock market time series
+generation. In ICAIF (2023). URL https://doi.org/10.1145/3604237.3626895.
+84. Istiaque, R. A., Pun, C. S. & Song, Y. Simulating asset prices using conditional time-series
+GAN. In Proceedings of the ACM International Conference on AI in Finance (ICAIF)
+(2024).
+85. Xia, H., Wang, J., Zhang, L. & Chen, W. Market-GAN: A two-stage GAN-based frame-
+work for controllable ﬁnancial market generation (2024).
+86. Kazadaev, M., Pozdnyakov, V. & Makarov, I.
+Time series generation with GANs for
+momentum eﬀect simulation on moscow stock exchange. In CIFEr (2024). URL https:
+//doi.org/10.1109/CIFEr62890.2024.10772763.
+87. Alex, Rusnak, E. M. & Daul, S. Macroeconomic conditioned synthetic ﬁnancial markets.
+In Proceedings of the ACM International Conference on AI in Finance (ICAIF) (2024).
+88. Berti, L., Prenkaj, B. & Velardi, P. TRADES: Generating realistic market simulations
+with diﬀusion models (2025). 2502.07071.
+89. Huang, Y.-H., Liu, Y., Liu, W. & Bian, J. Controllable ﬁnancial market generation with
+diﬀusion guided meta agent (2024). 2408.12991.
+90. Li, J., Liu, W., Fang, S. & Bian, J. MarS: A ﬁnancial market simulation engine powered by
+generative foundation model. In Proceedings of the International Conference on Learning
+Representations (ICLR) (2025).
+91. Zhang, F., Wang, L. & Zhang, X. Desensitized ﬁnancial data generation based on gen-
+erative adversarial network and diﬀerential privacy. Big Data Min. Anal. (2025). URL
+https://doi.org/10.26599/bdma.2024.9020047.
+92. Gholamrezaei, M., Koochali, A., Dengel, A. & Ahmed, S. Conditioning ﬁnancial generation
+on alternative metadata streams. Knowledge-Based Systems 270, 110531 (2023).
+93. Lozano, C., Bagén, E. & Vives, R. Dual-sourced diﬀusion models for coherent ﬁnancial
+market synthesis. Quantitative Finance 23, 1605–1620 (2023).
+94. Tao, R. et al. Eﬃcient generation of ﬁnancial time series via diﬀusion distillation. arXiv
+preprint (2024). 2406.11223.
+95. Oppel, J. et al. Practical stress testing with conditional generative models. Journal of
+Risk (2025).
+40
+===== PAGE 41 =====
+96. Liu, X.-Y. et al. FinRL: A deep reinforcement learning library for automated stock trading
+in quantitative ﬁnance. In NeurIPS Workshop on Deep Reinforcement Learning (2020).
+97. Liu, X.-Y. et al.
+FinRL-Meta: Market environments and benchmarks for data-driven
+ﬁnancial reinforcement learning. In Advances in Neural Information Processing Systems
+(NeurIPS) (2022).
+98. Wang, R., Wei, H., An, B., Feng, Z. & Yao, J. Deep stock trading: A hierarchical reinforce-
+ment learning framework for portfolio optimization and order execution. In Proceedings
+of the AAAI Conference on Artiﬁcial Intelligence (2020).
+99. Lu, J. & Ding, D. A hybrid approach on conditional GAN for portfolio analysis (2022).
+2208.07159.
+100. Yoon, J., Jordon, J. & van der Schaar, M. GAIN: Missing data imputation using generative
+adversarial nets.
+In Proceedings of the International Conference on Machine Learning
+(ICML) (2018).
+101. Herculano, M. C. & Punnoose, J. Financial condition indices in an incomplete data envi-
+ronment. Studies in Nonlinear Dynamics & Econometrics (2025).
+102. Emaan, K. U. Improving credit card fraud detection through transformer-enhanced GAN
+oversampling (2025). 2509.19032.
+103. Liu, X., Zhang, Z. & Wang, D. Classiﬁcation of imbalanced credit scoring data sets based
+on ensemble method with the weighted-hybrid-sampling (2021).
+104. Byrd, D., Hybinette, M. & Balch, T. H. ABIDES: Towards high-ﬁdelity market simulation
+for AI research (2019). 1904.12066.
+105. Amrouni, S. et al. ABIDES-Gym: Gym environments for multi-agent discrete event sim-
+ulation and application to ﬁnancial markets. In Proceedings of the ACM International
+Conference on AI in Finance (ICAIF) (2021).
+106. Balch, T. H., Mahfouz, M., Lockhart, J., Hybinette, M. & Byrd, D. How to evaluate
+trading strategies: Single agent market replay or multiple agent interactive simulation?
+(2019). 1906.12010.
+107. Rollins, M. & Cliﬀ, D. Which trading agent is best? using a threaded parallel simulation
+of a ﬁnancial market changes the pecking-order (2020).
+108. Gao, Y., Lui, K. Y. C. & Hernandez-Leal, P. Robust risk-sensitive reinforcement learning
+agents for trading markets. In Proceedings of the ACM International Conference on AI in
+Finance (ICAIF) (2021).
+109. Balch, T., Potluru, V. K., Paramanand, D. & Veloso, M. Six levels of privacy: A framework
+for ﬁnancial synthetic data. In Proceedings of the ACM International Conference on AI
+in Finance (ICAIF) (2024).
+110. Boudewijn, A. et al. Privacy measurement in tabular synthetic data: State of the art
+and future research directions. In Proceedings on Privacy Enhancing Technologies (PETS)
+(2023).
+41
+===== PAGE 42 =====
+111. Ang, Y., Bao, Y., Tung, A. K. H. & Huang, Z.
+TSGBench: Time series generation
+benchmark. Proceedings of the VLDB Endowment 17, 305–318 (2024).
+112. Ang, Y., Huang, Q., Bao, Y. & Huang, Z. CTBench: Cryptocurrency time series generation
+benchmark (2025). 2508.02758.
+113. Wang, Y., Gao, T., Zhang, H. & Zhang, X. FinTSBridge: A new evaluation suite for
+real-world ﬁnancial prediction with advanced time series models (2025). 2503.06928.
+114. Narasimhan, S. & Jiang, W. Time weaver: Speciﬁcity in conditional time series generation.
+arXiv preprint (2024). 2403.02682.
+115. Zhong, M., Lin, Y., Yang, P. & Chen, L. Representation learning of limit order book: A
+comprehensive study and benchmarking. arXiv preprint (2024). 2412.01802.
+116. Jiang, J. et al.
+FinMaster: A holistic benchmark for mastering full-pipeline ﬁnancial
+workﬂows with llms. arXiv preprint (2024). 2412.18025.
+117. Yu, F. et al. Tsrbench: A comprehensive multi-task multi-modal time series reasoning
+benchmark for generalist models. arXiv preprint (2025). 2502.13840.
+118. Arjovsky, M., Bottou, L., Gulrajani, I. & Lopez-Paz, D. Invariant risk minimization. arXiv
+preprint (2019). 1907.02893.
+119. Peters, J., Bühlmann, P. & Meinshausen, N. Causal inference by using invariant prediction:
+identiﬁcation and conﬁdence intervals. Journal of the Royal Statistical Society: Series B
+(Statistical Methodology) 78, 947–1012 (2016).
+120. Cont, R. Empirical properties of asset returns: stylized facts and statistical issues. Quan-
+titative Finance 1, 223–236 (2001).
+121. Raissi, M., Perdikaris, P. & Karniadakis, G. E. Physics-informed neural networks: A deep
+learning framework for solving forward and inverse problems involving nonlinear partial
+diﬀerential equations. Journal of Computational physics 378, 686–707 (2019).
+122. Merton, R. C. Option pricing when underlying stock returns are discontinuous. Journal
+of ﬁnancial economics 3, 125–144 (1976).
+123. Ge, Y., Li, J., Zhao, Y., Wen, H. & Pan, S. T2S: high-resolution time series generation
+with text-to-series diﬀusion models. In IJCAI (2025). URL https://doi.org/10.24963/
+ijcai.2025/580.
+124. McCloskey, M. & Cohen, N. J. Catastrophic interference in connectionist networks: The
+sequential learning problem. Psychology of learning and motivation 24, 109–165 (1989).
+125. Zenke, F., Poole, B. & Ganguli, S. Continual learning through synaptic intelligence. In
+International Conference on Machine Learning (ICML), 3987–3995 (PMLR, 2017).
+126. Nguyen, C. V., Li, Y., Bui, T. D. & Turner, R. E. Variational continual learning. In
+International Conference on Learning Representations (ICLR) (2018).
+42
+===== PAGE 43 =====
+127. Moody, J. & Saﬀell, M. Learning to trade via direct reinforcement. IEEE Transactions
+on neural Networks 12, 875–889 (2001).
+128. Cao, D., Ye, W., Zhang, Y. & Liu, Y. TimeDiT: General-purpose diﬀusion transformers
+for time series foundation model. CoRR (2024). 2409.02322.
+129. Aksu, T. et al. GIFT-eval: A benchmark for general time series forecasting model evalua-
+tion. CoRR (2024). URL https://doi.org/10.48550/arXiv.2410.10393. 2410.10393.
+130. Xu, W. et al.
+FinMultiTime: A four-modal bilingual dataset for ﬁnancial time-series
+analysis.
+CoRR (2025).
+URL https://doi.org/10.48550/arXiv.2506.05019.
+2506.
+05019.
+43
+===== PAGE 44 =====
+Figure Legends and Figures
+2020
+2021
+2023
+2024
+2025
+Early GANs in Finance
+QuantGAN
+WGAN
+Statistical Imputation
+NMTucker
+RegTensor
+NDDP
+Transformer-based Models
+SGP-LSTM
+CEEMDAN-
+Informer-LSTM
+BiLSTM-ARIMA
+PEC-W
+Diffusion Models
+TimeGrad
+CSDI
+Time-Series LLMs
+OneFitsAll
+Chronos
+Time-LLM
+StockTime
+Unified Benchmarks & FMs
+LLM4FTS
+CALF
+FinCast
+MarS
+Figure 1: Evolution of Financial Time-Series Generation techniques over the past
+decade. Timeline of representative milestones in ﬁnancial time-series generation (FTSG) from
+2020 to early 2026. Colored cards along the central axis denote technical families: coral pink
+for adversarial generative architectures (GANs), steel blue for diﬀusion and score-based models,
+amber orange for time-series foundation models and adapted large language models (LLMs),
+and sage green for classical statistical, tensor factorization, and deep predictive baselines. Key
+models include NMTucker (Non-negative Matrix Tucker factorization), RegTensor, NDDP (Non-
+linear Diﬀusion Drift Process), PEC-W, SGP-LSTM, TimeGrad, CSDI, Time-LLM, StockTime,
+CALF (Cross-modal Aligned Foundation model), FinCast, and MarS (Multi-Agent Market Sim-
+ulator). White circular markers denote calendar years 2020, 2021, 2023, 2024, and 2025; directed
+arrows align each contribution to its release year.
+44
+===== PAGE 45 =====
+Financial Time Series Generation
+Financial Time Series Ex-
+trapolation
+Statistical Frameworks
+ARIMA, GARCH
+Deep Learning Models
+Hybrid LSTMs: LSTM, RNN, PEC-W, CEEMDAN-Informer-LSTM, SGP-
+LSTM, IRM
+Generative Learning Models
+GAN-based Models: GAN, WaveGAN, N-BEATS-GAN, WGAN-GP
+Diffusion Models: DDPM, TimeGrad, TimeDiT
+Time-series Foundation Models
+Fine-tuned LLM: Chronos, OneFitsAll, TimeHF
+Edited LLM: StockTime, LLM4FTS, LLM-PS, Time-LLM, CALF
+Emerging FMs: FinCast
+Financial Time Series Im-
+putation
+Statistical Methods
+Temporal Disaggregation & Interpolation:
+Chow-Lin, Kernel Ridge Regression (RKHS), KNN, MICE, Random Forest
+Machine Learning
+Factorization Methods: NMTucker, RegTensor
+Deep Learning Models
+Sequence Reconstruction Models: BiGRU-BiLSTM with GMDH Decoder
+Generative Learning Models
+Adversarial Imputation Models:
+GAIN, CWGAN-GP, ImputeGAN, AttnWGAIN
+Diffusion-based Imputation Models:
+CSDI, Score-CDM, SSSD, TimeDiT, LSCD
+Advanced Frameworks
+Foundation Models & Dual Graph: LLM-Forest, MTabGen, Dual-Bipartite
+Graph Network
+Financial Time Series Syn-
+thesis
+Micro-level Synthesis
+Classical Models: SDEs (GBM, Heston Model)
+Generative Adversarial Networks (GANs):
+WGAN, WGAN-GP, QuantGAN, RSQGAN, DAT-CGAN, Jinkou, TAIL-
+GAN
+Diffusion / SDE-based Models: TimeGrad, SGM, CoFinDiff, FinDiff
+Macro-level Simulation∗
+Conditional GANs:
+CoMeTS-GAN, CTS-GAN, Market-GAN, MacroSynth, GAN-MoEx
+Conditional DMs: TRADES, DiGA
+Large Market Models: MarS
+Figure 2: Hierarchical two-level taxonomy of ﬁnancial time-series generation. Sys-
+tematic classiﬁcation structure decoupling ﬁnancial generation tasks from generative modeling
+paradigms. The primary tree root partitions FTSG into three functional task branches. Light
+blue shaded blocks designate the forward-looking Financial Time-Series Extrapolation (FTSE)
+branch, spanning statistical autoregressive models, deep sequential networks, adversarial frame-
+works, diﬀusion dynamics, and foundation model adaptations. Light green shaded blocks des-
+ignate the bidirectional Financial Time-Series Imputation (FTSI) branch, covering temporal
+disaggregation, tensor factorization baselines, recurrent encoders, generative adversarial im-
+puters, score-based diﬀusion methods, and graph-augmented transformer architectures. Light
+orange shaded blocks designate the generative Financial Time-Series Synthesis (FTSS) branch,
+categorized into micro-level asset return synthesis and macro-level market microstructure sim-
+ulation across conditional GANs, diﬀusion models, and large market agent simulators. Grey
+orthogonal branch lines indicate conceptual inheritance. The asterisk (∗) indicates that only
+purely generative model families are enumerated in the synthesis branch.
+45
+===== PAGE 46 =====
+Figure 3:
+Structural comparison of core ﬁnancial time-series generation tasks.
+Schematic representation contrasting the conditioning context, temporal boundary conditions,
+and output targets across three generation formulations. a, Financial time-series extrapola-
+tion (FTSE): conditional forward-looking trajectory continuation, where a past historical preﬁx
+(solid line markers) guides probabilistic generation of unobserved future steps (dashed con-
+tinuation markers).
+b, Financial time-series imputation (FTSI): closed-format bidirectional
+reconstruction, where known observed points bound an interval of missing or corrupted values,
+reconstructed via temporal and cross-sectional conditioning. c, Synthetic sequence generation
+(FTSS): unconditional or attribute-guided manifold creation from latent Gaussian noise and
+market condition vectors, simulating realistic synthetic price paths and order books without
+pointwise historical alignment.
+46
+===== PAGE 47 =====
+LLM
+ݼ
+Discrete Embedding
+LLM
+❄️
+Continuous Embedding
+Patchify
+Normalization
+DWT
+Encoding
+Head
+Head
+Normalization
+Quantify
+Tokenization
+Embedding
+/
+ݼ
+ݼTunable
+❄️Frozen
+ݼ
+ݼ
+Figure 4: Architectural paradigms for adapting foundation models to ﬁnancial time
+series. Schematic diagram contrasting tokenization- and patch-based ﬁne-tuning against model
+editing and prompt reprogramming. a, Fine-tuning paradigm (left): numerical continuous time
+series are transformed into discrete token vocabularies via quantile binning or linear patch
+projection layers, followed by backpropagation through transformer backbones.
+b, Prompt
+reprogramming and cross-modal model editing paradigm (right): a frozen foundation model
+backbone receives auxiliary steering signals from textual market prompts, cross-attention align-
+ment bridges, and lightweight adapter modules, avoiding full-parameter gradient updates while
+preserving numerical precision. Blue rectangular boxes represent time-series input vectors, pur-
+ple layered blocks denote multi-head self-attention transformer layers, and green highlighted
+modules represent learnable cross-modal projection heads.
+47
+===== PAGE 48 =====
+Macro-Level
+Micro-Level
+One-dimensional / small-
+scale multivariate time
+series (e.g., price changes,
+log returns, and dividend /
+benefit rates).
+High-frequency, high-
+resolution limit order book
+(LOB) data (e.g.,  batches of
+cancellations) and individual
+order flows (buy/sell). 
+Data
+Generates data based on
+historical distributions
+without reacting to external
+actions.
+Simulate the virtual
+market responses to user-
+injected orders or
+experimental trading
+agents.
+Target
+    Challenges
+1. Capturing Stylized Facts
+2. Enable Controllability
+1. High-frequency non-
+stationarity
+2. Inter-asset correlations
+3. Enable Controllability
+interactive
+Non-interactive
+Figure 5: Multi-scale architectural paradigms for ﬁnancial time-series synthesis. Con-
+ceptual comparison of synthetic sequence generation partitioned into micro-level return mod-
+eling and macro-level market simulation.
+a, Micro-level synthesis (left): univariate or low-
+dimensional asset return path generation via Wasserstein GANs with temporal convolutional
+backbones and score-matching diﬀusion models, engineered to preserve stylized econometric
+facts such as heavy tails, absence of linear autocorrelation, and volatility clustering. b, Macro-
+level market simulation (right): multi-agent and limit order book (LOB) queue modeling where
+generative architectures simulate asynchronous order message ﬂows, bid-ask depth ladders, cross-
+asset spillover correlations, and macroeconomic counterfactual shock scenarios under regulatory
+and privacy constraints. Color shading highlights the transition from low-dimensional statistical
+moments to high-dimensional interactive market topologies.
+48
+===== PAGE 49 =====
+Figure 6: Literature identiﬁcation and PRISMA screening pipeline. Flow diagram
+illustrating the systematic retrieval, multi-stage screening, and eligibility determination process
+compliant with the PRISMA 2020 framework. Blue rectangular boxes represent initial literature
+identiﬁcation across primary databases (Google Scholar, DBLP, Web of Science, Scopus, arXiv)
+and duplicate removal. Orange rectangular boxes denote title and abstract screening stages with
+corresponding exclusion criteria. Red dashed borders and rightward branching callouts indicate
+excluded records at each phase along with explicit rationales (non-ﬁnancial domains, determin-
+istic point forecasting without generative distributions, non-reproducible records). Green solid
+rectangular boxes indicate the ﬁnal corpus of 130 retained studies meeting all eligibility criteria,
+partitioned into three task categories: ﬁnancial time-series extrapolation, imputation, and data
+synthesis. Detailed quantitative counts for each ﬁltering phase are recorded in the accompany-
+ing retrieval statistics table.
+49
+===== PAGE 50 =====
+Tables
+Table 1: Comparison of this survey with the six prior surveys cited in the literature comparison.
+FTSE/FTSI/FTSS columns use ✓/× for whether the sub-task is a ﬁrst-class topic (△=
+mentioned but no dedicated section). Eval. distinguishes a uniﬁed protocol from per-paper
+metrics. Datasets indicates whether ﬁnancial benchmarks are inventoried. # refs is the count
+of references cited in each survey.
+Window is the publication-year range of each survey’s
+references.
+Survey
+FTSE
+FTSI
+FTSS
+Eval.
+Datasets
+# refs
+Window
+Zhang et al. [12]
+✓
+×
+×
+None
+Multimodal TS
+93
+2005–2024
+Liang et al. [13]
+✓
+△
+×
+None
+General TS
+123
+2017–2024
+Kim et al. [14]
+✓
+×
+×
+Metrics
+General TS
+287
+2000–2024
+Kong et al. [15]
+✓
+×
+×
+Metrics
+General TS
+285
+2000–2024
+Nie et al. [16]
+✓
+×
+×
+Metrics
+Financial NLP
+318
+2001–2024
+Arsenault et al. [17]
+✓
+×
+×
+Metrics
+Financial TS
+115
+2018–2023
+This survey
+✓
+✓
+✓
+Protocol
+Financial TS
+130
+2021–early 2026
+Table 2: Uniﬁed Task-Technique-Evaluation Mapping for Financial Time-Series Generation.
+Task
+Model Family
+Representative Approaches
+Data Type
+Primary Evaluation
+Extrapolation
+Deep Sequence
+SGP-LSTM [26]
+Prices, Returns
+MSE,
+Directional
+Accu-
+racy
+Diﬀusion Models
+TimeGrad [9]
+Multivariate Series
+CRPS,
+Predictive
+Likeli-
+hood
+Foundation Models
+Chronos [10], FinCast [41]
+Multi-asset
+Zero-shot MSE, MAE
+Imputation
+Tensor Methods
+RegTensor [48]
+Fundamentals
+Reconstruction Error
+Diﬀusion Models
+CSDI [52], TimeDiT [128]
+Missing Prices
+Temporal Coherence
+Synthesis
+GANs
+QuantGAN [6]
+Returns
+Stylized Facts
+Diﬀusion Models
+CoFinDiﬀ[80]
+Scenarios
+Distributional Fidelity
+Controllable
+Market-GAN [85]
+Order Flow (LOB)
+Downstream Utility
+Table 3: Comprehensive Comparison of Financial Time-Series Extrapolation Paradigms
+Paradigm
+Output Format
+Key Strengths
+Primary Limitations
+Typical
+Financial
+Use
+Cases
+Predictive Models
+Deterministic
+point
+fore-
+casts
+Extremely
+fast
+inference;
+highly
+interpretable
+method-
+ologies.
+Lacks robust uncertainty quantiﬁ-
+cation; fails to model tail risks.
+High-frequency trading;
+algo-
+rithmic order execution.
+GANs
+Sampled stochastic trajec-
+tories
+Produces sharp, multi-modal
+sequences
+without
+iterative
+sampling.
+Prone to severe training instability
+and mode collapse.
+Scenario generation;
+counter-
+factual stress testing.
+Diﬀusion Models
+Sampled stochastic trajec-
+tories
+Achieves strong distributional
+ﬁdelity and stable convergence.
+Iterative sampling process induces
+prohibitive computational latency.
+Risk
+management;
+complex
+portfolio optimization.
+Foundation Models
+Zero-shot
+probabilistic
+forecasts
+Exhibits
+promising
+cross-
+domain
+generalization
+and
+rapid adaptability.
+Suﬀers from potential hallucina-
+tion and diﬃcult text-series data
+alignment.
+Dynamic
+asset
+allocation;
+broad market backtesting.
+50
+===== PAGE 51 =====
+Table 4: Comparative Analysis of Financial Time-Series Imputation Frameworks
+Methodology
+Core Mechanism
+Key Advantages
+Primary Limitations
+Matrix/Tensor Completion
+Low-rank factorization
+Highly
+computationally
+eﬃ-
+cient; eﬀective on sparse data.
+Fails to capture non-linear volatil-
+ity clustering.
+Tree-Based (Random Forest)
+Non-linear ensemble regres-
+sion
+Extremely robust to high miss-
+ing rates (e.g., 50%+).
+Struggles with high-frequency tem-
+poral dependencies.
+GAN-Based Models
+Adversarial
+distribution
+matching
+Sharp interpolations; mitigates
+drift via gradient penalties.
+Mode collapse; unstable training
+on extreme outages.
+Diﬀusion Models
+Conditional reverse denois-
+ing
+State-of-the-art
+ﬁdelity;
+pre-
+serves cross-asset correlations.
+High inference latency prohibitive
+for real-time systems.
+LLM/Graph Frameworks
+Bipartite graphs & textual
+prompting
+Excels on mixed-type (categor-
+ical/numerical) tabular data.
+Heavy
+computational
+footprint;
+context-window limits.
+Table 5: Comparative Overview of Financial Time-Series Synthesis Paradigms
+Model Paradigm
+Core Methodology
+Primary Strengths
+Key Limitations
+Wasserstein GANs
+Adversarial minimax game
+with
+Earth
+Mover’s
+dis-
+tance
+Rapid inference; highly eﬀec-
+tive for targeted metric align-
+ment.
+Susceptible
+to
+mode
+collapse;
+struggles
+with
+microstructural
+nuance.
+Diﬀusion & SDEs
+Iterative
+forward
+noising
+and reverse score-matching
+Exceptional
+distributional
+ﬁ-
+delity; easily integrates ﬁnan-
+cial priors (e.g., GBM).
+Computationally
+intensive
+sam-
+pling process limits real-time util-
+ity.
+Large Market Models
+Transformer-based discrete
+sequence modeling
+Scales
+to
+asynchronous
+tick
+data; enables interactive agent
+simulation.
+Requires massive computational in-
+frastructure and vast order-ﬂow
+datasets.
+DP-Generators
+Diﬀerentially private gradi-
+ent clipping
+Ensures strict regulatory com-
+pliance and data anonymiza-
+tion.
+Incurs a harsh trade-oﬀbetween
+privacy bounds (ϵ) and data util-
+ity.
+Table 6: A Uniﬁed Evaluation Checklist for Financial Time-Series Generation.
+Evaluation Dimension
+Key Metrics / Methods
+Primary Task Suitabil-
+ity
+Reﬂects
+Financial
+Valid-
+ity?
+Point-wise Accuracy
+MSE, MAE, RMSE, MAPE
+Extrapolation, Imputation
+Low (Ignores market dynam-
+ics)
+Distributional Fidelity
+Wasserstein Distance, MMD, KL Diver-
+gence, Cross-Correlation
+Synthesis, Extrapolation
+Medium
+(Captures
+static
+shapes)
+Stylized Facts
+ACF of squared returns, Tail Index, Kur-
+tosis, Leverage eﬀect tests
+Synthesis, Simulation
+High (Domain-speciﬁc realism)
+Downstream Utility
+Train-on-Synthetic, Test-on-Real (TSTR);
+Train-on-Real,
+Test-on-Real
+(TRTR);
+Sharpe Ratio of trained agents; VaR/ES
+accuracy
+All Tasks
+High (Practical applicability)
+Privacy & Security
+Distance-to-Closest Record (DCR), Diﬀer-
+ential Privacy ϵ
+Synthesis (Data Sharing)
+N/A (Focuses on compliance)
+51
+===== PAGE 52 =====
+Table 7: Summary of Recent Financial Time-Series Generation Benchmarks.
+Dataset / Benchmark
+Tasks
+Primary Data Sources
+Split Ratio
+Scale (Approx.)
+FinTSB [18]
+Extrapolation / Imputation
+Chinese A-share, NYSE, NASDAQ
+7:1:2
+150M points
+GIFT-EVAL [129]
+Forecasting
+27 datasets (Stock, Crypto, FX,
+etc.)
+Various
+144,380 series
+TFB [19]
+Forecasting
+Broad ﬁnance domain
+Various
+2.1M series
+FinTSBridge [113]
+Extrapolation / Imputation
+S&P 500, NASDAQ, FTSE, CSI
+300
+7:1:2
+86,978 series
+TSGBench [111]
+Synthesis / Simulation
+GOOGL, Global Exchanges
+9:0:1
+13,213 series
+CTBench [112]
+Synthesis
+Cryptocurrencies on Binance
+9:0:1
+530 series
+FinMultiTime [130]
+Extrapolation
+S&P 500, HS 300
+N/A
+6M points
+Table 8: Literature Retrieval and Screening Statistics.
+Screening Stage
+Count
+Retained
+Primary Reason for
+Exclusion
+Initial Keyword Search
+2,568
+2,568
+N/A
+Title/Abstract Screening
+2,568
+604
+Not
+ﬁnancial
+data
+/
+Pure deterministic fore-
+casting
+Full-text Review
+604
+130
+Weak
+ﬁnancial
+vali-
+dation
+/
+Duplicated
+preprints
+Primary Task Assignment
+Extrapolation
+54
+Imputation
+29
+Synthesis / Simulation
+47
+Note: Each of the 130 retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g.,
+forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not
+double-counted.
+52

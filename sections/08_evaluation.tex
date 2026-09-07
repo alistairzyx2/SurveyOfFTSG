@@ -1,12 +1,12 @@
 \subsection{Evaluation Protocols}
 \label{sec:evaluation}
 
-\subsubsection{Why Generic Generation Metrics are Insufficient}
+\subsection{Why Generic Generation Metrics are Insufficient}
 Evaluation remains one of the most critical, yet under-standardized, aspects of financial time-series generation. In conventional supervised learning or computer vision tasks, performance is often adequately measured by generic metrics like Mean Squared Error (MSE), Fréchet Inception Distance (FID), or visual realism. However, FTSG involves multiple competing objectives where visual similarity or pointwise accuracy does not equate to financial validity.
 
 A synthetic sequence might achieve a low MSE or MAE against a ground-truth trajectory, yet entirely fail to preserve crucial dynamics such as volatility clustering or tail-risk behavior, rendering it useless for stress testing. Conversely, generic metrics cannot evaluate whether generated data improves a trading agent's performance in a downstream simulation. Financial data's noise, non-stationarity, and regime-dependent nature demand that evaluation protocols go beyond generic reconstruction. In this section, we systematically organize evaluation practices into five dimensions, culminating in a unified evaluation checklist.
 
-\subsubsection{Fidelity-Oriented Evaluation}
+\subsection{Fidelity-Oriented Evaluation}
 A primary objective of Financial Time-Series Generation (FTSG) is to approximate the underlying multivariate data-generating distribution closely. Fidelity-oriented evaluation rigorously quantifies the statistical divergence between the synthetic sequences $\hat{\mathbf{X}}$ and the empirical observations $\mathbf{X}$. This assessment spans several mathematical dimensions:
 
 \begin{itemize}
@@ -34,7 +34,7 @@ A primary objective of Financial Time-Series Generation (FTSG) is to approximate
     \item \textbf{Spectral and Frequency-Domain Similarity:} To ensure that cyclical macroeconomic patterns and the low signal-to-noise ratio are maintained, spectral evaluation applies the Fast Fourier Transform (FFT) to convert sequences into the frequency domain. The Power Spectral Density (PSD) of the synthetic data is then compared against the real data to penalize generators that produce over-smoothed, frequency-deficient signals.
 \end{itemize}
 
-\subsubsection{Financial Validity Evaluation}
+\subsection{Financial Validity Evaluation}
 A distinctive, non-negotiable requirement of FTSG is that generated sequences must adhere to established financial theories and principles. High distributional similarity does not guarantee the preservation of empirical ``stylized facts''—the universal, non-linear statistical regularities observed across global financial markets. Evaluation must mathematically verify the presence of these facts:
 
 \begin{itemize}
@@ -63,7 +63,7 @@ A distinctive, non-negotiable requirement of FTSG is that generated sequences mu
     Significant deviations between empirical and synthetic VaR/ES indicate a dangerous smoothing of downside risk.
 \end{itemize}
 
-\subsubsection{Downstream Utility Evaluation}
+\subsection{Downstream Utility Evaluation}
 To bridge the gap between theoretical machine learning metrics and practical finance, an increasingly adopted paradigm evaluates generated data strictly based on its utility in executing downstream financial tasks. If synthetic data enhances the performance of algorithmic systems, it possesses intrinsic value.
 
 \begin{itemize}
@@ -76,7 +76,7 @@ To bridge the gap between theoretical machine learning metrics and practical fin
     where $R_p$ is portfolio return, $R_f$ is the risk-free rate, and $P_t$ is the portfolio value at time $t$.
 \end{itemize}
 
-\subsubsection{Robustness, Controllability, and Privacy}
+\subsection{Robustness, Controllability, and Privacy}
 As generative architectures—particularly foundation models and diffusion models—become increasingly sophisticated, evaluation protocols must expand to audit advanced capabilities and regulatory compliance.
 
 \begin{itemize}
@@ -91,23 +91,20 @@ As generative architectures—particularly foundation models and diffusion model
     If the DCR distribution peaks near zero, the model suffers from severe privacy leakage. Furthermore, models optimized with Differential Privacy (DP) are evaluated against their $(\epsilon, \delta)$-DP bounds, analyzing the mathematical trade-off between the privacy budget $\epsilon$ and the resulting degradation in downstream utility.
 \end{itemize}
 
-\subsubsection{A Unified Evaluation Checklist}
+\subsection{A Unified Evaluation Checklist}
 The lack of standardized evaluation frequently leads to contradictory claims regarding state-of-the-art performance in FTSG. To resolve this, we formalize a unified evaluation checklist, mapping the aforementioned rigorous metrics to their appropriate problem formulations. 
 
 As detailed in Table \ref{tab:evaluation_checklist}, researchers must construct a composite evaluation protocol. For instance, an \textit{imputation} model may prioritize pointwise accuracy (MSE) and temporal coherence, whereas a \textit{market simulation} architecture must be rigorously audited against stylized facts (Kurtosis, Ljung-Box tests for volatility clustering) and downstream utility (TSTR). No single metric is sufficient; financial validity emerges only at the intersection of distributional fidelity, economic logic, and practical applicability.
 
 
 
-\subsubsection{Emerging Trends in Evaluation and Benchmarking}
+\subsection{Emerging Trends in Evaluation and Benchmarking}
 
 The evaluation of synthetic financial data is rapidly transitioning from the isolated calculation of generic metrics toward comprehensive, standardized benchmark platforms. Recent literature reveals a definitive paradigm shift focused on multimodal reasoning, structural market constraints, and full-pipeline financial workflows. We categorize these emerging trends into three primary directions:
 
-\textbf{1. Conditional Specificity and Scenario-Based Evaluation:}
-Standard distribution-matching metrics often fail to evaluate whether a conditional generative model actually respects its conditioning metadata (e.g., specific market regimes or macroeconomic textual prompts). To address this, \citet{narasimhan2024timeweaver} introduced \textit{Time Weaver}, pioneering novel specificity metrics that explicitly penalize generative models for failing to reproduce metadata-specific features in the synthesized sequences. 
+The first direction is conditional specificity and scenario-based evaluation: standard distribution-matching metrics often fail to evaluate whether a conditional generative model actually respects its conditioning metadata (e.g., specific market regimes or macroeconomic textual prompts). To address this, \citep{narasimhan2024timeweaver} introduced \textit{Time Weaver}, pioneering novel specificity metrics that explicitly penalize generative models for failing to reproduce metadata-specific features in the synthesized sequences. 
 
-\textbf{2. Market Microstructure and LOB Standardization:}
-Evaluating high-frequency tick data and Limit Order Books (LOB) requires specialized protocols due to their asynchronous nature and stringent cross-feature constraints. \citet{lobench2025} recently introduced \textit{LOBench}, the first standardized benchmark specifically engineered for LOB representation and generation. Utilizing massive, real-world China A-share market data, LOBench establishes unified preprocessing pipelines and task-specific baselines, allowing researchers to evaluate generative fidelity directly against microstructural properties such as queue dynamics and volume imbalances.
+The second direction is market microstructure and LOB standardization: evaluating high-frequency tick data and Limit Order Books (LOB) requires specialized protocols due to their asynchronous nature and stringent cross-feature constraints. \citep{lobench2025} recently introduced \textit{LOBench}, the first standardized benchmark specifically engineered for LOB representation and generation. Utilizing massive, real-world China A-share market data, LOBench establishes unified preprocessing pipelines and task-specific baselines, allowing researchers to evaluate generative fidelity directly against microstructural properties such as queue dynamics and volume imbalances.
 
-\textbf{3. Full-Pipeline Workflows and Multimodal Reasoning:}
-Instead of treating time-series generation as an isolated algorithmic task, modern benchmarks evaluate synthetic data based on its utility within broader economic workflows. \citet{finmaster2025} proposed \textit{FinMaster}, a holistic benchmark featuring a dedicated \textit{FinSim} module that evaluates how well generated synthetic, privacy-compliant financial data replicates market dynamics for downstream corporate auditing and accounting tasks. Similarly, comprehensive multi-modal benchmarks like \textit{TSRBench} \citep{tsrbench2026} have been introduced to stress-test the reasoning capabilities of Large Language Models (LLMs) over time-series data. These platforms reveal a critical insight for evaluation: strong semantic reasoning does not guarantee accurate context-aware numerical generation, highlighting the need for hybrid evaluation metrics that simultaneously score textual alignment and continuous mathematical fidelity.
+The third direction is full-pipeline workflows and multimodal reasoning: instead of treating time-series generation as an isolated algorithmic task, modern benchmarks evaluate synthetic data based on its utility within broader economic workflows. \citep{finmaster2025} proposed \textit{FinMaster}, a holistic benchmark featuring a dedicated \textit{FinSim} module that evaluates how well generated synthetic, privacy-compliant financial data replicates market dynamics for downstream corporate auditing and accounting tasks. Similarly, comprehensive multi-modal benchmarks like \textit{TSRBench} \citep{tsrbench2026} have been introduced to stress-test the reasoning capabilities of Large Language Models (LLMs) over time-series data. These platforms reveal a critical insight for evaluation: strong semantic reasoning does not guarantee accurate context-aware numerical generation, highlighting the need for hybrid evaluation metrics that simultaneously score textual alignment and continuous mathematical fidelity.
 

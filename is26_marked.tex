@@ -19,7 +19,7 @@
 \usepackage[normalem]{ulem}
 
 
-\newcommand{\revadd}[1]{\textcolor{blue}{#1}}
+\newcommand{\revadd}[1]{\textcolor{red}{#1}}
 \newcommand{\revdel}[1]{\textcolor{red}{\sout{#1}}}
 
 
@@ -58,7 +58,7 @@ This marked-up version highlights the structural and stylistic modifications imp
 \item \textbf{Unnumbered Headings:} Implemented \texttt{\textbackslash setcounter\{secnumdepth\}\{0\}}; all section number cross-references updated to explicit heading titles.
 \item \textbf{IRDM Article Organization:} Main text structured as \textbf{Abstract} $\rightarrow$ \textbf{Introduction} (unstructured) $\rightarrow$ \textbf{Results} (compulsory subheadings) $\rightarrow$ \textbf{Discussion} (no subheadings; absorbed former Conclusions) $\rightarrow$ \textbf{Methods} (compulsory subheadings; placed after Discussion).
 \item \textbf{Mandatory Declarations:} Integrated 6 declarations directly into the main file before References (\textit{Data Availability, Code Availability, Acknowledgements, Funding, Author Contributions, Competing Interests}). Differentiated author initials as \textit{Y. Zhang} and \textit{Y. Zou}.
-\item \textbf{Nature Numbered Bibliography:} Citations and reference list formatted in sequential numerical order using \texttt{naturemag.bst}.
+\item \textbf{Nature Numbered Bibliography:} Citations and reference list formatted in sequential numerical order using \texttt{sn-nature.bst} (Nature standard style), with arXiv preprints rendered as \emph{Preprint at} with DOI links and journal names abbreviated per Nature conventions.
 \item \textbf{Float Reorganization:} All figure environments and tables repositioned after References in dedicated sections (\textit{Figure Legends and Figures, Tables}).
 \item \textbf{Extended Figure Legends:} Captions enhanced with bold summarizing titles, bodies under 350 words, spelled-out abbreviations, and verbal descriptions of color coding and symbols.
 \end{itemize}
@@ -107,7 +107,7 @@ $^{*}$Corresponding authors. E-mail: \texttt{fengke@pku.edu.cn} (K. Feng); \text
 % References (Nature sequential numbered format)
 \newpage
 \providecommand{\bibcommenthead}{}
-\bibliographystyle{naturemag}
+\bibliographystyle{sn-nature}
 \bibliography{ultimate_complete}
 
 % Figures and Tables (placed after References per IRDM instructions)

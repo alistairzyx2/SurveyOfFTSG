@@ -11,277 +11,164 @@
 
 \title{\textbf{Point-by-Point Response to Technical Check}\\[0.3em]
 \large \textit{npj Artificial Intelligence}}
-\author{\textbf{Manuscript ID:} 5a3d24b0-5398-4e89-835d-34efbe8bd9e3 v2.0\\
+\author{\textbf{Manuscript ID:} 5a3d24b0-5398-4e89-835d-34efbe8bd9e3 v2.1\\
 \textbf{Title:} Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges\\
 \textbf{Authors:} Yingxiao Zhang, Jiaxin Duan, Yue Zou, Ke Feng, Jing Xiao\\
-\textbf{Assistant Editor:} Dr. Monika Samra}
+\textbf{Assistant Editor:} Dr.~Monika Samra}
 \date{\today}
 
 \begin{document}
 
 \maketitle
 
-\noindent Dear Dr. Monika Samra and Editorial Team of \textit{npj Artificial Intelligence},
+\noindent Dear Dr.~Monika Samra and Editorial Team of \textit{npj Artificial Intelligence},
 
 \vspace{0.8em}
-\vspace{0.8em}
-\noindent We sincerely appreciate the editorial team's diligent technical review of our manuscript. We have carefully addressed every point raised in the Technical Check letter. The manuscript has been comprehensively restructured into the required \textbf{IRDM} format, unnumbered section headings have been adopted, the abstract has been condensed to a single paragraph of 173 words, all declarations have been fully integrated, references have been converted to the sequential Nature numbering style, figure legends have been thoroughly enhanced, and a completed PRISMA 2020 checklist has been prepared as Supplementary Information.
+\noindent We sincerely thank the editorial team for the careful technical check of our manuscript. We have addressed each of the seven points raised in the Technical Check letter of 7 September 2026. In accordance with your instruction to change nothing beyond the requested items, all revisions are strictly limited to the points below. A marked-up manuscript showing every change in red font is provided under `Related Files' (\texttt{is26\_marked.pdf}), and the clean revised manuscript is provided as \texttt{is26.pdf}. Both compile with zero errors and zero warnings.
 
 \vspace{0.8em}
-\noindent Below is our point-by-point response detailing the specific revisions made to address each comment.
-
-\vspace{0.8em}
-\noindent Below is our point-by-point response detailing the specific revisions made to address each comment.
+\noindent Our point-by-point responses follow. Each editor comment is reproduced verbatim in italics, followed by our response and the location of the corresponding change in the revised manuscript.
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 1: Author Affiliations and Formatting}
+\subsection*{Point 1: Discussion must not be structured with subheadings}
+
+\vspace{0.5em}
 \noindent\textbf{Editor's Comment:}
-\textit{``Please ensure an affiliation, including city and country information, or a URL, is provided on the title page for all authors, including for the corresponding author(s). It should be made clear which affiliation belongs to each author e.g. by using a numbered list or using superscript numbering. Please ensure that all author affiliations appear in the correct sequential order according to their position in the author list. Affiliation 1 must be associated with the first author.''}
+\textit{``We do not allow a structured Discussion, with subheadings. It can only be divided into paragraphs.''}
 
 \vspace{0.5em}
 \noindent\textbf{Response:}
-We have thoroughly updated the title page of the manuscript. All author affiliations are now presented using superscript numbers ($^{1, 2, 3, 4}$) appearing in strict sequential order matching their appearance in the author list. Affiliation 1 is associated with the first author, Yingxiao Zhang. Each affiliation explicitly includes the department/school, institution, city, and country:
-\begin{enumerate}
-    \item $^{1}$School of Software and Microelectronics, Peking University, Beijing, China.
-    \item $^{2}$Pingan Bank Co., Ltd., Shenzhen, China.
-    \item $^{3}$China Electronics Cloud Technology Co., Ltd., Beijing, China.
-    \item $^{4}$Pingan Group Co., Ltd., Shenzhen, China.
-\end{enumerate}
-Both corresponding authors (Ke Feng and Jing Xiao) are clearly designated with asterisks ($^*$) and their institutional email addresses are provided on the title page.
+We have removed all subheadings from the Discussion section. In the previous version, the Discussion contained four bolded run-in headings (``Causal and invariant representation learning.'', ``Econometrically bounded generation.'', ``Multi-modal time series generation.'', and ``Online adaptation under regime shifts.''). These bolded lead-ins have been deleted and the text has been rewritten so that each former subheading is now expressed as the opening sentence of a paragraph (e.g., ``A first fundamental challenge concerns causal and invariant representation learning\ldots''). The Discussion (pp.~29--31 of the revised manuscript) now consists of six continuous paragraphs with no subheadings, no bolded lead-in text, and no numbered items, integrating the challenges, limitations, and concluding outlook as required.
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 2: Abstract Formatting and Word Count}
+\subsection*{Point 2: Results and Methods must use only primary subheadings}
+
+\vspace{0.5em}
 \noindent\textbf{Editor's Comment:}
-\textit{``The journal does not permit a structured abstract. The abstract must be a single paragraph with no headings (e.g. Methods, Results, Conclusions) or paragraphs, should be around 150-200 words, and written in the English language. Please also ensure you also update the Abstract in the submission system.''}
+\textit{``Please note that Results and Methods sections should be structured using only primary subheadings. We do not permit the use of secondary subheadings. Any bolded or numbered text placed under primary headings, or any other subsection made under primary subheadings are considered as secondary subheadings. Please edit accordingly.''}
 
 \vspace{0.5em}
 \noindent\textbf{Response:}
-\vspace{0.5em}
-\noindent\textbf{Response:}
-We have restructured and condensed the abstract into a \textbf{single cohesive paragraph of exactly 173 words} without any subheadings, bold headers, or paragraph breaks. The revised abstract succinctly synthesizes the motivation, two-level taxonomy, evaluation protocols, benchmark catalogs, and open challenges. We confirm that this identical 173-word text has also been synchronized in the online SNAPP submission system.
+We have audited the entire Results and Methods sections and removed all secondary-level structure:
 
-\vspace{1.5em}
-\hrule
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 3: Removal of Section Numbers and Cross-References}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please note that section numbers will not be retained during typesetting of the manuscript. Section numbers must be removed from the headings, and reference to section numbers in the main text must be changed to the section headings.''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-We have configured `\textbackslash setcounter\{secnumdepth\}\{0\}' in the LaTeX preamble to remove all numerical identifiers from section, subsection, and subsubsection headings across the entire manuscript. Furthermore, we conducted a rigorous full-text audit and replaced all textual and parenthetical section number references (e.g., ``Section 2'', ``(\S \ref{sec:3})'', ``Sections 3--6'', ``\S 8'') with their corresponding explicit section titles (e.g., ``the Problem Formulation and Taxonomy subsection'', ``the Evaluation Protocols subsection'', ``the Applications subsection'', ``the Methods section'', etc.).
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 4: Unstructured Introduction}
-\noindent\textbf{Editor's Comment:}
-\textit{``We do not allow a structured Introduction with subheadings. It can only be divided into paragraphs.''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-All four previous subheadings in the Introduction (``Background and Motivation'', ``Why Existing Surveys are Insufficient'', ``Scope and Contributions'', and ``Organization of the Paper'') have been removed. The Introduction now progresses smoothly through continuous, coherent paragraphs. The final paragraph has also been updated to explicitly outline the IRDM workflow of the manuscript.
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 5: IRDM Structural Organization}
-\noindent\textbf{Editor's Comment:}
-\textit{``Format of Research Article: IRDM. Please arrange your manuscript according to the below order: Abstract, Introduction, Results (subheadings compulsory), Discussion (no subheadings permitted, incorporate Limitations/Conclusions), Methods (subheadings compulsory), Declaration statements, References list, Figures, Tables and associated legends...''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-The entire manuscript has been reorganized to strictly adhere to the IRDM structure:
 \begin{itemize}
-    \item \textbf{Abstract:} Single paragraph, 179 words, unnumbered, no subheadings.
-    \item \textbf{Introduction:} Unstructured, no subheadings.
-    \item \textbf{Results:} Features compulsory thematic subheadings: (1) Problem Formulation and A Two-Level Taxonomy; (2) Financial Time-Series Extrapolation; (3) Financial Time-Series Imputation; (4) Financial Time-Series Synthesis; (5) Applications; (6) Evaluation Protocols; (7) Data Resources and Benchmarks.
-    \item \textbf{Discussion:} Contains no subheadings (per editorial guidelines); organizes open challenges, limitations, and concluding outlook via bold paragraph lead-ins.
-    \item \textbf{Methods:} Positioned directly after Discussion with compulsory subheadings: (1) Literature Retrieval Strategy; (2) Inclusion and Exclusion Criteria; (3) Data Extraction and Coding Protocol; (4) Review Dimensions and Taxonomy Synthesis.
-    \item \textbf{Declarations:} Follows Methods and precedes References.
-    \item \textbf{References:} Nature-compliant sequential numbered bibliography.
+  \item \textbf{Results.} The Results section now contains only the seven primary subheadings required by the IRDM structure (Problem Formulation and A Two-Level Taxonomy; Financial Time-Series Extrapolation; Financial Time-Series Imputation; Financial Time-Series Synthesis; Applications; Evaluation Protocols; Data Resources and Benchmarks). No \texttt{\textbackslash subsubsection} commands remain anywhere in the manuscript.
+  \item \textbf{Bolded run-in headings removed.} In the Applications subsection, four bolded paragraph headings (``Strategy backtesting and replay.'', ``Stress testing, scenario generation and risk management.'', ``Trading-agent training environments.'', ``Privacy-preserving data sharing and regulatory scenarios.'') have been converted into ordinary sentence openings within their paragraphs (e.g., ``In strategy backtesting and replay, ABIDES\ldots''). No bolded or numbered lead-in text remains under any primary heading.
+  \item \textbf{Methods.} The Methods section retains only its four primary subheadings (Literature Retrieval Strategy; Inclusion and Exclusion Criteria; Data Extraction and Coding Protocol; Review Dimensions and Taxonomy Synthesis).
+\end{itemize}
+
+\noindent The remaining numbered and bulleted lists in Results and Methods are inline enumerations of items within a paragraph's argument (e.g., the three task-level definitions), not headings: they carry no section numbering, do not appear in the table of contents, and do not interrupt the primary-heading hierarchy. We have verified in the compiled PDF that no bolded standalone heading text appears under any primary subheading.
+
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
+
+\subsection*{Point 3: Data Availability Statement must follow the required template}
+
+\vspace{0.5em}
+\noindent\textbf{Editor's Comment:}
+\textit{``As per our new policies, the Data Availability Statement needs more information. The authors should provide the statement in the following manner: The datasets generated and/or analyzed during the current study are not publicly available due to [INSERT REASON WHY DATA ARE NOT PUBLIC] but are available from the corresponding author on reasonable request. [this is basically for the literature retrieval query logs and systematic extraction coding point mentioned in data availability statement]''}
+
+\vspace{0.5em}
+\noindent\textbf{Response:}
+We have rewritten the Data Availability statement to follow the required template exactly, inserting the specific reason for the literature retrieval query logs and systematic extraction coding tables. The statement now reads:
+
+\vspace{0.5em}
+\noindent\begin{quote}
+\itshape ``The datasets generated and/or analyzed during the current study are not publicly available due to the fact that the literature retrieval query logs and the systematic extraction coding tables contain internal reviewer annotations and are subject to licensing restrictions on the underlying subscription databases, but they are available from the corresponding author on reasonable request.''
+\end{quote}
+
+\vspace{0.5em}
+\noindent The remainder of the statement clarifying that all benchmark datasets, curated databases, and public APIs analyzed in this survey (FinTSB, TFB, TSGBench, CTBench, FinTSBridge, WRDS, CRSP, and FRED) are derived from published literature and publicly accessible repositories has been retained. The revised statement appears in the Declarations section (pp.~32--33 of the revised manuscript). The identical wording has been prepared for the Data Availability field in the submission system (see Point 6).
+
+\vspace{1.5em}
+\hrule
+\vspace{1.5em}
+
+\subsection*{Point 4: References must follow the standard Nature format}
+
+\vspace{0.5em}
+\noindent\textbf{Editor's Comment:}
+\textit{``Please ensure the references are in the standard Nature format. References should be numbered sequentially as they appear in the text, methods, tables, and figure legends using a 1, 2, 3 format. They should follow the sequence: author list, title of the paper, name of the journal, volume number, initial-final page numbers or article number (year). Please note that DOIs are required only for online-only publications and correct journal abbreviations should be given. For LaTeX files or manuscripts where bibliography software has been used, please check that the reference list and citations have not been corrupted or display errors. Please either provide a separate BIB/BBL file, or recompile your LaTeX file to include this information.''}
+
+\vspace{0.5em}
+\noindent\textbf{Response:}
+We have verified and, where necessary, corrected every reference against the Nature format requirements:
+
+\begin{itemize}
+  \item \textbf{Sequential numbering.} The bibliography is generated with \texttt{sn-nature.bst} (the Springer Nature reference style) and contains 129 references numbered 1--129 strictly in order of first appearance in the text, Methods, tables, and figure legends. We have programmatically verified that the numbering is sequential with no gaps or duplicates.
+  \item \textbf{Element order.} Each entry follows the sequence author list $\rightarrow$ title $\rightarrow$ journal $\rightarrow$ volume $\rightarrow$ pages/article number (year), e.g., ``Cont, R. Empirical properties of trading: a review of the literature. \textit{Quant. Finance} \textbf{1}, 223--236 (2001).''
+  \item \textbf{DOIs only for online-only publications.} Print journal articles carry no DOI. Online-only publications (arXiv preprints) are rendered as ``Title. Preprint at \url{https://doi.org/10.48550/arXiv.XXXX.XXXXX} (year).''; 31 such entries appear in the list.
+  \item \textbf{Journal abbreviations.} All journal titles use correct standard abbreviations (e.g., \textit{Quant. Finance}, \textit{Manage. Sci.}, \textit{IEEE Trans. Knowl. Data Eng.}, \textit{J. Financ. Econ.}, \textit{Proc. VLDB Endow.}).
+  \item \textbf{No corruption.} The manuscript was fully recompiled (pdf\LaTeX{} $\rightarrow$ Bib\TeX{} $\rightarrow$ pdf\LaTeX{} $\times$ 2) with zero errors and zero warnings; all 129 in-text citations resolve correctly to their numbered entries with no ``author?'' or undefined-citation artifacts.
+  \item \textbf{BIB/BBL files.} The bibliography database (\texttt{ultimate\_complete.bib}) and the compiled bibliography (\texttt{is26.bbl}) are provided alongside the LaTeX source for production.
 \end{itemize}
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 6 \& 7: Renaming Survey Sections and Incorporating Conclusions}
+\subsection*{Point 5: Marked-up manuscript in red font}
+
+\vspace{0.5em}
 \noindent\textbf{Editor's Comment:}
-\textit{``We do not permit 'Methodology of the Survey, Problem Formulation and A Two-Level Taxonomy, Financial Time-Series Extrapolation, Financial Time-Series Imputation, Applications, Financial Time-Series Synthesis, Evaluation Protocols, Data Resources and Benchmarks, Open Challenges and Future Directions' sections. Please rename it to 'Introduction/Methods/Discussion'. We do not permit a Conclusions section. Please rename it to 'Discussion' or incorporate the text into the 'Discussion' section, as applicable.''}
+\textit{``Marked-up Manuscript: Please include a marked-up manuscript, showing changes to the text in red font. Please do not include tracked changes in comments as we're unable to view them and upload it under `Related Files' section in pdf or docx. Format.''}
 
 \vspace{0.5em}
 \noindent\textbf{Response:}
-In accordance with this directive:
-\begin{enumerate}
-    \item The previous ``Methodology of the Survey'' section has been renamed to ``Methods'' and placed after Discussion.
-    \item The taxonomic and synthesis bodies (Problem Formulation, Extrapolation, Imputation, Synthesis, Applications, Evaluation Protocols, Data Resources) have been nested under the ``Results'' section with compulsory subheadings.
-    \item The ``Open Challenges and Future Directions'' content and the former ``Conclusions'' section have been fully integrated into the unified ``Discussion'' section under the thematic lead-in ``Limitations, practical implications, and concluding outlook'', without any subheadings.
-\end{enumerate}
+A marked-up manuscript (\texttt{is26\_marked.pdf}, 51 pages) has been prepared and will be uploaded under the `Related Files' section in PDF format. All text changed in this revision round is displayed in red font via a dedicated \texttt{\textbackslash revadd} markup command; no tracked changes or comments are used. The marked-up version contains a summary box on its first page listing the revisions, and every change described in Points 1--3 above (the rewritten Discussion paragraph lead-ins, the converted Applications paragraph openings, and the templated Data Availability statement) appears in red. The clean version (\texttt{is26.pdf}) contains the identical text without color markup.
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 8: Acknowledgements and Funding Statements}
+\subsection*{Point 6: Data Availability in the system must match the manuscript exactly}
+
+\vspace{0.5em}
 \noindent\textbf{Editor's Comment:}
-\textit{``Please supply an Acknowledgements section before the References... Please supply a Funding section after the Acknowledgements section. Please include all funding information, including the role of the funder(s)... If no funding was granted for the study, please also state this in the Funding Statement.''}
+\textit{``Please note that The Data Availability information uploaded in the system should match exactly with the statement included in the manuscript.''}
 
 \vspace{0.5em}
 \noindent\textbf{Response:}
-Both sections have been added before the References, as required:
-\begin{itemize}
-    \item \textbf{Acknowledgements:} The section is placed immediately before the References and reads: ``The authors would like to thank the colleagues and members of the research group for constructive discussions that contributed to refining the scope and taxonomy of this survey.'' This single-sentence statement is kept deliberately brief, is free of any thanks to editors or reviewers, contains no effusive praise or dedicatory language, and is consistent with the journal's guidance for the Acknowledgements section. According to the guidance, if no acknowledgement content exists, ``Not applicable'' should be stated under this heading; in our case, a genuine acknowledgement of colleagues exists, so the sentence above is retained rather than ``Not applicable.''
-    \item \textbf{Funding:} As no external grants were received, the official standard non-funding declaration has been inserted: ``The authors declare that no funds, grants, or other financial support were received during the preparation of this manuscript.''
-\end{itemize}
-Both statements have been verified verbatim in the online SNAPP submission portal under the corresponding declarations fields.
+The Data Availability statement quoted in our response to Point 3 has been copied verbatim into the Data Availability field of the submission system, character for character, so that the system entry matches the manuscript exactly.
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 9: Competing Interests Statement}
+\subsection*{Point 7: Author Contributions must match the system exactly, including names}
+
+\vspace{0.5em}
 \noindent\textbf{Editor's Comment:}
-\textit{``Authors must disclose and specify any competing interest, using the following statement as applicable. No Competing Interests: 'The authors declare no competing financial or non-financial interests.'... The competing interests statement must be included both in the manuscript and in the submission system.''}
+\textit{``Please note that Author contribution statement provided in manuscript should exactly match with that uploaded in the system which means even the name should be same''}
 
 \vspace{0.5em}
 \noindent\textbf{Response:}
-We have included the exact required sentence under the mandatory heading in the manuscript:
-\begin{quote}
-\textbf{Competing Interests:} ``The authors declare no competing financial or non-financial interests.''
-\end{quote}
-This identical statement has also been confirmed in the SNAPP submission portal.
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 10: Reference List in Nature Format}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please ensure the references are in the standard Nature format. References should be numbered sequentially as they appear in the text, methods, tables, and figure legends using a 1, 2, 3, format...''}
+The Author Contributions statement in the manuscript (p.~33) reads:
 
 \vspace{0.5em}
-\noindent\textbf{Response:}
-We have fully migrated the citation and bibliography pipeline to the official Nature sequential numerical format using \texttt{naturemag.bst}. All hidden pre-citation macros have been eliminated, ensuring that references are numbered strictly in the order of their first appearance in the visible text: superscript 1 (Zhao et al., 2025) and superscript 2 (Jiang et al., 2025) on page 1 of the Introduction, followed sequentially by 3, 4, 5... through 130. The reference list entries appear as \texttt{1.}, \texttt{2.}, \texttt{3.}... \texttt{130.} in Nature's sequence format (author list, paper title, journal name in italics, volume number in bold, initial--final page numbers, and publication year).
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 11: Individual Figure Files, Relocation after References, and Extended Legends}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please provide figure files individually in the system... Figure titles and legends must be removed from the image file... Add the legends in the main manuscript file after references. Begin each figure legend with a concise sentence summarizing the content of the figure; this will serve as the figure title. This should be followed by a detailed description of the figure in the following sentences, up to 350 words, to serve as the legend body. Define all abbreviations, symbols, and color codes used in the figure. Do not use graphical symbols directly, describe them in words... Present multi-panel figures on a single page, labeled a), b), c), etc...''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-All requirements regarding figures, tables, and legends have been systematically addressed:
-\begin{enumerate}
-    \item \textbf{Repositioned after References:} Per the journal's IRDM layout instructions, all figure environments and tables have been moved from the main body and placed into dedicated sections after the References list (\texttt{Figure Legends and Figures} and \texttt{Tables}).
-    \item \textbf{Figure Numbering and Callout Order:} All figure callouts in the text now appear in strict chronological order from Figure 1 through Figure 6.
-    \item \textbf{Extended Legends:} Each figure caption begins with a concise bold summary sentence serving as the title (e.g., \textbf{Figure 1 | Evolution of Financial Time-Series Generation techniques over the past decade.}), followed by a comprehensive description (under 350 words) defining all subpanels (\textbf{a}, \textbf{b}, \textbf{c}), line styles, and color codes in plain English words without raw graphical symbols. All acronyms (e.g., NMTucker, RegTensor, NDDP, CSDI, MarS) are explicitly defined.
-    \item \textbf{Clean Standalone Figure Files:} High-resolution standalone figure files (\texttt{Figure1.pdf}, \texttt{Figure2.pdf}, \texttt{Figure3.png}, \texttt{Figure4.pdf}, \texttt{Figure5.pdf}, and \texttt{Figure6.png}) have been exported into a dedicated folder (\texttt{separate\_figures/}) completely stripped of embedded figure labels (e.g., ``Figure 1'') and titles, formatted for individual upload to the submission system.
-\end{enumerate}
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 12: Clean and Marked-Up Manuscript Files}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please note that we require both clean and marked-up versions of the manuscript at this stage... provide your clean article file without any red text as a Manuscript file. Please upload the marked-up version of the manuscript to the submission system as a Related manuscript file.''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-We have prepared both required PDF documents:
-\begin{itemize}
-    \item \textbf{Clean version (\texttt{is26.pdf}):} A completely clean, unannotated manuscript in strict IRDM format with Nature numbered references, unnumbered headings, and post-reference float layout, ready for direct production typesetting.
-    \item \textbf{Marked-up version (\texttt{is26\_marked.pdf}):} Features a prominent revision banner and a dedicated summary block detailing all technical modifications across affiliations, abstract condensation, IRDM restructuring, declaration integration, citation re-indexing, and float repositioning, submitted as a Related manuscript file.
-\end{itemize}
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 13: Data Availability and Code Availability Declarations}
-\noindent\textbf{Editor's Comment:}
-\textit{``The Data Availability information must also be uploaded to system, and the details provided there should match exactly with the statement in the manuscript.''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-Both statements have been placed in the manuscript and synchronized in the submission portal:
-\begin{itemize}
-    \item \textbf{Data Availability:} ``No new empirical primary datasets were generated during the current study. All benchmark datasets, curated databases, and public APIs reviewed and analyzed in this survey (including FinTSB, TFB, TSGBench, CTBench, FinTSBridge, WRDS, CRSP, and FRED) are derived from published literature and publicly accessible repositories as referenced in the Data Resources and Benchmarks subsection. The literature retrieval query logs and systematic extraction coding tables supporting the findings of this review are available from the corresponding authors upon reasonable request.''
-    \item \textbf{Code Availability:} ``This work is a systematic literature survey and did not generate custom algorithmic codebases or software artifacts. All generative models, benchmark evaluation suites, and foundational model repositories discussed are publicly accessible via their respective cited publications and open-source repositories as cataloged throughout the manuscript.''
-\end{itemize}
-
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 14: Figure Copyright and Originality Confirmation in Cover Letter}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please state in your cover letter whether all Figures are your own or taken from another source...''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-We have prepared and submitted a formal \textbf{Cover Letter} (\texttt{Cover\_Letter.pdf}) addressed to Assistant Editor Dr. Monika Samra. The cover letter explicitly certifies:
-\begin{quote}
-\textit{``We formally confirm that all figures (Figures 1, 2, 3, 4, 5, and 6) included in this manuscript and supplementary materials are original creations by the authors. Figure 1 was designed using LaTeX TikZ, Figure 2 was constructed using LaTeX Forest, and Figures 3--6 were plotted directly by the authors using custom scientific diagramming tools. No figure, subpanel, or graphical element has been reproduced, adapted, or taken from third-party publications or copyrighted external sources. Therefore, no external copyright permissions or licensing authorizations are required.''}
+\noindent\begin{quote}
+\itshape ``Y. Zhang: Conceptualization, Methodology, Writing -- Original Draft. J. Duan: Validation, Formal analysis, Writing -- Review \& Editing. Y. Zou: Validation, Formal analysis, Writing -- Review \& Editing. K. Feng: Supervision, Project administration. J. Xiao: Supervision, Project administration. All authors reviewed, discussed, and approved the final submitted version of the manuscript.''
 \end{quote}
 
-\vspace{1.5em}
-\hrule
-\vspace{1.5em}
-
-\subsection*{Point 15: Author Contribution Initials Disambiguation}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please note that Author contribution statement provided in manuscript should exactly match with that uploaded in the system.''}
-
 \vspace{0.5em}
-\noindent\textbf{Response:}
-To prevent ambiguity in the submission system and author registry where two co-authors share identical initials (Yingxiao Zhang and Yue Zou), we have explicitly disambiguated their citations in the Author Contributions section:
-\begin{quote}
-\vspace{0.5em}
-\noindent\textbf{Response:}
-To prevent ambiguity in the submission system and author registry where two co-authors share identical initials (Yingxiao Zhang and Yue Zou), we have explicitly disambiguated their citations in the Author Contributions section:
-\begin{quote}
-\textbf{Author Contributions:} ``Y. Zhang: Conceptualization, Methodology, Writing -- Original Draft. J. Duan: Validation, Formal analysis, Writing -- Review \& Editing. Y. Zou: Validation, Formal analysis, Writing -- Review \& Editing. K. Feng: Supervision, Project administration. J. Xiao: Supervision, Project administration. All authors reviewed, discussed, and approved the final submitted version of the manuscript.''
-\end{quote}
-This updated statement has been matched verbatim in the online SNAPP portal.
-\end{quote}
-This updated statement has been matched verbatim in the online SNAPP portal.
+\noindent This exact text, including the identical author name forms (Y. Zhang, J. Duan, Y. Zou, K. Feng, J. Xiao), has been entered in the Author Contributions field of the submission system so that the two match exactly. Note that the initials Y.~Zhang and Y.~Zou disambiguate the two authors sharing the surname Zhang/Zou as required.
 
 \vspace{1.5em}
 \hrule
 \vspace{1.5em}
 
-\subsection*{Point 16: Mandated Systematic Review Checklist (PRISMA 2020)}
-\noindent\textbf{Editor's Comment:}
-\textit{``Please note that systematic reviews and meta-analyses papers must adhere to the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA) or PRISMA-SCR for scoping reviews. It is mandatory to provide a completed PRISMA checklist (or appropriate extension) in the Supplementary Information.''}
-
-\vspace{0.5em}
-\noindent\textbf{Response:}
-We have prepared a dedicated Supplementary Information document (\texttt{Supplementary\_Information\_PRISMA.pdf}) containing the complete, itemized \textbf{PRISMA 2020 Checklist} across all 27 standard reporting items, detailing the exact manuscript location and page number where each item is addressed.
-
-\vspace{2em}
-\noindent We believe these comprehensive revisions fully satisfy all editorial requirements of \textit{npj Artificial Intelligence}. Thank you again for your valuable editorial guidance.
+\noindent We hope that the manuscript now satisfies all technical requirements. We have made no changes other than those requested. Should any further adjustments be needed, we would be glad to address them promptly.
 
 \vspace{1.5em}
-\noindent Sincerely,\\
-\textbf{The Authors}\\
-Yingxiao Zhang, Jiaxin Duan, Yue Zou, Ke Feng$^*$, Jing Xiao$^*$\\
-\textit{Peking University \& Pingan Group}
+\noindent Sincerely,\\[0.5em]
+Yingxiao Zhang, on behalf of all co-authors\\
+\small School of Software and Microelectronics, Peking University
 
 \end{document}

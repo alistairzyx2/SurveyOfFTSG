@@ -1,46 +1,46 @@
 This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: is26.aux
-The style file: naturemag.bst
+The style file: sn-nature.bst
 Database file #1: ultimate_complete.bib
-You've used 130 entries,
-            2810 wiz_defined-function locations,
-            1622 strings with 32728 characters,
-and the built_in function-call counts, 61150 in all, are:
-= -- 4110
-> -- 3459
-< -- 31
-+ -- 1326
-- -- 939
-* -- 6725
-:= -- 7567
-add.period$ -- 423
-call.type$ -- 130
-change.case$ -- 204
+You've used 129 entries,
+            2832 wiz_defined-function locations,
+            1667 strings with 33463 characters,
+and the built_in function-call counts, 41289 in all, are:
+= -- 2721
+> -- 1536
+< -- 2
++ -- 768
+- -- 384
+* -- 4852
+:= -- 4687
+add.period$ -- 382
+call.type$ -- 129
+change.case$ -- 127
 chr.to.int$ -- 0
-cite$ -- 130
-duplicate$ -- 4809
-empty$ -- 4844
-format.name$ -- 1234
-if$ -- 12291
+cite$ -- 129
+duplicate$ -- 3516
+empty$ -- 3594
+format.name$ -- 508
+if$ -- 8312
 int.to.chr$ -- 0
-int.to.str$ -- 130
-missing$ -- 1002
-newline$ -- 691
-num.names$ -- 390
-pop$ -- 1702
+int.to.str$ -- 129
+missing$ -- 928
+newline$ -- 650
+num.names$ -- 129
+pop$ -- 1118
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1599
+skip$ -- 885
 stack$ -- 0
 substring$ -- 542
-swap$ -- 3877
+swap$ -- 3550
 text.length$ -- 2
-text.prefix$ -- 0
+text.prefix$ -- 127
 top$ -- 0
-type$ -- 904
+type$ -- 0
 warning$ -- 0
-while$ -- 301
-width$ -- 133
-write$ -- 1654
+while$ -- 170
+width$ -- 132
+write$ -- 1279

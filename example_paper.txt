@@ -1,0 +1,1549 @@
+===== PAGE 1 =====
+npj | artiﬁcial intelligence
+Perspective
+https://doi.org/10.1038/s44387-026-00111-4
+Veriﬁcation-ﬁrst autonomous catalysis:
+large language models as infrastructure
+for mechanism, computation, and
+experiment
+Check for updates
+Yan Liu1 & Pengfei Ou1,2
+Large language models are shifting catalysis from prediction-ﬁrst pipelines to workﬂow-level
+coordination of hypotheses, computation, and experiments. In this Perspective, we argue that
+autonomous catalysis requires closing both representation and workﬂow gaps through a veriﬁcation-
+ﬁrst paradigm, in which large language model agents orchestrate heterogeneous tools, ground claims
+in auditable evidence, and use uncertainty-aware validation. We further propose system-level metrics
+to benchmark reliable autonomous catalysis.
+Catalysis lies at the core of the modern chemical industry and sustainable
+energy technologies, enabling processes such as fuel production, carbon
+utilization, and environmental remediation1,2. Despite decades of progress,
+catalyst discovery and optimization remain constrained by multiscale
+complexity: mechanisms span multiple length and time scales, active sites
+evolve under operando conditions, and performance emerges from subtle
+structure–environment coupling3. These features limit purely empirical
+trial-and-error and make isolated screening insufﬁcient.
+Recent advances in artiﬁcial intelligence (AI), particularly machine
+learning (ML), have accelerated catalysis by enabling high-throughput
+property prediction and data-driven screening4–7. However, most approa-
+ches remain task-oriented and prediction-ﬁrst, focusing on adsorption
+energies, barriers, or material properties within narrow representations and
+under ﬁxed assumptions. Consequently, these models often struggle to
+compare mechanistic hypotheses, adapt to the relevant environmental
+changes, or support the iterative decisions central to catalyst development.
+Large language models (LLMs) introduce different opportunities. As
+foundation models, they can integrate heterogeneous information, coordi-
+nate tools, and generate structured hypotheses and plans8,9. Unlike con-
+ventional ML models, LLMs can integrate textual knowledge with
+computational outputs, experimental observations, and domain constraints
+within a single decision context10,11. This capability positions LLMs as
+potential coordinators of catalytic research workﬂows12.
+In this Perspective, we argue that the most consequential role of LLMs
+in catalysis is to enable veriﬁcation-ﬁrst catalytic reasoning, in which
+language-generated hypotheses are treated as provisional claims that must
+pass predeﬁned admissibility, consistency, and provenance checks before
+they can update the workﬂow state or trigger downstream decisions. The
+representation gap arises because mechanistic correctness is deﬁned at the
+level of pathway objects (reaction networks, transition states, and kinetics),
+which are rarely encoded explicitly in current pipelines. The workﬂow gap
+arises because discovery is procedural and iterative, requiring decisions
+about what to model or measure next under changing conditions. We
+outline design requirements for physics-grounded, experiment-compatible
+LLM agents emphasizing Veriﬁer checks, evidence ledgers, and uncertainty
+gating and propose system-level evaluation criteria, including auditability/
+provenance, robustness under distribution shift, and closed-loop sample
+efﬁciency.
+From catalyst prediction to catalytic reasoning
+Conventional AI has improved catalytic property prediction and screening,
+but these advances do not automatically translate into mechanistic under-
+standing or actionable decisions. In catalysis, “correctness” is often deﬁned
+at the level of pathway competition, rate-/selectivity-controlling steps, and
+conditiondependence(potential,solvation,coverage),ratherthanbysingle-
+point accuracy. This motivates a transition from prediction-ﬁrst pipelines
+toward reasoning-ﬁrst, workﬂow-integrated systems that can formulate,
+test, and revise mechanistic hypotheses through tool-grounded evidence.
+Limitations of current AI paradigms in catalysis
+MLmodelscanpredictadsorptionenergies,reactionbarriers,andselectivity
+trends across large chemical spaces, enabling rapid screening and
+prioritization5,13,14. Graph neural networks (GNNs), kernel regressors, and
+descriptor-based models achieve strong accuracy on benchmark datasets
+and are widely used for screening13,15,16. Despite these successes, prevailing
+paradigms remain limited by a task-speciﬁc, prediction-ﬁrst design
+1Department of Chemistry, National University of Singapore, Singapore, Singapore. 2NUS Artiﬁcial Intelligence Institute, National University of Singapore,
+Singapore, Singapore.
+e-mail: pengf.ou@nus.edu.sg
+npj Artiﬁcial Intelligence | (2026) 2:56 
+1
+1234567890():,;
+1234567890():,;
+===== PAGE 2 =====
+(Fig. 1a)17,18. Most models approximate a ﬁxed mapping, such as structure-
+to-energy or composition-to-activity, under narrow assumptions. Transfer
+typically degrades when reaction conditions, active surfaces, or operative
+mechanisms change, limiting extrapolation beyond the training domain.
+These limitations can be grouped into two coupled gaps that constitute
+the catalytic reasoning gap (Fig. 1b). First, there is a representation gap:
+catalysis is governed by competing pathways and transition states, yet many
+ML workﬂows output property estimates without explicitly representing
+mechanisms as falsiﬁable objects19–21. Interpretability is often inferred
+indirectlyratherthanencodedasstructuredpathwayhypothesesthatcanbe
+validated, refuted, or updated22–24. As a result, model outputs can remain
+descriptive, making it difﬁcult to compare mechanistic alternatives, identify
+rate/selectivity control, or reason about condition-dependent shifts.
+Second, there is a workﬂow gap: catalyst discovery is procedural and
+iterative, whereas ML models are typically passive modules19–21. Real dis-
+covery cycles through hypothesis generation, modeling, testing, and revi-
+sion; however, humans still orchestrate tool execution, data acquisition,
+constraint handling, and interpretation. This human-centered coordination
+limits scalability and makes end-to-end automation difﬁcult to sustain. The
+mismatch is ampliﬁed by operando dynamics, where most models assume
+static representations25–27. Site reconstruction, coverage ﬂuctuations, and
+pathway competition can vary with potential, temperature, pressure, and
+the electrolyte environment, so training on equilibrium structures or iso-
+lated intermediates may miss key effects and bias mechanism identiﬁcation
+and ranking.
+Taken together, prediction-ﬁrst paradigms are insufﬁcient for
+mechanism-driven discovery or autonomy because they neither encode
+mechanisms as causal, testable objects nor provide a system-level procedure
+for deciding what do next under changing conditions.
+Catalysis as a stress test for LLM agents?
+LLMs introduce a different paradigm for catalytic complexity28. Rather than
+functioning only as task-speciﬁc predictors, LLMs can serve as reasoning
+controllers that integrate heterogeneous information and coordinate
+multistep workﬂows29. Recent work has also begun to explore agentic AI
+systems for chemical discovery and catalysis, highlighting the potential of
+language-drivenagentstocoordinatecomputationaltoolsandexperimental
+workﬂows. These studies emphasize the importance of integrating rea-
+soning, tool use, and domain knowledge within scientiﬁc workﬂows rather
+than treating AI models purely as predictive components30,31. This is par-
+ticularly consequential in catalysis, where knowledge spans literature,
+simulations, experiments, and mechanistic hypotheses that must ultimately
+be tested against energetics and kinetics.
+First, LLMs can support multi-source knowledge integration by pla-
+cing textual knowledge (proposed mechanisms, empirical rules) alongside
+numerical outputs (energies, barriers, and kinetic parameters from density
+functional theory (DFT)) and experimental observations (operando spec-
+troscopy, selectivity trends, and stability signatures) with a single decision
+context28. If claims are anchored to attributable retrieval and tool-generated
+evidence, LLMs can help construct coherent mechanistic hypotheses across
+modalities rather than treating these inputs as isolated streams10,11.
+Second, LLM-based systems can enable procedural reasoning and
+planning through task decomposition and tool-calling: identifying plausible
+active sites, enumerating competing reaction pathways, selecting appro-
+priate computational tools, and interpreting simulation outputs as evidence
+arrives32,33. This mode of operation aligns with the iterative decision-making
+process used by catalysis experts and directly targets the workﬂow gap of
+conventional ML models.
+Third, when embedded within agent-based architectures, LLMs can
+shift AI from passive prediction to active workﬂow coordination. An LLM-
+centered agent can decide when to run simulations, retrieve prior results,
+reﬁne assumptions, or request additional data, while maintaining an explicit
+task state and rationale for each action11,34. This transforms AI into an
+infrastructural layer that manages hypothesis tracking, tool orchestration,
+and experiment planning within a single loop (Fig. 1c).
+However, catalysis also exposes fundamental constraints that LLM
+agents must address. Mechanism-aware reasoning must be veriﬁcation-
+ﬁrst: LLMs do not intrinsically enforce physical constraints, and therefore
+Traditional Paradigm (Prediction-first)
+Catalytic Reasoning Gap
+New Paradigm (Reasoning-first / Orchestrator)
+I. Input
+II. Model families
+III. Output
+Fast mapping: structure → property
+(emphasis on mapping)
+Catalytic reasoning requires chaining 
+decisions, not only predicting labels
+End-to-end: hypothesis → tools → evidence → iteration
+?
+?
+?
+?
+?
+?
+?
+Step
+Energy
+！
+I. Richer Input
+II. Central Brain: LLM/foundation model
+III. Output
+Descriptors
+(d-band, Eads…)
+Static structures
+(slab + snapshots)
+Dataset labels
+(ΔE, ΔG, activity)
+GNN / property
+predictors
+ML potentials
+(DP, NequlP)
+Surrogate models/ 
+regressors
+Ranking / 
+screening list
+(top candidates)
+Single-point
+property
+(Eads, barrier)
+Static explanations
+(SHAP, feature 
+importance)
+Multi-step mechanisms
+(PCET, competing pathways, 
+selectivity)
+Dynamic surfaces
+(reconstruction, sit evolution, 
+coverage eects)
+Interfaces & fields
+(electric field, solvation, ions, 
+potential)
+Sparse key data
+(TS, barriers, operando 
+structures missing)
+Decision chain complexity
+(“what to compute next?”)
+Text knowledge
+(papers, protocols, 
+patents)
+Structured 
+knowledge
+(databases, ontologies)
+Signals from tools
+(DFT outputs, spectra, 
+images)
+DFT / 
+Microkinetic
+Synthesis 
+planning / Lab 
+protocols
+Robotics / 
+Automation
+RAG / 
+Literature 
+retrieval
+Evaluation / 
+Guardrails
+ML potentials / 
+MD
+Mechanism-aware 
+reasoning
+(pathway / sites / selectivity)
+Planning & 
+decomposition
+(break tasks into steps)
+Tool orchestration
+(call calculators, DFT, 
+retrieval)
+Hypothesis
+(mechanistic +
+tastable)
+Candidate +
+rationale
+(why this catalyst)
+Experiment plan
+(conditions, 
+controls)
+Closed-loop update
+(feedback →next 
+iteration)
+a
+b
+c
+Fig. 1 | Paradigm shifts from prediction-ﬁrst models to reasoning-ﬁrst catalytic
+workﬂows. a Conventional AI pipelines that learn a largely static mapping from
+structures or descriptors to properties, primarily for screening and ranking. b The
+reasoning gap in catalysis arises from multi-step mechanisms, dynamic surfaces, and
+interface-dependent operating conditions, together with sparse and inconsistent
+mechanistic labels. c Foundation models, including LLMs, act as coordinators that
+integrate heterogeneous knowledge and tool feedback to generate testable hypoth-
+eses, mechanistic rationales, and closed-loop plans.
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+2
+===== PAGE 3 =====
+language-level explanations may diverge from energetically or kinetically
+consistent mechanisms unless grounded in domain-speciﬁc tools. There-
+fore, LLM outputs should be treated as hypotheses that are constrained by
+physics-informed representations (reaction networks, step libraries, tran-
+sition state (TS) data, interface descriptors) and validated by domain-
+speciﬁc tools35.
+LLM as the central coordinator in catalytic workﬂows
+Building on the preceding discussion, LLM-centered systems can address
+the representation gap by elevating mechanisms to structured, testable
+objects, and address the workﬂow gap by enabling stateful, tool-mediated
+“reason–act–revise” loops with delegated decision authority over action
+selection. Crucially, these systems must be veriﬁcation-ﬁrst: hypotheses
+proposed inlanguage are treated as provisional claims and areadmitted into
+the workﬂow state only when their supporting evidence satisﬁes predeﬁned
+admissibility, numerical-quality, and physical-consistency criteria enforced
+by a veriﬁcation layer (Fig. 2).
+Mechanism-aware reasoning: pathways, active sites, and
+selectivity
+The central challenge is not merely improving pointwise prediction accu-
+racy but rather closing the representation gap: catalytic decisions depend on
+pathway competition, rate-/selectivity-controlling steps, and condition
+dependence, which must be represented as falsiﬁable mechanistic objects
+Additional computation 
+/ experiments
+Problem Definition
+Catalytic task specification
+•
+Reaction targets (e.g., OER, CO2RR)
+•
+Operating conditions (pH, potential, T)
+•
+Constraints (stability, selectivity, cost)
+•
+Priors (literature, data, intuition)
+(1) Mechanism-aware Reasoning
+•
+Pathway competition
+•
+Active-site hypotheses
+•
+Selectivity bifurcations
+(2) Task decomposition & Planning
+•
+Executable subproblems
+•
+What-to-compute-next
+•
+Iteration state
+(3) Contextual memory
+•
+Cross-iteration memory
+•
+Tool feedback history
+•
+Constrains & priors
+•
+Energetics & barriers
+•
+Stability indicators
+•
+Feasibility checks
+•
+Failure signals
+Catalyst candidate 
++ rationale
+Mechanistic 
+hypothesis
+Experiment
+design 
+Next-iteration 
+query
+Automation / robotics (optional)
+(flow systems, optimization loops)
+Synthesis & experiment planning
+(protocols, conditions, controls)
+Structure generation
+(catalyst candidates, surfaces, motifs)
+Tool-Oriented Execution 
+Layer
+Literature & database retrieval
+(papers, patents, datasets)
+Electronic structure & kinetics
+(DFT, microkinetic, TS search)
+ML surrogates
+(potentials, surrogate models)
+Evidence Aggregation
+Outputs
+LLM / Foundation Model
+Explicit Tool Orchestration
+Interface modeling
+(solvation, potential, coverage)
+•
+State validity
+•
+Numerical quality
+Verifier (physics- & workflow-level checks)
+•
+Physical consistency
+•
+Cross-evidence checks
+Pass
+No
+Yes
+Fail
+(Refine calculations / 
+Downgrade hypothesis
+/ Human review)
+Uncertainty gate
+High-uncertainty 
+/ high-impact?
+Human oversight
+(Human-in-the-loop)
+Evidence Ledger
+•
+Tool versions & parameters
+•
+Linked claims & citations
+•
+Inputs & assumptions
+•
+Outputs & intermediate results 
+Closed-loop refinement
+Fig. 2 | LLM-centered catalytic workﬂow with veriﬁcation-ﬁrst tool orchestra-
+tion. A catalytic task is speciﬁed with reaction targets, operating conditions, and
+constraints. The LLM core performs mechanism-aware reasoning (pathway com-
+petition, active-site hypotheses, selectivity bifurcations), decomposes the task into
+executable subproblems, and maintains contextual memory across iterations.
+Specialized tools, including literature and database retrieval, electronic-structure
+and kinetic calculations (DFT, transition-state search, microkinetic modeling),
+interface modeling (solvation/potential/coverage), ML surrogates, structure gen-
+eration, and experimental planning/automation—are invoked through explicit tool
+orchestration. A Veriﬁer module implements a minimal veriﬁcation policy that
+evaluates mechanistic claims using state-validity checks, numerical-quality checks,
+physical-consistency checks, and cross-evidence comparison, ensuring that
+hypotheses are admitted into the workﬂow only when supported by tool-generated
+evidence. Representative checks include stoichiometry and charge conservation,
+thermodynamic consistency, barrier sanity, cross-tool agreement, and failure
+detection (e.g., non-converged calculations). When inconsistencies are detected, the
+system triggers structured responses such as reﬁnement of calculations, hypothesis
+downgrading, or escalation to human oversight. All intermediate results and sci-
+entiﬁc claims are recorded in an evidence ledger that tracks provenance (inputs, tool
+versions, parameters, and outputs) to ensure auditability and reproducibility. An
+uncertainty gate routes high-uncertainty or high-impact decisions to additional
+computation or experiments, or to human oversight, enabling a closed-loop cycle
+that iteratively reﬁnes mechanistic hypotheses, catalyst candidates with rationale,
+experimental designs, and next-iteration queries.
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+3
+===== PAGE 4 =====
+rather than inferred post hoc from isolated property predictions. Physics-
+based modeling (e.g., DFT energetics/barriers and microkinetics) links
+elementary steps to macroscopic rates and selectivity, but practical progress
+relies on procedural choices what to model next, which interface assump-
+tions to adopt, and how to reconcile computation with experiment36.
+In this setting, LLMs are best viewed as a coordination layer that
+maintains and updates an explicit hypothesis set: active-site motifs, com-
+peting pathways, and selectivity bifurcations, each associated with
+assumptions (facet, coverage, potential/solvation model) and evidence sta-
+tus. For branching search, tree/graph formalisms enable parallel compar-
+ison,
+constraint
+checking,
+and
+iterative
+reﬁnement37.
+Concretely,
+mechanism-aware representations can be organized as reaction graphs in
+which nodes encode catalytic states (site + adsorbate + environment
+descriptors), and edges encode elementary steps annotated with energetics/
+barriers,provenance,and validitychecks,making “mechanisticcorrectness”
+measurable and revisable rather than narrative.
+To enable comparison across hypotheses, catalytic mechanisms can be
+represented as structured mechanism objects rather than narrative
+descriptions. A minimal schema contains three components: species states,
+site descriptors, and elementary steps. Species states encode the catalytic
+conﬁguration as a tuple consisting of surface motif, adsorbate identity,
+coverage, and environment descriptors (e.g., potential, solvation, electrolyte
+conditions). Site descriptors capture the identity and evolution of the active
+center, including local coordination environment, oxidation state, and
+reconstruction motifs when relevant. Elementary steps connect states
+through chemically meaningful transitions, annotated with energetics,
+transition states, and provenance from computational or experimental
+sources.
+Dynamic active-site evolution can be represented through state tran-
+sitions within mechanism-aware reaction graphs, where reconstruction,
+oxidation-state changes, or adsorbate-induced restructuring are encoded as
+state updates rather than external annotations. For example, surface
+reconstruction,oxidation-statechanges,oradsorbate-inducedrestructuring
+are encoded as state updates rather than external annotations, allowing
+mechanisms with evolving active sites to be compared within the same
+representation. In practice, competing mechanisms are evaluated by com-
+bining thermodynamic feasibility, kinetic accessibility, and consistency with
+experimental observations. Under partial evidence, hypotheses can be
+ranked using progressively higher-ﬁdelity evaluation layers, for example,
+surrogate screening, electronic-structure energetics, transition-state reﬁne-
+ment, and microkinetic modeling, while pruning pathways that violate
+physical constraints or contradict validated evidence. This representation
+allows mechanism comparison to remain falsiﬁable and evidence-driven
+even when the active site itself evolves under reaction conditions.
+To keep mechanistic reasoning traceable and correctable, systems
+should rely on updatable external memory and tool logs rather than para-
+metric recall.Retrieval-augmented generation(RAG) combinesattributable
+retrieval with generation, enabling evidence-grounded synthesis across lit-
+erature and internal records with citation-level provenance38. Grounding
+can be further strengthened by constraining reasoning with structured,
+physics-bearing representations. Knowledge-graph–augmented LLMs can
+bind pathway proposals to structured reaction objects (species, steps, con-
+straints) with explicit evidence links and attribution35.
+Critically, mechanism-aware reasoning must be veriﬁcation-ﬁrst:
+language-generated pathway hypotheses are treated as provisional until
+validated (or falsiﬁed) by physics-based tools (DFT/TS search, micro-
+kinetics, stability ﬁlters) and explicit consistency checks. This design turns
+mechanistic reasoning into a controlled hypothesis–test–update cycle,
+enabling reliable comparison of competing pathways and condition-
+dependent selectivity under a shared, auditable workﬂow state (Fig. 2).
+Tool-oriented catalytic agents
+The workﬂow impact becomes concrete when LLMs address the workﬂow
+gap by operating in a tool-oriented, stateful “reason–act–revise” loop:
+decompose tasks, invoke tools, consolidate evidence, and re-plan based on
+validation outcomes and failure signals. Representative frameworks such as
+ReAct and Toolformer formalize auditable tool use and specify when tool
+outputs should be incorporated into subsequent reasoning32,39.
+A catalysis toolchain encompasses retrieval, electronic-structure/
+kinetic tools (DFT, TS search, microkinetic modeling), interface modeling
+(solvation, potential, coverage), ML surrogates, structure generation, and
+experimental planning (optionally automated or robotic)11. ChemCrow
+illustrates that controller-plus-tools orchestration is practically realizable10.
+However, reliability in catalysis requires that tool use be coupled to
+veriﬁcation-ﬁrst control rather than free-form iteration. Accordingly, tool
+invocation should be gated by (i) pre-checks on assumptions and inputs
+(e.g., surface model validity, charge/stoichiometry, feasible coverage/
+potentialranges),(ii)runtimemonitoringwithexplicitfailurehandling(e.g.,
+nonconvergence, unstable structures, inconsistent energies), and (iii) post-
+checks that enforce physical consistency (thermodynamic ordering, barrier
+sanity, cross-tool agreement) and trigger revision when constraints are
+violated.
+To support auditability and reproducibility, systems should record not
+only ﬁnal answers but also an evidence ledger: retrieved sources, tool calls,
+parameters, versions, outputs, and decision justiﬁcations linked to each
+hypothesis update. In closed-loop settings, an uncertainty gate is essential:
+high-uncertainty or high-impact decisions should trigger additional com-
+putation/experiments or human oversight rather than automated execu-
+tion. Self-driving-lab reviews emphasize plan–execute–validate–revise
+loops and traceable evidence as prerequisites for robust autonomy19.
+Accordingly, outputs should be scientiﬁc deliverables rather than a
+single score, including testable mechanistic hypotheses, candidate catalysts
+with rationale and assumptions, experimental designs with controls, and
+next-iteration queries that target dominant uncertainties. These outputs
+update the task state and constraints for the next cycle, enabling sustained
+integration of mechanistic reasoning with tool-grounded evidence within a
+closed-loop workﬂow.
+In practice, veriﬁcation-ﬁrst workﬂows do not attempt to evaluate all
+hypotheses exhaustively. Instead, veriﬁcation proceeds through a multi-
+ﬁdelity ladder in which inexpensive models are used to triage candidate
+mechanisms before higher-cost validation is performed. For example,
+descriptor-based heuristics or surrogate models may ﬁrst eliminate clearly
+implausible hypotheses, followed by selective electronic-structure calcula-
+tions to evaluate key intermediates. Only a small subset of surviving can-
+didates may then undergo transition-state reﬁnement or microkinetic
+modeling. Such staged veriﬁcation prioritizes mechanism-disambiguating
+tests rather than exhaustive exploration of the hypothesis space. For
+example, in an OER system competing hypotheses such as AEM or lattice-
+oxygen mechanisms may ﬁrst be screened using descriptor-level energetics
+before targeted transition-state calculations are performed for key steps.
+To make veriﬁcation-ﬁrst control operational rather than rhetorical,
+each mechanistic claim should be evaluated under a minimal veriﬁcation
+policy specifying (i) the claim type, (ii) admissible evidence types, (iii)
+required tool outputs, (iv) physical and numerical consistency checks, and
+(v) failure responses.
+At minimum, four classes of checks are required. State-validity checks
+conﬁrm that the catalytic state being evaluated is physically well deﬁned,
+including stoichiometry, charge/spin balance, adsorbate placement, surface
+termination, and declared environment descriptors such as coverage,
+potential, and solvation model. Numerical-quality checks ensure that tool
+outputs are reliable for downstream reasoning, including convergence sta-
+tus, force thresholds, and reproducibility across equivalent calculations.
+Physical-consistency checks test whether the resulting energetics and
+pathways satisfy basic constraints such as mass and charge conservation,
+thermodynamic cycle consistency, and barrier sanity. Cross-evidence
+checks compare simulation outputs with literature reports, operando
+characterization, and kinetic trends to identify whether a claim is supported,
+contradicted, or underdetermined.
+Failure in these checks does not necessarily invalidate a hypothesis but
+triggers a structured response: targeted reﬁnement (for example, rerunning
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+4
+===== PAGE 5 =====
+a calculation with improved interface models), claim downgrading to a
+lower-conﬁdence hypothesis, or escalation to human review when the
+decision has high experimental or computational cost. For instance, a
+mechanistic claim should not be admitted if the underlying electronic-
+structure calculation remains unconverged, if the active site reconstructs
+into a different motif, or if the predicted rate-determining step contradicts
+the computed free-energy landscape.
+Emerging paradigms toward autonomous catalysis
+Autonomous catalysis emerges when two advances co-develop: (i)
+mechanism-aware representations that make hypotheses falsiﬁable (closing
+the representation gap), and (ii) veriﬁcation-ﬁrst, tool-orchestrated work-
+ﬂows that decide what to do next under uncertainty (closing the workﬂow
+gap). Building on the reference architecture in Fig. 2, we highlight two
+converging paradigms, LLM-guided inverse discovery and closed-loop
+experimentation, that convert language-level proposals into auditable, tool-
+grounded action.
+LLM-guided catalyst design and inverse discovery
+Conventional catalyst discovery largely follows a forward paradigm: pro-
+posecandidatestructuresﬁrst,thenevaluateactivity,selectivity,andstability
+through computation and experiments, and iterative reﬁne40. Despite scal-
+ing relations, volcano analyses, and microkinetics, the practical logic often
+remains “structure-ﬁrst, evaluate-later” (Fig. 3a)41, which can underutilize
+mechanistic knowledge and make it difﬁcult to explore hypothesis diversity
+under constraints.
+Recent generative work reframes discovery as target-ﬁrst design: spe-
+cify objectives and constraints upfront, then generate candidates for sub-
+sequent evaluation. In electrocatalysis, inverse-design frameworks combine
+surface generation, prediction, and optimization to map objectives to can-
+didates (e.g., CO2RR-relevant surfaces)42,43. Related work on motif/envir-
+onment generation further supports “inverse generation + interpretable
+constraints” at the atomic scale44.
+Within this landscape, LLMs can elevate inverse design from latent-
+space optimization to constraint-expressible,
+mechanism-actionable,
+diversity-aware hypothesis generation45. Speciﬁcally, LLM agents can
+translate high-level goals (activity, selectivity, stability, cost, poison toler-
+ance, synthesis feasibility) into structured constraints and mechanism-
+aware points, e.g., excluding pathways known to over-oxidize, enforcing
+stability windows, or favoring motifs that enable a desired selectivity
+bifurcation. This shifts generative design toward hypothesis diversity with
+explicit rationale, rather than single-candidate optimization. Recent reviews
+in catalysis and materials increasingly position LLMs, together with auto-
+mation and ML, as enabling components for goal-driven discovery46.
+Crucially, this paradigm does not require LLMs to “replace physics.” In
+a veriﬁcation-ﬁrst workﬂow, LLM outputs are treated as provisional
+hypotheses that must be ﬁltered or falsiﬁed by physics-based evaluation
+(DFT energetics/barriers and microkinetic pathway competition), so that
+“mechanism-conditioned generation” yields candidates that are not only
+plausible but testable (Fig. 3b). In practice, this implies (i) generating mul-
+tiple mechanistic hypotheses per candidate (active-site motifs, competing
+pathways, selectivity control points), (ii) routing evaluation to the appro-
+priate tools (including interface-aware modeling when needed), and (iii)
+updating generation constraints based on validated failure modes (e.g.,
+instability, unfavorable barriers, incorrect selectivity regime). This closes the
+loopbetweengenerationandmechanisticveriﬁcationanddirectlyaddresses
+the representation gap by treating mechanisms as ﬁrst-class objects within
+the design cycle.
+Closed-loop catalysis: from hypothesis to experiment
+Autonomouscatalysisultimatelyrequiresclosed-loopexecution:hypothesis
+formulation →candidate selection or generation →validation planning →
+experimentaland/orcomputationalexecution →evidenceaggregationwith
+failure signals →adaptive reﬁnement. Self-driving-lab analyses emphasize
+thatcouplingautomation,orchestrationsoftware,andalgorithmicdecision-
+making enables sustained closed-loop iteration19.
+Human intuition & hypothesis
+experience-driven
+limited search space
+Conventional catalyst discovery
+LLM-guided inverse catalyst design
+Target-first formulation
+Mechanism-conditioned generation
+Constraint-aware exploration
+Hypothesis diversity
+LLM-enabled autonomous catalysis
+Manual modeling
+DFT screening
+isolated calculations
+Trial and error experiments
+slow iteration
+costly validation
+Post hoc interpretation
+fragment understanding
+Mechanism-aware evaluation
+Pathway competition
+Selectivity reasoning
+Stability-activity trade-offs
+Failure-aware rejection
+Closed-loop experimentation
+Experiment planning
+Robotic execution
+Real-time feedback
+Adaptive refinement
+Experiment feedback
+Paradigm
+Shift
+Closed-loop autonomous catalysis
+Toward self-driving laboratories for catalysis
+From static prediction → self-improving catalytic systems
+a
+b
+c
+AI
+Fig. 3 | Emerging paradigms toward autonomous catalysis enabled by LLM-
+centered, veriﬁcation-ﬁrst systems. a Conventional catalyst discovery as a
+sequential, intuition-driven workﬂow with fragmented handoffs between modeling,
+experimentation, and interpretation. b LLM-enabled paradigms that support
+inverse catalyst design, mechanism-aware evaluation, and closed-loop
+experimentation by connecting hypothesis generation, computational screening,
+and experimental feedback into an integrated workﬂow. c Summary of the over-
+arching transition from static prediction to self-improving catalytic systems,
+emphasizing continuous reﬁnement of hypotheses and decision-making through
+feedback between reasoning, tools, and experiments.
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+5
+===== PAGE 6 =====
+Characterization as a mechanistic veriﬁcation layer. In catalytic
+research, mechanistic hypotheses cannot be validated by computation alone
+and often require experimental characterization to conﬁrm the identity and
+evolution of active sites under reaction conditions. Operando and in situ
+techniques, including spectroscopy, microscopy, and electrochemical probes
+play a crucial role in distinguishing between competing mechanisms and
+verifying whether predicted active states exist under reaction conditions.
+Within a veriﬁcation-ﬁrst workﬂow, characterization should therefore
+functionasacomplementaryevidencesourcealongsidecomputationaltools.
+For example, operando spectroscopic signatures, catalyst reconstruction
+observed by microscopy, or isotope-labeling experiments can either support
+or falsify mechanistic hypotheses proposed by simulations or literature. In
+this sense, characterization data serve as high-value evidence entries in the
+evidence ledger and can trigger hypothesis revision or pruning when dis-
+crepancies arise. Integrating characterization into the closed-loop cycle thus
+strengthens the veriﬁcation-ﬁrst paradigm by linking mechanistic reasoning,
+computational validation, and experimentally observable phenomena.
+Compared with earlier automation, a key differentiator of LLM-
+enabled loops is semantic continuity under veriﬁcation-ﬁrst control: the
+system maintains persistent representations of goals, assumptions, con-
+straints,anduncertainty,andupdatesthemasevidencearrives.Asaproofof
+concept, Coscientist demonstrates that LLM-driven systems can execute
+end-to-end chains spanning planning, tool use, experiment execution, and
+interpretation,supportingthefeasibilityof maintaininglanguage-levelgoals
+across a closed loop10. At the orchestration layer, ChemOS formalizes
+laboratoriesas coordinated systems with uniﬁed interfaces,enablingstateful
+scheduling and closed-loop control47,48.
+However, catalysis makes closed-loop autonomy uniquely demanding.
+The optimization target is typically multi-objective (activity, selectivity
+distribution, stability, cost) and strongly condition-dependent; moreover,
+mechanistic labels are sparse, and “ground truth” may shift as active sites
+reconstruct. Thus, robust loops must be designed around (i) uncertainty-
+awaredecisionpolicies,(ii)explicitconstraintcheckingandfailurehandling,
+and (iii) auditable evidence trails that connect each action to tool outputs
+and provenance.
+Closed-loop catalysis also hinges on information-gain-driven
+experiment selection (e.g., Bayesian optimization, active learning, and
+multi-objective optimization) rather than brute-force exploration49.
+Automated platforms have demonstrated closed-loop self-optimization
+and scale-up in ﬂow systems, directly instantiating plan →execute →
+feedback →reﬁne cycles. For catalytic materials discovery, active
+learning
+has
+accelerated
+the
+discovery
+and
+optimization
+of
+electrocatalysis-relevant systems, consistent with the principle of max-
+imizing insight per experiment50,51. Multi-objective closed-loop opti-
+mization
+of
+catalyst
+formulations
+can
+converge
+within
+a
+few
+generations52. In veriﬁcation-ﬁrst settings, humans act as goal-setters
+and safety/audit gatekeepers rather than operators, and DMTA work-
+ﬂows highlight auditable decision chains and human-in-the-loop gov-
+ernance under cost and safety constraints53.
+Together, LLM-guided inverse design and closed-loop experimenta-
+tion move catalyst discovery from sequential trial-and-error toward self-
+improving, mechanism-aware systems driven by iterative evidence and
+adaptive control (Fig. 3c). Importantly, autonomy should be deﬁned at the
+system level the ability to propose hypotheses, select actions, validate with
+tools, and revise under uncertainty rather than by any single model’s pre-
+dictive accuracy.
+Key challenges unique to catalysis-oriented LLM systems
+Scope and boundary conditions. Veriﬁcation-ﬁrst workﬂows are particu-
+larly valuable in catalytic systems characterized by substantial mechanistic
+ambiguity, strong operando dynamics, or frequent distribution shifts
+between computational models and experimental conditions. Examples
+include electrocatalysis and heterogeneous catalysis under reactive envir-
+onments, where surface reconstruction, coverage effects, electrolyte inter-
+actions, or ﬁeld effects can signiﬁcantly alter the identity of active sites. In
+such regimes, prediction-ﬁrst screening may generate candidate lists with-
+out resolving the underlying reaction physics.
+Conversely, in more stable catalytic systems governed by well-
+established descriptors and relatively ﬁxed active sites, traditional
+prediction-ﬁrst screening may remain effective. In these settings, surrogate
+models or descriptor-based rankings can already provide reliable guidance
+for materials selection. Veriﬁcation-ﬁrst should therefore be viewed not as a
+replacementforpredictivescreening,butasacomplementaryparadigmthat
+becomes particularly powerful when mechanistic uncertainty limits the
+transferability of purely predictive models.
+Despite growing interest in LLMs as central coordinators in catalytic
+research workﬂows, their deployment in catalysis faces challenges that are
+sharper than in many other scientiﬁc domains. Because catalysis is multi-
+scale, mechanism-driven, and experimentally constrained, LLM systems
+must be physically grounded, controllable, and experiment-compatible54–56.
+Importantly, these challenges are not solved by model scale alone: they
+require closing both the representation gap (mechanisms as falsiﬁable
+objects) and the workﬂow gap (tool-mediated decision procedures),
+implemented through veriﬁcation-ﬁrst controls (Veriﬁer, evidence ledger,
+and uncertainty gate).
+Mechanistic grounding and physical ﬁdelity
+A primary challenge is insufﬁcient mechanistic grounding (Fig. 4a). Cata-
+lytic performance depends on competing elementary steps and the TS
+landscape that governs the rate and selectivity57. Without explicit pathways
+and TS information, outputs remain descriptive rather than falsiﬁable. Even
+in well-studied systems, microkinetic conclusions can change under com-
+mon modeling assumptions, reinforcing that correlation does not imply
+causation. This gap becomes sharper at electriﬁed interfaces, where opera-
+tive physics depends on charge redistribution, interfacial electric ﬁelds, and
+solvent- and ion-mediated stabilization. If charge, ﬁeld, and potential are
+weakly represented, the system may systematically misrank barriers or
+misattribute selectivity because solvation and interfacial structure can
+reshape both energetics and kinetics. Comprehensive interface-focused
+reviews emphasize that electrocatalytic modeling must account for
+environment-dependent effects (electrostatic ﬁeld, solvation, ions, and
+potential) to remain physically meaningful58.
+A closely related catalysis-speciﬁc challenge is the capture of dynamic
+and operando effects (Fig. 4b)25. Many workﬂows still rely on static inputs,
+whereasoperandocatalysisoftendemandstime-resolvedevidence.Without
+time-resolved constraints, reasoning can drift toward static-site assump-
+tions, missing reconstruction, and active-site evolution under working
+conditions. Operando/in situ studies emphasize that identifying the true
+active species under reconstruction is central to interpreting activity and
+stability.
+Implication for veriﬁcation-ﬁrst design. To address this, LLM systems
+must couple language-level hypotheses to physics-bearing mechanism
+objects (reaction networks, step libraries, TS candidates, microkinetic
+models, and interface descriptors) and require tool-grounded validation
+before admitting mechanistic claims into the workﬂow state. For exam-
+ple, calculations that fail numerical convergence, produce unstable
+structures, or violate thermodynamic ordering should automatically
+trigger recalculation, model reﬁnement, or hypothesis downgrading
+rather than being converted into mechanistic conclusions.
+Generalization across catalysts, interfaces, and conditions
+A second difﬁculty is limited cross-system generalization (Fig. 4c). Catalysis
+spans diverse catalyst classes and environments, where domain-speciﬁc
+overﬁtting is common and intuitive analogies can break down across
+materials families (e.g., MOFs, oxides, and alloys)59,60. Moreover, failures
+often arise from interfacial and solvent mismatches, in which the same
+nominal chemistry behaves differently under distinct interfacial structures
+or electrolyte conditions. In data-driven settings, such gaps manifest as
+sensitivity to distribution shift. Large-scale out-of-distribution studies in
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+6
+===== PAGE 7 =====
+materials ML show that conventional evaluations can overestimate real
+extrapolation,andperformanceoftendegradeswhenthetestdomainmoves
+outside the training manifold61.
+Equally important is semantic–structural misalignment (Fig. 4d).
+LLMs generalize primarily through patterns in semantic context, yet cata-
+lytic function is frequently dictated by precise local structure, coordination
+environments, defects, facets, and evolving ensembles62. Geometry-aware
+and structure-tokenization approaches underscore that semantics must
+align with 3D structure when structure is causal63,64.
+Implication for veriﬁcation-ﬁrst design. Robust autonomy, therefore,
+requires uniﬁed representations that bind text to structure/energetics/
+kinetics and evaluations that explicitly test transfer under distribution
+shifts. In practice, an uncertainty gate should detect when the current
+query departs from prior evidence (e.g., a new catalyst family, electrolyte
+regime, or interface model) and route decisions to additional computa-
+tion/experiments rather than making conﬁdent extrapolations. Evidence
+ledgers should record the domain of validity (assumptions, environment
+descriptors, and tool settings) so that generalization claims are auditable
+and failures are attributable to speciﬁc mismatches.
+Trust, control, and experimental compatibility
+Beyond accuracy, adoption in experimental catalysis hinges on governance
+properties, including trust, control, and interpretability (Fig. 4e). LLMs can
+generate plausible explanations that lack sufﬁcient evidential support, and
+theirdecisionpathscanbedifﬁculttoaudit,leadingtoerrorsthatare hard to
+correct, especially in closed-loop settings where automation can amplify
+mistakes. Systematic surveys of hallucination and mitigation strategies
+document these failure modes and highlight the need for veriﬁcation-
+centered workﬂows.
+Finally, even a well-governed model can fail to translate into
+practice due to poor experimental integration and scalability (Fig. 4f). In
+many laboratories, LLM tooling faces signiﬁcant adoption barriers and a
+fragmented tool ecosystem. The lack of standardized interfaces prevents
+robust handoff from language outputs to instrument control, execution,
+and data capture48,65. Orchestration architectures such as ChemOS 2.0
+target this systems-layer bottleneck by coordinating communication,
+data
+exchange,
+and
+instruction
+management
+among
+modular
+components47,48. Standardization efforts, such as SiLA 2, similarly aim to
+improve interoperability through shared concepts and an open com-
+munication layer66.
+Scalability is further constrained by cost: realistic ﬁdelity may require
+explicit interface sampling, coverage effects, uncertainty quantiﬁcation, and
+microkinetics, exceeding routine closed-loop throughput. Therefore, prac-
+tical systems need cost-aware tool scheduling, uncertainty-aware prior-
+itization, and standardized experiment–model interfaces and data schemas.
+Implication for veriﬁcation-ﬁrst design. Trust and experimental com-
+patibility are system properties. A Veriﬁer and evidence ledger oper-
+ationalize “no claim without evidence,” while the uncertainty gate
+provides a principled trigger for deferral, additional validation, or human
+oversight. Together with standardized lab interfaces, these controls
+transform LLM outputs from persuasive text into auditable, executable
+research actions.
+LLM-based
+catalytic
+reasoning
+system
+Language reasoning
+Tool orchestration
+Knowledge integration
+Insufficient mechanistic grounding
+No explicit reaction
+pathways
+Missing transition
+states
+Weak charge & field
+representation
+Correlation ≠
+causation
+Limited cross-system generalization
+Domain-
+specific
+overfitting
+Interface &
+solvent
+mismatch
+Distribution
+shift sensitivity
+Poor experiment–model integration
+High usage barrier
+Fragmented tool
+ecosystems
+Lack of standardized
+interfaces
+High computational
+and data cost
+……
+……
+……
+…
+…
+…
+…
+Semantic–structural misalignment
+Language
+tokens ≠ atomic
+structures
+Poor encoding
+of coordination
+& defects
+Lossy
+abstraction of
+chemistry
+[C]
+[C]
+[O]
+[H]
+Inability to capture dynamic and
+operando effects
+Static text-based
+inputs
+No time-resolved
+trajectories
+Surface reconstruction
+ignored
+Active-site
+evolution missing
+Limited trust, control, and
+hallucination
+Hallucinated
+explanations
+Unverifiable
+reasoning
+Low interpretability
+Hard-to-audit
+decisions
+a
+b
+c
+d
+e
+f
+Fig. 4 | Key bottlenecks limiting LLM-driven autonomous catalysis. a Insufﬁcient
+mechanistic grounding, where reaction pathways and transition states are not
+explicitly represented, and charge, ﬁeld, and solvation effects are weakly captured,
+leading to correlation-driven conclusions. b Dynamic and operando complexity gap,
+where static inputs omit time-resolved trajectories, surface reconstruction, and
+active-site evolution under working conditions. c Limited cross-system general-
+ization, including sensitivity to distribution shift and poor transfer across catalyst
+classes and environments such as alloys, oxides, MOFs, and interfaces. d Semantic
+and structural misalignment, where language tokens do not faithfully encode
+coordination, defects, and interface structure, resulting in lossy abstraction and weak
+structure-function alignment. e Limited trust, control, and interpretability, includ-
+ing hallucinated explanations, unveriﬁable reasoning paths, low auditability, and
+hard-to-correct errors in iterative workﬂows. f Poor experiment-model integration
+and scalability, including high usage barriers, fragmented tool ecosystems, a lack of
+standardized interfaces, and high computational and data costs for physically rea-
+listic modeling.
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+7
+===== PAGE 8 =====
+Claim typing and evidence admissibility. To prevent “evidence laun-
+dering,” in which weak evidence is rhetorically ampliﬁed to support
+mechanistic claims, the evidence ledger must enforce explicit provenance
+and admissibility rules. In practice, claims should be typed according to
+their epistemic status (e.g., qualitative hypothesis, mechanistic proposal,
+rate-determining step assignment, or quantitative prediction), and each
+claim type should specify permitted evidence sources. For instance, lit-
+erature reports or empirical heuristics may support exploratory
+hypotheses but are insufﬁcient to validate pathway energetics or rate
+control without tool-grounded evidence such as electronic-structure
+calculations, kinetic modeling, or experimental characterization.
+All evidence entries should include provenance metadata (source, tool
+version, input parameters, and calculation or experimental conditions) to
+ensure traceability. When conﬂicting evidence arises, for example, when
+literaturesuggestsapathwaythatcontradictscomputedenergeticsorkinetic
+trends the claim should be downgraded to an unresolved hypothesis rather
+than elevated to a conclusion. In such cases, the workﬂow should trigger
+targeted veriﬁcation steps, such as additional calculations, sensitivity ana-
+lysis, or experimental tests, until the discrepancy is resolved or the
+hypothesis is pruned. These admissibility rules ensure that the evidence
+ledger functions not merely as a record of results but as a governance layer
+controlling how evidence can justify scientiﬁc claims.
+Epistemic grounding and structured representations
+Recent discussions in AI-driven chemistry highlight an important
+explanatory trade-off: as AI systems increasingly mediate hypothesis
+generation and discovery, the epistemic burden shifts toward explana-
+tion, provenance, and responsibility67. In this setting, veriﬁcation-ﬁrst
+orchestration can be viewed as an epistemic control mechanism that
+ensures scientiﬁc claims remain grounded in traceable evidence rather
+than persuasive inductive artifacts. The veriﬁer →evidence ledger →
+uncertainty gate triad proposed in this work provides a concrete oper-
+ationalization of this principle by enforcing admissibility rules for
+mechanistic claims, recording provenance across tool outputs, and
+routing high-uncertainty decisions to additional validation or human
+oversight.
+At the same time, the representation layer of autonomous catalysis
+must integrate heterogeneous sources of knowledge, including literature,
+simulations, experimental observations, and mechanistic constraints68.
+Recent advances in heterogeneous knowledge graph representation
+learning suggest that structured relational representations can improve
+how heterogeneous signals are integrated and reasoned over. In the
+context of catalytic workﬂows, such approaches are complementary to the
+mechanism-object framework proposed here: graph-based learning can
+help discover statistical associations or latent structural motifs, whereas
+the mechanism-object layer enforces physically grounded constraints
+such as reaction topology, stoichiometry, transition-state connectivity,
+and microkinetic consistency. In this sense, autonomous catalysis may
+beneﬁt from a hybrid paradigm in which machine learning captures
+patterns across heterogeneous data while physics-based mechanism
+representations deﬁne the admissible hypothesis space.
+Outlook: What will truly enable autonomous catalysis
+Autonomous catalysis will not be achieved by scale alone. A more plausible
+trajectory is staged: LLM-assisted →LLM-coordinated →LLM-driven
+agents →autonomous catalysis, where progress is evaluated by co-
+development of mechanistic representations (closing the representation
+gap), tool-orchestrated procedures (closing the workﬂow gap), and
+veriﬁcation-ﬁrst controls (Veriﬁer, evidence ledger, and uncertainty gate)
+that make decisions auditable and safe (Fig. 5a). Reviews of self-driving
+laboratoriesemphasize that autonomy is operationally deﬁned by the ability
+to plan, execute, and assimilate feedback within an integrated workﬂow,
+rather than by model size alone19,69.
+Stage I: LLM-assisted catalysis (productivity without execution
+authority)
+In Stage I, LLMs are primarily used for literature mining, hypothesis
+suggestion, and post hoc interpretation, improving productivity but not
+Stage II
+LLM-coordinated workflows
+Stage III
+LLM-driven catalytic agents
+Stage IV
+Autonomous catalysis
+•
+Literature mining
+•
+Hypothesis suggestion
+•
+Post-hoc interpretation
+•
+Tool orchestration (DFT, 
+databases, ML potentials)
+•
+Reaction-path planning
+•
+Constraint-aware 
+reasoning
+•
+Mechanism-aware 
+reasoning
+•
+Active learning loops
+•
+Multi-path hypothesis 
+evaluation
+•
+Closed-loop experiment–
+model systems
+•
+Self-updating knowledge
+•
+Minimal human 
+intervention
+Mechanism-aware 
+representation
+•
+Explicit reaction 
+pathways
+•
+Transition states & 
+kinetics
+•
+Charge, field, and 
+solvation 
+descriptors
+Unified 
+representations
+•
+Catalyst–
+adsorbate graphs
+•
+Interface-aware 
+encoding
+•
+Transferable 
+mechanistic labels
+Tool-oriented 
+catalytic agents
+•
+DFT / ML potential 
+/ database 
+integration
+•
+Constraint-based 
+planning
+•
+Verification-first, 
+error-aware tool
+Experiment-in-
+the-loop learning
+•
+Real-time 
+feedback
+•
+Active learning
+•
+Adaptive 
+experiment 
+scheduling
+Trust, control, and 
+auditability
+•
+Verifiable 
+reasoning
+•
+Uncertainty 
+estimation
+•
+Human override & 
+safety constraints
+a
+b
+Stage I
+LLM-assisted catalysis
+Capability growth along
+Mechanistic representation
+Tool orchestration
+Experiment integration
+Learning & adaptation
+Fig. 5 | Roadmap toward autonomous catalysis enabled by LLM-centered,
+veriﬁcation-ﬁrst systems. a Evolution path from LLM-assisted catalysis to LLM-
+coordinated workﬂows, LLM-driven catalytic agents, and autonomous catalysis,
+highlighting capability growth along mechanistic representation, tool orchestration,
+experiment integration, and learning/adaptation. b Enabling pillars for this transi-
+tion, including mechanistic grounding through mechanism-aware representation,
+uniﬁed representations that bridge structural and semantic information, tool-
+oriented agents that integrate domain tools with constraint-aware planning,
+experiment-in-the-loop learning with real-time feedback and adaptive scheduling,
+and trust-aware system design with veriﬁable reasoning, uncertainty estimation, and
+human override and safety constraints.
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+8
+===== PAGE 9 =====
+yet constituting an execution layer. The minimum viable cap-
+abilities are:
+• Attributable retrieval and summarization with citation-level prove-
+nance (e.g., RAG over literature and lab records).
+• Structured notetaking and memory that records assumptions, condi-
+tions, and key evidence rather than relying on parametric recall.
+• Conservative interaction policies that avoid tool-free mechanistic
+claims when evidence is missing.
+Stage II: LLM-coordinated workﬂows (tool use with
+veriﬁcation gates)
+Stage II emphasizes LLM-coordinated workﬂows in which an agent can call
+domain tools (DFT, databases, ML surrogates, microkinetics) via task
+decomposition and constraint-aware planning, while conclusions remain
+grounded in tool-generated evidence. The minimum viable capabilities are:
+• Tool routing and job management (submit, monitor, recover from
+failures) across retrieval, computation, and analysis.
+• Veriﬁer-driven consistency checks (sanity checks on energetics/
+barriers, thermodynamic consistency, stability ﬁlters, nonconvergence
+handling).
+• Evidence ledger logging for every claim and decision (inputs, tool
+versions, parameters, outputs, and links to retrieved sources).
+Stage III: LLM-driven catalytic agents (multi-hypothesis reason-
+ing under uncertainty)
+Stage III requires a behavioral shift from “assisting” to “driving” iterative
+discovery. Agents must support mechanism-aware reasoning, active
+learning, and multi-hypothesis evaluation so alternatives can be proposed,
+tested,andupdatedunderuncertainty.Theminimumviablecapabilitiesare:
+• Mechanisms as ﬁrst-class objects (reaction graphs/step libraries/TS
+candidates/microkinetic models) enabling hypothesis versioning and
+comparison.
+• Uncertainty-aware decision policies that trigger additional validation
+(computation/experiments) or deferral when extrapolating across
+catalysts/interfaces/conditions.
+• Information-gain-driven scheduling (active learning/multiobjective
+optimization/Bayesian optimization) tightly coupled to mechanistic
+uncertainty.
+Stage IV: Autonomous catalysis (sustained closed-loop dis-
+covery with governance)
+Stage IV, autonomous catalysis, is best deﬁned as sustained closed-loop
+experiment–model systems with self-updating knowledge and minimal
+human intervention19,69. Here, autonomy is a system property: the ability to
+propose hypotheses, select actions, validate with tools, and revise under
+uncertainty while remaining auditable and safe. The minimum viable
+capabilities are:
+• Closed-loop integration of planning →execution →validation →
+revision with standardized experiment–model interfaces and data
+schemas.
+• Governance and override mechanisms (safety constraints, budget
+constraints, human-in-the-loop triggers for high-impact decisions).
+• Continuous learning with provenance (updating priors, step libraries,
+and surrogate models while preserving reproducibility).
+Across stages, progress should be measured not only by catalytic
+outcomes, but by system-level metrics: (i) auditability and provenance (can
+every decision be traced to evidence?), (ii) robustness under distribution
+shift (how does performance degrade when catalysts/interfaces/conditions
+change?),and(iii)closed-loopsampleefﬁciency(improvementperunitcost
+in experiments, computation, and human time).
+Enabling pillars for veriﬁcation-ﬁrst autonomous catalysis
+Several system capabilities jointly enable this evolution (Fig. 5b). First,
+mechanistic grounding depends on mechanism-aware representations that
+expose explicit reaction pathways, TS, kinetics, together with environment
+descriptors capturing charge, ﬁeld, solvation, and potential70,71. Without
+these causal objects, systems are vulnerable to correlation-driven reasoning,
+especially at electriﬁed interfaces.
+Second, robust transfer across catalysts, interfaces, and conditions
+requires uniﬁed representations that genuinely bridge language and struc-
+ture, such as catalyst–adsorbate graphs, interface-aware encoding, and
+transferable mechanistic labels72.
+Third, agents must be veriﬁcation-ﬁrst by design. Rather than trusting
+ﬂuent text, systems should earn credibility through domain tools (DFT, ML
+surrogates, databases, microkinetics), explicit failure handling, and cross-
+tool consistency checks implemented via a Veriﬁer and evidence ledger that
+operationalize “no claim without evidence”11,19.
+Fourth, experiment-in-the-loop learning requires adaptive scheduling
+that prioritizes expected information gain and reduces uncertainty where it
+matters for mechanism and decision-making73,74. This capability is most
+effective when uncertainty estimates, and mechanistic sensitivity analyses
+directly inform the selection of which experiments or simulations to
+conduct next.
+Finally, real laboratory deployment depends on trust, control, and
+auditability as governance properties: veriﬁable reasoning traces, uncer-
+tainty gating for high-impact decisions, standardized data schemas, and
+human override and safety constraints. Veriﬁcation-centered protocols,
+such as chain-of-veriﬁcation, provide concrete mechanisms to reduce
+unsupported claims and improve the auditability of LLM outputs.
+Conclusions
+LLMs are reshaping catalytic research by extending AI beyond prediction
+and screening. Rather than functioning as task-speciﬁc regressors, LLM-
+centered systems can integrate heterogeneous knowledge, coordinate tool
+use, and support multi-step reasoning across literature, computation, and
+experimental records. Accordingly, we argue that LLMs will matter most in
+catalysis as workﬂow infrastructure that earns credibility by linking
+hypotheses to veriﬁcation-gated actions, rather than as a replacement for
+physics-based modeling or experiments.
+At the same time, autonomous catalysis remains constrained by
+intrinsic catalytic complexity. Mechanistic grounding is essential: outcomes
+depend on pathways and transition states, as well as environment-
+dependent effects, and cannot be inferred from ﬂuent text alone. General-
+ization is also nontrivial: apparent out-of-distribution success can reﬂect
+interpolation, and performance often degrades under genuine distribution
+shift across catalyst classes, interfaces, and operating regimes. Practical
+autonomy, therefore, requires veriﬁcation-ﬁrst closed-loop operation in
+which planning, execution, validation, and revision are integrated as a single
+capability, with tool evidence not narrative plausibility, determining which
+hypotheses survive.
+Looking forward, progress will depend less on scale than on system
+design and integration. We propose three design principles for reliable
+autonomous catalysis:
+(1) Mechanism as an object: represent hypotheses as structured, fal-
+siﬁable mechanism objects (reaction graphs, TS candidates, microkinetic
+models) with explicit assumptions and versioning.
+(2) Veriﬁcation-ﬁrst orchestration: embed domain tools within a
+controlledloop(Veriﬁer+evidenceledger+uncertaintygate)thatenforces
+physical consistency, handles failures, and attaches every claim to traceable
+evidence.
+(3) Cost- and experiment-aware autonomy: couple decision policies to
+information
+gain
+under
+budgets
+and
+deploy
+standardized
+experiment–model interfaces that enable robust closed-loop execution.
+Consistentwiththeseprinciples,weadvocateevaluatingprogressusing
+system-level metrics not outcomes alone including auditability and prove-
+nance, robustness under distribution shift, and closed-loop sample
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+9
+===== PAGE 10 =====
+efﬁciency. By treating LLMs as infrastructure with veriﬁable interfaces to
+physics and experiments, catalytic discovery can shift from trial-driven
+iteration to adaptive, hypothesis-driven cycles that deliver actionable
+structure–function insights across catalysts and conditions.
+Data availability
+No datasets were generated or analysed during the current study.
+Received: 8 February 2026; Accepted: 17 April 2026;
+References
+1.
+Lai, N. S. et al. Artiﬁcial intelligence (AI) workﬂow for catalyst design
+and optimization. Ind. Eng. Chem. Res. 62, 17835–17848 (2023).
+2.
+Wang, Z., Li, W., Wang, S. & Wang, X. The future of catalysis: Applying
+graph neural networks for intelligent catalyst design. WIREs Comput.
+Mol. Sci. 15, e70010 (2025).
+3.
+Schlögl, R. Heterogeneous catalysis. Angew. Chem. Int. Ed. 54,
+3465–3520 (2015).
+4.
+Ulissi, Z. W., Medford, A. J., Bligaard, T. & Nørskov, J. K. To address
+surface reaction network complexity using scaling relations machine
+learning and DFT calculations. Nat. Commun. 8, 14621 (2017).
+5.
+Butler, K. T., Davies, D. W., Cartwright, H., Isayev, O. & Walsh, A.
+Machine learning for molecular and materials science. Nature 559,
+547–555 (2018).
+6.
+Stocker, S., Csányi, G., Reuter, K. & Margraf, J. T. Machine learning in
+chemical reaction space. Nat. Commun. 11, 5505 (2020).
+7.
+Su, Y. et al. Automation and machine learning augmented by large
+languagemodelsinacatalysisstudy.Chem.Sci.15,12200–12233(2024).
+8.
+Jia, X.et al.Advancing electrocatalyst discovery through the lens of data
+science: State of the art and perspectives. J. Catal. 447, 116162 (2025).
+9.
+Ryu, B., Wang, L., Pu, H., Chan, M. K. Y. & Chen, J. Understanding,
+discovery, and synthesis of 2D materials enabled by machine
+learning. Chem. Soc. Rev. 51, 1899–1925 (2022).
+10. Boiko,D.A.,MacKnight,R.,Kline,B.&Gomes,G.Autonomouschemical
+research with large language models. Nature 624, 570–578 (2023).
+11. Andres, M. B. et al. Augmenting large language models with chemistry
+tools. Nat. Mach. Intell. 6, 525–535 (2024).
+12. Merchant, A. et al. Scaling deep learning for materials discovery.
+Nature 624, 80–85 (2023).
+13. Kitchin,J.R.Machinelearningincatalysis.Nat.Catal.1,230–232(2018).
+14. Li, H., Jiao, Y., Davey, K. & Qiao, S.-Z. Data-driven machine learning
+for understanding surface structures of heterogeneous catalysts.
+Angew. Chem. Int. Ed. 62, e202216383 (2023).
+15. Tran, K. & Ulissi, Z. W. Active learning across intermetallics to guide
+discoveryof electrocatalysts for CO2 reduction and H2 evolution. Nat.
+Catal. 1, 696–703 (2018).
+16. Price, C. C., Singh, A., Frey, N. C. & Shenoy, V. B. Efﬁcient catalyst
+screening using graph neural networks to predict strain effects on
+adsorption energy. Sci. Adv. 8, eabq5944 (2022).
+17. Zhao, Z.-W., Cueto, M. del & Troisi, A. Limitations of machine learning
+models when predicting compounds with completely new
+chemistries: Possible improvements applied to the discovery of new
+non-fullerene acceptors. Digit. Discov. 1, 266–276 (2022).
+18. Jain, A. Machine learning in materials research: Developments over
+the last decade and challenges for the future. Curr. Opin. Solid State
+Mater. Sci. 33, 101189 (2024).
+19. Tom, G. et al. Self-driving laboratories for chemistry and materials
+science. Chem. Rev. 124, 9633–9732 (2024).
+20. Suvarna, M. et al. Active learning streamlines development of high
+performance catalysts for higher alcohol synthesis. Nat. Commun. 15,
+5844 (2024).
+21. Bayley, O., Savino, E., Slattery, A. & Noël, T. Autonomous chemistry:
+Navigating self-driving labs in chemical and material sciences. Matter
+7, 2382–2398 (2024).
+22. Esterhuizen, J. A., Goldsmith, B. R. & Linic, S. Interpretable machine
+learning for knowledge generation in heterogeneous catalysis. Nat.
+Catal. 5, 175–184 (2022).
+23. Wang,S.&Jiang,J.Interpretablecatalysismodelsusingmachinelearning
+with spectroscopic descriptors. ACS Catal 13, 7428–7436 (2023).
+24. Semnani, P. et al. A machine learning and explainable AI framework
+tailored for unbalanced experimental catalyst discovery. J. Phys.
+Chem. C 128, 21349–21367 (2024).
+25. Shi, X. et al. Dynamics of heterogeneous catalytic processes at
+operando conditions. JACS Au 1, 2100–2120 (2021).
+26. Seger, B., Robert, M. & Jiao, F. Best practices for electrochemical
+reduction of carbon dioxide. Nat. Sustain. 6, 236–238 (2023).
+27. Zhang, H. et al. Dynamic transformation of active sites in energy and
+environmental catalysis. Energy Environ. Sci. 17, 6435–6481 (2024).
+28. Jiang, X. et al. Applications of natural language processing and large
+languagemodelsinmaterialsdiscovery.NpjComput.Mater.11,79(2025).
+29. Materials science in the era of large language models: A perspective.
+Digit. Discov. 3, 1257–1272 (2024).
+30. Wang, X. et al. Catalysis AI agent guides discovering the universal
+design principle of cu-based single-atom alloy catalysts for CO2
+electroreduction. Angew. Chem. Int. Ed. n/a, e24612.
+31. Xin, H., Kitchin, J. R. & Kulik, H. J. Towards agentic science for
+advancing scientiﬁc discovery. Nat. Mach. Intell. 7, 1373–1375 (2025).
+32. Yao, S. et al. ReAct: Synergizing reasoning and acting in language
+models. Preprint at https://doi.org/10.48550/arXiv.2210.03629 (2023).
+33. Wei, J. et al. Chain-of-thought prompting elicits reasoning in large
+language models. in Proceedings of the 36th International Conference
+on Neural Information Processing Systems 24824–24837 (Curran
+Associates Inc., Red Hook, NY, USA, 2022).
+34. Ding, K. et al. SciToolAgent: A knowledge-graph-driven scientiﬁc
+agent for multitool integration. Nat. Comput. Sci. 5, 962–972 (2025).
+35. Fu, F. et al. Synergizing a knowledge graph and large language model
+for relay catalysis pathway recommendation. Natl. Sci. Rev. 12,
+nwaf271 (2025).
+36. Nørskov, J. K., Abild-Pedersen, F., Studt, F. & Bligaard, T. Density
+functional theory in surface chemistry and catalysis. Proc. Natl. Acad.
+Sci. 108, 937–943 (2011).
+37. Yao, S. et al. Tree of thoughts: Deliberate problem solving with large
+language models. in Proceedings of the 37th International Conference
+on Neural Information Processing Systems 11809–11822 (Curran
+Associates Inc., Red Hook, NY, USA, 2023).
+38. Lewis, P. et al. Retrieval-augmented generation for knowledge-
+intensive NLP tasks. in Proceedings of the 34th International
+Conference on Neural Information Processing Systems 9459–9474
+(Curran Associates Inc., Red Hook, NY, USA, 2020).
+39. Schick, T. et al. Toolformer: Language models can teach themselves
+to use tools. in Proceedings of the 37th International Conference on
+Neural Information Processing Systems 68539–68551 (Curran
+Associates Inc., Red Hook, NY, USA, 2023).
+40. Montemore, M. M. & Medlin, J. W. Scaling relations between
+adsorption energies for computational screening and design of
+catalysts. Catal. Sci. Technol. 4, 3748–3761 (2014).
+41. Motagamwala, A. H. & Dumesic, J. A. Microkinetic modeling: A tool for
+rational catalyst design. Chem. Rev. 121, 1049–1076 (2021).
+42. Tomboc,G. M., Choi, S., Kwon,T., Hwang,Y. J. & Lee, K. Potential link
+between cu surface and selective CO2 electroreduction: Perspective
+on future electrocatalyst designs. Adv. Mater. 32, 1908398 (2020).
+43. Song, Z. et al. Inverse design of promising electrocatalysts for CO2
+reduction via generative models and bird swarm algorithm. Nat.
+Commun. 16, 1053 (2025).
+44. Kengkanna, A., Kikuchi, Y., Niwa, T. & Ohue, M. Reaction-conditioned
+generative model for catalyst design and optimization with CatDRX.
+Commun. Chem. 8, 314 (2025).
+45. Mohamed, A., Rashid, M. E. & Shaalan, K. In-context learning in large
+language models (LLMs): Mechanisms, capabilities, and implications
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+10
+===== PAGE 11 =====
+for advanced knowledge representation and reasoning. IEEE Access
+13, 95574–95593 (2025).
+46. Zheng, P., Han, Z., Su, B.-L. & Xu, G. Catal-GPT: AI-driven directed
+efﬁcientdesignframeworkforcatalysts.Natl.Sci.Rev.12,nwaf299(2025).
+47. Roch, L. M. et al. ChemOS: Orchestrating autonomous
+experimentation. Sci. Robot. 3, eaat5559 (2018).
+48. Sim, M. et al. ChemOS 2.0: An orchestration architecture for chemical
+self-driving laboratories. Matter 7, 2959–2977 (2024).
+49. Li,X. etal. Sequential closed-loop bayesianoptimizationasa guidefor
+organic molecular metallophotocatalyst formulation discovery. Nat.
+Chem. 16, 1286–1294 (2024).
+50. Sheng, H. et al. Autonomous closed-loop mechanistic investigation of
+molecular electrochemistry via automation. Nat. Commun. 15, 2781
+(2024).
+51. Jia, X. et al. Closed-loop framework for discovering stable and low-
+cost bifunctional metal oxide catalysts for efﬁcient electrocatalytic
+water splitting in acid. J. Am. Chem. Soc. 147, 22642–22654 (2025).
+52. Wang, X. et al. A closed-loop catalytic nanoreactor system on a
+transistor. Sci. Adv. 9, eadj0839 (2023).
+53. Medcalf, M. et al. Overcoming DMTA cycle challenges: A uniﬁed AI-
+driven system for efﬁcient drug design. ChemRxiv, (2025).
+54. Mirza, A. et al. A framework for evaluating the chemical knowledge
+and reasoning abilities of large language models against the expertise
+of chemists. Nat. Chem. 17, 1027–1034 (2025).
+55. Farris, B. R. & Leonard, K. C. Accelerating catalysis understanding via
+large language model data extraction and shallow machine learning
+techniques. JACS Au 5, 5578–5589 (2025).
+56. Zhang,Y.etal.Exploringtheroleoflargelanguagemodelsinthescientiﬁc
+method: From hypothesis to discovery. Npj Artif. Intell. 1, 14 (2025).
+57. Su, D.-J. et al. Kinetic understanding of catalytic selectivity and
+product distribution of electrochemical carbon dioxide reduction
+reaction. JACS Au 3, 905–918 (2023).
+58. Zhao, H., Lv, X. & Wang, Y.-G. Realistic modeling of the
+electrocatalytic process at complex solid-liquid interface. Adv. Sci.
+10, 2303677 (2023).
+59. Wacławek, S., Padil, V. V. T. & Černík, M. Major advances and
+challenges in heterogeneouscatalysisfor environmental applications:
+A review. Ecol. Chem. Eng. S 25, 9–34 (2018).
+60. Schaaf, L. L., Fako, E., De, S., Schäfer, A. & Csányi, G. Accurate energy
+barriers for catalytic reaction pathways: An automatic training protocol
+for machine learning force ﬁelds. Npj Comput. Mater. 9, 180 (2023).
+61. Jablonka, K. M., Ongari, D., Moosavi, S. M. & Smit, B. Big-data
+science in porous materials: Materials genomics and machine
+learning. Chem. Rev. 120, 8066–8129 (2020).
+62. Shi, C., Zhang, X., Zhao, R., Zhang, W. & Chen, F. Semantic structure
+preservation for accurate multi-modal glioma diagnosis. Sci. Rep. 15,
+7185 (2025).
+63. Hayes, T. et al. Simulating 500 million years of evolution with a
+language model. Science 387, 850–858 (2025).
+64. Wang, J. et al. Token-mol 1.0: Tokenized drug design with large
+language models. Nat. Commun. 16, 4416 (2025).
+65. Cooper, A. I. et al. Accelerating discovery in natural science
+laboratories with AI and robotics: Perspectives and challenges. Sci.
+Robot. 10, eadv7932 (2025).
+66. Juchli, D. SiLA 2: The next generation lab automation standard. Adv.
+Biochem. Eng. Biotechnol 182, 147–174 (2022).
+67. Ferraz-Caetano, J. The artiﬁcial intelligence explanatory trade-off on
+the logic of discovery in chemistry. Philosophies 8, 17 (2023).
+68. Gong, J. et al. Reinforced heterogeneous graphlet design for
+knowledge graph representation learning. Inf. Sci. 723, 122670 (2026).
+69. Canty, R. B. et al. Science acceleration and accessibility with self-
+driving labs. Nat. Commun. 16, 3856 (2025).
+70. Abidi, N., Lim, K. R. G., Seh, Z. W. & Steinmann, S. N. Atomistic
+modeling of electrocatalysis: Are we there yet?. WIREs Comput. Mol.
+Sci. 11, e1499 (2021).
+71. Zhang, H., Juraskova, V. & Duarte, F. Modelling chemical processes in
+explicit solvents with machine learning potentials. Nat. Commun. 15,
+6114 (2024).
+72. Ock, J., Guntuboina, C. & Barati Farimani, A. Catalyst energy
+prediction with CatBERTa: Unveiling feature exploration strategies
+through large language models. ACS Catal 13, 16032–16044 (2023).
+73. Torres, J. A. G. et al. A multi-objective active learning platform and
+web app for reaction optimization. J. Am. Chem. Soc. 144,
+19999–20007 (2022).
+74. Moon, J. et al. Active learning guides discovery of a champion four-
+metal perovskite oxide for oxygen evolution electrocatalysis. Nat.
+Mater. 23, 108–115 (2024).
+Acknowledgements
+P.O. acknowledgessupport from the National Universityof Singapore(NUS)
+through the Presidential Young Professorship Start-up Grant (A-0010024-
+00-00) and from the NUS Artiﬁcial Intelligence Institute through the Seed
+Grant (A-8003887-00-00).
+Author contributions
+Y.L.andP.O.conceivedtheperspective.Y.L.conceivedtheoverallframework
+and central arguments of the perspective, integrated perspectives from
+catalysis and large language models, and drafted the manuscript. Y.L. also
+designed the conceptual ﬁgures, including Figures 1 to 5, and coordinated
+revisions to ensure coherence between the text and graphical narratives. P.O.
+supervised the project, contributed to the conceptual development of the
+autonomous catalysis framework, provided critical feedback on structure and
+positioning, and substantially revised the manuscript for intellectual content.
+All authors discussed the key themes and interpretations presented in the
+review and approved the ﬁnal version of the manuscript.
+Competing interests
+The authors declare no competing interests.
+Additional information
+Correspondence and requests for materials should be addressed to
+Pengfei Ou.
+Reprints and permissions information is available at
+http://www.nature.com/reprints
+Publisher’s note Springer Nature remains neutral withregardtojurisdictional
+claims in published maps and institutional afﬁliations.
+Open Access This article is licensed under a Creative Commons
+Attribution 4.0 International License, which permits use, sharing,
+adaptation, distribution and reproduction in any medium or format, as long
+as you give appropriate credit to the original author(s) and the source,
+provide a link to the Creative Commons licence, and indicate if changes
+were made. The images or other third party material in this article are
+included in the article’s Creative Commons licence, unless indicated
+otherwise in a credit line to the material. If material is not included in the
+article’s Creative Commons licence and your intended use is not permitted
+by statutory regulation or exceeds the permitted use, you will need to
+obtain permission directly from the copyright holder. To view a copy of this
+licence, visit http://creativecommons.org/licenses/by/4.0/.
+© The Author(s) 2026
+https://doi.org/10.1038/s44387-026-00111-4
+Perspective
+npj Artiﬁcial Intelligence | (2026) 2:56 
+11

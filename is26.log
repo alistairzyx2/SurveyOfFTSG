@@ -1,4 +1,4 @@
-This is XeTeX, Version 3.141592653-2.6-0.999997 (TeX Live 2025) (preloaded format=xelatex 2025.12.26)  5 SEP 2026 16:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  7 SEP 2026 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -11,14 +11,14 @@ Document Class: article 2024/06/29 v1.4n Standard LaTeX document class
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/size11.clo
 File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 )
-\c@part=\count192
-\c@section=\count193
-\c@subsection=\count194
-\c@subsubsection=\count195
-\c@paragraph=\count196
-\c@subparagraph=\count197
-\c@figure=\count198
-\c@table=\count199
+\c@part=\count196
+\c@section=\count197
+\c@subsection=\count198
+\c@subsubsection=\count199
+\c@paragraph=\count266
+\c@subparagraph=\count267
+\c@figure=\count268
+\c@table=\count269
 \abovecaptionskip=\skip49
 \belowcaptionskip=\skip50
 \bibindent=\dimen141
@@ -27,18 +27,10 @@ File: size11.clo 2024/06/29 v1.4n Standard LaTeX file (size option)
 Package: inputenc 2024/02/08 v1.3d Input encoding file
 \inpenc@prehook=\toks17
 \inpenc@posthook=\toks18
-
-
-Package inputenc Warning: inputenc package ignored with utf8 based engines.
-
-) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/fontenc.sty
 Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 11
-6.
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmr.fd
-File: t1lmr.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-))
+)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/geometry/geometry.sty
 Package: geometry 2020/01/02 v5.9 Page Geometry
 
@@ -52,9 +44,9 @@ Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/iftex/iftex.sty
 Package: iftex 2024/12/12 v1.0g TeX engine tests
 ))
-\Gm@cnth=\count266
-\Gm@cntv=\count267
-\c@Gm@tempcnt=\count268
+\Gm@cnth=\count270
+\Gm@cntv=\count271
+\c@Gm@tempcnt=\count272
 \Gm@bindingoffset=\dimen142
 \Gm@wd@mp=\dimen143
 \Gm@odd@mp=\dimen144
@@ -88,14 +80,14 @@ Package: amsbsy 1999/11/29 v1.2d Bold Symbols
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsmath/amsopn.sty
 Package: amsopn 2022/04/08 v2.04 operator names
 )
-\inf@bad=\count269
+\inf@bad=\count273
 LaTeX Info: Redefining \frac on input line 233.
-\uproot@=\count270
-\leftroot@=\count271
+\uproot@=\count274
+\leftroot@=\count275
 LaTeX Info: Redefining \overline on input line 398.
 LaTeX Info: Redefining \colon on input line 409.
-\classnum@=\count272
-\DOTSCASE@=\count273
+\classnum@=\count276
+\DOTSCASE@=\count277
 LaTeX Info: Redefining \ldots on input line 495.
 LaTeX Info: Redefining \dots on input line 498.
 LaTeX Info: Redefining \cdots on input line 619.
@@ -108,20 +100,20 @@ LaTeX Info: Redefining \Bigg on input line 724.
 \big@size=\dimen152
 LaTeX Font Info:    Redeclaring font encoding OML on input line 742.
 LaTeX Font Info:    Redeclaring font encoding OMS on input line 743.
-\macc@depth=\count274
+\macc@depth=\count278
 LaTeX Info: Redefining \bmod on input line 904.
 LaTeX Info: Redefining \pmod on input line 909.
 LaTeX Info: Redefining \smash on input line 939.
 LaTeX Info: Redefining \relbar on input line 969.
 LaTeX Info: Redefining \Relbar on input line 970.
-\c@MaxMatrixCols=\count275
+\c@MaxMatrixCols=\count279
 \dotsspace@=\muskip17
-\c@parentequation=\count276
-\dspbrk@lvl=\count277
+\c@parentequation=\count280
+\dspbrk@lvl=\count281
 \tag@help=\toks22
-\row@=\count278
-\column@=\count279
-\maxfields@=\count280
+\row@=\count282
+\column@=\count283
+\maxfields@=\count284
 \andhelp@=\toks23
 \eqnshift@=\dimen153
 \alignsep@=\dimen154
@@ -159,10 +151,10 @@ Package: trig 2023/12/02 v1.11 sin cos tan (DPC)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/graphics.cfg
 File: graphics.cfg 2016/06/04 v1.11 sample graphics configuration
 )
-Package graphics Info: Driver file: xetex.def on input line 106.
+Package graphics Info: Driver file: pdftex.def on input line 106.
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/xetex.def
-File: xetex.def 2022/09/22 v5.0n Graphics/color driver for xetex
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-def/pdftex.def
+File: pdftex.def 2024/04/13 v1.2c Graphics/color driver for pdftex
 ))
 \Gin@req@height=\dimen159
 \Gin@req@width=\dimen160
@@ -179,18 +171,18 @@ Package: booktabs 2020/01/12 v1.61803398 Publication quality tables
 \cmidrulesep=\dimen168
 \cmidrulekern=\dimen169
 \defaultaddspace=\dimen170
-\@cmidla=\count281
-\@cmidlb=\count282
+\@cmidla=\count285
+\@cmidlb=\count286
 \@aboverulesep=\dimen171
 \@belowrulesep=\dimen172
-\@thisruleclass=\count283
-\@lastruleclass=\count284
+\@thisruleclass=\count287
+\@lastruleclass=\count288
 \@thisrulewidth=\dimen173
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/multirow/multirow.sty
 Package: multirow 2024/11/12 v2.9 Span multiple rows of a table
 \multirow@colwidth=\skip54
-\multirow@cntb=\count285
+\multirow@cntb=\count289
 \multirow@dima=\skip55
 \bigstrutjot=\dimen174
 )
@@ -200,10 +192,11 @@ Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics-cfg/color.cfg
 File: color.cfg 2016/01/02 v1.6 sample color configuration
 )
-Package xcolor Info: Driver file: xetex.def on input line 274.
+Package xcolor Info: Driver file: pdftex.def on input line 274.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/graphics/mathcolor.ltx)
 Package xcolor Info: Model `cmy' substituted by `cmy0' on input line 1349.
+Package xcolor Info: Model `hsb' substituted by `rgb' on input line 1353.
 Package xcolor Info: Model `RGB' extended on input line 1365.
 Package xcolor Info: Model `HTML' substituted by `rgb' on input line 1367.
 Package xcolor Info: Model `Hsb' substituted by `hsb' on input line 1368.
@@ -227,7 +220,7 @@ Package: array 2025/09/25 v2.6n Tabular extension package (FMi)
 )
 \everycr=\toks27
 \minrowclearance=\skip58
-\rownum=\count286
+\rownum=\count290
 )
 (/Users/yingxiaozhang/Library/texmf/tex/latex/pgf/frontendlayer/tikz.sty
 (/Users/yingxiaozhang/Library/texmf/tex/latex/pgf/basiclayer/pgf.sty
@@ -270,39 +263,33 @@ tered.code.tex
 \pgf@yd=\dimen188
 \w@pgf@writea=\write3
 \r@pgf@reada=\read2
-\c@pgf@counta=\count287
-\c@pgf@countb=\count288
-\c@pgf@countc=\count289
-\c@pgf@countd=\count290
+\c@pgf@counta=\count291
+\c@pgf@countb=\count292
+\c@pgf@countc=\count293
+\c@pgf@countd=\count294
 \t@pgf@toka=\toks32
 \t@pgf@tokb=\toks33
 \t@pgf@tokc=\toks34
-\pgf@sys@id@count=\count291
+\pgf@sys@id@count=\count295
 
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgf.cfg
 File: pgf.cfg 2025-08-29 v3.1.11a (3.1.11a)
 )
-Driver file for pgf: pgfsys-xetex.def
+Driver file for pgf: pgfsys-pdftex.def
 
-(/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsys-xetex.de
-f
-File: pgfsys-xetex.def 2025-08-29 v3.1.11a (3.1.11a)
-
-(/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsys-dvipdfmx
-.def
-File: pgfsys-dvipdfmx.def 2025-08-29 v3.1.11a (3.1.11a)
+(/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsys-pdftex.d
+ef
+File: pgfsys-pdftex.def 2025-08-29 v3.1.11a (3.1.11a)
 
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsys-common-p
 df.def
 File: pgfsys-common-pdf.def 2025-08-29 v3.1.11a (3.1.11a)
-)
-\pgfsys@objnum=\count292
 )))
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsyssoftpath.
 code.tex
 File: pgfsyssoftpath.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfsyssoftpath@smallbuffer@items=\count293
-\pgfsyssoftpath@bigbuffer@items=\count294
+\pgfsyssoftpath@smallbuffer@items=\count296
+\pgfsyssoftpath@bigbuffer@items=\count297
 )
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/systemlayer/pgfsysprotocol.
 code.tex
@@ -314,7 +301,7 @@ Package: pgfcore 2025-08-29 v3.1.11a (3.1.11a)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/math/pgfmathutil.code.tex)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/math/pgfmathparser.code.tex
 \pgfmath@dimen=\dimen189
-\pgfmath@count=\count295
+\pgfmath@count=\count298
 \pgfmath@box=\box57
 \pgfmath@toks=\toks35
 \pgfmath@stack@operand=\toks36
@@ -340,7 +327,7 @@ code.tex)
 erarithmetics.code.tex)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/math/pgfmathcalc.code.tex)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/math/pgfmathfloat.code.tex
-\c@pgfmathroundto@lastzeros=\count296
+\c@pgfmathroundto@lastzeros=\count299
 )) (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/math/pgfint.code.tex)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/basiclayer/pgfcorepoints.co
 de.tex
@@ -378,7 +365,7 @@ File: pgfcorescopes.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgfpic=\box58
 \pgf@hbox=\box59
 \pgf@layerbox@main=\box60
-\pgf@picture@serial@count=\count297
+\pgf@picture@serial@count=\count300
 )
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/basiclayer/pgfcoregraphicst
 ate.code.tex
@@ -413,8 +400,8 @@ File: pgfcorearrows.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 e.tex
 File: pgfcoreshade.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \pgf@max=\dimen269
-\pgf@sys@shading@range@num=\count298
-\pgf@shadingcount=\count299
+\pgf@sys@shading@range@num=\count301
+\pgf@shadingcount=\count302
 )
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/basiclayer/pgfcoreimage.cod
 e.tex
@@ -479,7 +466,7 @@ Package: tikz 2025-08-29 v3.1.11a (3.1.11a)
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/libraries/pgflibraryplothan
 dlers.code.tex
 File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgf@plot@mark@count=\count300
+\pgf@plot@mark@count=\count303
 \pgfplotmarksize=\dimen274
 )
 \tikz@lastx=\dimen275
@@ -494,19 +481,19 @@ File: pgflibraryplothandlers.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 \tikz@figbox@bg=\box64
 \tikz@tempbox=\box65
 \tikz@tempbox@bg=\box66
-\tikztreelevel=\count301
-\tikznumberofchildren=\count302
-\tikznumberofcurrentchild=\count303
-\tikz@fig@count=\count304
+\tikztreelevel=\count304
+\tikznumberofchildren=\count305
+\tikznumberofcurrentchild=\count306
+\tikz@fig@count=\count307
 
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/modules/pgfmodulematrix.cod
 e.tex
 File: pgfmodulematrix.code.tex 2025-08-29 v3.1.11a (3.1.11a)
-\pgfmatrixcurrentrow=\count305
-\pgfmatrixcurrentcolumn=\count306
-\pgf@matrix@numberofcolumns=\count307
+\pgfmatrixcurrentrow=\count308
+\pgfmatrixcurrentcolumn=\count309
+\pgf@matrix@numberofcolumns=\count310
 )
-\tikz@expandcount=\count308
+\tikz@expandcount=\count311
 
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/frontendlayer/tikz/librarie
 s/tikzlibrarytopaths.code.tex
@@ -543,8 +530,8 @@ Package: caption3 2023/07/31 v2.4d caption3 kernel (AR)
 \caption@hangindent=\dimen294
 Package caption Info: Standard document class detected.
 )
-\c@caption@flags=\count309
-\c@continuedfloat=\count310
+\c@caption@flags=\count312
+\c@continuedfloat=\count313
 )
 (/Users/yingxiaozhang/Library/texmf/tex/latex/forest/forest.sty
 Package: forest 2017/07/14 v2.1.5 Drawing (linguistic) trees
@@ -625,7 +612,7 @@ File: tikzlibraryfit.code.tex 2025-08-29 v3.1.11a (3.1.11a)
 ctions.code.tex
 (/Users/yingxiaozhang/Library/texmf/tex/generic/pgf/libraries/pgflibraryfpu.cod
 e.tex)
-\pgf@intersect@solutions=\count311
+\pgf@intersect@solutions=\count314
 ) (/Users/yingxiaozhang/Library/texmf/tex/latex/pgfopts/pgfopts.sty
 Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 \pgfopts@list@add@a@toks=\toks40
@@ -633,7 +620,7 @@ Package: pgfopts 2014/07/10 v2.1a LaTeX package options with pgfkeys
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 Package: etoolbox 2025/02/11 v2.5l e-TeX tools for LaTeX (JAW)
-\etb@tempcnta=\count312
+\etb@tempcnta=\count315
 )
 (/Users/yingxiaozhang/Library/texmf/tex/latex/elocalloc/elocalloc.sty
 Package: elocalloc 2016/12/15 v0.03 local allocation for LaTeX 2015+ (DPC)
@@ -648,50 +635,48 @@ Package: trimspaces 2009/09/17 v1.1 Trim spaces around a token list
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3kernel/expl3.sty
 Package: expl3 2025-01-18 L3 programming layer (loader) 
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-xetex.de
-f
-File: l3backend-xetex.def 2024-05-08 L3 backend support: XeTeX
-\g__graphics_track_int=\count313
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
+ef
+File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
+\l__color_backend_stack_int=\count316
 \l__pdf_internal_box=\box87
-\g__pdf_backend_annotation_int=\count314
-\g__pdf_backend_link_int=\count315
 ))
 Package: xparse 2024-08-16 L3 Experimental document command parser
 ) (./inlinedef.sty
 Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \ID@toks=\toks42
-\ID@count=\count316
+\ID@count=\count317
 )
 \ID@usercommands=\toks43
-\safeloop@depth=\count317
-\safeRKloop@depth=\count318
+\safeloop@depth=\count318
+\safeRKloop@depth=\count319
 \forest@temp@dimen=\dimen295
-\forest@temp@count=\count319
-\forest@n=\count320
-\forest@temp@global@count=\count321
+\forest@temp@count=\count320
+\forest@n=\count321
+\forest@temp@global@count=\count322
 \forest@temp@toks=\toks44
-\forest@temparray@M=\count322
-\forest@temparray@N=\count323
-\forest@global@temparray@M=\count324
-\forest@global@temparray@N=\count325
-\forest@isnum@count=\count326
-\forest@isdim@nonintpart=\count327
+\forest@temparray@M=\count323
+\forest@temparray@N=\count324
+\forest@global@temparray@M=\count325
+\forest@global@temparray@N=\count326
+\forest@isnum@count=\count327
+\forest@isdim@nonintpart=\count328
 \forest@isdim@dimen=\dimen296
-\forest@sort@m=\count328
-\forest@sort@k=\count329
-\forest@sort@p=\count330
+\forest@sort@m=\count329
+\forest@sort@k=\count330
+\forest@sort@p=\count331
 \bracket@content=\toks45
 \bracket@afterthought=\toks46
-\forest@node@maxid=\count331
-\forest@process@left@M=\count332
-\forest@process@left@N=\count333
-\forest@process@right@M=\count334
-\forest@process@right@N=\count335
-\forest@process@saved@M=\count336
-\forest@process@saved@N=\count337
-\forest@process@result@M=\count338
-\forest@process@result@N=\count339
-\forest@process@n=\count340
+\forest@node@maxid=\count332
+\forest@process@left@M=\count333
+\forest@process@left@N=\count334
+\forest@process@right@M=\count335
+\forest@process@right@N=\count336
+\forest@process@saved@M=\count337
+\forest@process@saved@N=\count338
+\forest@process@result@M=\count339
+\forest@process@result@N=\count340
+\forest@process@n=\count341
 \forest@nodewalk@branch@toks=\toks47
 \forest@nodewalk@shortsteps@resolution=\toks48
 \forest@do@dynamics=\toks49
@@ -706,15 +691,15 @@ Package: inlinedef 2008/07/10 v1.0 Inlined expansions within definitions
 \forest@PIii@toks=\toks53
 \forest@copy@in=\read3
 \forest@copy@out=\write4
-\forest@externalize@max@outer@n=\count341
-\forest@externalize@inner@n=\count342
+\forest@externalize@max@outer@n=\count342
+\forest@externalize@inner@n=\count343
 )
 (/Users/yingxiaozhang/Library/texmf/tex/latex/forest/forest-lib-edges.sty
 Package: forest-lib-edges 2016/12/05 v0.1.1
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/float/float.sty
 Package: float 2001/11/08 v1.3d Float enhancements (AL)
-\c@float@type=\count343
+\c@float@type=\count344
 \float@exts=\toks54
 \float@box=\box89
 \@float@everytoks=\toks55
@@ -724,7 +709,7 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 Package: microtype 2025/02/11 v3.2a Micro-typographical refinements (RS)
 \MT@toks=\toks56
 \MT@tempbox=\box91
-\MT@count=\count344
+\MT@count=\count345
 LaTeX Info: Redefining \noprotrusionifhmode on input line 1087.
 LaTeX Info: Redefining \leftprotrusion on input line 1088.
 \MT@prot@toks=\toks57
@@ -733,13 +718,14 @@ LaTeX Info: Redefining \textls on input line 1449.
 \MT@outer@kern=\dimen301
 LaTeX Info: Redefining \microtypecontext on input line 2053.
 LaTeX Info: Redefining \textmicrotypecontext on input line 2070.
-\MT@listname@count=\count345
+\MT@listname@count=\count346
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-xetex.de
-f
-File: microtype-xetex.def 2025/02/11 v3.2a Definitions specific to xetex (RS)
-LaTeX Info: Redefining \lsstyle on input line 443.
-LaTeX Info: Redefining \lslig on input line 451.
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/microtype-pdftex.d
+ef
+File: microtype-pdftex.def 2025/02/11 v3.2a Definitions specific to pdftex (RS)
+
+LaTeX Info: Redefining \lsstyle on input line 944.
+LaTeX Info: Redefining \lslig on input line 944.
 \MT@outer@space=\skip59
 )
 Package microtype Info: Loading configuration file microtype.cfg.
@@ -752,7 +738,7 @@ Package: natbib 2010/09/13 8.31b (PWD, AO)
 \bibhang=\skip60
 \bibsep=\skip61
 LaTeX Info: Redefining \cite on input line 694.
-\c@NAT@ctr=\count346
+\c@NAT@ctr=\count347
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hyperref.sty
 Package: hyperref 2024-11-05 v7.01l Hypertext links for LaTeX
@@ -779,7 +765,7 @@ Package: infwarerr 2019/12/03 v1.5 Providing info/warning/error messages (HO)
 )
 Package pdftexcmds Info: \pdf@primitive is available.
 Package pdftexcmds Info: \pdf@ifprimitive is available.
-Package pdftexcmds Info: \pdfdraftmode not found.
+Package pdftexcmds Info: \pdfdraftmode found.
 )) (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hycolor/hycolor.sty
 Package: hycolor 2020-01-27 v1.10 Color options for hyperref/bookmark (HO)
 )
@@ -796,26 +782,30 @@ Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/kvoptions/kvoptions.sty
 Package: kvoptions 2022-06-15 v3.15 Key value format for package options (HO)
 ))
-\c@section@level=\count347
+\c@section@level=\count348
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/stringenc/stringenc.sty
 Package: stringenc 2019/11/29 v1.12 Convert strings between diff. encodings (HO
 )
 )
 \@linkdim=\dimen302
-\Hy@linkcounter=\count348
-\Hy@pagecounter=\count349
+\Hy@linkcounter=\count349
+\Hy@pagecounter=\count350
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/pd1enc.def
 File: pd1enc.def 2024-11-05 v7.01l Hyperref: PDFDocEncoding definition (HO)
+Now handling font encoding PD1 ...
+... no UTF-8 mapping file for font encoding PD1
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/intcalc/intcalc.sty
 Package: intcalc 2019/12/15 v1.3 Expandable calculations with integers (HO)
 )
-\Hy@SavedSpaceFactor=\count350
+\Hy@SavedSpaceFactor=\count351
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/puenc.def
 File: puenc.def 2024-11-05 v7.01l Hyperref: PDF Unicode definition (HO)
+Now handling font encoding PU ...
+... no UTF-8 mapping file for font encoding PU
 )
 Package hyperref Info: Option `colorlinks' set `true' on input line 4040.
 Package hyperref Info: Hyper figures OFF on input line 4157.
@@ -825,7 +815,7 @@ Package hyperref Info: Plain pages OFF on input line 4172.
 Package hyperref Info: Backreferencing OFF on input line 4177.
 Package hyperref Info: Implicit mode ON; LaTeX internals redefined.
 Package hyperref Info: Bookmarks ON on input line 4424.
-\c@Hy@tempcnt=\count351
+\c@Hy@tempcnt=\count352
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/url/url.sty
 \Urlmuskip=\muskip18
@@ -841,7 +831,7 @@ Package: bitset 2019/12/09 v1.3 Handle bit-vector datatype (HO)
 Package: bigintcalc 2019/12/15 v1.5 Expandable calculations on big integers (HO
 )
 ))
-\Fld@menulength=\count352
+\Fld@menulength=\count353
 \Field@Width=\dimen304
 \Fld@charsize=\dimen305
 Package hyperref Info: Hyper figures OFF on input line 6042.
@@ -855,28 +845,27 @@ Package hyperref Info: PDF/A mode OFF on input line 6072.
 Package: atbegshi-ltx 2021/01/10 v1.0c Emulation of the original atbegshi
 package with kernel methods
 )
-\Hy@abspage=\count353
-\c@Item=\count354
-\c@Hfootnote=\count355
+\Hy@abspage=\count354
+\c@Item=\count355
+\c@Hfootnote=\count356
 )
-Package hyperref Info: Driver (autodetected): hxetex.
+Package hyperref Info: Driver (autodetected): hpdftex.
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hxetex.def
-File: hxetex.def 2024-11-05 v7.01l Hyperref driver for XeTeX
-\pdfm@box=\box92
-\c@Hy@AnnotLevel=\count356
-\HyField@AnnotCount=\count357
-\Fld@listcount=\count358
-\c@bookmark@seq@number=\count359
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/hyperref/hpdftex.def
+File: hpdftex.def 2024-11-05 v7.01l Hyperref driver for pdfTeX
 
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
-k.sty
-Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
- (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/atveryend-ltx.sty
 Package: atveryend-ltx 2020/08/19 v1.0a Emulation of the original atveryend pac
 kage
 with kernel methods
 )
+\Fld@listcount=\count357
+\c@bookmark@seq@number=\count358
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/rerunfilecheck/rerunfilechec
+k.sty
+Package: rerunfilecheck 2022-07-10 v1.10 Rerun checks for auxiliary files (HO)
+
 (/usr/local/texlive/2025basic/texmf-dist/tex/generic/uniquecounter/uniquecounte
 r.sty
 Package: uniquecounter 2019/12/15 v1.4 Provide unlimited unique counter (HO)
@@ -888,31 +877,29 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (./is26.aux)
 \openout1 = `is26.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for TU/lmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 42.
-LaTeX Font Info:    ... okay on input line 42.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
+LaTeX Font Info:    ... okay on input line 46.
 
 *geometry* driver: auto-detecting
-*geometry* detected driver: xetex
+*geometry* detected driver: pdftex
 *geometry* verbose mode - [ preamble ] result:
-* driver: xetex
+* driver: pdftex
 * paper: a4paper
 * layout: <same size as paper>
 * layoutoffset:(h,v)=(0.0pt,0.0pt)
@@ -943,33 +930,62 @@ LaTeX Font Info:    ... okay on input line 42.
 * \@reversemarginfalse
 * (1in=72.27pt=25.4mm, 1cm=28.453pt)
 
+(/usr/local/texlive/2025basic/texmf-dist/tex/context/base/mkii/supp-pdf.mkii
+[Loading MPS to PDF converter (version 2006.09.02).]
+\scratchcounter=\count359
+\scratchdimen=\dimen306
+\scratchbox=\box92
+\nofMPsegments=\count360
+\nofMParguments=\count361
+\everyMPshowfont=\toks58
+\MPscratchCnt=\count362
+\MPscratchDim=\dimen307
+\MPnumerator=\count363
+\makeMPintoPDFobject=\count364
+\everyMPtoPDFconversion=\toks59
+)
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/epstopdf-pkg/epstopdf-base.s
+ty
+Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
+Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 4
+85.
+
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/latexconfig/epstopdf-sys.cfg
+File: epstopdf-sys.cfg 2010/07/13 v1.3 Configuration of (r)epstopdf for TeX Liv
+e
+))
 Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 42.
-Package microtype Info: Applying patch `item' on input line 42.
-Package microtype Info: Applying patch `toc' on input line 42.
-Package microtype Info: Applying patch `eqnum' on input line 42.
-Package microtype Info: Applying patch `footnote' on input line 42.
-Package microtype Info: Applying patch `verbatim' on input line 42.
-LaTeX Info: Redefining \microtypesetup on input line 42.
+LaTeX Info: Redefining \microtypecontext on input line 46.
+Package microtype Info: Applying patch `item' on input line 46.
+Package microtype Info: Applying patch `toc' on input line 46.
+Package microtype Info: Applying patch `eqnum' on input line 46.
+Package microtype Info: Applying patch `footnote' on input line 46.
+Package microtype Info: Applying patch `verbatim' on input line 46.
+LaTeX Info: Redefining \microtypesetup on input line 46.
+Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
+Package microtype Info: Automatic font expansion enabled (level 2),
+(microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
+Package microtype Info: Using default expansion set `alltext-nott'.
+LaTeX Info: Redefining \showhyphens on input line 46.
 Package microtype Info: No adjustment of tracking.
-Package microtype Info: No adjustment of spacing.
-Package microtype Info: No adjustment of kerning.
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
+Package microtype Info: No adjustment of interword spacing.
+Package microtype Info: No adjustment of character kerning.
+ (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-cmr.cfg
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 42.
+Package hyperref Info: Link coloring ON on input line 46.
 
 (./is26.out) (./is26.out)
 \@outlinefile=\write5
 \openout5 = `is26.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -978,7 +994,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 45.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -987,75 +1003,46 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msb.cfg
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 )
-LaTeX Font Info:    Trying to load font information for T1+lmtt on input line 5
-3.
-
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/lm/t1lmtt.fd
-File: t1lmtt.fd 2015/05/01 v1.6.1 Font defs for Latin Modern
-)
 Package microtype Info: Loading generic protrusion settings for font family
-(microtype)             `lmtt' (encoding: T1).
+(microtype)             `cmtt' (encoding: T1).
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-(./sections/00_abstract.tex) (./sections/01_introduction.tex
+(./sections/00_abstract.tex
+Overfull \hbox (2.07526pt too wide) in paragraph at lines 2--3
+\T1/cmr/m/n/10 (-20) environments for stress testing and trading execution. How
+ever, empirical financial properties---
+ []
+
+) (./sections/01_introduction.tex
 
 [1
 
-]
+{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
+r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+
 
 [2]
-Overfull \hbox (12.79425pt too wide) in paragraph at lines 20--21
-[]\T1/lmr/bx/n/10.95 A Sys-tem-atic Eval-u-a-tion Frame-work\T1/lmr/m/n/10.95 :
- We in-tro-duce a com-pre-hen-sive, multi-dimensional
+Overfull \hbox (1.54488pt too wide) in paragraph at lines 20--21
+[]\T1/cmr/bx/n/10.95 (-20) A Sys-tem-atic Eval-u-a-tion Frame-work\T1/cmr/m/n/1
+0.95 (-20) : We in-tro-duce a com-pre-hen-sive, multi-dimensional
  []
 
 ) (./sections/03_problem_taxonomy.tex
 
-[3]
-Overfull \hbox (4.57373pt too wide) in paragraph at lines 25--26
-[]\T1/lmr/bx/n/10.95 Synthetic Se-quence Gen-er-a-tion / Data Syn-the-sis: \T1/
-lmr/m/n/10.95 An un-con-di-tional or conditionally-
- []
-
-
-Overfull \hbox (10.12349pt too wide) in paragraph at lines 33--34
-[]\T1/lmr/bx/n/10.95 Adversarial Gen-er-a-tive Mod-els (GANs): \T1/lmr/m/n/10.9
-5 Frame-works uti-liz-ing generator-discriminator
- []
-
-
+[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts
+1.enc}]
 
 [4]) (./sections/04_extrapolation.tex
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [5]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [6]
 
 [7]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
-Overfull \hbox (52.22028pt too wide) in paragraph at lines 67--68
-\OMS/cmsy/m/n/10.95 N\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 x[]\OT1/cmr/m/n/10
-.95 ; []\OT1/cmr/bx/n/10.95 x[]\OML/cmm/m/it/10.95 ; ^^L[]\OT1/cmr/bx/n/10.95 I
-\OT1/cmr/m/n/10.95 )$\T1/lmr/m/n/10.95 and then learn a pa-ram-e-ter-ized re-ve
-rse pro-cess $\OML/cmm/m/it/10.95 p[]\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 x[
-]\OMS/cmsy/m/n/10.95 j\OT1/cmr/bx/n/10.95 x[]\OT1/cmr/m/n/10.95 ) = \OMS/cmsy/m
-/n/10.95 N\OT1/cmr/m/n/10.95 (\OT1/cmr/bx/n/10.95 x[]\OT1/cmr/m/n/10.95 ; [][](
-\OT1/cmr/bx/n/10.95 x[]\OML/cmm/m/it/10.95 ; t\OT1/cmr/m/n/10.95 )\OML/cmm/m/it
-/10.95 ; ^^[[]\OT1/cmr/bx/n/10.95 I\OT1/cmr/m/n/10.95 )$
- []
-
-
-Overfull \hbox (25.811pt too wide) in paragraph at lines 74--76
-\T1/lmr/m/n/10.95 Addressing the lim-i-ta-tions of re-cur-rent ar-chi-tec-tures
- in cap-tur-ing ex-tended de-pen-den-cies, TimeDiT$[]$
+Overfull \hbox (14.24936pt too wide) in paragraph at lines 74--76
+\T1/cmr/m/n/10.95 (-20) Addressing the lim-i-ta-tions of re-cur-rent ar-chi-tec
+-tures in cap-tur-ing ex-tended de-pen-den-cies, TimeDiT$[]$
  []
 
 
@@ -1064,28 +1051,11 @@ Overfull \hbox (25.811pt too wide) in paragraph at lines 74--76
 
 [9]
 
-[10]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-) (./sections/05_imputation.tex
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
+[10]) (./sections/05_imputation.tex
 
 [11]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [12]
-Overfull \hbox (1.83015pt too wide) in paragraph at lines 30--31
-[]\T1/lmr/m/n/10.95 To rig-or-ously en-force dis-tri-bu-tional sta-bil-ity acro
-ss ex-ten-sive miss-ing win-dows, the CWGAIN-
- []
-
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [13]) (./sections/06_synthesis.tex
 
@@ -1097,71 +1067,56 @@ Missing character: There is no — ("2014) in font ec-lmr10!
 
 [17]
 
-[18]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-) (./sections/07_applications.tex
+[18]) (./sections/07_applications.tex
 
 [19]
 
 [20]
-Overfull \hbox (0.68398pt too wide) in paragraph at lines 95--108
- []\T1/lmr/bx/n/10.95 Strategy back-test-ing and re-play.[] \T1/lmr/m/n/10.95 A
-BIDES$[]$ and its Gym-compatible suc-ces-sor ABIDES-
- []
-
-
 
 [21]) (./sections/08_evaluation.tex
 
 [22]
 
 [23]
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [24]
-Missing character: There is no — ("2014) in font ec-lmr10!
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [25]
-
-[26]) (./sections/09_data_resources.tex
-Overfull \hbox (7.32846pt too wide) in paragraph at lines 10--11
-[]\T1/lmr/bx/n/10.95 High-Frequency Mi-crostruc-ture (LOB): \T1/lmr/m/n/10.95 L
-imit Or-der Books (LOB), tick-by-tick trades,
+Overfull \hbox (4.82483pt too wide) in paragraph at lines 105--106
+[]\T1/cmr/m/n/10.95 (-20) The first di-rec-tion is con-di-tional speci-ficity a
+nd scenario-based eval-u-a-tion: stan-dard distribution-
  []
 
+) (./sections/09_data_resources.tex
 
+[26]
 
 [27]
 
 [28]) (./sections/10_challenges.tex
 
-[29])
+[29]) (./sections/02_methodology.tex
 
-[30] (./sections/02_methodology.tex
+[30]
+Overfull \hbox (34.16312pt too wide) in paragraph at lines 38--39
+[]\T1/cmr/bx/n/10.95 (-20) Model Fam-ily: \T1/cmr/m/n/10.95 (-20) Sta-tis-ti-ca
+l/probabilistic, dis-crim-i-na-tive deep learn-ing, GAN-based, diffusion/score-
 
-[31]
-Overfull \hbox (46.05844pt too wide) in paragraph at lines 38--39
-[]\T1/lmr/bx/n/10.95 Model Fam-ily: \T1/lmr/m/n/10.95 Sta-tis-ti-cal/probabilis
-tic, dis-crim-i-na-tive deep learn-ing, GAN-based, diffusion/score-
  []
 
 
 
-[32]) (./sections/12_declarations.tex
+[31]) (./sections/12_declarations.tex
 
-[33])
+[32])
 
-[34] (./is26.bbl
+[33] (./is26.bbl
+
+[34]
 
 [35]
 
 [36]
-Missing character: There is no — ("2014) in font ec-lmr10!
-
 
 [37]
 
@@ -1169,228 +1124,236 @@ Missing character: There is no — ("2014) in font ec-lmr10!
 
 [39]
 
-[40]
+[40])
 
-[41]
-
-[42])
-
-[43] (./sections/13_figures.tex
+[41] (./sections/13_figures.tex
+<separate_figures/Figure1.pdf, id=844, 682.86618pt x 341.4326pt>
 File: separate_figures/Figure1.pdf Graphic file (type pdf)
 <use separate_figures/Figure1.pdf>
+Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
+(pdftex.def)             Requested size: 443.9066pt x 221.9546pt.
 
 
-[44]
+[42 <./separate_figures/Figure1.pdf>]
+<separate_figures/Figure2.pdf, id=864, 625.96059pt x 469.47095pt>
 File: separate_figures/Figure2.pdf Graphic file (type pdf)
 <use separate_figures/Figure2.pdf>
+Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
+(pdftex.def)             Requested size: 443.9066pt x 332.93987pt.
 
 
-[45]
-File: final_figures/comparison_00.png Graphic file (type bmp)
-<final_figures/comparison_00.png>
+[43 <./separate_figures/Figure2.pdf>]
+<final_figures/comparison_00.png, id=897, 1049.13303pt x 586.28023pt>
+File: final_figures/comparison_00.png Graphic file (type png)
+<use final_figures/comparison_00.png>
+Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
+.
+(pdftex.def)             Requested size: 407.66833pt x 227.80745pt.
 
 
-[46]
+[44 <./final_figures/comparison_00.png>]
+<final_figures/DiffWithDiscreteContinous.pdf, id=904, 1460.73305pt x 495.75854p
+t>
 File: final_figures/DiffWithDiscreteContinous.pdf Graphic file (type pdf)
 <use final_figures/DiffWithDiscreteContinous.pdf>
+Package pdftex.def Info: final_figures/DiffWithDiscreteContinous.pdf  used on i
+nput line 32.
+(pdftex.def)             Requested size: 362.37569pt x 122.98618pt.
 
 
-[47]
+[45 <./final_figures/DiffWithDiscreteContinous.pdf>]
+<final_figures/FTSA.pdf, id=929, 547.11751pt x 204.96274pt>
 File: final_figures/FTSA.pdf Graphic file (type pdf)
 <use final_figures/FTSA.pdf>
+Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
+(pdftex.def)             Requested size: 362.37569pt x 135.75745pt.
 
 
-[48]
-File: final_figures/filter_pipeline.png Graphic file (type bmp)
-<final_figures/filter_pipeline.png>
+[46 <./final_figures/FTSA.pdf>]
+<final_figures/filter_pipeline.png, id=979, 2175.12625pt x 727.71875pt>
+File: final_figures/filter_pipeline.png Graphic file (type png)
+<use final_figures/filter_pipeline.png>
+Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line 
+50.
+(pdftex.def)             Requested size: 430.31812pt x 143.96439pt.
 )
 
-[49] (./sections/14_tables.tex
-Overfull \hbox (2.29456pt too wide) in paragraph at lines 49--49
+[47 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
+
+Overfull \hbox (2.28004pt too wide) in paragraph at lines 49--49
 []|[]| 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 49--49
-[]|\T1/lmr/m/n/8 MSE, Di-rec-tional Ac-cu-
- []
-
-
-Underfull \hbox (badness 3646) in paragraph at lines 49--49
-[]|\T1/lmr/m/n/8 CRPS, Pre-dic-tive Like-li-
+Underfull \hbox (badness 2005) in paragraph at lines 49--49
+[]|\T1/cmr/m/n/8 (+20) CRPS, Pre-dic-tive Like-li-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/lmr/bx/n/8 Typical Fi-nan-cial Use
+[]|\T1/cmr/bx/n/8 (+20) Typical Fi-nan-cial Use
  []
 
 
-Underfull \hbox (badness 3439) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Deterministic point fore-
+Underfull \hbox (badness 1867) in paragraph at lines 71--71
+[]|\T1/cmr/m/n/8 (+20) Deterministic point fore-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Extremely fast in-fer-ence;
+Underfull \hbox (badness 5847) in paragraph at lines 71--71
+\T1/cmr/m/n/8 (+20) se-quences with-out it-er-a-tive
  []
 
 
-Underfull \hbox (badness 2469) in paragraph at lines 71--71
-\T1/lmr/m/n/8 highly in-ter-pretable method-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-\T1/lmr/m/n/8 se-quences with-out it-er-a-tive
- []
-
-
-Underfull \hbox (badness 3989) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Risk man-age-ment; com-plex
+Underfull \hbox (badness 2384) in paragraph at lines 71--71
+[]|\T1/cmr/m/n/8 (+20) Risk man-age-ment; com-plex
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Zero-shot prob-a-bilis-tic
+[]|\T1/cmr/m/n/8 (+20) Exhibits promis-ing cross-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Exhibits promis-ing cross-
+\T1/cmr/m/n/8 (+20) domain gen-er-al-iza-tion and
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 71--71
-\T1/lmr/m/n/8 domain gen-er-al-iza-tion and
- []
-
-
-Underfull \hbox (badness 1097) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Suffers from po-ten-tial hal-lu-ci-na-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/lmr/m/n/8 Dynamic as-set al-lo-ca-tion;
+[]|\T1/cmr/m/n/8 (+20) Dynamic as-set al-lo-ca-tion;
  []
 
 
 
-[50]
-Underfull \hbox (badness 6016) in paragraph at lines 94--94
-[]|\T1/lmr/m/n/8 Highly com-pu-ta-tion-ally ef-fi-
+[48]
+Underfull \hbox (badness 3386) in paragraph at lines 94--94
+[]|\T1/cmr/m/n/8 (+20) Highly com-pu-ta-tion-ally ef-fi-
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 94--94
-[]|\T1/lmr/m/n/8 Adversarial dis-tri-bu-tion
+[]|\T1/cmr/m/n/8 (+20) Adversarial dis-tri-bu-tion
  []
 
 
-Underfull \hbox (badness 2035) in paragraph at lines 94--94
-[]|\T1/lmr/m/n/8 State-of-the-art fi-delity; pre-
+Underfull \hbox (badness 1024) in paragraph at lines 94--94
+[]|\T1/cmr/m/n/8 (+20) State-of-the-art fi-delity; pre-
  []
 
 
-Underfull \hbox (badness 7344) in paragraph at lines 94--94
-[]|\T1/lmr/m/n/8 Heavy com-pu-ta-tional foot-print;
+Underfull \hbox (badness 3965) in paragraph at lines 94--94
+[]|\T1/cmr/m/n/8 (+20) Heavy com-pu-ta-tional foot-print;
  []
 
 
-Underfull \hbox (badness 2717) in paragraph at lines 116--116
-\T1/lmr/m/n/8 with Earth Mover's dis-
+Underfull \hbox (badness 1831) in paragraph at lines 116--116
+\T1/cmr/m/n/8 (+20) with Earth Mover's dis-
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
-[]|\T1/lmr/m/n/8 Susceptible to mode col-lapse;
+Underfull \hbox (badness 1178) in paragraph at lines 116--116
+[]|\T1/cmr/m/n/8 (+20) Iterative for-ward nois-ing
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 116--116
-\T1/lmr/m/n/8 strug-gles with mi-crostruc-tural
+Underfull \hbox (badness 3281) in paragraph at lines 116--116
+[]|\T1/cmr/m/n/8 (+20) Computationally in-ten-sive sam-
  []
 
 
-Underfull \hbox (badness 2376) in paragraph at lines 116--116
-[]|\T1/lmr/m/n/8 Iterative for-ward nois-ing
- []
-
-
-Underfull \hbox (badness 2334) in paragraph at lines 116--116
-[]|\T1/lmr/m/n/8 Exceptional dis-tri-bu-tional fi-
- []
-
-
-Underfull \hbox (badness 6332) in paragraph at lines 116--116
-[]|\T1/lmr/m/n/8 Computationally in-ten-sive sam-
- []
-
-
-Underfull \hbox (badness 2452) in paragraph at lines 116--116
-[]|\T1/lmr/m/n/8 Scales to asyn-chronous tick
- []
-
-
-Underfull \hbox (badness 1460) in paragraph at lines 116--116
-\T1/lmr/m/n/8 fras-truc-ture and vast order-flow
- []
-
-
-Underfull \hbox (badness 3375) in paragraph at lines 138--138
-[]|\T1/lmr/bx/n/8 Reflects Fi-nan-cial Va-lid-
+Underfull \hbox (badness 1509) in paragraph at lines 116--116
+[]|\T1/cmr/m/n/8 (+20) Scales to asyn-chronous tick
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 138--138
-[]|\T1/lmr/m/n/8 Medium (Cap-tures static
+[]|\T1/cmr/m/n/8 (+20) Medium (Cap-tures static
  []
 
 
 Underfull \hbox (badness 10000) in paragraph at lines 138--138
-\T1/lmr/m/n/8 Train-on-Real, Test-on-Real (TRTR);
+\T1/cmr/m/n/8 (+20) Train-on-Real, Test-on-Real (TRTR);
  []
 
 
 
-[51]
-Overfull \hbox (52.38203pt too wide) in paragraph at lines 148--163
+[49]
+Overfull \hbox (52.32738pt too wide) in paragraph at lines 148--163
  [][] 
  []
 
 
-Underfull \hbox (badness 2401) in paragraph at lines 177--178
-[]|\T1/lmr/m/n/8 Not fi-nan-cial data /
+Underfull \hbox (badness 1715) in paragraph at lines 177--178
+[]|\T1/cmr/m/n/8 (+20) Not fi-nan-cial data /
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 178--179
-[]|\T1/lmr/m/n/8 Weak fi-nan-cial val-i-
+Underfull \hbox (badness 8038) in paragraph at lines 178--179
+[]|\T1/cmr/m/n/8 (+20) Weak fi-nan-cial val-i-
  []
 
 
-Underfull \hbox (badness 6396) in paragraph at lines 178--179
-\T1/lmr/m/n/8 da-tion / Du-pli-cated
+Underfull \hbox (badness 4378) in paragraph at lines 178--179
+\T1/cmr/m/n/8 (+20) da-tion / Du-pli-cated
  []
 
 )
 
-[52] (./is26.aux)
+[50] (./is26.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `is26.out' has not changed.
-(rerunfilecheck)             Checksum: 5B6929F05F53236CD50608FBB21026D9;11440.
+(rerunfilecheck)             Checksum: 74BCDDAC28457017564393707B6C3A2B;11412.
  ) 
 Here is how much of TeX's memory you used:
- 35366 strings out of 475366
- 768910 string characters out of 5762338
- 1211308 words of memory out of 5000000
- 57791 multiletter control sequences out of 15000+600000
- 619520 words of font info for 100 fonts, out of 8000000 for 9000
+ 36526 strings out of 474662
+ 783150 string characters out of 5751108
+ 1217328 words of memory out of 5000000
+ 58339 multiletter control sequences out of 15000+600000
+ 596423 words of font info for 280 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 84i,16n,93p,2176b,723s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,93p,2166b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
+0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
+mbx6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
+m/cmbx8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmex10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/ams
+fonts/cm/cmmi10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmmi6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi8.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/amsfonts/cm/cmmib10.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/t
+ype1/public/amsfonts/cmextra/cmmib8.pfb></usr/local/texlive/2025basic/texmf-dis
+t/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/2025basic/texmf-
+dist/fonts/type1/public/amsfonts/cm/cmr6.pfb></usr/local/texlive/2025basic/texm
+f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/te
+xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basi
+c/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025b
+asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
+25basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/local/t
+exlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb></us
+r/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pfb><
+/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1000.pf
+b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1095
+.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1
+200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
+bx1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
+/sfrm0600.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
+per/sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm
+-super/sfrm0900.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/cm-super/sfrm1000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/cm-super/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
+type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fon
+ts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf-dist/
+fonts/type1/public/cm-super/sftt1095.pfb>
+Output written on is26.pdf (50 pages, 5112249 bytes).
+PDF statistics:
+ 1231 PDF objects out of 1440 (max. 8388607)
+ 1055 compressed objects within 11 object streams
+ 315 named destinations out of 1000 (max. 500000)
+ 56787 words of extra memory for PDF output out of 61914 (max. 10000000)
 
-Output written on is26.pdf (52 pages).

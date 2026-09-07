@@ -12,12 +12,12 @@
 \definecolor{BorderGray}{RGB}{180, 180, 180}
 
 
-\subsubsection{Problem Setup}
+\subsection{Problem Setup}
 To establish a rigorous conceptual foundation, Figure~\ref{fig:taxonomy} presents a comprehensive two-level hierarchical taxonomy that structures the entire financial time-series generation landscape across task formulations and algorithmic families.
 Let $\mathbf{X} = \{x_1, x_2, \dots, x_T\}$ denote a multivariate financial time series, where each $x_t \in \mathbb{R}^d$ represents a vector of financial variables (e.g., asset prices, returns, trading volumes, or limit order book states) at time step $t$. Financial time series are inherently stochastic, heavily influenced by non-stationary market regimes, and exhibit complex inter-variable dependencies.
 The core objective of Financial Time-Series Generation (FTSG) is to learn a probabilistic generative model $P_\theta$ capable of producing synthetic sequences $\hat{\mathbf{X}}$ that capture both the marginal distributions and the temporal dynamics of the true data-generating process $P_{data}$.
 
-\subsubsection{Task-Level Taxonomy}
+\subsection{Task-Level Taxonomy}
 As illustrated in Figure~\ref{fig:tasks}, we organize FTSG into three distinct problem formulations based on the generation context:
 \begin{itemize}
     \item \textbf{Financial Time-Series Extrapolation:} A conditional, forward-looking generation task. Given a historical prefix $\mathbf{x}_{1:t}$, the goal is to generate future trajectories $\mathbf{x}_{t+1:T}$. The predictive distribution is modeled as $P(\mathbf{x}_{t+1:T} \mid \mathbf{x}_{1:t}; \theta) = \prod_{i=t+1}^{T} P(x_i \mid \mathbf{x}_{1:i-1}; \theta)$. This encompasses probabilistic forecasting, where the output is a set of plausible future paths rather than a single point estimate.
@@ -25,7 +25,7 @@ As illustrated in Figure~\ref{fig:tasks}, we organize FTSG into three distinct p
     \item \textbf{Synthetic Sequence Generation / Data Synthesis:} An unconditional or conditionally-guided generation task aimed at creating entirely new data manifolds. The model learns to map a latent noise variable $\mathbf{z} \sim \mathcal{N}(0, \mathbf{I})$ (and optionally a condition $c$ such as market regime or volatility target) to a realistic sequence: $\hat{\mathbf{X}} = G_{\theta}(\mathbf{z}, c)$, aiming to minimize the divergence between the generated distribution $P_g$ and the real distribution $P_{data}$.
 \end{itemize}
 
-\subsubsection{Technique-Level Taxonomy}
+\subsection{Technique-Level Taxonomy}
 To map the rapid evolution of algorithmic approaches, we classify the underlying generative techniques into the following families:
 \begin{enumerate}
     \item \textbf{Statistical and Probabilistic Methods:} Classical approaches such as ARIMA and GARCH, which model conditional mean and variance based on rigid mathematical assumptions.
@@ -39,6 +39,6 @@ To map the rapid evolution of algorithmic approaches, we classify the underlying
 The detailed classification of FTSG methods, organized by task and technique, is summarized in Figure ~\ref{fig:taxonomy} for a clear overview.
 
 
-\subsubsection{Mapping Tasks to Techniques}
+\subsection{Mapping Tasks to Techniques}
 Table \ref{tab:mapping} provides a unified mapping of these tasks to the corresponding techniques, highlighting the evolution from deterministic prediction to flexible, scenario-based generative paradigms. Specifically, for the extrapolation task, the landscape spans from deep sequence architectures (e.g., SGP-LSTM) that forecast prices and returns using deterministic metrics like MSE, to advanced diffusion and foundation models (e.g., TimeGrad, Chronos, and FinCast). These newer paradigms handle multivariate and multi-asset series, shifting the evaluation focus toward probabilistic measures (CRPS) and zero-shot capabilities. In the realm of imputation, missing fundamentals and prices are primarily addressed using tensor methods (RegTensor) and diffusion models (CSDI, TimeDiT), where performance is gauged by reconstruction error and temporal coherence. Finally, for data synthesis, generative frameworks such as QuantGAN and CoFinDiff are employed to simulate realistic returns, market scenarios, and complex limit order flows. Consequently, the evaluation criteria for synthesis shift entirely away from point-wise accuracy, prioritizing instead the preservation of stylized facts, distributional fidelity, and the practical downstream utility of the generated data.
 

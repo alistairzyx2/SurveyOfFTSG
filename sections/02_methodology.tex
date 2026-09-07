@@ -5,26 +5,26 @@ To ensure the reproducibility, transparency, and comprehensiveness of this revie
 \subsection{Literature Retrieval Strategy}
 Our primary objective was to capture the state-of-the-art advancements in financial time-series generation, particularly focusing on the paradigm shift driven by generative AI over recent years. 
 
-\textbf{Search Databases:} We conducted exhaustive searches across premier academic databases and preprint repositories to ensure broad coverage of both peer-reviewed and cutting-edge unpublished works. The primary databases included Google Scholar, DBLP, Web of Science, Scopus, and arXiv.
+We conducted exhaustive searches across premier academic databases and preprint repositories to ensure broad coverage of both peer-reviewed and cutting-edge unpublished works. The primary databases included Google Scholar, DBLP, Web of Science, Scopus, and arXiv.
 
-\textbf{Search Keywords:} To construct a robust search query, we combined terms related to the financial domain, time-series data, and generative tasks. The primary Boolean search strings included: 
+To construct a robust search query, we combined terms related to the financial domain, time-series data, and generative tasks. The primary Boolean search strings included: 
 (\textit{``financial time-series generation''} OR \textit{``synthetic financial data''} OR \textit{``market simulation generative model''}) AND (\textit{``financial diffusion model''} OR \textit{``financial GAN''} OR \textit{``time-series imputation finance''} OR \textit{``financial foundation models''}).
 
-\textbf{Time Frame and Publication Types:} Given the rapid evolution of deep generative models, we restricted our primary search window to papers published or uploaded between \textbf{2021 and early 2026 (including early-access and preprints)}. We included articles from high-impact journals (e.g., \textit{Information Sciences}, \textit{Expert Systems with Applications}, \textit{Quantitative Finance}), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI), and highly cited arXiv preprints that represent significant methodological breakthroughs.
+Given the rapid evolution of deep generative models, we restricted our primary search window to papers published or uploaded between \textbf{2021 and early 2026 (including early-access and preprints)}. We included articles from high-impact journals (e.g., \textit{Information Sciences}, \textit{Expert Systems with Applications}, \textit{Quantitative Finance}), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI), and highly cited arXiv preprints that represent significant methodological breakthroughs.
 
 After full-text screening, the final corpus comprises 130 studies, each assigned to a unique primary task category: extrapolation (54), imputation (29), and synthesis (47). Multi-task or cross-cutting contributions are discussed in the relevant sections but are not double-counted in task-level comparison tables.
 
 \subsection{Inclusion and Exclusion Criteria}
 As illustrated in Figure \ref{fig:lit_dist}, to maintain a high signal-to-noise ratio and ensure strict relevance to the core theme of FTSG, all retrieved papers underwent a two-stage screening process (title/abstract screening followed by full-text review) based on the following criteria:
 
-\textbf{Inclusion Criteria:}
+The following inclusion criteria were applied:
 \begin{itemize}
     \item Papers that explicitly formulate and address the generation, imputation, or fully synthetic simulation of financial time-series data.
     \item Studies that propose novel generative architectures (e.g., GANs, diffusion models, LLMs) specifically adapted for financial contexts.
     \item Research that establishes unified evaluation protocols, benchmarks, or datasets for synthetic financial data.
 \end{itemize}
 
-\textbf{Exclusion Criteria:}
+Papers meeting any of the following exclusion criteria were removed:
 \begin{itemize}
     \item Purely predictive or forecasting studies that treat outputs strictly as deterministic point estimates without a generative, distributional, or probabilistic perspective.
     \item General time-series generation papers that lack an identifiable and empirically tested financial application (e.g., solely tested on weather or traffic data).

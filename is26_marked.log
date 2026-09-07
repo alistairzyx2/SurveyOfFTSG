@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  5 SEP 2026 15:42
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  7 SEP 2026 23:59
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1088,6 +1088,12 @@ Overfull \hbox (1.54488pt too wide) in paragraph at lines 20--21
 [24]
 
 [25]
+Overfull \hbox (4.82483pt too wide) in paragraph at lines 105--106
+[]\T1/cmr/m/n/10.95 (-20) The first di-rec-tion is con-di-tional speci-ficity a
+nd scenario-based eval-u-a-tion: stan-dard distribution-
+ []
+
+
 
 [26]) (./sections/09_data_resources.tex
 
@@ -1126,28 +1132,26 @@ l/probabilistic, dis-crim-i-na-tive deep learn-ing, GAN-based, diffusion/score-
 
 [40]
 
-[41]
+[41])
 
-[42])
-
-[43] (./sections/13_figures.tex
-<separate_figures/Figure1.pdf, id=889, 682.86618pt x 341.4326pt>
+[42] (./sections/13_figures.tex
+<separate_figures/Figure1.pdf, id=852, 682.86618pt x 341.4326pt>
 File: separate_figures/Figure1.pdf Graphic file (type pdf)
 <use separate_figures/Figure1.pdf>
 Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
 (pdftex.def)             Requested size: 443.9066pt x 221.9546pt.
 
 
-[44 <./separate_figures/Figure1.pdf>]
-<separate_figures/Figure2.pdf, id=908, 625.96059pt x 398.3382pt>
+[43 <./separate_figures/Figure1.pdf>]
+<separate_figures/Figure2.pdf, id=873, 625.96059pt x 469.47095pt>
 File: separate_figures/Figure2.pdf Graphic file (type pdf)
 <use separate_figures/Figure2.pdf>
 Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
-(pdftex.def)             Requested size: 443.9066pt x 282.49387pt.
+(pdftex.def)             Requested size: 443.9066pt x 332.93987pt.
 
 
-[45 <./separate_figures/Figure2.pdf>]
-<final_figures/comparison_00.png, id=940, 1049.13303pt x 586.28023pt>
+[44 <./separate_figures/Figure2.pdf>]
+<final_figures/comparison_00.png, id=905, 1049.13303pt x 586.28023pt>
 File: final_figures/comparison_00.png Graphic file (type png)
 <use final_figures/comparison_00.png>
 Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
@@ -1155,8 +1159,8 @@ Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
 (pdftex.def)             Requested size: 407.66833pt x 227.80745pt.
 
 
-[46 <./final_figures/comparison_00.png>]
-<final_figures/DiffWithDiscreteContinous.pdf, id=947, 1460.73305pt x 495.75854p
+[45 <./final_figures/comparison_00.png>]
+<final_figures/DiffWithDiscreteContinous.pdf, id=912, 1460.73305pt x 495.75854p
 t>
 File: final_figures/DiffWithDiscreteContinous.pdf Graphic file (type pdf)
 <use final_figures/DiffWithDiscreteContinous.pdf>
@@ -1165,16 +1169,16 @@ nput line 32.
 (pdftex.def)             Requested size: 362.37569pt x 122.98618pt.
 
 
-[47 <./final_figures/DiffWithDiscreteContinous.pdf>]
-<final_figures/FTSA.pdf, id=972, 547.11751pt x 204.96274pt>
+[46 <./final_figures/DiffWithDiscreteContinous.pdf>]
+<final_figures/FTSA.pdf, id=937, 547.11751pt x 204.96274pt>
 File: final_figures/FTSA.pdf Graphic file (type pdf)
 <use final_figures/FTSA.pdf>
 Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
 (pdftex.def)             Requested size: 362.37569pt x 135.75745pt.
 
 
-[48 <./final_figures/FTSA.pdf>]
-<final_figures/filter_pipeline.png, id=1023, 2175.12625pt x 727.71875pt>
+[47 <./final_figures/FTSA.pdf>]
+<final_figures/filter_pipeline.png, id=987, 2175.12625pt x 727.71875pt>
 File: final_figures/filter_pipeline.png Graphic file (type png)
 <use final_figures/filter_pipeline.png>
 Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line 
@@ -1182,7 +1186,7 @@ Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line
 (pdftex.def)             Requested size: 430.31812pt x 143.96439pt.
 )
 
-[49 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
+[48 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
 
 Overfull \hbox (2.28004pt too wide) in paragraph at lines 49--49
 []|[]| 
@@ -1230,7 +1234,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 71--71
 
 
 
-[50]
+[49]
 Underfull \hbox (badness 3386) in paragraph at lines 94--94
 []|\T1/cmr/m/n/8 (+20) Highly com-pu-ta-tion-ally ef-fi-
  []
@@ -1282,7 +1286,7 @@ Underfull \hbox (badness 10000) in paragraph at lines 138--138
 
 
 
-[51]
+[50]
 Overfull \hbox (52.32738pt too wide) in paragraph at lines 148--163
  [][] 
  []
@@ -1304,22 +1308,22 @@ Underfull \hbox (badness 4378) in paragraph at lines 178--179
 
 )
 
-[52] (./is26_marked.aux)
+[51] (./is26_marked.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `is26_marked.out' has not changed.
-(rerunfilecheck)             Checksum: 5B6929F05F53236CD50608FBB21026D9;11440.
+(rerunfilecheck)             Checksum: 74BCDDAC28457017564393707B6C3A2B;11412.
  ) 
 Here is how much of TeX's memory you used:
- 36672 strings out of 474662
- 785183 string characters out of 5751108
- 1225218 words of memory out of 5000000
- 58436 multiletter control sequences out of 15000+600000
- 599362 words of font info for 301 fonts, out of 8000000 for 9000
+ 36660 strings out of 474662
+ 784996 string characters out of 5751108
+ 1218591 words of memory out of 5000000
+ 58434 multiletter control sequences out of 15000+600000
+ 599365 words of font info for 299 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 84i,13n,93p,2183b,835s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2173b,1037s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1356,10 +1360,10 @@ ts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2025basic/texmf-dist/
 fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-di
 st/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on is26_marked.pdf (52 pages, 5153784 bytes).
+Output written on is26_marked.pdf (51 pages, 5159034 bytes).
 PDF statistics:
- 1285 PDF objects out of 1440 (max. 8388607)
- 1101 compressed objects within 12 object streams
- 322 named destinations out of 1000 (max. 500000)
+ 1248 PDF objects out of 1440 (max. 8388607)
+ 1066 compressed objects within 11 object streams
+ 316 named destinations out of 1000 (max. 500000)
  62931 words of extra memory for PDF output out of 74296 (max. 10000000)
 

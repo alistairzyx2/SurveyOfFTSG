@@ -1,7 +1,7 @@
 \subsection{Financial Time-Series Extrapolation}
 \label{sec:extrapolation}
 
-\subsubsection{Problem Characteristics}
+\subsection{Problem Characteristics}
 Financial Time-Series Extrapolation (FTSE) is formally defined as the task of generating future trajectories $\mathbf{x}_{t+1:T}$ given a historical context $\mathbf{x}_{1:t}$. Unlike traditional point forecasting, modern FTSE is approached as a probabilistic conditional generation problem: learning the conditional distribution $p(\mathbf{x}_{t+1:T} | \mathbf{x}_{1:t})$ to capture the inherent uncertainty and multi-modal nature of financial markets. This shift acknowledges that financial markets are stochastic systems with complex, time-varying dynamics. 
 
 The problem exhibits several distinct characteristics that differentiate it from general sequence extrapolation:
@@ -15,7 +15,7 @@ The problem exhibits several distinct characteristics that differentiate it from
 Formally, the objective is to learn a generator $G_\theta$ that maps the context $\mathbf{x}_{1:t}$ to a distribution over future sequences, often parameterized as a set of samples $\{\mathbf{x}_{t+1:T}^{(i)}\}_{i=1}^N$. The evaluation metrics extend beyond point-wise accuracy (e.g., MSE) to probabilistic scoring rules (e.g., CRPS, Energy Score) and domain-specific financial utility measures (e.g., portfolio returns, risk metrics).
 
 
-\subsubsection{Classical and Hybrid Predictive Models}
+\subsection{Classical and Hybrid Predictive Models}
 
 Classical statistical frameworks have historically provided the mathematical bedrock for modeling financial time-series dynamics through rigorous probabilistic assumptions. A prominent example is the Auto-Regressive Integrated Moving Average (ARIMA) model \citep{box1970}, which explicitly formulates temporal dependencies by combining autoregressive (AR) processes, differencing (I) to achieve stationarity, and moving average (MA) components. For a given time series $y_t$, an $\text{ARIMA}(p, d, q)$ specification is mathematically expressed as:
 \begin{equation}
@@ -46,13 +46,13 @@ where $\phi$ and $\psi$ denote the scaling and wavelet functions. These denoised
 \begin{equation}
 \text{Fitness} = \text{TopR} + \lambda_1 \times \text{Monotonicity} + \lambda_2 \times \text{IC}
 \end{equation}
-Finally, invariant learning hybrids target the problem of distributional shifts across varying market regimes. The Invariant Risk Minimization (IRM) approach proposed by \citet{cao2023irm} enforces the extraction of representations that hold true regardless of whether the market is in a bullish, bearish, or sideways phase, minimizing an objective that penalizes environmental variance:
+Finally, invariant learning hybrids target the problem of distributional shifts across varying market regimes. The Invariant Risk Minimization (IRM) approach proposed by \citep{cao2023irm} enforces the extraction of representations that hold true regardless of whether the market is in a bullish, bearish, or sideways phase, minimizing an objective that penalizes environmental variance:
 \begin{equation}
 \mathcal{L}_{IRM} = \underbrace{R^e(\mathbf{w} \cdot \Phi)}_{\text{Empirical risk}} + \gamma \underbrace{\left\| \nabla_{\mathbf{w}|_{\mathbf{w}=1.0}} R^e(\mathbf{w} \cdot \Phi) \right\|_2^2}_{\text{Invariant penalty}}
 \end{equation}
 where $\Phi$ acts as the representation function and $\mathbf{w}$ is a linear classifier. Despite these multifaceted improvements, hybrid predictive architectures ultimately generate deterministic point forecasts, fundamentally limiting their capacity to model the full predictive distribution essential for robust financial scenario generation.
 
-\subsubsection{Generative Models for Extrapolation}
+\subsection{Generative Models for Extrapolation}
 
 Recognizing the intrinsic limitations of deterministic forecasting, the paradigm of generative models shifts the focus toward learning the underlying data distribution $p(\mathbf{x})$ or the conditional probability $p(\mathbf{x}_{t+1:T}|\mathbf{x}_{1:t})$. This transition allows practitioners to sample multiple plausible future trajectories, accommodating the multi-modal uncertainty inherent in financial markets. Early efforts in this domain heavily utilized Generative Adversarial Networks (GANs) \citep{Time-GAN, naritomi2020data}, which deploy a generator $G$ and a discriminator $D$ locked in a competitive minimax game. The generator synthesizes sequences from historical context $\mathbf{x}_{1:t}$ and a latent noise vector $\mathbf{z}$, while the discriminator attempts to distinguish real historical samples from the generated distributions:
 \begin{equation}
@@ -84,7 +84,7 @@ While diffusion and score-based models generate high-fidelity distributions with
 
 
 
-\subsubsection{Time Series Foundation Models}
+\subsection{Time Series Foundation Models}
 
 Inspired by the transformative success of Large Language Models (LLMs) in natural language processing \citep{Survey1, Survey2, tsa2}, current research is heavily invested in adapting the "pre-train, then fine-tune" paradigm to financial time-series extrapolation. These Foundation Models are trained on massive, heterogeneous datasets to derive generalized temporal representations, effectively enabling zero-shot inference and cross-domain adaptation. The primary challenge in this domain is bridging the continuous numerical space of financial data with the discrete, tokenized vocabulary natively processed by transformer-based LLMs. Tokenization-based fine-tuning strategies directly address this by casting forecasting as a next-token prediction task. For instance, Chronos \citep{ansari2024chronos} scales time-series observations and maps them into a fixed dictionary of tokens using quantile binning:
 \begin{equation}
@@ -115,9 +115,9 @@ FinCast \citep{zhu2025fincast} attacks the multi-scale nature of market data usi
 \end{align}
 where $\mathcal{L}_{point}$ handles deterministic accuracy and the pinball loss $\mathcal{L}_{quantile}$ governs risk coverage, yielding highly robust zero-shot performance across diverse asset classes.
 
-\subsubsection{Emerging Trends}
+\subsection{Emerging Trends}
 Moving forward, the field is poised to tackle several critical bottlenecks that limit the operationalization of generative models in live financial systems. A primary objective is the development of unified hybrid architectures that can seamlessly amalgamate the low-latency inference speeds of discriminative models with the distributional robustness of diffusion frameworks, potentially leveraging sophisticated knowledge distillation techniques. Concurrently, there is an urgent need to redefine evaluation protocols; existing metrics such as the Continuous Ranked Probability Score (CRPS) must be augmented with practical financial utility measures, including risk-adjusted returns and maximum drawdowns, to ensure models align with authentic trading objectives. Furthermore, future iterations of generative models must incorporate causal constraints that respect intricate market microstructures, fundamentally eliminating the look-ahead biases that persistently plague synthetic market simulators. Finally, advancing computationally efficient fine-tuning protocols will be paramount to ensure that massive foundation models can rapidly adapt to sudden structural regime shifts without succumbing to catastrophic forgetting.
 
-\subsubsection{Summarization}
+\subsection{Summarization}
 The progressive evolution of financial time-series extrapolation models demonstrates a clear overarching trajectory in machine learning: transitioning from deterministic, discriminative point predictors to expressive generative distribution learners, and ultimately culminating in large-scale foundation models. As synthesized in Table \ref{tab:extrapolation_comparison}, each methodological paradigm presents distinct trade-offs between inferential speed, distributional fidelity, and generalization capability. Classical and hybrid predictive models, such as ARIMA and LSTM-based architectures, retain their dominance in latency-sensitive environments like high-frequency execution algorithms, where rapid point forecasting is paramount. However, their structural inability to quantify tail-risk and multimodal uncertainty severely restricts their utility in comprehensive risk management. To resolve this, generative architectures—notably GANs and diffusion models—excel in scenario generation and stress testing by synthesizing highly realistic, multi-modal market trajectories. Recent studies often report that diffusion models yield better calibrated distributions than GAN baselines, although this gain typically comes at the cost of substantially higher computational burden during iterative reverse-sampling. Time-series foundation models have recently become an important direction by exhibiting unprecedented zero-shot forecasting capabilities, enabling the deployment of predictive systems across previously unseen assets or shifting market regimes. Despite these breakthroughs, foundation models still grapple with persistent challenges regarding temporal alignment, cross-modal semantic gaps, and the propensity to hallucinate implausible financial patterns over extended horizons.
 

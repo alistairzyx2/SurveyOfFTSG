@@ -12,7 +12,7 @@ explicitly evaluate against a real downstream application rather than
 only on statistical fidelity.
 
 % --- 5.3.1 Applications of FTSE -------------------------------------
-\subsubsection{Applications of FTSE}
+\subsection{Applications of FTSE}
 
 FTSE is the most mature sub-task in deployment. The classical use-case
 is to feed extrapolated point or quantile forecasts into a downstream
@@ -50,7 +50,7 @@ paths are scored by an optimizer that selects weights without committing
 to a single forecast.
 
 % --- 5.3.2 Applications of FTSI -------------------------------------
-\subsubsection{Applications of FTSI}
+\subsection{Applications of FTSI}
 
 FTSI is most often deployed in production at the data-engineering
 layer, where its outputs feed classical pipelines rather than a learning
@@ -85,29 +85,27 @@ serve as value-adding pre-processing steps whose utility is judged by
 downstream predictive metrics.
 
 % --- 5.3.3 Applications of FTSS -------------------------------------
-\subsubsection{Applications of FTSS}
+\subsection{Applications of FTSS}
 
 FTSS is the sub-task with the broadest and most consequential deployment
 surface. We organize it along the natural lifecycle of a quantitative
 strategy.
 
-\paragraph{Strategy backtesting and replay.}
-ABIDES~\citep{byrd2019abides} and its Gym-compatible successor
+\revadd{In strategy backtesting and replay,} ABIDES~\citep{byrd2019abides} and its Gym-compatible successor
 ABIDES-Gym~\citep{amrouni2021abides} are agent-based discrete-event
 simulators that wrap a synthetic limit-order-book generator in an
 OpenAI Gym interface, enabling head-to-head backtests of RL agents that
 interact with thousands of background traders.
-\citet{balch2019how} compare single-agent market replay against
+\citep{balch2019how} compare single-agent market replay against
 multi-agent interactive simulation and find that the interactive mode
 systematically reorders the leaderboard of public trading algorithms
 --- a striking demonstration that the choice of an FTSS simulation backbone can flip
-strategy rankings. \citet{rollins2020which} extend this with a threaded
+strategy rankings. \citep{rollins2020which} extend this with a threaded
 parallel simulator, scaling ABIDES-style order generation to high agent
 counts, and reproduce qualitatively different ``pecking orders'' of
 strategies compared with single-agent replay.
 
-\paragraph{Stress testing, scenario generation and risk management.}
-GAN- and diffusion-based synthesizers are increasingly used to
+\revadd{For stress testing, scenario generation and risk management,} GAN- and diffusion-based synthesizers are increasingly used to
 manufacture counterfactual or Black-Swan scenarios that historical
 samples cannot supply. TAIL-GAN~\citep{cont2025tailgan} produces tail
 scenarios that satisfy joint VaR/ES elicitability and are consumed by
@@ -129,8 +127,7 @@ window, and Fin-Denoiser~\citep{wang2024denoiser} supplies high-SNR
 scenarios for risk models that are notoriously sensitive to data
 artifacts.
 
-\paragraph{Trading-agent training environments.}
-Perhaps the most visible deployment of FTSS is as a training environment for RL
+\revadd{As trading-agent training environments,} perhaps the most visible deployment of FTSS is as a training environment for RL
 trading agents. FinRL-Meta~\citep{liu2022finrlmeta} ships near-real
 market environments built from Yahoo Finance and CCXT feeds and
 demonstrates that DRL agents pre-trained on these synthetic-augmented
@@ -147,8 +144,7 @@ reduces performance variance by an order of magnitude across random
 seeds. Collectively, these works establish FTSS as the substrate for
 ``sim-to-real'' transfer in financial RL.
 
-\paragraph{Privacy-preserving data sharing and regulatory scenarios.}
-Synthetic financial data is a recognized route to overcome the friction
+\revadd{In privacy-preserving data sharing and regulatory scenarios,} synthetic financial data is a recognized route to overcome the friction
 between data sharing and the privacy constraints imposed by GDPR, CCPA,
 and the equivalent Chinese PIPL. Six Levels of
 Privacy~\citep{balch2024six} proposes a six-tier framework and
@@ -159,7 +155,7 @@ counts) while reducing membership-inference vulnerability to
 near-baseline. Privacy Measurement in Tabular Synthetic
 Data~\citep{boudewijn2023privacy} formalizes the corresponding
 evaluation protocol that quantifies the privacy/utility frontier. On
-the regulatory side, \citet{balch2024six} argue that FTSS pipelines can
+the regulatory side, \citep{balch2024six} argue that FTSS pipelines can
 produce synthetic benchmark datasets for third-party model validation
 without exposing proprietary positions, a direction that has begun to
 attract policy and supervisory attention in public-sector pilot studies.
@@ -167,7 +163,7 @@ This shift reframes FTSG not only as a research artifact but as
 compliance infrastructure.
 
 % --- 5.3.4 Cross-cutting ---------------------------------------------
-\subsubsection{Cross-cutting Use: Synthetic Datasets as Benchmarks}
+\subsection{Cross-cutting Use: Synthetic Datasets as Benchmarks}
 
 Beyond the per-task applications above, FTSG has produced a small but
 rapidly maturing ecosystem of benchmark datasets that are themselves

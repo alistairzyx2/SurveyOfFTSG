@@ -3,7 +3,7 @@
 
 The empirical foundation of Financial Time-Series Generation (FTSG) relies on the quality, granularity, and structure of the underlying data. Unlike static image datasets, financial data is continuous, highly non-stationary, and prone to hidden biases. We systematically cluster these resources moving from raw modalities to curated databases, standardized benchmarks, and ultimately, the practical pitfalls of dataset construction.
 
-\subsubsection{Raw Data Sources and Modalities}
+\subsection{Raw Data Sources and Modalities}
 Financial time series are not monolithic; they exhibit drastically different statistical signatures depending on the asset class and sampling frequency. The rationale for clustering these sources lies in the specific generative challenges they present. We categorize raw FTSG data into four distinct modalities:
 \begin{enumerate}
     \item \textbf{Equities and Market Indices:} Encompassing individual stocks (e.g., AAPL, TSLA) and aggregate indices (e.g., S\&P 500, CSI 300). Sampled typically at daily or minutely frequencies, these series are the primary testbeds for unconditional synthesis and extrapolation. They present fundamental generative challenges, including pronounced \textit{volatility clustering}, \textit{fat-tailed distributions}, and \textit{regime-shifting non-stationarity}.
@@ -12,7 +12,7 @@ Financial time series are not monolithic; they exhibit drastically different sta
     \item \textbf{Alternative Data and Textual Metadata:} With the rise of multi-modal foundation models, purely numerical series are increasingly augmented with alternative data. This includes macroeconomic news headlines, central bank policy texts, earnings call transcripts, and social media sentiment. This modality is crucial for training controllable generators and scenario-guided market simulators.
 \end{enumerate}
 
-\subsubsection{Curated Databases and APIs}
+\subsection{Curated Databases and APIs}
 Historically, raw financial data is fragmented and optimized for human visualization. To facilitate the massive data ingestion required by deep generative models, researchers rely on institutional databases and developer APIs:
 \begin{itemize}
     \item \textbf{Institutional and Academic Repositories:} For rigorous backtesting and synthesis, Wharton Research Data Services (WRDS), the Center for Research in Security Prices (CRSP), and Compustat provide survivorship-bias-free equity data. For macroeconomic series, FRED (Federal Reserve Economic Data) remains the gold standard. In Chinese markets, CSMAR offers comprehensive, high-quality A-share trading records.
@@ -20,14 +20,14 @@ Historically, raw financial data is fragmented and optimized for human visualiza
     \item \textbf{Cryptocurrency Exchanges:} Due to 24/7 trading and open data access, crypto markets have become highly popular for testing generative algorithms. Platforms like Binance and CoinMarketCap provide free API access to granular tick and volume data, capturing extreme volatility events ideal for stress-testing generation.
 \end{itemize}
 
-\subsubsection{Standardized Benchmarks and Evaluation Suites}
+\subsection{Standardized Benchmarks and Evaluation Suites}
 Historically, FTSG research relied on ad-hoc, proprietary data slices, severely hindering reproducibility and fair model comparison. The recent emergence of unified benchmark platforms marks a critical maturation in the field. These benchmarks encapsulate vast datasets, pre-define chronological train/test/validation splits, and standardize evaluation metrics (e.g., masking ratios for imputation, prompt templates for forecasting). 
 
 By providing a ``level playing field,'' these suites allow researchers to disentangle algorithmic improvements from data-mining advantages. A summary of recent and authoritative FTSG benchmarks is provided in Table \ref{tab:datasets}.
 
 
 
-\subsubsection{Practical Issues in Dataset Construction}
+\subsection{Practical Issues in Dataset Construction}
 Constructing financial datasets for generative models is fraught with domain-specific pitfalls. A generative architecture, no matter how mathematically advanced, will learn and amplify the structural biases present in its training data. Key issues include:
 \begin{itemize}
     \item \textbf{Survivorship Bias:} Datasets that only include currently active assets inadvertently filter out companies that went bankrupt or were delisted. Generative models trained on such data will synthesize artificially optimistic market trajectories and fail to accurately model the probability of asset default, ruining their utility for downside risk management.

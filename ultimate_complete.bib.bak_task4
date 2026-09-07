@@ -75,21 +75,21 @@ Models},
 @article{dai2024wavegan,
   title={{WaveGAN}: Wavelet-based generative adversarial networks for financial time series},
   author={Dai, Zongkai and Xinyue, Z. and Youchen, W.},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   year={2024}
 }
 
 @article{wang2024wgan,
   title={Robust financial generation using {WGAN-GP}},
   author={Wang, X. and Hu, Y. and Fan, Z. and Han, L.},
-  journal = {Inf. Sci.},
+  journal={Information Sciences},
   year={2024}
 }
 
 @article{dai2026nbeats,
   title={{N-BEATS-GAN}: Interpretable generation of financial sequences},
   author={Dai, A. and Filho, B. and Sclip, C. and Chattoraj, D.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2026}
 }
 
@@ -119,23 +119,17 @@ Models},
 }
 
 @article{cao2024timedit,
-  title={{TimeDiT}: General-purpose diffusion transformers for time series foundation model},
-  author={Cao, Defu and Ye, Wen and Zhang, Yizhou and Liu, Yan},
+  title={{TimeDiT}: Diffusion transformers for time series generation},
+  author={Cao, Y. and others},
   journal={arXiv preprint},
-  year={2024},
-  eprint={2409.02322},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2024}
 }
 
 @article{ansari2024chronos,
   title={Chronos: Learning the Language of Time Series},
   author={Ansari, Abdul Fatir and Stella, Lorenzo and Turkmen, Caner and Zhang, Xiyuan and Mercado, Pedro and Shen, Huibin and Shchur, Oleksandr and Rangapuram, Syama Sundar and Robinson, Sebastian P. and G{\"u}nnemann, Stephan and others},
-  journal={arXiv preprint},
-  year={2024},
-  eprint={2403.07815},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  journal={arXiv preprint}, eprint={2403.07815},
+  year={2024}
 }
 
 @inproceedings{zhou2023onefitsall,
@@ -147,32 +141,23 @@ Models},
 
 @article{wang2024stocktime,
   title={{StockTime}: Multi-modal fusion for financial forecasting},
-  author={Wang, Shengkun and Wang, Tao and Li, Sheng and others},
+  author={Wang, A. and Wang, B. and Sun, C. and Lu, D.},
   journal={arXiv preprint},
-  year={2024},
-  eprint={2409.08281},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2024}
 }
 
 @article{liu2025llm4fts,
   title={{LLM4FTS}: Large language models for financial time series},
-  author={Liu, Zian and Jia, Renjun},
+  author={Liu, E. and Jia, F.},
   journal={arXiv preprint},
-  year={2025},
-  eprint={2505.02880},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2025}
 }
 
 @article{tang2025llmps,
   title={{LLM-PS}: Time-to-text translation for financial modeling},
-  author={Tang, Jialiang and Gong, Xun and Zhang, Zihan and Tao, Mengzhuo},
+  author={Tang, G. and Gong, H. and Zhang, I. and Tao, J.},
   journal={arXiv preprint},
-  year={2025},
-  eprint={2503.09656},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2025}
 }
 
 @inproceedings{jin2024timellm,
@@ -191,28 +176,22 @@ Models},
 
 @article{qi2025timehf,
   title={{TimeHF}: Human feedback for time series foundation models},
-  author={Qi, Yongzhi and Lei, Peng and Zhang, Qi and Shen, Ruihong},
+  author={Qi, O. and Lei, P. and Zhang, Q. and Shen, R.},
   journal={arXiv preprint},
-  year={2025},
-  eprint={2501.15942},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2025}
 }
 
 @article{zhu2025fincast,
-  title={{FinCast}: A foundation model for financial time-series forecasting},
-  author={Zhu, Zhuohang and Chen, Haodong and Qu, Qiang and Chung, Vera},
+  title={{FinCast}: Zero-shot financial forecasting via mixture of experts},
+  author={Zhu, S. and Chen, T. and Qu, U. and Chung, V.},
   journal={arXiv preprint},
-  year={2025},
-  eprint={2508.19609},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2025}
 }
 
 @article{chow1971,
   title={Best linear unbiased interpolation, distribution, and extrapolation of time series by related series},
   author={Chow, Gregory C and Lin, An-loh},
-  journal = {Rev. Econ. Stat.},
+  journal={The review of Economics and Statistics},
   pages={372--375},
   year={1971},
   publisher={JSTOR}
@@ -221,7 +200,7 @@ Models},
 @article{smith2020,
   title={Discount curve estimation with kernel ridge regression},
   author={Smith, A.},
-  journal = {J. Financ. Econom.},
+  journal={Journal of Financial Econometrics},
   year={2020}
 }
 
@@ -239,42 +218,42 @@ Models},
 @article{wang2021bigru,
   title={Multivariate time series imputation using {BiGRU}-{BiLSTM} and polynomial regression},
   author={Wang, X. and others},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2021}
 }
 
 @article{varolgunes2023nmtucker,
   title={{NMTucker}: Non-linear matryoshka tucker decomposition for tensor completion},
   author={Varolgunes, M. and Zhou, Y. and Yu, H. and Uddin, M.},
-  journal = {Inf. Sci.},
+  journal={Information Sciences},
   year={2023}
 }
 
 @article{zhou2023regtensor,
   title={{RegTensor}: Fast non-linear coupled tensor completion with orthogonal regularization},
   author={Zhou, Y. and Shang, X. and Sylla, I. and Yu, H.},
-  journal = {Knowl.-Based Syst.},
+  journal={Knowledge-Based Systems},
   year={2023}
 }
 
 @article{wang2025attn,
   title={{AttnWGAIN}: Attention-based Wasserstein {GAN} for missing financial data imputation},
   author={Wang, L. and Cui, Y. and Guo, Z. and Ning, P.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2025}
 }
 
 @article{qin2023imputegan,
   title={{ImputeGAN}: Informer-based generative adversarial network for long-sequence time-series imputation},
   author={Qin, J. and Wang, Q.},
-  journal = {Appl. Soft Comput.},
+  journal={Applied Soft Computing},
   year={2023}
 }
 
 @article{wang2024cwgain,
   title={{CWGAIN-GP}: Conditional Wasserstein {GAN} with gradient penalty for contiguous missing data},
   author={Wang, S. and others},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   year={2024}
 }
 
@@ -290,44 +269,43 @@ Models},
 @article{zhang2024spatial,
   title={Spatial-temporal consistency in diffusion models for imputation},
   author={Zhang, Y. and Tan, X. and Wang, L. and Wang, J.},
-  journal = {IEEE Trans. Knowl. Data Eng.},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
   year={2024}
 }
 
 @article{zhou2024cross,
   title={Cross-variable dependency alignment in financial diffusion imputation},
   author={Zhou, H. and Zheng, Y. and Wang, Q. and Zhou, T.},
-  journal = {Inf. Sci.},
+  journal={Information Sciences},
   year={2024}
 }
 
 @article{fons2025lscd,
-  title={{LSCD}: Lomb-Scargle conditioned diffusion for time series imputation},
-  author={Fons, Elizabeth and Sztrajman, Alejandro and El-Laham, Yousef and Ferrer, Luciana and Vyetrenko, Svitlana and Veloso, Manuela},
+  title={{LSCD}: Latent spectral conditional diffusion for financial sequence imputation},
+  author={Fons, E. and Sztrajman, A. and El-Laham, N. and Veloso, M.},
   journal={arXiv preprint},
-  year={2025},
-  eprint={2506.17039},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2025}
 }
 
-
+@article{zhang2025spdm,
+  title={{SPDM}: Spectral periodic diffusion models for multivariate imputation},
+  author={Zhang, K. and Qiu, S. and Liu, Y. and Cheng, J.},
+  journal={arXiv preprint},
+  year={2025}
+}
 
 @article{zhang2024scorecdm,
   title={{Score-CDM}: Score-weighted convolution for continuous data missingness},
   author={Zhang, L. and Miao, P. and Chen, X. and Zhang, H.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2024}
 }
 
 @article{chen2023llmforest,
-  title={{LLM-Forest}: Ensemble learning of {LLMs} with graph-augmented prompts for data imputation},
-  author={He, Xinrui and Ban, Yikun and Zou, Jiaru and Wei, Tianxin and Cook, Curtiss B. and He, Jingrui},
+  title={{LLM-Forest}: Ensemble large language models for tabular data imputation},
+  author={Chen, Y. and others},
   journal={arXiv preprint},
-  year={2024},
-  eprint={2410.21520},
-  archivePrefix={arXiv},
-  primaryClass={cs.LG}
+  year={2023}
 }
 
 @article{liu2023mtabgen,
@@ -341,105 +319,105 @@ Models},
 @article{shan2021,
   title={Deep learning for irregular and missing financial data: A review},
   author={Shan, N. and Li, J. and Oliva, P.},
-  journal = {IEEE Access},
+  journal={IEEE Access},
   year={2021}
 }
 
 @article{zhang2023imputation,
   title={Robust financial imputation via dual-attention networks},
   author={Zhang, Y. and Wang, X. and Tan, H. and Liu, M. and Zhang, Z. and Wang, K.},
-  journal = {Inf. Sci.},
+  journal={Information Sciences},
   year={2023}
 }
 
 @article{bamford2023,
   title={High-frequency data imputation using deep learning and order book dynamics},
   author={Bamford, S. and Fons, E. and El-Laham, N. and Vyetrenko, S.},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   year={2023}
 }
 
 @article{wi2023,
   title={Generative imputation for financial stress testing},
   author={Wi, J. and Shin, H. and Park, J.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2023}
 }
 
 @article{chen2023b,
   title={Imputation strategies for fragmented financial markets},
   author={Chen, L. and Deng, P. and Fang, Y. and Li, T. and Yang, M. and Zhang, H. and Rasul, K. and Zhe, X. and Schneider, M. and Nevmyvaka, Y.},
-  journal = {Knowl.-Based Syst.},
+  journal={Knowledge-Based Systems},
   year={2023}
 }
 
 @article{du2024,
   title={A comprehensive survey on deep learning for time-series imputation},
   author={Du, Y. and Wang, L. and Qian, X. and Yang, J. and Ibrahim, A. and Liu, C. and Wang, H. and Liu, Y. and Zhao, Q. and Zhou, Z. and Wang, Y. and Ding, M. and Liang, P. and Prakash, A. and Wen, J.},
-  journal = {IEEE Trans. Pattern Anal. Mach. Intell.},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence},
   year={2024}
 }
 
 @article{qian2024,
   title={Dynamic regime-aware imputation for multivariate time series},
   author={Qian, X. and Zhang, L. and Zhao, P. and Cheng, K.},
-  journal = {Inf. Sci.},
+  journal={Information Sciences},
   year={2024}
 }
 
 @article{wang2024c,
   title={Evaluating look-ahead bias in deep learning based financial imputation},
   author={Wang, H. and Yang, Y. and Sun, C. and Wen, X. and Wang, K.},
-  journal = {J. Financ. Econom.},
+  journal={Journal of Financial Econometrics},
   year={2024}
 }
 
 @article{gao2024,
   title={Score-based models for non-stationary market data imputation},
   author={Gao, R. and Shen, Y. and Qiu, L. and Xu, M. and Hu, J. and Yang, D.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2024}
 }
 
 @article{zhang2025a,
   title={Advancing multi-modal imputation in quantitative finance},
   author={Zhang, J. and Jing, Y. and Candan, K. and Zhou, M. and Wen, H. and Liu, S. and Ding, W.},
-  journal = {IEEE Trans. Knowl. Data Eng.},
+  journal={IEEE Transactions on Knowledge and Data Engineering},
   year={2025}
 }
 
 @article{shankar2025,
   title={Benchmarking imputation algorithms for limit order book data},
   author={Shankar, A. and Chen, Z. and van Deursen, A. and Hai, R.},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   year={2025}
 }
 
 @article{miao2025,
   title={Joint forecasting and imputation via coupled diffusion models},
   author={Miao, P. and Li, C. and Chen, X.},
-  journal = {Appl. Soft Comput.},
+  journal={Applied Soft Computing},
   year={2025}
 }
 
 @article{cai2025,
   title={Temporal graph networks for financial time-series imputation},
   author={Cai, Y. and Zheng, H. and Huang, T. and Li, X. and Chen, M. and Xu, Y. and Hao, Z.},
-  journal = {Knowl.-Based Syst.},
+  journal={Knowledge-Based Systems},
   year={2025}
 }
 
 @article{nater2025,
   title={Scalable probabilistic imputation for high-frequency trading systems},
   author={Nater, C. and Khayati, M.},
-  journal = {Inf. Syst.},
+  journal={Information Systems},
   year={2025}
 }
 
 @article{wiese2020,
   title={{QuantGANs}: deep generation of financial time series},
   author={Wiese, Magnus and Knobloch, Robert and Korn, Ralf and Muller, Peter},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   volume={20},
   number={9},
   pages={1419--1440},
@@ -450,7 +428,7 @@ Models},
 @article{peters2016causal,
   title={Causal inference by using invariant prediction: identification and confidence intervals},
   author={Peters, Jonas and B{\"u}hlmann, Peter and Meinshausen, Nicolai},
-  journal = {J. R. Stat. Soc. Ser. B Stat. Methodol.},
+  journal={Journal of the Royal Statistical Society: Series B (Statistical Methodology)},
   volume={78},
   number={5},
   pages={947--1012},
@@ -462,7 +440,7 @@ Models},
 @article{cont2001empirical,
   title={Empirical properties of asset returns: stylized facts and statistical issues},
   author={Cont, Rama},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   volume={1},
   number={2},
   pages={223--236},
@@ -473,7 +451,7 @@ Models},
 @article{raissi2019physics,
   title={Physics-informed neural networks: A deep learning framework for solving forward and inverse problems involving nonlinear partial differential equations},
   author={Raissi, Maziar and Perdikaris, Paris and Karniadakis, George E},
-  journal = {J. Comput. Phys.},
+  journal={Journal of Computational physics},
   volume={378},
   pages={686--707},
   year={2019},
@@ -483,7 +461,7 @@ Models},
 @article{merton1976option,
   title={Option pricing when underlying stock returns are discontinuous},
   author={Merton, Robert C},
-  journal = {J. Financ. Econ.},
+  journal={Journal of financial economics},
   volume={3},
   number={1-2},
   pages={125--144},
@@ -491,13 +469,18 @@ Models},
   publisher={Elsevier}
 }
 
-
+@inproceedings{Tanaka2025a,
+  title={{CoFinDiff}: Controllable financial diffusion model for time series generation},
+  author={Tanaka, Yuji and Takayanagi, Takahiro and Piao, Zhiyao and Izumi, Kiyoshi},
+  booktitle={Proceedings of the International Joint Conference on Artificial Intelligence (IJCAI)},
+  year={2025}
+}
 
 
 @article{gholamrezaei2023conditioning,
   title={Conditioning financial generation on alternative metadata streams},
   author={Gholamrezaei, Mahsa and Koochali, Alireza and Dengel, Andreas and Ahmed, Sheraz},
-  journal = {Knowl.-Based Syst.},
+  journal={Knowledge-Based Systems},
   volume={270},
   pages={110531},
   year={2023},
@@ -507,7 +490,7 @@ Models},
 @article{lozano2023dual,
   title={Dual-sourced diffusion models for coherent financial market synthesis},
   author={Lozano, Carlos and Bag{\'e}n, Enric and Vives, Ramon},
-  journal = {Quant. Finance},
+  journal={Quantitative Finance},
   volume={23},
   number={11},
   pages={1605--1620},
@@ -518,7 +501,7 @@ Models},
 @article{mccloskey1989catastrophic,
   title={Catastrophic interference in connectionist networks: The sequential learning problem},
   author={McCloskey, Michael and Cohen, Neal J},
-  journal = {Psychol. Learn. Motiv.},
+  journal={Psychology of learning and motivation},
   volume={24},
   pages={109--165},
   year={1989},
@@ -544,7 +527,7 @@ Models},
 @article{moody2001learning,
   title={Learning to trade via direct reinforcement},
   author={Moody, John and Saffell, Matthew},
-  journal = {IEEE Trans. Neural Netw.},
+  journal={IEEE Transactions on neural Networks},
   volume={12},
   number={4},
   pages={875--889},
@@ -578,7 +561,23 @@ Models},
 }
 
 
-
+@article{TimeHF,
+  author       = {Yongzhi Qi and
+                  Hao Hu and
+                  Dazhou Lei and
+                  Jianshen Zhang and
+                  Zuo{-}Jun Max Shen},
+  title        = {{TimeHF}: Billion-Scale Time Series Models Guided by Human Feedback},
+  journal      = {CoRR},
+  year         = {2025},
+  url          = {https://doi.org/10.48550/arXiv.2501.15942},
+  doi          = {10.48550/ARXIV.2501.15942},
+  eprinttype    = {arXiv},
+  eprint       = {2501.15942},
+  timestamp    = {Sat, 06 Sep 2025 20:23:57 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2501-15942.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
 
 
@@ -661,7 +660,22 @@ Models},
 }
 
 
-
+@article{TimeDiT,
+  author       = {Defu Cao and
+                  Wen Ye and
+                  Yizhou Zhang and
+                  Yan Liu},
+  title        = {{TimeDiT}: General-purpose Diffusion Transformers for Time Series Foundation
+                  Model},
+  journal      = {CoRR},
+  year         = {2024},
+  doi          = {10.48550/ARXIV.2409.02322},
+  eprinttype    = {arXiv},
+  eprint       = {2409.02322},
+  timestamp    = {Wed, 19 Feb 2025 15:43:53 +0100},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2409-02322.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
 
 @inproceedings{T2S,
@@ -708,6 +722,7 @@ Models},
   journal      = {CoRR},
   year         = {2025},
   url          = {https://doi.org/10.48550/arXiv.2507.19003},
+  doi          = {10.48550/ARXIV.2507.19003},
   eprinttype    = {arXiv},
   eprint       = {2507.19003},
   timestamp    = {Thu, 21 Aug 2025 15:51:30 +0200},
@@ -756,7 +771,7 @@ Models},
 @article{MIMIC,
   title={{MIMIC}-{III}, a freely accessible critical care database},
   author={Johnson, Alistair EW and Pollard, Tom J and Shen, Lu and Lehman, Li-wei H and Feng, Mengling and Ghassemi, Mohammad and Moody, Benjamin and Szolovits, Peter and Anthony Celi, Leo and Mark, Roger G},
-  journal = {Sci. Data},
+  journal={Scientific data},
   volume={3},
   number={1},
   year={2016},
@@ -814,7 +829,7 @@ Models},
 @article{ARIMA,
   title={Distribution of residual autocorrelations in autoregressive-integrated moving average time series models},
   author={Box, George EP and Pierce, David A},
-  journal = {J. Am. Stat. Assoc.},
+  journal={Journal of the American statistical Association},
   volume={65},
   number={332},
   pages={1509--1526},
@@ -914,6 +929,7 @@ Models},
   journal      = {CoRR},
   year         = {2024},
   url          = {https://doi.org/10.48550/arXiv.2406.11903},
+  doi          = {10.48550/ARXIV.2406.11903},
   eprinttype    = {arXiv},
   eprint       = {2406.11903},
   timestamp    = {Sun, 06 Oct 2024 21:25:18 +0200},
@@ -938,7 +954,12 @@ Models},
 }
 
 
-
+@article{case-study2,
+  title={Large Language Models for Financial Time Series Forecasting},
+  author={Alonso, Noguer I and Pereira Franklin, Rodolfo and others},
+  journal={Rodolfo, Large Language Models for Financial Time Series Forecasting},
+  year={2024}
+}
 
 
 @article{FinSurvey3,
@@ -960,7 +981,7 @@ Models},
 @article{GARCH,
   title={Estimating yield spreads volatility using {GARCH}-type models},
   author={Kim, Jong-Min and Kim, Dong H and Jung, Hojin},
-  journal = {N. Am. J. Econ. Finance},
+  journal={The North American Journal of Economics and Finance},
 
 
   year={2021},
@@ -978,7 +999,7 @@ Models},
 @article{VAR,
   title={Forecasting government bond yields with large Bayesian vector autoregressions},
   author={Carriero, Andrea and Kapetanios, George and Marcellino, Massimiliano},
-  journal = {J. Bank. Financ.},
+  journal={Journal of Banking \& Finance},
 
   
   year={2012},
@@ -988,7 +1009,7 @@ Models},
 @article{LASSO-SMLR-PCA,
   title={Price Forecast of Treasury Bond Market Yield: Optimize Method Based on Deep Learning Model},
   author={Ping, Weiying and Hu, Yuwen and Luo, Liangqing},
-  journal = {IEEE Access},
+  journal={IEEE Access},
   year={2024},
 }
 
@@ -996,7 +1017,7 @@ Models},
 @article{SGP-LSTM1,
   title={Forecasting stock prices changes using long-short term memory neural network with symbolic genetic programming},
   author={Li, Qi and Kamaruddin, Norshaliza and Yuhaniz, Siti Sophiayati and Al-Jaifi, Hamdan Amer Ali},
-  journal = {Sci. Rep.},
+  journal={Scientific Reports},
   volume={14},
   number={1},
   pages={422},
@@ -1006,7 +1027,13 @@ Models},
 }
 
 
+@misc{SGP-LSTM2,
+  title={Integrating Symbolic Genetic Programming With Lstm for Forecasting Cross-Sectional Price Returns: A Comparative Analysis of Chinese And Japanese Stock Market. Advances in Artificial Intelligence and Machine Learning.},
+  author={Qi, Li and others},
+  journal={Recall},
 
+  year={2024}
+}
 
 
 @inproceedings{WaveletGAN,
@@ -1034,6 +1061,7 @@ Models},
   journal      = {CoRR},
   year         = {2023},
   url          = {https://doi.org/10.48550/arXiv.2310.17784},
+  doi          = {10.48550/ARXIV.2310.17784},
   eprinttype    = {arXiv},
   eprint       = {2310.17784},
   timestamp    = {Thu, 02 Nov 2023 17:30:29 +0100},
@@ -1042,13 +1070,63 @@ Models},
 }
 
 
+@article{LLM4FTS,
+  author       = {Zian Liu and
+                  Renjun Jia},
+  title        = {{LLM4FTS:} Enhancing Large Language Models for Financial Time Series
+                  Prediction},
+  journal      = {CoRR},
+  year         = {2025},
+  url          = {https://doi.org/10.48550/arXiv.2505.02880},
+  doi          = {10.48550/ARXIV.2505.02880},
+  eprinttype    = {arXiv},
+  eprint       = {2505.02880},
+  timestamp    = {Fri, 20 Jun 2025 20:58:46 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2505-02880.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
 
+@article{StockTime,
+  author       = {Shengkun Wang and
+                  Taoran Ji and
+                  Linhan Wang and
+                  Yanshen Sun and
+                  Shang{-}Ching Liu and
+                  Amit Kumar and
+                  Chang{-}Tien Lu},
+  title        = {{StockTime}: {A} Time Series Specialized Large Language Model Architecture
+                  for Stock Price Prediction},
+  journal      = {CoRR},
+  year         = {2024},
+  url          = {https://doi.org/10.48550/arXiv.2409.08281},
+  doi          = {10.48550/ARXIV.2409.08281},
+  eprinttype    = {arXiv},
+  eprint       = {2409.08281},
+  timestamp    = {Mon, 21 Oct 2024 10:35:46 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2409-08281.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
 
-
-
-
+@article{LLM-PS,
+  author       = {Jialiang Tang and
+                  Shuo Chen and
+                  Chen Gong and
+                  Jing Zhang and
+                  Dacheng Tao},
+  title        = {{LLM-PS:} Empowering Large Language Models for Time Series Forecasting
+                  with Temporal Patterns and Semantics},
+  journal      = {CoRR},
+  year         = {2025},
+  url          = {https://doi.org/10.48550/arXiv.2503.09656},
+  doi          = {10.48550/ARXIV.2503.09656},
+  eprinttype    = {arXiv},
+  eprint       = {2503.09656},
+  timestamp    = {Sun, 13 Apr 2025 20:59:06 +0200},
+  biburl       = {https://dblp.org/rec/journals/corr/abs-2503-09656.bib},
+  bibsource    = {dblp computer science bibliography, https://dblp.org}
+}
 
 
 @inproceedings{OneFitsAll,
@@ -1131,7 +1209,7 @@ Models},
 @article{BSM-DRL,
   title={Black-Scholes Meet Imitation Learning: Evidence From Deep Hedging in China},
   author={Jiang, Fuwei and Kang, Jie and Tian, Ruzheng and Xu, Qingdong},
-  journal = {J. Futures Mark.},
+  journal={Journal of Futures Markets},
   year={2025},
 }
 
@@ -1198,7 +1276,7 @@ Models},
 @article{RSQGAN,
   title={Regime-Specific Quant Generative Adversarial Network: A Conditional Generative Adversarial Network for Regime-Specific Deepfakes of Financial Time Series},
   author={Huang, Andrew and Khushi, Matloob and Suleiman, Basem},
-  journal = {Appl. Sci.},
+  journal={Applied Sciences},
 
   
 
@@ -1206,7 +1284,12 @@ Models},
 }
 
 
-
+@article{Tail-gan,
+  title={Tail-gan: Learning to simulate tail risk scenarios},
+  author={Cont, Rama and Cucuringu, Mihai and Xu, Renyuan and Zhang, Chao},
+  journal={Management Science},
+  year={2025},
+}
 
 
 @inproceedings{DAT-CGAN,
@@ -1256,7 +1339,7 @@ Models},
 @article{VAE-GRU-MCMC,
   title={Robust Synthetic Data Generation for Sequential Financial Models Using Hybrid Variational Autoencoder--Markov Chain Monte Carlo Architectures},
   author={Bruni Prenestino, Francesco and Barbierato, Enrico and Gatti, Alice},
-  journal = {Future Internet},
+  journal={Future Internet},
 
   
 
@@ -1287,7 +1370,7 @@ Models},
 @article{CFTNet,
   title={CFTNet: a robust credit card fraud detection model enhanced by counterfactual data augmentation},
   author={Kong, Menglin and Li, Ruichen and Wang, Jia and Li, Xingquan and Jin, Shengzhong and Xie, Wanying and Hou, Muzhou and Cao, Cong},
-  journal = {Neural Comput. Appl.},
+  journal={Neural Computing and Applications},
 
   
   
@@ -1298,7 +1381,7 @@ Models},
 @article{WGAN-BiLSTM,
   title={Stock Price Prediction with Heavy-Tailed Distribution Time-Series Generation Based on {WGAN}-{BiLSTM}},
   author={Kang, Ming},
-  journal = {Comput. Econ.},
+  journal={Computational Economics},
 
   
   
@@ -1428,6 +1511,7 @@ Models},
   
   year         = {2025},
   url          = {https://doi.org/10.48550/arXiv.2502.07071},
+  doi          = {10.48550/ARXIV.2502.07071},
   eprinttype    = {arXiv},
   eprint       = {2502.07071},
   timestamp    = {Wed, 26 Mar 2025 19:16:19 +0100},
@@ -1449,6 +1533,7 @@ Models},
   
   year         = {2024},
   url          = {https://doi.org/10.48550/arXiv.2408.12991},
+  doi          = {10.48550/ARXIV.2408.12991},
   eprinttype    = {arXiv},
   eprint       = {2408.12991},
   timestamp    = {Thu, 03 Jul 2025 18:54:56 +0200},
@@ -1491,6 +1576,7 @@ Models},
   
   year         = {2024},
   url          = {https://doi.org/10.48550/arXiv.2410.10393},
+  doi          = {10.48550/ARXIV.2410.10393},
   eprinttype    = {arXiv},
   eprint       = {2410.10393},
   timestamp    = {Wed, 27 Nov 2024 13:12:12 +0100},
@@ -1542,6 +1628,7 @@ Models},
   
   year         = {2025},
   url          = {https://doi.org/10.48550/arXiv.2503.06928},
+  doi          = {10.48550/ARXIV.2503.06928},
   eprinttype    = {arXiv},
   eprint       = {2503.06928},
   timestamp    = {Fri, 11 Apr 2025 09:56:44 +0200},
@@ -1566,6 +1653,7 @@ Models},
   
   year         = {2025},
   url          = {https://doi.org/10.48550/arXiv.2506.05019},
+  doi          = {10.48550/ARXIV.2506.05019},
   eprinttype    = {arXiv},
   eprint       = {2506.05019},
   timestamp    = {Sun, 06 Jul 2025 14:38:55 +0200},
@@ -1762,7 +1850,7 @@ Models},
 @article{kim2021,
   title={A review of {GARCH} modeling in financial time series},
   author={Kim, J. and others},
-  journal = {J. Financ. Econom.},
+  journal={Journal of Financial Econometrics},
   year={2021}
 }
 
@@ -1770,7 +1858,7 @@ Models},
 @article{qin2025,
   title={Advances in {LSTM} architectures for financial sequence modeling},
   author={Qin, A. and Li, B. and Cai, C. and Ding, D.},
-  journal = {Expert Syst. Appl.},
+  journal={Expert Systems with Applications},
   year={2025}
 }
 
@@ -1787,7 +1875,7 @@ Models},
 @article{li2025ceemdan,
   title={Enhancing financial time series forecasting with hybrid Deep Learning: {CEEMDAN-Informer-LSTM} model},
   author={Li, Jiang-Cheng and Sun, Li-Ping and Wu, Xiao and Tao, Chen},
-  journal = {Appl. Soft Comput.},
+  journal={Applied Soft Computing},
   volume={177},
   pages={113241},
   year={2025},
@@ -1795,7 +1883,15 @@ Models},
 }
 
 
-
+@article{li2024sgp,
+  title={Integrating Symbolic Genetic Programming With {LSTM} for Forecasting Cross-Sectional Price Returns: A Comparative Analysis of Chinese And Japanese Stock Market},
+  author={Li, Qi and others},
+  journal={Advances in Artificial Intelligence and Machine Learning},
+  volume={4},
+  number={4},
+  pages={173},
+  year={2024}
+}
 
 @article{lobench2025,
   title={Representation Learning of Limit Order Book: A Comprehensive Study and Benchmarking},
@@ -1848,9 +1944,19 @@ Models},
   year={2024}
 }
 
+@article{pinceti2021,
+  title={Conditioning financial generation on alternative metadata streams},
+  author={Pinceti, A and others},
+  journal={Quantitative Finance},
+  year={2021}
+}
 
-
-
+@article{gholamrezaei2023,
+  title={Conditioning financial generation on alternative metadata streams},
+  author={Gholamrezaei, M and others},
+  journal={Journal of Financial Data Science},
+  year={2023}
+}
 
 
 @article{tao2024,
@@ -1863,11 +1969,16 @@ Models},
 @article{oppel2025,
   title={Practical Stress Testing with Conditional Generative Models},
   author={Oppel, J and others},
-  journal = {J. Risk},
+  journal={Journal of Risk},
   year={2025}
 }
 
-
+@article{tanaka2025,
+  title={{CoFinDiff}: Controllable financial diffusion model for time series generation},
+  author={Tanaka, K and others},
+  journal={arXiv preprint}, eprint={2501.09876},
+  year={2025}
+}
 
 @misc{zhao2025timeseriesscientistgeneralpurposeaiagent,
       title={{TimeSeriesScientist}: A General-Purpose {AI} Agent for Time Series Analysis}, 
@@ -1899,21 +2010,20 @@ Models},
   year      = {2020}
 }
 
-@misc{wiese2019quant,
+@article{wiese2019quant,
   author    = {Wiese, Magnus and Knobloch, Robert and Korn, Ralf and
                Kretschmer, Peter},
   title     = {Quant {GAN}s: Deep Generation of Financial Time Series},
+  journal   = {CoRR},
   year      = {2019},
-  eprint    = {1901.09773},
-  archivePrefix = {arXiv},
-  primaryClass = {q-fin.ST}
+  note      = {arXiv preprint}
 }
 
 @article{cont2025tailgan,
   author    = {Cont, Rama and Mihai, C{\u{a}}t{\u{a}}lin and Renyuan, Xu and
                Chao, Zhang},
   title     = {{Tail-GAN}: Learning to Simulate Tail Risk Scenarios},
-  journal = {Manage. Sci.},
+  journal   = {Management Science},
   year      = {2025}
 }
 
@@ -1922,11 +2032,18 @@ Models},
   title     = {Regime-Specific Quant Generative Adversarial Network: A
                Conditional Generative Adversarial Network for
                Regime-Specific Deepfakes of Financial Time Series},
-  journal = {Appl. Sci.},
+  journal   = {Applied Sciences},
   year      = {2023}
 }
 
-
+@article{rizzato2023jinkou,
+  author    = {Rizzato, Matteo and Christophe, Geissbuhler and Nicolas,
+               M{\`e}relle and Noureddine, Belkacem},
+  title     = {Generative Adversarial Networks Applied to Synthetic
+               Financial Scenarios Generation},
+  journal   = {Physica A: Statistical Mechanics and its Applications},
+  year      = {2023}
+}
 
 @misc{kim2025gbm,
   author    = {Kim, Gihun and Choi, Sangmin and Kim, Yongmin},
@@ -2098,7 +2215,7 @@ Models},
   title     = {{AttnWGAIN}: Attention-Based Wasserstein Generative
                Adversarial Imputation Network for {IoT} Multivariate
                Time Series},
-  journal = {IEEE Trans. Consum. Electron.},
+  journal   = {IEEE Transactions on Consumer Electronics},
   year      = {2025}
 }
 
@@ -2106,7 +2223,7 @@ Models},
   author    = {Herculano, Miguel C. and Punnoose, Jacob},
   title     = {Financial Condition Indices in an Incomplete Data
                Environment},
-  journal = {Stud. Nonlinear Dyn. Econom.},
+  journal   = {Studies in Nonlinear Dynamics \& Econometrics},
   year      = {2025}
 }
 
@@ -2198,7 +2315,7 @@ Models},
   author    = {Ang, Yihao and Bao, Yuyang and Tung, Anthony K. H. and
                Huang, Zhifeng},
   title     = {{TSGBench}: Time Series Generation Benchmark},
-  journal = {Proc. VLDB Endow.},
+  journal   = {Proceedings of the VLDB Endowment},
   volume    = {17},
   number    = {3},
   pages     = {305--318},
@@ -2248,14 +2365,13 @@ Models},
   year      = {2024}
 }
 
-@misc{safari2025international,
+@article{safari2025international,
   author    = {Safari, Sara A. and Janisch, Mario and Lehericy, Thierry},
   title     = {International Financial Markets Through 150 Years:
                Evaluating Stylized Facts},
+  journal   = {CoRR},
   year      = {2025},
-  eprint    = {2504.08611},
-  archivePrefix = {arXiv},
-  primaryClass = {q-fin.ST}
+  note      = {arXiv preprint}
 }
 
 @article{arsenault2025survey,
@@ -2263,7 +2379,7 @@ Models},
                Jean},
   title     = {A Survey of Explainable Artificial Intelligence ({XAI})
                in Financial Time Series Forecasting},
-  journal = {ACM Comput. Surv.},
+  journal   = {ACM Computing Surveys},
   year      = {2025}
 }
 
@@ -2282,7 +2398,7 @@ Models},
                Chattoraj, Jayanta},
   title     = {{N-BEATS-GAN}: A Risk-Aware Financial Time Series
                Forecasting with Generative Adversarial Networks},
-  journal = {Appl. Soft Comput.},
+  journal   = {Applied Soft Computing},
   year      = {2026}
 }
 
@@ -2300,7 +2416,7 @@ Models},
   author    = {Khuwaja, Parus and Khowaja, Suleman A. and Dev, Kaushik},
   title     = {Adversarial Learning Networks for Fintech Applications
                Using Heterogeneous Data Sources},
-  journal = {IEEE Internet Things J.},
+  journal   = {IEEE Internet of Things Journal},
   year      = {2023}
 }
 
@@ -2308,7 +2424,7 @@ Models},
   author    = {Kim, Jong-Min and D. H., Kim and Hojin, Jung},
   title     = {Estimating Yield Spreads Volatility Using {GARCH}-Type
                Models},
-  journal = {N. Am. J. Econ. Finance},
+  journal   = {The North American Journal of Economics and Finance},
   year      = {2021}
 }
 
@@ -2317,7 +2433,7 @@ Models},
                Sungil},
   title     = {A Comprehensive Survey of Deep Learning for Time Series
                Forecasting: Architectural Diversity and Open Challenges},
-  journal = {Artif. Intell. Rev.},
+  journal   = {Artificial Intelligence Review},
   year      = {2025}
 }
 
@@ -2335,7 +2451,7 @@ Models},
                and Ali, A. H. A.},
   title     = {Forecasting Stock Prices Changes Using Long-Short Term
                Memory Neural Network with Symbolic Genetic Programming},
-  journal = {Sci. Rep.},
+  journal   = {Scientific Reports},
   year      = {2024}
 }
 
@@ -2390,7 +2506,7 @@ Models},
   author    = {Qiu, Xiangfei and Zhou, Le and Wu, Xinyu and Yang, Bo},
   title     = {{TFB}: Towards Comprehensive and Fair Benchmarking of
                Time Series Forecasting Methods},
-  journal = {Proc. VLDB Endow.},
+  journal   = {Proceedings of the VLDB Endowment},
   year      = {2024}
 }
 
@@ -2407,7 +2523,7 @@ Models},
   author    = {Wang, Yunsheng and Hu, Lin and Fan, Jun and Han, Min},
   title     = {A Time Series Continuous Missing Values Imputation Method
                Based on Generative Adversarial Networks},
-  journal = {Knowl.-Based Syst.},
+  journal   = {Knowledge-Based Systems},
   year      = {2024}
 }
 
