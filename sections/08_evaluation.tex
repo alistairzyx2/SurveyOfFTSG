@@ -1,16 +1,14 @@
 \subsection{Evaluation Protocols}
 \label{sec:evaluation}
-
-\subsection{Why Generic Generation Metrics are Insufficient}
+\revnote{Secondary subheading ``Why Generic Generation Metrics are Insufficient'' removed; its content now continues directly beneath the primary heading.}
 Evaluation remains one of the most critical, yet under-standardized, aspects of financial time-series generation. In conventional supervised learning or computer vision tasks, performance is often adequately measured by generic metrics like Mean Squared Error (MSE), Fréchet Inception Distance (FID), or visual realism. However, FTSG involves multiple competing objectives where visual similarity or pointwise accuracy does not equate to financial validity.
 
 A synthetic sequence might achieve a low MSE or MAE against a ground-truth trajectory, yet entirely fail to preserve crucial dynamics such as volatility clustering or tail-risk behavior, rendering it useless for stress testing. Conversely, generic metrics cannot evaluate whether generated data improves a trading agent's performance in a downstream simulation. Financial data's noise, non-stationarity, and regime-dependent nature demand that evaluation protocols go beyond generic reconstruction. In this section, we systematically organize evaluation practices into five dimensions, culminating in a unified evaluation checklist.
 
-\subsection{Fidelity-Oriented Evaluation}
-A primary objective of Financial Time-Series Generation (FTSG) is to approximate the underlying multivariate data-generating distribution closely. Fidelity-oriented evaluation rigorously quantifies the statistical divergence between the synthetic sequences $\hat{\mathbf{X}}$ and the empirical observations $\mathbf{X}$. This assessment spans several mathematical dimensions:
-
-\begin{itemize}
-    \item \textbf{Distributional Similarity:} To evaluate whether the model captures the marginal distributions of returns or prices, optimal transport and probabilistic divergences are employed. The 1-Wasserstein distance between the empirical distribution $\mathbb{P}_r$ and the generated distribution $\mathbb{P}_g$ measures the minimum cost required to transform one distribution into the other:
+\revnote{Secondary subheading ``Fidelity-Oriented Evaluation'' removed.}
+A primary objective of Financial Time-Series Generation (FTSG) is to approximate the underlying multivariate data-generating distribution closely. Fidelity-oriented evaluation rigorously quantifies the statistical divergence between the synthetic sequences $\hat{\mathbf{X}}$ and the empirical observations $\mathbf{X}$. This assessment spans several mathematical dimensions.
+\revnote{The itemized list below was converted into running prose, since bolded list labels under a primary heading are treated as secondary subheadings.}
+    \revadd{Distributional similarity evaluates whether the model captures the marginal distributions of returns or prices; optimal transport and probabilistic divergences are employed.} The 1-Wasserstein distance between the empirical distribution $\mathbb{P}_r$ and the generated distribution $\mathbb{P}_g$ measures the minimum cost required to transform one distribution into the other:
     \begin{equation}
         W_1(\mathbb{P}_r, \mathbb{P}_g) = \inf_{\gamma \in \Pi(\mathbb{P}_r, \mathbb{P}_g)} \mathbb{E}_{(x,y)\sim \gamma}[\|x-y\|]
     \end{equation}
@@ -20,39 +18,37 @@ A primary objective of Financial Time-Series Generation (FTSG) is to approximate
     \end{equation}
     where $x, x' \sim \mathbb{P}_r$ and $y, y' \sim \mathbb{P}_g$.
     
-    \item \textbf{Temporal Dependence:} Financial data is fundamentally sequential. The generator must capture auto-regressive dynamics and lead-lag relationships. This is mathematically verified by comparing the Autocorrelation Function (ACF) of the generated returns $\hat{r}_t$ with the empirical returns $r_t$. For a given lag $k$, the ACF is defined as:
+    \revadd{Temporal dependence matters because financial data are fundamentally sequential: the generator must capture auto-regressive dynamics and lead-lag relationships. This is mathematically verified by comparing the Autocorrelation Function (ACF) of the generated returns $\hat{r}_t$ with the empirical returns $r_t$. For a given lag $k$, the ACF is defined as:}
     \begin{equation}
         \rho_k = \frac{\text{Cov}(r_t, r_{t-k})}{\text{Var}(r_t)}
     \end{equation}
     The Mean Absolute Error (MAE) between the empirical ACF vector and the synthetic ACF vector serves as a standard metric for temporal fidelity.
     
-    \item \textbf{Cross-Sectional Dependence:} In multivariate generation, the covariance structure among assets dictates portfolio-level risk. Cross-sectional fidelity is evaluated by computing the Frobenius norm of the difference between the empirical correlation matrix $\Sigma_r$ and the synthetic correlation matrix $\Sigma_g$:
+    \revadd{Cross-sectional dependence arises in multivariate generation, where the covariance structure among assets dictates portfolio-level risk. Cross-sectional fidelity is evaluated by computing the Frobenius norm of the difference between the empirical correlation matrix $\Sigma_r$ and the synthetic correlation matrix $\Sigma_g$:}
     \begin{equation}
         \mathcal{E}_{corr} = \|\Sigma_r - \Sigma_g\|_F = \sqrt{\sum_{i=1}^N \sum_{j=1}^N (\sigma_{r, ij} - \sigma_{g, ij})^2}
     \end{equation}
     
-    \item \textbf{Spectral and Frequency-Domain Similarity:} To ensure that cyclical macroeconomic patterns and the low signal-to-noise ratio are maintained, spectral evaluation applies the Fast Fourier Transform (FFT) to convert sequences into the frequency domain. The Power Spectral Density (PSD) of the synthetic data is then compared against the real data to penalize generators that produce over-smoothed, frequency-deficient signals.
-\end{itemize}
+    \revadd{Spectral and frequency-domain similarity ensures that cyclical macroeconomic patterns and a realistic signal-to-noise ratio are maintained: spectral evaluation applies the Fast Fourier Transform (FFT) to convert sequences into the frequency domain, and the Power Spectral Density (PSD) of the synthetic data is then compared against the real data to penalize generators that produce over-smoothed, frequency-deficient signals.}
 
-\subsection{Financial Validity Evaluation}
-A distinctive, non-negotiable requirement of FTSG is that generated sequences must adhere to established financial theories and principles. High distributional similarity does not guarantee the preservation of empirical ``stylized facts''—the universal, non-linear statistical regularities observed across global financial markets. Evaluation must mathematically verify the presence of these facts:
-
-\begin{itemize}
-    \item \textbf{Heavy Tails and Kurtosis:} Financial returns are notoriously non-Gaussian, exhibiting excess kurtosis and fat tails. To quantify the generator's ability to produce extreme tail events (e.g., black swan crashes), researchers measure the sample kurtosis $\kappa = \frac{\mathbb{E}[(r_t - \mu)^4]}{\sigma^4}$ and estimate the tail index $\alpha$ using the Hill estimator. For the upper tail, ordering observations as $X_{(1)} \ge X_{(2)} \ge \dots \ge X_{(n)}$, the Hill estimator for a threshold $k$ is:
+\revnote{Secondary subheading ``Financial Validity Evaluation'' removed.}
+A distinctive, non-negotiable requirement of FTSG is that generated sequences must adhere to established financial theories and principles. High distributional similarity does not guarantee the preservation of empirical ``stylized facts''—the universal, non-linear statistical regularities observed across global financial markets. Evaluation must mathematically verify the presence of these facts.
+\revnote{The itemized list below was converted into running prose.}
+    \revadd{Heavy tails and excess kurtosis are a defining feature of financial returns, which are notoriously non-Gaussian. To quantify the generator's ability to produce extreme tail events (e.g., black swan crashes), researchers measure the sample kurtosis $\kappa = \frac{\mathbb{E}[(r_t - \mu)^4]}{\sigma^4}$ and estimate the tail index $\alpha$ using the Hill estimator. For the upper tail, ordering observations as $X_{(1)} \ge X_{(2)} \ge \dots \ge X_{(n)}$, the Hill estimator for a threshold $k$ is:}
     \begin{equation}
         \hat{\alpha} = \left( \frac{1}{k} \sum_{i=1}^k \ln X_{(i)} - \ln X_{(k+1)} \right)^{-1}
     \end{equation}
     The synthetic sequence must yield an $\hat{\alpha}$ closely matching that of historical data.
     
-    \item \textbf{Volatility Clustering:} A fundamental market property where large price variations are followed by large variations. A valid generator must replicate this slow-decaying memory in variance. This is evaluated by computing the autocorrelation of squared returns $r_t^2$ or absolute returns $|r_t|$ over extended lags, verifying that $\rho_k(|r_t|) > 0$ for large $k$.
+    \revadd{Volatility clustering is the fundamental market property whereby large price variations are followed by large variations. A valid generator must replicate this slow-decaying memory in variance, which is evaluated by computing the autocorrelation of squared returns $r_t^2$ or absolute returns $|r_t|$ over extended lags, verifying that $\rho_k(|r_t|) > 0$ for large $k$.}
     
-    \item \textbf{Leverage Effect:} This asymmetric phenomenon dictates that negative returns increase future volatility more severely than positive returns of the same magnitude. It is rigorously quantified by the cross-correlation between past returns and future squared returns at lag $\tau > 0$:
+    \revadd{The leverage effect is the asymmetric phenomenon whereby negative returns increase future volatility more severely than positive returns of the same magnitude. It is rigorously quantified by the cross-correlation between past returns and future squared returns at lag $\tau > 0$:}
     \begin{equation}
         L(\tau) = \text{Corr}(r_t, r_{t+\tau}^2)
     \end{equation}
     A financially valid synthetic dataset must exhibit $L(\tau) < 0$ for small $\tau$.
     
-    \item \textbf{Tail Risk Preservation (VaR and ES):} Synthetic data used for institutional stress-testing must not systematically underestimate market risk. Generative fidelity is audited using Value-at-Risk (VaR) and Expected Shortfall (ES). For a confidence level $1 - \alpha$ (e.g., $99\%$), VaR is the quantile of the return distribution:
+    \revadd{Tail-risk preservation (VaR and ES) is essential because synthetic data used for institutional stress-testing must not systematically underestimate market risk. Generative fidelity is audited using Value-at-Risk (VaR) and Expected Shortfall (ES). For a confidence level $1 - \alpha$ (e.g., $99\%$), VaR is the quantile of the return distribution:}
     \begin{equation}
         \text{VaR}_\alpha = \inf \{ z \in \mathbb{R} \mid \mathbb{P}(r_t \le z) \ge 1 - \alpha \}
     \end{equation}
@@ -61,44 +57,38 @@ A distinctive, non-negotiable requirement of FTSG is that generated sequences mu
         \text{ES}_\alpha = \mathbb{E}[r_t \mid r_t \le \text{VaR}_\alpha]
     \end{equation}
     Significant deviations between empirical and synthetic VaR/ES indicate a dangerous smoothing of downside risk.
-\end{itemize}
 
-\subsection{Downstream Utility Evaluation}
+\revnote{Secondary subheading ``Downstream Utility Evaluation'' removed.}
 To bridge the gap between theoretical machine learning metrics and practical finance, an increasingly adopted paradigm evaluates generated data strictly based on its utility in executing downstream financial tasks. If synthetic data enhances the performance of algorithmic systems, it possesses intrinsic value.
-
-\begin{itemize}
-    \item \textbf{Forecasting Improvement (TSTR vs. TRTR):} This protocol evaluates the generator as a data augmentation engine. A predictive model $f_\theta$ is trained entirely on generated data $\hat{\mathbf{X}}$ and evaluated on real, out-of-sample data $\mathbf{X}_{test}$. This Train-on-Synthetic, Test-on-Real (TSTR) performance is compared against the Train-on-Real, Test-on-Real (TRTR) baseline. A TSTR predictive error (e.g., MSE or directional accuracy) that closely approaches or surpasses TRTR demonstrates exceptional generative utility.
+\revnote{The itemized list below was converted into running prose.}
+    \revadd{Forecasting improvement (TSTR versus TRTR) evaluates the generator as a data augmentation engine. A predictive model $f_\theta$ is trained entirely on generated data $\hat{\mathbf{X}}$ and evaluated on real, out-of-sample data $\mathbf{X}_{test}$. This Train-on-Synthetic, Test-on-Real (TSTR) performance is compared against the Train-on-Real, Test-on-Real (TRTR) baseline; a TSTR predictive error (e.g., MSE or directional accuracy) that closely approaches or surpasses TRTR demonstrates exceptional generative utility.}
     
-    \item \textbf{Trading Agent Training and Simulation:} By deploying the generative model as an interactive market environment, Reinforcement Learning (RL) trading agents can be trained on millions of synthetic episodes. The utility of the generator is subsequently quantified by the financial performance of the agent when deployed on real out-of-sample data, measured via the annualized Sharpe Ratio ($SR$) and Maximum Drawdown ($MDD$):
+    \revadd{Trading-agent training and simulation deploy the generative model as an interactive market environment, so that Reinforcement Learning (RL) trading agents can be trained on millions of synthetic episodes. The utility of the generator is subsequently quantified by the financial performance of the agent when deployed on real out-of-sample data, measured via the annualized Sharpe Ratio ($SR$) and Maximum Drawdown ($MDD$):}
     \begin{equation}
         SR = \frac{\mathbb{E}[R_p - R_f]}{\sqrt{\text{Var}(R_p)}}, \quad MDD = \max_{\tau \in (0, T)} \left( \frac{\max_{t \in (0, \tau)} P_t - P_\tau}{\max_{t \in (0, \tau)} P_t} \right)
     \end{equation}
     where $R_p$ is portfolio return, $R_f$ is the risk-free rate, and $P_t$ is the portfolio value at time $t$.
-\end{itemize}
 
-\subsection{Robustness, Controllability, and Privacy}
+\revnote{Secondary subheading ``Robustness, Controllability, and Privacy'' removed.}
 As generative architectures—particularly foundation models and diffusion models—become increasingly sophisticated, evaluation protocols must expand to audit advanced capabilities and regulatory compliance.
+\revnote{The itemized list below was converted into running prose.}
 
-\begin{itemize}
-    \item \textbf{Regime Robustness:} Generic metrics calculated over long, blended time horizons obscure a model's failure in specific contexts. Robustness evaluation partitions test data into discrete regimes (e.g., low-volatility bull markets vs. high-volatility crashes) using Hidden Markov Models (HMM) or variance thresholds. Models are evaluated on their ability to maintain stable generative fidelity across these shifting boundaries.
+\revadd{Regime robustness is required because generic metrics calculated over long, blended time horizons obscure a model's failure in specific contexts. Robustness evaluation partitions test data into discrete regimes (e.g., low-volatility bull markets versus high-volatility crashes) using Hidden Markov Models (HMM) or variance thresholds, and models are evaluated on their ability to maintain stable generative fidelity across these shifting boundaries.}
     
-    \item \textbf{Conditional Consistency:} For multimodal or controllable generation (e.g., text-to-market or target-volatility synthesis), evaluation must quantify semantic alignment. This involves measuring the correlation between the conditioning input (e.g., a target VaR level) and the actualized metric in the generated sequence, ensuring the generator is not merely ignoring the prompt to produce unconditional mode-collapsed outputs.
+    \revadd{Conditional consistency applies to multimodal or controllable generation (e.g., text-to-market or target-volatility synthesis), where evaluation must quantify semantic alignment. This involves measuring the correlation between the conditioning input (e.g., a target VaR level) and the actualized metric in the generated sequence, ensuring the generator is not merely ignoring the prompt to produce unconditional mode-collapsed outputs.}
     
-    \item \textbf{Privacy Leakage and Memorization Risk:} A critical motivation for FTSG is bypassing strict financial data-sharing regulations (e.g., GDPR). To verify that a model has not simply memorized proprietary training data, the Distance-to-Closest Record (DCR) is computed:
+    \revadd{Privacy leakage and memorization risk must also be audited, since a critical motivation for FTSG is bypassing strict financial data-sharing regulations (e.g., GDPR). To verify that a model has not simply memorized proprietary training data, the Distance-to-Closest Record (DCR) is computed:}
     \begin{equation}
         \text{DCR}(\hat{x}) = \min_{x \in \mathbf{X}_{train}} \|\hat{x} - x\|_2
     \end{equation}
     If the DCR distribution peaks near zero, the model suffers from severe privacy leakage. Furthermore, models optimized with Differential Privacy (DP) are evaluated against their $(\epsilon, \delta)$-DP bounds, analyzing the mathematical trade-off between the privacy budget $\epsilon$ and the resulting degradation in downstream utility.
-\end{itemize}
 
-\subsection{A Unified Evaluation Checklist}
+\revnote{Secondary subheading ``A Unified Evaluation Checklist'' removed.}
 The lack of standardized evaluation frequently leads to contradictory claims regarding state-of-the-art performance in FTSG. To resolve this, we formalize a unified evaluation checklist, mapping the aforementioned rigorous metrics to their appropriate problem formulations. 
 
 As detailed in Table \ref{tab:evaluation_checklist}, researchers must construct a composite evaluation protocol. For instance, an \textit{imputation} model may prioritize pointwise accuracy (MSE) and temporal coherence, whereas a \textit{market simulation} architecture must be rigorously audited against stylized facts (Kurtosis, Ljung-Box tests for volatility clustering) and downstream utility (TSTR). No single metric is sufficient; financial validity emerges only at the intersection of distributional fidelity, economic logic, and practical applicability.
 
-
-
-\subsection{Emerging Trends in Evaluation and Benchmarking}
+\revnote{Secondary subheading ``Emerging Trends in Evaluation and Benchmarking'' removed; the three trends below are now presented as consecutive paragraphs.}
 
 The evaluation of synthetic financial data is rapidly transitioning from the isolated calculation of generic metrics toward comprehensive, standardized benchmark platforms. Recent literature reveals a definitive paradigm shift focused on multimodal reasoning, structural market constraints, and full-pipeline financial workflows. We categorize these emerging trends into three primary directions:
 

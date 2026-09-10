@@ -16,11 +16,21 @@
 \usepackage[edges]{forest}
 \usepackage{float}
 \usepackage{microtype}
+
+% Tighten line-breaking tolerance so that long technical compounds
+% (e.g. "$\mu$-parameterized", "privacy-preserving") do not overflow the margin.
+\tolerance=3000
+\emergencystretch=3em
+\hbadness=10000
+\vbadness=10000
 \usepackage[normalem]{ulem}
 
 
 \newcommand{\revadd}[1]{\textcolor{red}{#1}}
 \newcommand{\revdel}[1]{\textcolor{red}{\sout{#1}}}
+% Invisible in the clean manuscript; in the marked-up version it flags each secondary
+% subheading that was removed, so the editor can verify the restructuring point by point.
+\newcommand{\revnote}[1]{\textcolor{red}{\footnotesize[#1]}}
 
 
 \usepackage[numbers,sort&compress]{natbib}
@@ -49,18 +59,29 @@
 \noindent\fcolorbox{blue!70!black}{blue!5}{%
 \begin{minipage}{0.97\textwidth}
 \vspace{0.4em}
-\textbf{\textcolor{blue!80!black}{\small Summary of Technical Check Revisions (IRDM Restructuring)}}\\[0.3em]
+\textbf{\textcolor{blue!80!black}{\small Summary of Technical Check Revisions (Manuscript v2.3)}}\\[0.3em]
 \footnotesize
-This marked-up version highlights the structural and stylistic modifications implemented in response to the Technical Check from \textit{npj Artificial Intelligence}:
+This marked-up version highlights every modification made in response to the Technical Checks from \textit{npj Artificial Intelligence}. All changes are shown \textbf{\textcolor{red}{in red font}}; no tracked changes or comment balloons are used, so the file can be viewed in any PDF reader. Red bracketed markers of the form \textcolor{red}{\footnotesize[Secondary subheading ``\ldots'' removed.]} flag the precise locations at which the restructuring was applied, allowing the editor to verify each point one by one.
+
+\textbf{\textcolor{blue!80!black}{A. Round-2 technical check (structural formatting)}}\\[0.2em]
 \begin{itemize}\setlength{\itemsep}{1pt}
 \item \textbf{Author Affiliations:} Affiliations sequentially numbered ($^{1,2,3,4}$) with city and country explicitly identified for all institutions.
-\item \textbf{Unstructured Abstract:} Condensed into a single cohesive paragraph (179 words) without internal section headings.
+\item \textbf{Unstructured Abstract:} Condensed into a single cohesive paragraph (181 words) without internal section headings.
 \item \textbf{Unnumbered Headings:} Implemented \texttt{\textbackslash setcounter\{secnumdepth\}\{0\}}; all section number cross-references updated to explicit heading titles.
 \item \textbf{IRDM Article Organization:} Main text structured as \textbf{Abstract} $\rightarrow$ \textbf{Introduction} (unstructured) $\rightarrow$ \textbf{Results} (compulsory subheadings) $\rightarrow$ \textbf{Discussion} (no subheadings; absorbed former Conclusions) $\rightarrow$ \textbf{Methods} (compulsory subheadings; placed after Discussion).
 \item \textbf{Mandatory Declarations:} Integrated 6 declarations directly into the main file before References (\textit{Data Availability, Code Availability, Acknowledgements, Funding, Author Contributions, Competing Interests}). Differentiated author initials as \textit{Y. Zhang} and \textit{Y. Zou}.
 \item \textbf{Nature Numbered Bibliography:} Citations and reference list formatted in sequential numerical order using \texttt{sn-nature.bst} (Nature standard style), with arXiv preprints rendered as \emph{Preprint at} with DOI links and journal names abbreviated per Nature conventions.
 \item \textbf{Float Reorganization:} All figure environments and tables repositioned after References in dedicated sections (\textit{Figure Legends and Figures, Tables}).
 \item \textbf{Extended Figure Legends:} Captions enhanced with bold summarizing titles, bodies under 350 words, spelled-out abbreviations, and verbal descriptions of color coding and symbols.
+\end{itemize}
+
+\textbf{\textcolor{blue!80!black}{B. Round-3 technical check (Results and Methods: primary subheadings only)}}\\[0.2em]
+\begin{itemize}\setlength{\itemsep}{1pt}
+\item \textbf{All secondary subheadings removed.} Within \textbf{Results}, every heading below the level of the compulsory primary subheadings has been deleted, and 47 red removal markers are placed at the exact sites. The surviving primary subheadings are: \textit{Problem Formulation and A Two-Level Taxonomy}, \textit{Financial Time-Series Extrapolation}, \textit{Financial Time-Series Imputation}, \textit{Financial Time-Series Synthesis}, \textit{Applications}, \textit{Evaluation Protocols}, and \textit{Data Resources and Benchmarks}. Within \textbf{Methods}, the four compulsory primary subheadings are retained (\textit{Literature Retrieval Strategy}, \textit{Inclusion and Exclusion Criteria}, \textit{Data Extraction and Coding Protocol}, \textit{Review Dimensions and Taxonomy Synthesis}) and no secondary subheadings remain.
+\item \textbf{All bolded and numbered text removed from Results and Methods.} Because bold labels or numbering placed under a primary heading are treated as secondary subheadings, the itemized and enumerated lists that previously appeared in these sections (49 bolded list labels in total) have been dismantled and rewritten as continuous running prose. Every sentence created in this way is shown \textcolor{red}{in red}; no bold text and no list numbering remains in Results or Methods.
+\item \textbf{Empty "phantom" headings deleted.} Five subheadings that carried a label but no text of their own were removed, so that no heading without content remains in the manuscript.
+\item \textbf{Cross-references reworded.} Textual references to former ``subsections'' have been rewritten so that no reference points to a heading level that no longer exists.
+\item \textbf{Discussion unchanged.} The Discussion remains a sequence of paragraphs with no subheadings of any level, as required.
 \end{itemize}
 \vspace{0.4em}
 \end{minipage}%

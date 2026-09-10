@@ -1,8 +1,7 @@
 \subsection{Financial Time-Series Synthesis}
 \label{sec:synthesis}
 
-\subsection{Problem Formulation and Characteristics}
-
+\revnote{Secondary subheading ``Problem Formulation and Characteristics'' removed; its content now continues directly beneath the primary heading.}
 Financial Time-Series Synthesis (FTSS) refers to the systematic, algorithmic generation of statistically credible and temporally coherent synthetic sequences. The overarching objective is to enlarge or enrich the empirical sample space upon which downstream quantitative models and trading agents are trained. Unlike extrapolation (which predicts the continuation of a partial series) or imputation (which mathematically restores broken or missing intervals), FTSS is designed to create entirely new, unobserved data manifolds from scratch. Formally, the goal is to learn a generative model $p_\theta(\mathbf{X})$ that closely approximates the true multidimensional data-generating distribution $p_{data}(\mathbf{X})$, enabling unconditional or condition-guided sampling of synthetic market trajectories $\hat{\mathbf{X}}$.
 
 The primary functions of FTSS include restoring population heterogeneity, rebalancing extremely heavy-tailed historical episodes to correct dataset skewness, and providing controlled, counterfactual market regimes for rigorous stress testing. As shown in Figure \ref{fig:ftss_comparison}, methodologically, the literature can be categorized across two distinct scales: \textit{micro-level synthesis}, which focuses on generating univariate or low-dimensional asset prices and return sequences, and \textit{macro-level market simulation}, which attempts to reproduce complex, asynchronous market microstructures such as order flows and full Limit Order Books (LOB).
@@ -10,8 +9,7 @@ The primary functions of FTSS include restoring population heterogeneity, rebala
 
 
 
-\subsection{Micro-Level Synthesis: Asset Returns and Pricing Dynamics}
-
+\revnote{Secondary subheading ``Micro-Level Synthesis: Asset Returns and Pricing Dynamics'' removed.}
 Micro-level synthesis targets the generation of asset price trajectories and return sequences, serving primarily as a sophisticated data augmentation mechanism. Early applications of standard Generative Adversarial Networks (GANs) in this domain frequently suffered from severe training instability and mode collapse, largely due to the unique "stylized facts" of financial data, such as pronounced volatility clustering and non-Gaussian heavy tails. 
 
 To overcome these barriers, the field rapidly transitioned to Wasserstein GANs (WGAN) \citep{naritomi2020data}, which replace the structurally unstable Jensen-Shannon divergence with the Wasserstein-1 (Earth Mover's) distance. The optimization objective focuses on minimizing:
@@ -40,8 +38,7 @@ p_\theta(\mathbf{x}_{t-1} | \mathbf{x}_t) = \mathcal{N}(\mathbf{x}_{t-1}; \bolds
 \end{equation}
 This rigorous score-matching technique allows models like Fin-DDPM and CoFinDiff \citep{takahashi2024generation, tanaka2025cofindiff} to achieve stronger distributional stability than standard GAN-based generators while reducing the risk of mode collapse. To ensure that the generated noise mathematically respects financial reality, models such as GBM-Diff and Fin-Denoiser \citep{kim2025gbm, wang2024denoiser} structurally incorporate Geometric Brownian Motion (GBM) priors directly into the diffusion stochastic differential equations (SDEs), guaranteeing financially sound baseline sequences.
 
-\subsection{Macro-Level Market Simulation: Microstructure and Order Flows}
-
+\revnote{Secondary subheading ``Macro-Level Market Simulation: Microstructure and Order Flows'' removed.}
 Macro-level simulation elevates the generative objective from simple price paths to the reproduction of complex market microstructures and multi-agent interactive environments. By generating realistic Limit Order Books (LOB) and order flows, these models facilitate the high-fidelity validation of execution strategies without exposing institutions to real capital risk.
 
 Macro-level market simulation has progressed through three architectural generations, and a careful reading of the empirical evidence suggests that the strongest claims about the diffusion/LMM generation need to be qualified.
@@ -54,18 +51,15 @@ The third generation, diffusion and large market models, is the most recent wave
 
 Two critical caveats apply to the Generation-3 claims. First, all three diffusion/LMM papers report improvements over a small set of in-paper baselines, not over a shared benchmark, so the apparent dominance of diffusion over GANs in macro simulation is a within-paper claim rather than a cross-paper empirical fact. Second, the diffusion and LMM papers report evaluation on at most two stocks (TRADES) or single datasets (DiGA, MarS); whether the reported fidelity survives a regime change (e.g.\ 2008 crisis, 2020 COVID) is not established. The survey's earlier claim that ``macro-level LOB simulation and controllable text-to-market generation are still in their infancy'' is therefore better supported than the implicit ``diffusion vastly outperforms GANs'' reading: the field has demonstrably advanced methodologically (transformer denoising, LMM-style discrete tokenization, meta-agent decomposition), but the empirical case for production deployment remains open. We flag this as a measurement gap the field would benefit from closing.
 
-\subsection{Privacy-Preserving and Regulation-Aware Generation}
-
+\revnote{Secondary subheading ``Privacy-Preserving and Regulation-Aware Generation'' removed.}
 The financial industry is heavily bottlenecked by strict data-sharing regulations (e.g., GDPR, CCPA). Synthetic data generation provides a mathematically viable pathway to share proprietary datasets across institutional boundaries without violating compliance standards. Models such as NVF-DPGAN \citep{NVF-DPGAN} directly incorporate Differential Privacy (DP) mechanisms into the generative training process. By clipping gradients and injecting calibrated noise during the discriminator's optimization, the framework mathematically guarantees that the generated synthetic sequences cannot be reverse-engineered to leak sensitive information regarding individual retail trading accounts or institutional proprietary alpha signals. The ongoing central research focus in this sub-domain is optimizing the delicate trade-off between strict privacy bounds ($\epsilon$) and the downstream predictive utility of the resulting synthetic series.
 
-% \subsection{Advanced Conditional Generation and Emerging Trends}
-\subsection{Emerging Trends}
-
+\revnote{Secondary subheading ``Emerging Trends'' removed.}
 Recent literature reflects a rapid maturation of financial synthesis, particularly transitioning away from unconditional generation toward highly controllable, context-aware frameworks. Rather than treating synthesis as a purely statistical exercise, recent models simultaneously condition on diverse metadata and partially observed signals to dictate the semantic direction of the synthetic output \citep{gholamrezaei2023conditioning}. 
 
 For instance, \citep{lozano2023dual} propose advanced dual-sourced diffusion networks that align text-based market sentiment directly with numerical trajectory generation, ensuring exceptionally high temporal coherence across modalities. Parallel to improvements in fidelity, there is a critical push to reduce the computational burden of generative sampling. \citep{tao2024} introduce novel distillation techniques specifically designed to accelerate the generation process, a critical requirement for deploying synthetic simulators in live, high-frequency trading environments. Finally, \citep{oppel2025} demonstrate how these advanced conditional generators are practically utilized, embedding them into dynamic stress-testing pipelines to evaluate institutional portfolio resilience under highly specific, synthetically engineered counterfactual crises.
 
-\subsection{Summarization}
+\revnote{An empty ``Summarization'' subheading at the end of this section was deleted; its role is served by the closing paragraph above.}
 
 
 

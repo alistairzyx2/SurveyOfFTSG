@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  7 SEP 2026 23:59
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  11 SEP 2026 00:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -877,24 +877,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (./is26.aux)
 \openout1 = `is26.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 46.
-LaTeX Font Info:    ... okay on input line 46.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 56.
+LaTeX Font Info:    ... okay on input line 56.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -958,20 +958,20 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 46.
-Package microtype Info: Applying patch `item' on input line 46.
-Package microtype Info: Applying patch `toc' on input line 46.
-Package microtype Info: Applying patch `eqnum' on input line 46.
-Package microtype Info: Applying patch `footnote' on input line 46.
-Package microtype Info: Applying patch `verbatim' on input line 46.
-LaTeX Info: Redefining \microtypesetup on input line 46.
+LaTeX Info: Redefining \microtypecontext on input line 56.
+Package microtype Info: Applying patch `item' on input line 56.
+Package microtype Info: Applying patch `toc' on input line 56.
+Package microtype Info: Applying patch `eqnum' on input line 56.
+Package microtype Info: Applying patch `footnote' on input line 56.
+Package microtype Info: Applying patch `verbatim' on input line 56.
+LaTeX Info: Redefining \microtypesetup on input line 56.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 46.
+LaTeX Info: Redefining \showhyphens on input line 56.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -979,13 +979,13 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 46.
+Package hyperref Info: Link coloring ON on input line 56.
 
 (./is26.out) (./is26.out)
 \@outlinefile=\write5
 \openout5 = `is26.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 59.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -994,7 +994,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 49.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 59.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1022,95 +1022,69 @@ ever, empirical financial properties---
 r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
 
-[2]
-Overfull \hbox (1.54488pt too wide) in paragraph at lines 20--21
-[]\T1/cmr/bx/n/10.95 (-20) A Sys-tem-atic Eval-u-a-tion Frame-work\T1/cmr/m/n/1
-0.95 (-20) : We in-tro-duce a com-pre-hen-sive, multi-dimensional
- []
+[2]) (./sections/03_problem_taxonomy.tex
 
-) (./sections/03_problem_taxonomy.tex
+[3]) (./sections/04_extrapolation.tex
 
-[3{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts
-1.enc}]
-
-[4]) (./sections/04_extrapolation.tex
+[4]
 
 [5]
 
 [6]
 
 [7]
-Overfull \hbox (14.24936pt too wide) in paragraph at lines 74--76
-\T1/cmr/m/n/10.95 (-20) Addressing the lim-i-ta-tions of re-cur-rent ar-chi-tec
--tures in cap-tur-ing ex-tended de-pen-den-cies, TimeDiT$[]$
- []
-
-
 
 [8]
 
-[9]
+[9]) (./sections/05_imputation.tex
 
-[10]) (./sections/05_imputation.tex
+[10]
 
 [11]
 
-[12]
+[12]) (./sections/06_synthesis.tex
 
-[13]) (./sections/06_synthesis.tex
+[13]
 
 [14]
 
 [15]
 
-[16]
+[16]) (./sections/07_applications.tex
 
 [17]
 
-[18]) (./sections/07_applications.tex
+[18]
 
-[19]
+[19]) (./sections/08_evaluation.tex
 
 [20]
 
-[21]) (./sections/08_evaluation.tex
+[21]
 
 [22]
 
-[23]
+[23]) (./sections/09_data_resources.tex
 
-[24]
+[24]) (./sections/10_challenges.tex
 
 [25]
-Overfull \hbox (4.82483pt too wide) in paragraph at lines 105--106
-[]\T1/cmr/m/n/10.95 (-20) The first di-rec-tion is con-di-tional speci-ficity a
-nd scenario-based eval-u-a-tion: stan-dard distribution-
- []
 
-) (./sections/09_data_resources.tex
-
-[26]
+[26]) (./sections/02_methodology.tex
 
 [27]
 
-[28]) (./sections/10_challenges.tex
+[28]) (./sections/12_declarations.tex
 
-[29]) (./sections/02_methodology.tex
+[29])
 
-[30]
-Overfull \hbox (34.16312pt too wide) in paragraph at lines 38--39
-[]\T1/cmr/bx/n/10.95 (-20) Model Fam-ily: \T1/cmr/m/n/10.95 (-20) Sta-tis-ti-ca
-l/probabilistic, dis-crim-i-na-tive deep learn-ing, GAN-based, diffusion/score-
+[30] (./is26.bbl
 
- []
+[31]
 
+[32]
 
-
-[31]) (./sections/12_declarations.tex
-
-[32])
-
-[33] (./is26.bbl
+[33]
 
 [34]
 
@@ -1118,32 +1092,26 @@ l/probabilistic, dis-crim-i-na-tive deep learn-ing, GAN-based, diffusion/score-
 
 [36]
 
-[37]
+[37])
 
-[38]
-
-[39]
-
-[40])
-
-[41] (./sections/13_figures.tex
-<separate_figures/Figure1.pdf, id=844, 682.86618pt x 341.4326pt>
+[38] (./sections/13_figures.tex
+<separate_figures/Figure1.pdf, id=658, 682.86618pt x 341.4326pt>
 File: separate_figures/Figure1.pdf Graphic file (type pdf)
 <use separate_figures/Figure1.pdf>
 Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
 (pdftex.def)             Requested size: 443.9066pt x 221.9546pt.
 
 
-[42 <./separate_figures/Figure1.pdf>]
-<separate_figures/Figure2.pdf, id=864, 625.96059pt x 469.47095pt>
+[39 <./separate_figures/Figure1.pdf>]
+<separate_figures/Figure2.pdf, id=677, 625.96059pt x 469.47095pt>
 File: separate_figures/Figure2.pdf Graphic file (type pdf)
 <use separate_figures/Figure2.pdf>
 Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
 (pdftex.def)             Requested size: 443.9066pt x 332.93987pt.
 
 
-[43 <./separate_figures/Figure2.pdf>]
-<final_figures/comparison_00.png, id=897, 1049.13303pt x 586.28023pt>
+[40 <./separate_figures/Figure2.pdf>]
+<final_figures/comparison_00.png, id=709, 1049.13303pt x 586.28023pt>
 File: final_figures/comparison_00.png Graphic file (type png)
 <use final_figures/comparison_00.png>
 Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
@@ -1151,8 +1119,8 @@ Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
 (pdftex.def)             Requested size: 407.66833pt x 227.80745pt.
 
 
-[44 <./final_figures/comparison_00.png>]
-<final_figures/DiffWithDiscreteContinous.pdf, id=904, 1460.73305pt x 495.75854p
+[41 <./final_figures/comparison_00.png>]
+<final_figures/DiffWithDiscreteContinous.pdf, id=716, 1460.73305pt x 495.75854p
 t>
 File: final_figures/DiffWithDiscreteContinous.pdf Graphic file (type pdf)
 <use final_figures/DiffWithDiscreteContinous.pdf>
@@ -1161,16 +1129,16 @@ nput line 32.
 (pdftex.def)             Requested size: 362.37569pt x 122.98618pt.
 
 
-[45 <./final_figures/DiffWithDiscreteContinous.pdf>]
-<final_figures/FTSA.pdf, id=929, 547.11751pt x 204.96274pt>
+[42 <./final_figures/DiffWithDiscreteContinous.pdf>]
+<final_figures/FTSA.pdf, id=741, 547.11751pt x 204.96274pt>
 File: final_figures/FTSA.pdf Graphic file (type pdf)
 <use final_figures/FTSA.pdf>
 Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
 (pdftex.def)             Requested size: 362.37569pt x 135.75745pt.
 
 
-[46 <./final_figures/FTSA.pdf>]
-<final_figures/filter_pipeline.png, id=979, 2175.12625pt x 727.71875pt>
+[43 <./final_figures/FTSA.pdf>]
+<final_figures/filter_pipeline.png, id=793, 2175.12625pt x 727.71875pt>
 File: final_figures/filter_pipeline.png Graphic file (type png)
 <use final_figures/filter_pipeline.png>
 Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line 
@@ -1178,144 +1146,35 @@ Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line
 (pdftex.def)             Requested size: 430.31812pt x 143.96439pt.
 )
 
-[47 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
+[44 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
 
 Overfull \hbox (2.28004pt too wide) in paragraph at lines 49--49
 []|[]| 
  []
 
 
-Underfull \hbox (badness 2005) in paragraph at lines 49--49
-[]|\T1/cmr/m/n/8 (+20) CRPS, Pre-dic-tive Like-li-
- []
 
+[45{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
+s1.enc}]
 
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/cmr/bx/n/8 (+20) Typical Fi-nan-cial Use
- []
+[46])
 
-
-Underfull \hbox (badness 1867) in paragraph at lines 71--71
-[]|\T1/cmr/m/n/8 (+20) Deterministic point fore-
- []
-
-
-Underfull \hbox (badness 5847) in paragraph at lines 71--71
-\T1/cmr/m/n/8 (+20) se-quences with-out it-er-a-tive
- []
-
-
-Underfull \hbox (badness 2384) in paragraph at lines 71--71
-[]|\T1/cmr/m/n/8 (+20) Risk man-age-ment; com-plex
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/cmr/m/n/8 (+20) Exhibits promis-ing cross-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-\T1/cmr/m/n/8 (+20) domain gen-er-al-iza-tion and
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 71--71
-[]|\T1/cmr/m/n/8 (+20) Dynamic as-set al-lo-ca-tion;
- []
-
-
-
-[48]
-Underfull \hbox (badness 3386) in paragraph at lines 94--94
-[]|\T1/cmr/m/n/8 (+20) Highly com-pu-ta-tion-ally ef-fi-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 94--94
-[]|\T1/cmr/m/n/8 (+20) Adversarial dis-tri-bu-tion
- []
-
-
-Underfull \hbox (badness 1024) in paragraph at lines 94--94
-[]|\T1/cmr/m/n/8 (+20) State-of-the-art fi-delity; pre-
- []
-
-
-Underfull \hbox (badness 3965) in paragraph at lines 94--94
-[]|\T1/cmr/m/n/8 (+20) Heavy com-pu-ta-tional foot-print;
- []
-
-
-Underfull \hbox (badness 1831) in paragraph at lines 116--116
-\T1/cmr/m/n/8 (+20) with Earth Mover's dis-
- []
-
-
-Underfull \hbox (badness 1178) in paragraph at lines 116--116
-[]|\T1/cmr/m/n/8 (+20) Iterative for-ward nois-ing
- []
-
-
-Underfull \hbox (badness 3281) in paragraph at lines 116--116
-[]|\T1/cmr/m/n/8 (+20) Computationally in-ten-sive sam-
- []
-
-
-Underfull \hbox (badness 1509) in paragraph at lines 116--116
-[]|\T1/cmr/m/n/8 (+20) Scales to asyn-chronous tick
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
-[]|\T1/cmr/m/n/8 (+20) Medium (Cap-tures static
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 138--138
-\T1/cmr/m/n/8 (+20) Train-on-Real, Test-on-Real (TRTR);
- []
-
-
-
-[49]
-Overfull \hbox (52.32738pt too wide) in paragraph at lines 148--163
- [][] 
- []
-
-
-Underfull \hbox (badness 1715) in paragraph at lines 177--178
-[]|\T1/cmr/m/n/8 (+20) Not fi-nan-cial data /
- []
-
-
-Underfull \hbox (badness 8038) in paragraph at lines 178--179
-[]|\T1/cmr/m/n/8 (+20) Weak fi-nan-cial val-i-
- []
-
-
-Underfull \hbox (badness 4378) in paragraph at lines 178--179
-\T1/cmr/m/n/8 (+20) da-tion / Du-pli-cated
- []
-
-)
-
-[50] (./is26.aux)
+[47] (./is26.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `is26.out' has not changed.
-(rerunfilecheck)             Checksum: 74BCDDAC28457017564393707B6C3A2B;11412.
+(rerunfilecheck)             Checksum: D56A97697E510F710093F9B273E796B3;2745.
  ) 
 Here is how much of TeX's memory you used:
- 36526 strings out of 474662
- 783150 string characters out of 5751108
- 1217328 words of memory out of 5000000
- 58339 multiletter control sequences out of 15000+600000
- 596423 words of font info for 280 fonts, out of 8000000 for 9000
+ 36399 strings out of 474662
+ 781712 string characters out of 5751108
+ 1217323 words of memory out of 5000000
+ 58297 multiletter control sequences out of 15000+600000
+ 595551 words of font info for 268 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 84i,16n,93p,2166b,1039s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,16n,93p,2166b,1037s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1350,10 +1209,10 @@ e1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
 type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf-dist/
 fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on is26.pdf (50 pages, 5112249 bytes).
+Output written on is26.pdf (47 pages, 5096935 bytes).
 PDF statistics:
- 1231 PDF objects out of 1440 (max. 8388607)
- 1055 compressed objects within 11 object streams
- 315 named destinations out of 1000 (max. 500000)
- 56787 words of extra memory for PDF output out of 61914 (max. 10000000)
+ 1033 PDF objects out of 1200 (max. 8388607)
+ 862 compressed objects within 9 object streams
+ 254 named destinations out of 1000 (max. 500000)
+ 56483 words of extra memory for PDF output out of 61914 (max. 10000000)
 

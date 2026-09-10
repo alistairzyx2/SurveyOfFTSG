@@ -145,6 +145,7 @@
 \scriptsize
 \caption{Summary of Recent Financial Time-Series Generation Benchmarks.}
 \label{tab:datasets}
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{p{3.5cm} c p{4.5cm} c c}
 \toprule
 \textbf{Dataset / Benchmark} & \textbf{Tasks} & \textbf{Primary Data Sources} & \textbf{Split Ratio} & \textbf{Scale (Approx.)} \\
@@ -159,7 +160,8 @@
 \textbf{CTBench} \citep{ang2025ctbench} & Synthesis & Cryptocurrencies on Binance & 9:0:1 & 530 series \\
 \textbf{FinMultiTime} \citep{FinMultiTime} & Extrapolation & S\&P 500, HS 300 & N/A & 6M points \\
 \bottomrule
-\end{tabular}
+\end{tabular}%
+}
 \end{table*}
 
 \vspace{2em}

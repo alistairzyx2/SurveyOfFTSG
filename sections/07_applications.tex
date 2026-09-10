@@ -1,6 +1,5 @@
 \subsection{Applications}
 \label{sec:applications}
-% ---------------------------------------------------------------------
 
 This section zooms out to the downstream use-cases that actually justify an FTSG
 model in a quantitative-finance workflow. We organize the discussion
@@ -11,10 +10,8 @@ ourselves to peer-reviewed or peer-reproducible works whose authors
 explicitly evaluate against a real downstream application rather than
 only on statistical fidelity.
 
-% --- 5.3.1 Applications of FTSE -------------------------------------
-\subsection{Applications of FTSE}
-
-FTSE is the most mature sub-task in deployment. The classical use-case
+\revnote{Secondary subheading ``Applications of FTSE'' removed; the paragraph below is now the lead-in of this topic within the primary section.}
+\revadd{We begin with extrapolation (FTSE), the most mature sub-task in deployment.} The classical use-case
 is to feed extrapolated point or quantile forecasts into a downstream
 decision module, and the strongest evidence that this works comes from
 the deep-reinforcement-learning (DRL) literature.
@@ -49,12 +46,8 @@ the Markowitz risk-aversion level, and the resulting synthetic future
 paths are scored by an optimizer that selects weights without committing
 to a single forecast.
 
-% --- 5.3.2 Applications of FTSI -------------------------------------
-\subsection{Applications of FTSI}
-
-FTSI is most often deployed in production at the data-engineering
-layer, where its outputs feed classical pipelines rather than a learning
-agent. GAIN~\citep{yoon2018gain} introduced the generative-adversarial
+\revnote{Secondary subheading ``Applications of FTSI'' removed.}
+\revadd{Turning to imputation (FTSI), it is most often deployed in production at the data-engineering layer}, where its outputs feed classical pipelines rather than a learning agent. GAIN~\citep{yoon2018gain} introduced the generative-adversarial
 imputation paradigm and remains a baseline in many open finance
 datasets for handling missing quotes during off-hours, ticker
 delistings, and exchange halts. Subsequent work has tightened the fit
@@ -84,12 +77,8 @@ imputation and augmentation are rarely the final product; rather, they
 serve as value-adding pre-processing steps whose utility is judged by
 downstream predictive metrics.
 
-% --- 5.3.3 Applications of FTSS -------------------------------------
-\subsection{Applications of FTSS}
-
-FTSS is the sub-task with the broadest and most consequential deployment
-surface. We organize it along the natural lifecycle of a quantitative
-strategy.
+\revnote{Secondary subheading ``Applications of FTSS'' removed.}
+\revadd{The broadest and most consequential deployment surface belongs to synthesis (FTSS). We organize it along the natural lifecycle of a quantitative strategy.}
 
 \revadd{In strategy backtesting and replay,} ABIDES~\citep{byrd2019abides} and its Gym-compatible successor
 ABIDES-Gym~\citep{amrouni2021abides} are agent-based discrete-event
@@ -162,12 +151,8 @@ attract policy and supervisory attention in public-sector pilot studies.
 This shift reframes FTSG not only as a research artifact but as
 compliance infrastructure.
 
-% --- 5.3.4 Cross-cutting ---------------------------------------------
-\subsection{Cross-cutting Use: Synthetic Datasets as Benchmarks}
-
-Beyond the per-task applications above, FTSG has produced a small but
-rapidly maturing ecosystem of benchmark datasets that are themselves
-reusable scientific infrastructure. TSGBench~\citep{ang2023tsgbench}
+\revnote{Secondary subheading ``Cross-cutting Use: Synthetic Datasets as Benchmarks'' removed.}
+\revadd{Beyond the per-task applications above, FTSG has produced a small but rapidly maturing ecosystem of benchmark datasets that are themselves reusable scientific infrastructure.} TSGBench~\citep{ang2023tsgbench}
 provides paired real/synthetic time-series collections for GOOGL and FX
 series and is consumed by downstream papers as a standardized fidelity
 benchmark. CTBench~\citep{ang2025ctbench} extends this to Binance
@@ -191,5 +176,5 @@ FTSI into data-engineering layers (data cleaning, augmentation for
 tabular classifiers); and FTSS into simulation infrastructure (RL
 training, stress testing, privacy-preserving sharing). The applications
 in this section collectively motivate the breadth of design choices
-catalogued in the taxonomy and task-specific generation subsections.
+catalogued in the taxonomy and task-specific generation \revadd{sections}.
 

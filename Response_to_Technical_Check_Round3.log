@@ -1,9 +1,9 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  10 SEP 2026 23:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  11 SEP 2026 00:01
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
-**Cover_Letter.tex
-(./Cover_Letter.tex
+**Response_to_Technical_Check_Round3.tex
+(./Response_to_Technical_Check_Round3.tex
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/base/article.cls
@@ -56,9 +56,6 @@ Package: iftex 2024/12/12 v1.0g TeX engine tests
 \Gm@layouthoffset=\dimen148
 \Gm@layoutvoffset=\dimen149
 \Gm@dimlist=\toks20
-)
-(/usr/local/texlive/2025basic/texmf-dist/tex/latex/setspace/setspace.sty
-Package: setspace 2022/12/04 v6.7b set line spacing
 )
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/xcolor/xcolor.sty
 Package: xcolor 2024/09/29 v3.02 LaTeX color extensions (UK)
@@ -220,6 +217,9 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 )
 \Hy@SectionHShift=\skip51
 )
+(/usr/local/texlive/2025basic/texmf-dist/tex/latex/setspace/setspace.sty
+Package: setspace 2022/12/04 v6.7b set line spacing
+)
 Package hyperref Info: Option `colorlinks' set `true' on input line 10.
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/l3backend/l3backend-pdftex.d
@@ -227,27 +227,27 @@ ef
 File: l3backend-pdftex.def 2024-05-08 L3 backend support: PDF output (pdfTeX)
 \l__color_backend_stack_int=\count285
 \l__pdf_internal_box=\box52
-) (./Cover_Letter.aux)
-\openout1 = `Cover_Letter.aux'.
+) (./Response_to_Technical_Check_Round3.aux)
+\openout1 = `Response_to_Technical_Check_Round3.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 12.
-LaTeX Font Info:    ... okay on input line 12.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 21.
+LaTeX Font Info:    ... okay on input line 21.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -297,38 +297,21 @@ LaTeX Font Info:    ... okay on input line 12.
 \makeMPintoPDFobject=\count291
 \everyMPtoPDFconversion=\toks22
 )
-Package hyperref Info: Link coloring ON on input line 12.
- (./Cover_Letter.out) (./Cover_Letter.out)
+Package hyperref Info: Link coloring ON on input line 21.
+ (./Response_to_Technical_Check_Round3.out)
+(./Response_to_Technical_Check_Round3.out)
 \@outlinefile=\write3
-\openout3 = `Cover_Letter.out'.
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 14--18
-
- []
+\openout3 = `Response_to_Technical_Check_Round3.out'.
 
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <10.95> on input line 21.
+(Font)              <12> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <8> on input line 21.
+(Font)              <8> on input line 24.
 LaTeX Font Info:    External font `cmex10' loaded for size
-(Font)              <6> on input line 21.
+(Font)              <6> on input line 24.
 
-Overfull \hbox (43.72993pt too wide) in paragraph at lines 19--22
-\T1/cmr/bx/n/10.95 Subject: \T1/cmr/m/n/10.95 Sub-mis-sion of Re-vised Manuscri
-pt (Manuscript ID: \T1/cmtt/m/n/10.95 5a3d24b0-5398-4e89-835d-34efbe8bd9e3\T1/c
-mr/m/n/10.95 ,
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 19--22
-
- []
-
-
-Overfull \hbox (24.39656pt too wide) in paragraph at lines 37--38
-[]\T1/cmr/m/n/10.95 Figure 3 (Task struc-tural com-par-i-son), Fig-ure 4 (Foun-
-da-tion model adap-ta-tion paradigms),
+Overfull \hbox (184.86224pt too wide) in paragraph at lines 24--24
+ [][] 
  []
 
 
@@ -336,38 +319,45 @@ da-tion model adap-ta-tion paradigms),
 [1
 
 {/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
-r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
-/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
-nc}]
+r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 
-[2]
 
-[3] (./Cover_Letter.aux)
+[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts
+1.enc}]
+
+[3]
+
+[4] (./Response_to_Technical_Check_Round3.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
-Package rerunfilecheck Info: File `Cover_Letter.out' has not changed.
+Package rerunfilecheck Info: File `Response_to_Technical_Check_Round3.out' has 
+not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
  ) 
 Here is how much of TeX's memory you used:
- 9313 strings out of 474662
- 143470 string characters out of 5751108
- 557162 words of memory out of 5000000
- 32267 multiletter control sequences out of 15000+600000
- 564472 words of font info for 50 fonts, out of 8000000 for 9000
+ 9326 strings out of 474662
+ 144075 string characters out of 5751108
+ 556665 words of memory out of 5000000
+ 32276 multiletter control sequences out of 15000+600000
+ 568538 words of font info for 56 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,5n,79p,1057b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
-</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
+ 75i,6n,79p,1168b,435s stack positions out of 10000i,1000n,20000p,200000b,200000s
+</usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1095
 .pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1
-095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
-rm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
-/sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
-per/sftt1095.pfb>
-Output written on Cover_Letter.pdf (3 pages, 127274 bytes).
+200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
+bx1728.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
+/sfrm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
+per/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm
+-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/cm-super/sfti1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
+lic/cm-super/sftt1095.pfb>
+Output written on Response_to_Technical_Check_Round3.pdf (4 pages, 201376 bytes
+).
 PDF statistics:
- 59 PDF objects out of 1000 (max. 8388607)
- 42 compressed objects within 1 object stream
- 10 named destinations out of 1000 (max. 500000)
+ 74 PDF objects out of 1000 (max. 8388607)
+ 50 compressed objects within 1 object stream
+ 7 named destinations out of 1000 (max. 500000)
  1 words of extra memory for PDF output out of 10000 (max. 10000000)
 

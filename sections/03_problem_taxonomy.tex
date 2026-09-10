@@ -12,33 +12,26 @@
 \definecolor{BorderGray}{RGB}{180, 180, 180}
 
 
-\subsection{Problem Setup}
+\revnote{Secondary subheading ``Problem Setup'' removed; its text now continues directly beneath the primary heading.}
 To establish a rigorous conceptual foundation, Figure~\ref{fig:taxonomy} presents a comprehensive two-level hierarchical taxonomy that structures the entire financial time-series generation landscape across task formulations and algorithmic families.
 Let $\mathbf{X} = \{x_1, x_2, \dots, x_T\}$ denote a multivariate financial time series, where each $x_t \in \mathbb{R}^d$ represents a vector of financial variables (e.g., asset prices, returns, trading volumes, or limit order book states) at time step $t$. Financial time series are inherently stochastic, heavily influenced by non-stationary market regimes, and exhibit complex inter-variable dependencies.
 The core objective of Financial Time-Series Generation (FTSG) is to learn a probabilistic generative model $P_\theta$ capable of producing synthetic sequences $\hat{\mathbf{X}}$ that capture both the marginal distributions and the temporal dynamics of the true data-generating process $P_{data}$.
 
-\subsection{Task-Level Taxonomy}
-As illustrated in Figure~\ref{fig:tasks}, we organize FTSG into three distinct problem formulations based on the generation context:
-\begin{itemize}
-    \item \textbf{Financial Time-Series Extrapolation:} A conditional, forward-looking generation task. Given a historical prefix $\mathbf{x}_{1:t}$, the goal is to generate future trajectories $\mathbf{x}_{t+1:T}$. The predictive distribution is modeled as $P(\mathbf{x}_{t+1:T} \mid \mathbf{x}_{1:t}; \theta) = \prod_{i=t+1}^{T} P(x_i \mid \mathbf{x}_{1:i-1}; \theta)$. This encompasses probabilistic forecasting, where the output is a set of plausible future paths rather than a single point estimate.
-    \item \textbf{Financial Time-Series Imputation:} A bidirectional, closed-format generation task. Let $\mathbf{M} \in \{0, 1\}^T$ be a binary mask indicating missing values. Given an incomplete sequence with missing elements $\mathbf{x}_{miss} = \mathbf{x} \odot \mathbf{M}$ and observed elements $\mathbf{x}_{obs} = \mathbf{x} \odot (1-\mathbf{M})$, the objective is to reconstruct the missing data while preserving local and global statistical coherence: $P(\mathbf{x}_{miss} \mid \mathbf{x}_{obs}; \theta)$.
-    \item \textbf{Synthetic Sequence Generation / Data Synthesis:} An unconditional or conditionally-guided generation task aimed at creating entirely new data manifolds. The model learns to map a latent noise variable $\mathbf{z} \sim \mathcal{N}(0, \mathbf{I})$ (and optionally a condition $c$ such as market regime or volatility target) to a realistic sequence: $\hat{\mathbf{X}} = G_{\theta}(\mathbf{z}, c)$, aiming to minimize the divergence between the generated distribution $P_g$ and the real distribution $P_{data}$.
-\end{itemize}
+\revnote{Secondary subheading ``Task-Level Taxonomy'' removed; the three bullets below were converted into running prose.}
+As illustrated in Figure~\ref{fig:tasks}, we organize FTSG into three distinct problem formulations based on the generation context.
 
-\subsection{Technique-Level Taxonomy}
-To map the rapid evolution of algorithmic approaches, we classify the underlying generative techniques into the following families:
-\begin{enumerate}
-    \item \textbf{Statistical and Probabilistic Methods:} Classical approaches such as ARIMA and GARCH, which model conditional mean and variance based on rigid mathematical assumptions.
-    \item \textbf{Discriminative Deep Sequence Models:} Recurrent Neural Networks (RNNs) and hybrid LSTMs optimized via pointwise loss functions.
-    \item \textbf{Adversarial Generative Models (GANs):} Frameworks utilizing generator-discriminator dynamics (e.g., WGAN-GP) to implicitly learn the data distribution.
-    \item \textbf{Diffusion / Score-Based Models:} Models that learn to reverse a gradual noising process, offering stable training and high-fidelity distribution matching.
-    \item \textbf{Foundation Models / LLM-Based Models:} Recent adaptations of large pre-trained transformers to the time-series domain, enabling zero-shot generation and cross-modal reasoning.
-    \item \textbf{Controllable and Multimodal Generative Models:} Advanced architectures designed to generate sequences conditioned on textual instructions, macroeconomic indicators, or specific volatility regimes.
-\end{enumerate}
+\revadd{Financial Time-Series Extrapolation (FTSE) is a conditional, forward-looking generation task: given a historical prefix $\mathbf{x}_{1:t}$, the goal is to generate future trajectories $\mathbf{x}_{t+1:T}$, with the predictive distribution modelled as $P(\mathbf{x}_{t+1:T} \mid \mathbf{x}_{1:t}; \theta) = \prod_{i=t+1}^{T} P(x_i \mid \mathbf{x}_{1:i-1}; \theta)$. This formulation encompasses probabilistic forecasting, in which the output is a set of plausible future paths rather than a single point estimate.}
+
+\revadd{Financial Time-Series Imputation (FTSI) is instead a bidirectional, closed-format generation task. Let $\mathbf{M} \in \{0, 1\}^T$ be a binary mask indicating missing values. Given an incomplete sequence with missing elements $\mathbf{x}_{miss} = \mathbf{x} \odot \mathbf{M}$ and observed elements $\mathbf{x}_{obs} = \mathbf{x} \odot (1-\mathbf{M})$, the objective is to reconstruct the missing data while preserving local and global statistical coherence, that is, to model $P(\mathbf{x}_{miss} \mid \mathbf{x}_{obs}; \theta)$.}
+
+\revadd{Synthetic sequence generation, or data synthesis, is an unconditional or conditionally guided generation task aimed at creating entirely new data manifolds. The model learns to map a latent noise variable $\mathbf{z} \sim \mathcal{N}(0, \mathbf{I})$, optionally together with a condition $c$ such as a market regime or a volatility target, to a realistic sequence $\hat{\mathbf{X}} = G_{\theta}(\mathbf{z}, c)$, minimizing the divergence between the generated distribution $P_g$ and the real distribution $P_{data}$.}
+
+\revnote{Secondary subheading ``Technique-Level Taxonomy'' removed; the numbered list below was converted into running prose.}
+\revadd{To map the rapid evolution of algorithmic approaches, we classify the underlying generative techniques into six families. Statistical and probabilistic methods, such as ARIMA and GARCH, model the conditional mean and variance under rigid mathematical assumptions. Discriminative deep sequence models, including recurrent neural networks (RNNs) and hybrid LSTMs, are optimized through pointwise loss functions. Adversarial generative models (GANs) exploit generator--discriminator dynamics (e.g., WGAN-GP) to learn the data distribution implicitly. Diffusion and score-based models learn to reverse a gradual noising process, offering stable training and high-fidelity distribution matching. Foundation models and LLM-based approaches adapt large pre-trained transformers to the time-series domain, enabling zero-shot generation and cross-modal reasoning. Finally, controllable and multimodal generative models are designed to generate sequences conditioned on textual instructions, macroeconomic indicators, or specific volatility regimes.}
 
 The detailed classification of FTSG methods, organized by task and technique, is summarized in Figure ~\ref{fig:taxonomy} for a clear overview.
 
 
-\subsection{Mapping Tasks to Techniques}
+\revnote{Secondary subheading ``Mapping Tasks to Techniques'' removed; the table is now introduced directly within the primary section.}
 Table \ref{tab:mapping} provides a unified mapping of these tasks to the corresponding techniques, highlighting the evolution from deterministic prediction to flexible, scenario-based generative paradigms. Specifically, for the extrapolation task, the landscape spans from deep sequence architectures (e.g., SGP-LSTM) that forecast prices and returns using deterministic metrics like MSE, to advanced diffusion and foundation models (e.g., TimeGrad, Chronos, and FinCast). These newer paradigms handle multivariate and multi-asset series, shifting the evaluation focus toward probabilistic measures (CRPS) and zero-shot capabilities. In the realm of imputation, missing fundamentals and prices are primarily addressed using tensor methods (RegTensor) and diffusion models (CSDI, TimeDiT), where performance is gauged by reconstruction error and temporal coherence. Finally, for data synthesis, generative frameworks such as QuantGAN and CoFinDiff are employed to simulate realistic returns, market scenarios, and complex limit order flows. Consequently, the evaluation criteria for synthesis shift entirely away from point-wise accuracy, prioritizing instead the preservation of stylized facts, distributional fidelity, and the practical downstream utility of the generated data.
 
