@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  5 SEP 2026 16:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  8 SEP 2026 00:13
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -338,13 +338,6 @@ da-tion model adap-ta-tion paradigms),
 r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}{
 /usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.e
 nc}]
-Overfull \hbox (34.84804pt too wide) in paragraph at lines 52--53
-\T1/cmr/m/n/10.95 (\T1/cmtt/m/n/10.95 is26_marked.pdf\T1/cmr/m/n/10.95 ), and a
- de-tailed item-by-item re-sponse let-ter (\T1/cmtt/m/n/10.95 Response_to_Techn
-ical_Check.pdf\T1/cmr/m/n/10.95 ). 
- []
-
-
 
 [2] (./Cover_Letter.aux)
  ***********
@@ -361,14 +354,14 @@ Here is how much of TeX's memory you used:
  32267 multiletter control sequences out of 15000+600000
  564472 words of font info for 50 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 75i,5n,79p,391b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 75i,5n,79p,453b,527s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8
 .pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1
 095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
 rm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
 /sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
 per/sftt1095.pfb>
-Output written on Cover_Letter.pdf (2 pages, 125117 bytes).
+Output written on Cover_Letter.pdf (2 pages, 125434 bytes).
 PDF statistics:
  53 PDF objects out of 1000 (max. 8388607)
  37 compressed objects within 1 object stream
