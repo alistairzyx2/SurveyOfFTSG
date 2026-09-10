@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  11 SEP 2026 00:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  11 SEP 2026 00:16
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1185,11 +1185,11 @@ Package rerunfilecheck Info: File `is26_marked.out' has not changed.
 (rerunfilecheck)             Checksum: D56A97697E510F710093F9B273E796B3;2745.
  ) 
 Here is how much of TeX's memory you used:
- 36585 strings out of 474662
- 784140 string characters out of 5751108
- 1218598 words of memory out of 5000000
+ 36583 strings out of 474662
+ 784116 string characters out of 5751108
+ 1218599 words of memory out of 5000000
  58396 multiletter control sequences out of 15000+600000
- 600132 words of font info for 310 fonts, out of 8000000 for 9000
+ 600061 words of font info for 309 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
  84i,13n,93p,2173b,1035s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
@@ -1228,7 +1228,7 @@ ts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2025basic/texmf-dist/
 fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-di
 st/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on is26_marked.pdf (50 pages, 5157915 bytes).
+Output written on is26_marked.pdf (50 pages, 5157603 bytes).
 PDF statistics:
  1059 PDF objects out of 1200 (max. 8388607)
  880 compressed objects within 9 object streams
