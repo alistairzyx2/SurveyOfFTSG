@@ -1,0 +1,41 @@
+\subsection{Data Resources: Raw Sources and Modalities}
+\label{sec:data_resources}
+
+The empirical foundation of Financial Time-Series Generation (FTSG) relies on the quality, granularity, and structure of the underlying data. Unlike static image datasets, financial data is continuous, highly non-stationary, and prone to hidden biases. We systematically cluster these resources moving from raw modalities to curated databases, standardized benchmarks, and ultimately, the practical pitfalls of dataset construction.
+
+Financial time series are not monolithic; they exhibit drastically different statistical signatures depending on the asset class and sampling frequency. The rationale for clustering these sources lies in the specific generative challenges they present. Raw FTSG data fall into four distinct modalities.
+
+Equities and market indices encompass individual stocks (e.g., AAPL, TSLA) and aggregate indices (e.g., S\&P 500, CSI 300). Sampled typically at daily or minutely frequencies, these series are the primary testbeds for unconditional synthesis and extrapolation. They present fundamental generative challenges, including pronounced \textit{volatility clustering} and \textit{fat-tailed distributions}~\citep{cont2001empirical}, as well as \textit{regime-shifting non-stationarity}~\citep{hamilton1989new}.
+
+High-frequency microstructure data include limit order books (LOB), tick-by-tick trades, and Level-2 quotes recorded at the millisecond or microsecond level. The market-microstructure properties of LOB data~\citep{ohara1995market,gould2013limit} make generation complex due to its asynchronous nature and the strict spatial constraints required (e.g., bids must strictly remain below asks, and queue volumes dictate execution). This data is essential for simulating interactive, multi-agent algorithmic trading environments.
+
+Macroeconomic and fixed-income data include indicators such as Treasury yield curves, the Consumer Price Index (CPI), and Gross Domestic Product (GDP). Sampled at low frequencies (monthly or quarterly), these datasets reflect systemic economic health. The primary challenge here is severe data sparsity and the need to interpolate/impute missing values across shifting long-term economic cycles.
+
+Alternative data and textual metadata augment purely numerical series as multi-modal foundation models become more common. This includes macroeconomic news headlines, central bank policy texts, earnings call transcripts, and social media sentiment~\citep{tetlock2007giving,loughran2011liability}. This modality is crucial for training controllable generators and scenario-guided market simulators.
+
+\subsection{Data Resources: Curated Databases and APIs}
+Historically, raw financial data is fragmented and optimized for human visualization. To facilitate the massive data ingestion required by deep generative models, researchers routinely aggregate data from institutional databases and developer APIs.
+
+For rigorous backtesting and synthesis, institutional and academic repositories including Wharton Research Data Services (WRDS), the Center for Research in Security Prices (CRSP), and Compustat~\citep{wrds,crsp,compustat} are designed to mitigate the survivorship bias documented by Brown et al.~\citep{brown1992survivorship}. For macroeconomic series, FRED (Federal Reserve Economic Data)~\citep{fred} is a widely used public repository maintained by the Federal Reserve Bank of St.~Louis. In Chinese markets, CSMAR~\citep{csmar} offers comprehensive, high-quality A-share trading records.
+
+Open-source and developer APIs are also available through platforms such as Yahoo Finance and Investing.com~\citep{yahoofinance,investingcom}, frequently accessed via the open-source Python package \texttt{yfinance}~\citep{yfinance}. For programmatic, high-frequency access, APIs such as Alpha Vantage, Alpaca, and Polygon.io~\citep{alphavantage,alpaca,polygon} deliver massive historical streams suitable for training large-scale predictive models.
+
+Cryptocurrency exchanges are widely used because 24/7 trading and open data access make crypto markets particularly suitable for testing generative algorithms. Platforms such as Binance and CoinMarketCap~\citep{binance,coinmarketcap} provide free API access to granular tick and volume data, capturing extreme volatility events ideal for stress-testing generation.
+
+\subsection{Data Resources: Standardized Benchmarks and Evaluation Suites}
+Historically, FTSG research relied on ad-hoc, proprietary data slices, severely hindering reproducibility and fair model comparison. The recent emergence of unified benchmark platforms marks a critical maturation in the field. Recent benchmark studies, including FinTSB~\citep{hu2025fintsb}, GIFT-Eval~\citep{aksu2024gifteval}, TFB~\citep{qiu2024tfb}, FinTSBridge~\citep{wang2025fintsbridge}, TSGBench~\citep{ang2023tsgbench}, and CTBench~\citep{ang2025ctbench}, encapsulate vast datasets, pre-define chronological train/test/validation splits, and standardize evaluation metrics (e.g., masking ratios for imputation, prompt templates for forecasting).
+
+By providing a ``level playing field,'' these suites allow researchers to disentangle algorithmic improvements from data-mining advantages. A summary of recent and authoritative FTSG benchmarks is provided in Table \ref{tab:datasets}.
+
+\subsection{Data Resources: Practical Issues in Dataset Construction}
+Constructing financial datasets for generative models is fraught with domain-specific pitfalls. A generative architecture, no matter how mathematically advanced, will learn and amplify the structural biases present in its training data. Five issues are particularly important.
+
+Survivorship bias~\citep{brown1992survivorship} occurs when datasets that only include currently active assets inadvertently filter out companies that went bankrupt or were delisted. Generative models trained on such data will synthesize artificially optimistic market trajectories and fail to accurately model the probability of asset default, ruining their utility for downside risk management.
+
+Look-ahead bias in alignment occurs when models are trained on information that was not publicly available at the timestamp of generation. A common pitfall in FTSG is using historically \textit{revised} macroeconomic data (e.g., revised GDP figures published months later) rather than the point-in-time, unrevised data emphasized in leakage-aware financial machine learning~\citep{lopezdeprado2018advances}, causing the generator to leak future realities.
+
+Chronological splitting, rather than random masking, is required because unlike static images where independent and identically distributed (i.i.d.) random splitting is acceptable, financial time series must generally be partitioned chronologically, using temporal validation or purged and embargoed splits where appropriate~\citep{lopezdeprado2018advances}. Randomly splitting overlapping sequence windows leads to severe temporal data leakage. Similarly, in imputation tasks, random masking often fails to reflect the missingness mechanisms distinguished by Rubin~\citep{rubin1976inference} (e.g., contiguous trading halts), leading to models that perform well on paper but fail in live environments.
+
+Asynchronous frequencies and missingness arise in multivariate generation (e.g., simulation of a global portfolio) because assets trade on different global exchanges with distinct operating hours and holidays, creating non-synchronous observations~\citep{hayashi2005covariance}. Naively padding these datasets forward creates artificial zero-volatility spans, causing cross-sectional generators (such as diffusion models) to learn spurious flat-line correlations.
+
+Market regime imbalance, consistent with regime-switching models~\citep{hamilton1989new}, occurs because historical datasets are overwhelmingly dominated by standard, low-to-medium volatility market conditions. Without specialized sampling techniques, models suffer from severe class imbalance and will systematically fail to generate realistic crash scenarios (e.g., the COVID-19 market reaction in 2020~\citep{ramelli2020feverish}) simply because these events represent a fraction of the training distribution.
