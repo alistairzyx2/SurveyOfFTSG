@@ -30,9 +30,21 @@
 % revised text only.  The marked-up master redefines the same five macros in red.
 \providecommand{\revadd}[1]{#1}
 \providecommand{\revdel}[1]{}
+\providecommand{\revadddec}[1]{#1}
+\providecommand{\revdeldec}[1]{}
 \providecommand{\revaddblock}[1]{#1}
 \providecommand{\revdelblock}[1]{}
 \providecommand{\revnote}[1]{}
+% Paragraph-level decoration used inside \revaddblock / \revdelblock.  The
+% payload of a deletion is dropped whole, so \markdel never reaches the page;
+% \markadd must be transparent to keep the clean text byte-identical.
+\providecommand{\markadd}[1]{#1}
+\providecommand{\markdel}[1]{}
+% In the marked-up master \citebox is \mbox{...}, which ulem needs in order to
+% set a multi-key \citep{} inside \uwave / \sout.  Here it must vanish without
+% a trace so that the clean manuscript keeps the exact spacing it was submitted
+% with (an \mbox would introduce a space before the bracket).
+\providecommand{\citebox}[1]{#1}
 
 % Title, Authors, and Affiliations
 \title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}}

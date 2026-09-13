@@ -26,13 +26,39 @@
 \usepackage[normalem]{ulem}
 
 
-\newcommand{\revadd}[1]{\textcolor{red}{#1}}
-\newcommand{\revdel}[1]{\textcolor{red}{\sout{#1}}}
-% Block markers may span several paragraphs and may contain \item / \subsection.
-% Neither \textcolor{red}{#1} ("Paragraph ended before \@textcolor was complete")
-% nor ulem's \sout can cross a paragraph break, so scope a colour group instead.
-\newcommand{\revaddblock}[1]{{\color{red}#1}}
+% ---------------------------------------------------------------------------
+% Revision markup, per the editor's instruction to show changes "in red font".
+%
+% Two grammatical forms are needed and they use DIFFERENT devices:
+%   * inline  \revadd / \revdel        -- argument-delimited, one phrase long
+%   * block   \revaddblock / \revdelblock -- may span several paragraphs and may
+%     contain \item, \subsection, & or a display environment
+%
+% ulem's \uwave / \sout cannot cross a paragraph break or an environment
+% boundary ("Paragraph ended before \@textcolor was complete"), so the block
+% form scopes a colour group and delegates the decoration to \markadd / \markdel,
+% which are applied to each surviving paragraph individually.  A payload that is a
+% sectioning command (\subsection{...}) is left in flat colour: ulem cannot stroke
+% a heading, and the journal's own latexdiff redline cannot either.
+%
+% Colour code: insertions blue + wavy underline, deletions red + strikethrough.
+% ---------------------------------------------------------------------------
+\newcommand{\revadd}[1]{{\color{blue}\uwave{#1}}}
+\newcommand{\revdel}[1]{{\color{red}\sout{#1}}}
+\newcommand{\revadddec}[1]{{\color{blue}\uwave{#1}}}
+\newcommand{\revdeldec}[1]{{\color{red}\sout{#1}}}
+\newcommand{\revaddblock}[1]{{\color{blue}#1}}
 \newcommand{\revdelblock}[1]{{\color{red}#1}}
+% Paragraph-level decoration used inside the block markers above.  The clean
+% master defines \markdel as a no-op and \markadd as the identity, so both
+% masters still typeset exactly the same characters.
+\newcommand{\markadd}[1]{{\color{blue}\uwave{#1}}}
+\newcommand{\markdel}[1]{{\color{red}\sout{#1}}}
+% ulem cannot set a multi-key \citep{a,b} inside \uwave / \sout (it raises
+% "Extra }, or forgotten \endgroup").  Boxing the citation first makes it an
+% ordinary hbox, which ulem handles fine.  The clean master defines this macro
+% as a no-op, so the two PDFs stay textually identical.
+\newcommand{\citebox}[1]{\mbox{#1}}
 % Invisible in the clean manuscript; in the marked-up version it flags each secondary
 % subheading that was removed, so the editor can verify the restructuring point by point.
 \newcommand{\revnote}[1]{\textcolor{red}{\footnotesize[#1]}}
@@ -45,7 +71,7 @@
 \setcounter{secnumdepth}{0}
 
 % Title, Authors, and Affiliations
-\title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}\\[0.4em]\normalsize\textcolor{blue}{\textbf{[Marked-Up Manuscript Tracking Technical Check Revisions]}}}
+\title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}\\[0.4em]\normalsize\textbf{[Marked-up manuscript: insertions in blue, deletions struck through in red]}}
 
 \author{
   Yingxiao Zhang$^{1,2}$, 
@@ -60,39 +86,6 @@
 \begin{document}
 
 \maketitle
-
-\noindent\fcolorbox{blue!70!black}{blue!5}{%
-\begin{minipage}{0.97\textwidth}
-\vspace{0.4em}
-\textbf{\textcolor{blue!80!black}{\small Summary of Technical Check Revisions (Manuscript v2.3)}}\\[0.3em]
-\footnotesize
-This marked-up version highlights every modification made in response to the Technical Checks from \textit{npj Artificial Intelligence}. All changes are shown \textbf{\textcolor{red}{in red font}}; no tracked changes or comment balloons are used, so the file can be viewed in any PDF reader. Red bracketed markers of the form \textcolor{red}{\footnotesize[Secondary subheading ``\ldots'' removed.]} flag the precise locations at which the restructuring was applied, allowing the editor to verify each point one by one.
-
-\textbf{\textcolor{blue!80!black}{A. Round-2 technical check (structural formatting)}}\\[0.2em]
-\begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{Author Affiliations:} Affiliations sequentially numbered ($^{1,2,3,4}$) with city and country explicitly identified for all institutions.
-\item \textbf{Unstructured Abstract:} Condensed into a single cohesive paragraph (181 words) without internal section headings.
-\item \textbf{Unnumbered Headings:} Implemented \texttt{\textbackslash setcounter\{secnumdepth\}\{0\}}; all section number cross-references updated to explicit heading titles.
-\item \textbf{IRDM Article Organization:} Main text structured as \textbf{Abstract} $\rightarrow$ \textbf{Introduction} (unstructured) $\rightarrow$ \textbf{Results} (compulsory subheadings) $\rightarrow$ \textbf{Discussion} (no subheadings; absorbed former Conclusions) $\rightarrow$ \textbf{Methods} (compulsory subheadings; placed after Discussion).
-\item \textbf{Mandatory Declarations:} Integrated 6 declarations directly into the main file before References (\textit{Data Availability, Code Availability, Acknowledgements, Funding, Author Contributions, Competing Interests}). Differentiated author initials as \textit{Y. Zhang} and \textit{Y. Zou}.
-\item \textbf{Nature Numbered Bibliography:} Citations and reference list formatted in sequential numerical order using \texttt{sn-nature.bst} (Nature standard style), with arXiv preprints rendered as \emph{Preprint at} with DOI links and journal names abbreviated per Nature conventions.
-\item \textbf{Float Reorganization:} All figure environments and tables repositioned after References in dedicated sections (\textit{Figure Legends and Figures, Tables}).
-\item \textbf{Extended Figure Legends:} Captions enhanced with bold summarizing titles, bodies under 350 words, spelled-out abbreviations, and verbal descriptions of color coding and symbols.
-\end{itemize}
-
-\textbf{\textcolor{blue!80!black}{B. Round-3 technical check (Results and Methods: primary subheadings only)}}\\[0.2em]
-\begin{itemize}\setlength{\itemsep}{1pt}
-\item \textbf{All secondary subheadings removed.} Within \textbf{Results}, all 38 headings below the level of the compulsory primary subheadings have been deleted, and red removal markers are placed at the exact sites. The surviving primary subheadings are: \textit{Problem Formulation and A Two-Level Taxonomy}, \textit{Financial Time-Series Extrapolation}, \textit{Financial Time-Series Imputation}, \textit{Financial Time-Series Synthesis}, \textit{Applications}, \textit{Evaluation Protocols}, and \textit{Data Resources and Benchmarks}. Within \textbf{Methods}, the four compulsory primary subheadings are retained (\textit{Literature Retrieval Strategy}, \textit{Inclusion and Exclusion Criteria}, \textit{Data Extraction and Coding Protocol}, \textit{Review Dimensions and Taxonomy Synthesis}) and no secondary subheadings remain.
-\item \textbf{All bolded and numbered text removed from Results and Methods.} Because bold labels or numbering placed under a primary heading are treated as secondary subheadings, the itemized and enumerated lists that previously appeared in these sections (49 bolded list labels in total) have been dismantled and rewritten as continuous running prose. Every sentence created in this way is shown \textcolor{red}{in red}; no bold text and no list numbering remains in Results or Methods.
-\item \textbf{Empty heading deleted.} An empty ``Summarization'' heading at the end of the Synthesis section, which carried no text of its own, was also removed, so that no heading without content remains in the manuscript.
-\item \textbf{Cross-references reworded.} Textual references to former ``subsections'' have been rewritten so that no reference points to a heading level that no longer exists.
-\item \textbf{Discussion unchanged.} The Discussion remains a sequence of paragraphs with no subheadings of any level, as required.
-\end{itemize}
-\vspace{0.4em}
-\end{minipage}%
-}
-\vspace{1em}
-
 
 \vspace{-2em}
 \begin{center}

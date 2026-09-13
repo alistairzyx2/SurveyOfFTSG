@@ -10,14 +10,14 @@
 \toprule
 \textbf{Survey} & \textbf{FTSE} & \textbf{FTSI} & \textbf{FTSS} & \textbf{Eval.} & \textbf{Datasets} & \textbf{\# refs} & \textbf{Window} \\
 \midrule
-\revaddblock{Zhang et al.~}\citep{Survey1}            & \checkmark & \texttimes & \texttimes & None    & Multimodal TS & 93  & 2005--2024 \\
-\revaddblock{Liang et al.~}\citep{Survey2}            & \checkmark & $\triangle$ & \texttimes & None    & General TS        & 123 & 2017--2024 \\
-\revaddblock{Kim et al.~}\citep{Survey3}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 287 & 2000--2024 \\
-\revaddblock{Kong et al.~}\citep{Survey4}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 285 & 2000--2024 \\
-\revaddblock{Nie et al.~}\citep{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
-\revaddblock{Arsenault et al.~}\citep{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
+\revadddec{Zhang et al.~}\citep{Survey1}            & \checkmark & \texttimes & \texttimes & None    & Multimodal TS & 93  & 2005--2024 \\
+\revadddec{Liang et al.~}\citep{Survey2}            & \checkmark & $\triangle$ & \texttimes & None    & General TS        & 123 & 2017--2024 \\
+\revadddec{Kim et al.~}\citep{Survey3}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 287 & 2000--2024 \\
+\revadddec{Kong et al.~}\citep{Survey4}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 285 & 2000--2024 \\
+\revadddec{Nie et al.~}\citep{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
+\revadddec{Arsenault et al.~}\citep{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
 \midrule
-\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{\revdelblock{ 130}\revaddblock{131}} & \textbf{2021--early 2026} \\
+\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{\revdeldec{ 130}\revadddec{131}} & \textbf{2021--early 2026} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -148,56 +148,56 @@
 \revdelblock{ 
 
 
-\textbf{Dataset / Benchmark} 
+\markdel{\textbf{Dataset / Benchmark} 
 \textbf{Tasks} 
 \textbf{Primary Data Sources} 
 \textbf{Split Ratio} 
-\textbf{Scale (Approx.)} 
+\textbf{Scale (Approx.)} }
 
 
-\textbf{FinTSB} 
+\markdel{\textbf{FinTSB} 
 Extrapolation / Imputation 
 Chinese A-share, NYSE, NASDAQ 
 7:1:2 
-150M points 
+150M points }
 
 
-\textbf{GIFT-EVAL} 
+\markdel{\textbf{GIFT-EVAL} 
 Forecasting 
 27 datasets (Stock, Crypto, FX, etc.) 
 Various 
-144,380 series 
+144,380 series }
 
-\textbf{TFB} 
+\markdel{\textbf{TFB} 
 Forecasting 
 Broad finance domain 
 Various 
-2.1M series 
+2.1M series }
 
 
-\textbf{FinTSBridge} 
+\markdel{\textbf{FinTSBridge} 
 Extrapolation / Imputation 
 S\&P 500, NASDAQ, FTSE, CSI 300 
 7:1:2 
-86,978 series 
+86,978 series }
 
-\textbf{TSGBench} 
+\markdel{\textbf{TSGBench} 
 Synthesis / Simulation 
 GOOGL, Global Exchanges 
 9:0:1 
-13,213 series 
+13,213 series }
 
-\textbf{CTBench} 
+\markdel{\textbf{CTBench} 
 Synthesis 
 Cryptocurrencies on Binance 
 9:0:1 
-530 series 
+530 series }
 
-\textbf{FinMultiTime} 
+\markdel{\textbf{FinMultiTime} 
 Extrapolation 
 S\&P 500, HS 300 
 N/A 
-6M points 
+6M points }
 
 
 
@@ -233,15 +233,15 @@ N/A
 \midrule
 Initial Keyword Search & 2,568 & 2,568 & N/A \\
 Title/Abstract Screening & 2,568 & 604 & Not financial data / Pure deterministic forecasting \\
-Full-text Review & 604 & \textbf{\revdelblock{ 130}\revaddblock{131}} & Weak financial validation / Duplicated preprints \\
+Full-text Review & 604 & \textbf{\revdeldec{ 130}\revadddec{131}} & Weak financial validation / Duplicated preprints \\
 \midrule
 \multicolumn{4}{l}{\textbf{Primary Task Assignment}} \\
 \quad Extrapolation & & 54 & \\
 \quad Imputation & & 29 & \\
-\quad Synthesis / Simulation & & \revdelblock{ 47 }\revaddblock{48 }& \\
+\quad Synthesis / Simulation & & \revdeldec{ 47 }\revadddec{48 }& \\
 \bottomrule
 \end{tabular}
 \begin{flushleft}
-\textit{Note: Each of the \revdelblock{ 130 }\revaddblock{131 }retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g., forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not double-counted.}
+\textit{Note: Each of the \revdeldec{ 130 }\revadddec{131 }retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g., forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not double-counted.}
 \end{flushleft}
 \end{table*}

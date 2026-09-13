@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  13 SEP 2026 14:44
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  13 SEP 2026 19:11
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -889,24 +889,24 @@ Package uniquecounter Info: New unique counter `rerunfilecheck' on input line 2
 ) (./is26_marked.aux)
 \openout1 = `is26_marked.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 60.
-LaTeX Font Info:    ... okay on input line 60.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 86.
+LaTeX Font Info:    ... okay on input line 86.
 
 *geometry* driver: auto-detecting
 *geometry* detected driver: pdftex
@@ -970,20 +970,20 @@ Package caption Info: Begin \AtBeginDocument code.
 Package caption Info: float package is loaded.
 Package caption Info: hyperref package is loaded.
 Package caption Info: End \AtBeginDocument code.
-LaTeX Info: Redefining \microtypecontext on input line 60.
-Package microtype Info: Applying patch `item' on input line 60.
-Package microtype Info: Applying patch `toc' on input line 60.
-Package microtype Info: Applying patch `eqnum' on input line 60.
-Package microtype Info: Applying patch `footnote' on input line 60.
-Package microtype Info: Applying patch `verbatim' on input line 60.
-LaTeX Info: Redefining \microtypesetup on input line 60.
+LaTeX Info: Redefining \microtypecontext on input line 86.
+Package microtype Info: Applying patch `item' on input line 86.
+Package microtype Info: Applying patch `toc' on input line 86.
+Package microtype Info: Applying patch `eqnum' on input line 86.
+Package microtype Info: Applying patch `footnote' on input line 86.
+Package microtype Info: Applying patch `verbatim' on input line 86.
+LaTeX Info: Redefining \microtypesetup on input line 86.
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
 Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 60.
+LaTeX Info: Redefining \showhyphens on input line 86.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -991,13 +991,13 @@ Package microtype Info: No adjustment of character kerning.
 File: mt-cmr.cfg 2013/05/19 v2.2 microtype config. file: Computer Modern Roman 
 (RS)
 )
-Package hyperref Info: Link coloring ON on input line 60.
+Package hyperref Info: Link coloring ON on input line 86.
 
 (./is26_marked.out) (./is26_marked.out)
 \@outlinefile=\write5
 \openout5 = `is26_marked.out'.
 
-LaTeX Font Info:    Trying to load font information for U+msa on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 89.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsa.fd
@@ -1006,7 +1006,7 @@ File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/microtype/mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 63.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 89.
 
 
 (/usr/local/texlive/2025basic/texmf-dist/tex/latex/amsfonts/umsb.fd
@@ -1020,15 +1020,7 @@ Package microtype Info: Loading generic protrusion settings for font family
 (microtype)             For optimal results, create family-specific settings.
 (microtype)             See the microtype manual for details.
 
-
-[1
-
-{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
-r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
-
-
-[2{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts
-1.enc}] (./sections/00_abstract.tex
+(./sections/00_abstract.tex
 Overfull \hbox (2.07526pt too wide) in paragraph at lines 2--3
 \T1/cmr/m/n/10 (-20) environments for stress testing and trading execution. How
 ever, empirical financial properties---
@@ -1036,92 +1028,148 @@ ever, empirical financial properties---
 
 ) (./sections/01_introduction.tex
 
-[3]
+[1
 
-[4]) (./sections/03_problem_taxonomy.tex
+{/usr/local/texlive/2025basic/texmf-var/fonts/map/pdftex/updmap/pdftex.map}{/us
+r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
+
+
+[2])
+
+[3] (./sections/03_problem_taxonomy.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
+
+
+
+[4]) (./sections/04_extrapolation.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
 
 
 
 [5]
 
-[6]) (./sections/04_extrapolation.tex
-
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\@ifnextchar' on input line 25.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\uwave' on input line 25.
 
 
+
+[6]
 
 [7]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 25.
+(hyperref)                removing `\@ifnextchar' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 63.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 63.
 
 
 
 [8]
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 94.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 94.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 94.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 94.
+
+
+
 [9]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 63.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 63.
-
-
-
 [10]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 94.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 94.
-
-
-
-[11]
-
-[12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 125.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 128.
+(hyperref)                removing `\uwave' on input line 125.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 128.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 128.
 
-[13]) (./sections/05_imputation.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 128.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 128.
+
+
+
+[11]) (./sections/05_imputation.tex
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 12.
+(hyperref)                removing `\uwave' on input line 1.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
@@ -1129,59 +1177,136 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 12.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 12.
 
-[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 12.
+
+
+
+[12]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 19.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 19.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 29.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 29.
 
-[15]
+
+
+[13]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 35.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 35.
+
+
+
+[14]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 47.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 47.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 57.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 57.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 57.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 57.
+
+) (./sections/06_synthesis.tex
+
+[15]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 12.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 12.
 
 
 
 [16]
 
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 57.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 57.
-
-) (./sections/06_synthesis.tex
-
 [17]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\@ifnextchar' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\uwave' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 12.
+(hyperref)                removing `\@ifnextchar' on input line 44.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 12.
+(hyperref)                removing `\sout' on input line 44.
 
 
 
@@ -1190,191 +1315,308 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 [19]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 44.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 44.
-
-
-
-[20]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 58.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 58.
 
-[21]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 63.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 69.
+(hyperref)                removing `\uwave' on input line 63.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 69.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 69.
 
 ) (./sections/07_applications.tex
 
+[20]
+
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
+
+
+
+[21]
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 52.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 88.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 88.
 
 
 
 [22]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 52.
+(hyperref)                removing `\@ifnextchar' on input line 165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 52.
-
-
-
-[23]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 88.
+(hyperref)                removing `\sout' on input line 165.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 88.
+(hyperref)                removing `\@ifnextchar' on input line 165.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 165.
+
+
+
+[23]) (./sections/08_evaluation.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 9.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 9.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 9.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 9.
 
 
 
 [24]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 165.
+(hyperref)                removing `\@ifnextchar' on input line 40.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 165.
-
-) (./sections/08_evaluation.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\uwave' on input line 40.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
+(hyperref)                removing `\@ifnextchar' on input line 40.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 40.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 40.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 40.
 
 
 
 [25]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 9.
+(hyperref)                removing `\@ifnextchar' on input line 72.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 9.
+(hyperref)                removing `\uwave' on input line 72.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 72.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 72.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 72.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 72.
 
 
 
 [26]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 40.
+(hyperref)                removing `\@ifnextchar' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 40.
+(hyperref)                removing `\uwave' on input line 86.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 40.
+(hyperref)                removing `\@ifnextchar' on input line 103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 103.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 103.
 
 
 
 [27]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 72.
+(hyperref)                removing `\@ifnextchar' on input line 108.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 72.
+(hyperref)                removing `\uwave' on input line 108.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 72.
+(hyperref)                removing `\@ifnextchar' on input line 108.
 
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 86.
+(hyperref)                removing `\sout' on input line 108.
+
+) (./sections/09_data_resources.tex
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\sout' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\@ifnextchar' on input line 1.
+
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 1.
 
 
 
 [28]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 103.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 103.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 108.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 108.
-
-
-
-[29]) (./sections/09_data_resources.tex
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
-
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
-(hyperref)                removing `\@ifnextchar' on input line 1.
-
-
-
-[30]
-
-Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 24.
 
+
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 24.
+
+
+
+[29]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 38.
 
 
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 38.
 
-[31]
 
 Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 (hyperref)                removing `\@ifnextchar' on input line 43.
 
-)
 
-[32] (./sections/10_challenges.tex
+Package hyperref Warning: Token not allowed in a PDF string (Unicode):
+(hyperref)                removing `\uwave' on input line 43.
 
-[33]) (./sections/02_methodology.tex
 
-[34]
 
-[35]) (./sections/12_declarations.tex
+[30]) (./sections/10_challenges.tex
 
-[36])
+[31]) (./sections/02_methodology.tex
 
-[37] (./is26_marked.bbl
+[32]
+
+[33]
+
+[34]) (./sections/12_declarations.tex
+
+[35])
+
+[36] (./is26_marked.bbl
+
+[37]
 
 [38]
 
@@ -1398,28 +1640,26 @@ Package hyperref Warning: Token not allowed in a PDF string (Unicode):
 
 [48]
 
-[49]
+[49])
 
-[50])
-
-[51] (./sections/13_figures.tex
-<separate_figures/Figure1.pdf, id=1184, 682.86618pt x 341.4326pt>
+[50] (./sections/13_figures.tex
+<separate_figures/Figure1.pdf, id=1177, 682.86618pt x 341.4326pt>
 File: separate_figures/Figure1.pdf Graphic file (type pdf)
 <use separate_figures/Figure1.pdf>
 Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
 (pdftex.def)             Requested size: 443.9066pt x 221.9546pt.
 
 
-[52 <./separate_figures/Figure1.pdf>]
-<separate_figures/Figure2.pdf, id=1203, 625.96059pt x 469.47095pt>
+[51 <./separate_figures/Figure1.pdf>]
+<separate_figures/Figure2.pdf, id=1196, 625.96059pt x 469.47095pt>
 File: separate_figures/Figure2.pdf Graphic file (type pdf)
 <use separate_figures/Figure2.pdf>
 Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
 (pdftex.def)             Requested size: 443.9066pt x 332.93987pt.
 
 
-[53 <./separate_figures/Figure2.pdf>]
-<final_figures/comparison_00.png, id=1235, 1049.13303pt x 586.28023pt>
+[52 <./separate_figures/Figure2.pdf>]
+<final_figures/comparison_00.png, id=1228, 1049.13303pt x 586.28023pt>
 File: final_figures/comparison_00.png Graphic file (type png)
 <use final_figures/comparison_00.png>
 Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
@@ -1427,8 +1667,8 @@ Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
 (pdftex.def)             Requested size: 407.66833pt x 227.80745pt.
 
 
-[54 <./final_figures/comparison_00.png>]
-<final_figures/DiffWithDiscreteContinous.pdf, id=1242, 1460.73305pt x 495.75854
+[53 <./final_figures/comparison_00.png>]
+<final_figures/DiffWithDiscreteContinous.pdf, id=1235, 1460.73305pt x 495.75854
 pt>
 File: final_figures/DiffWithDiscreteContinous.pdf Graphic file (type pdf)
 <use final_figures/DiffWithDiscreteContinous.pdf>
@@ -1437,16 +1677,16 @@ nput line 32.
 (pdftex.def)             Requested size: 362.37569pt x 122.98618pt.
 
 
-[55 <./final_figures/DiffWithDiscreteContinous.pdf>]
-<final_figures/FTSA.pdf, id=1268, 547.11751pt x 204.96274pt>
+[54 <./final_figures/DiffWithDiscreteContinous.pdf>]
+<final_figures/FTSA.pdf, id=1260, 547.11751pt x 204.96274pt>
 File: final_figures/FTSA.pdf Graphic file (type pdf)
 <use final_figures/FTSA.pdf>
 Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
 (pdftex.def)             Requested size: 362.37569pt x 135.75745pt.
 
 
-[56 <./final_figures/FTSA.pdf>]
-<final_figures/filter_pipeline.png, id=1318, 2175.12625pt x 727.71875pt>
+[55 <./final_figures/FTSA.pdf>]
+<final_figures/filter_pipeline.png, id=1311, 2175.12625pt x 727.71875pt>
 File: final_figures/filter_pipeline.png Graphic file (type png)
 <use final_figures/filter_pipeline.png>
 Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line 
@@ -1454,7 +1694,7 @@ Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line
 (pdftex.def)             Requested size: 430.31812pt x 143.96439pt.
 )
 
-[57 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
+[56 <./final_figures/filter_pipeline.png (PNG copy)>] (./sections/14_tables.tex
 
 Overfull \hbox (2.28004pt too wide) in paragraph at lines 49--49
 []|[]| 
@@ -1462,26 +1702,27 @@ Overfull \hbox (2.28004pt too wide) in paragraph at lines 49--49
 
 
 
-[58]
+[57{/usr/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t
+s1.enc}]
 
-[59])
+[58])
 
-[60] (./is26_marked.aux)
+[59] (./is26_marked.aux)
  ***********
 LaTeX2e <2024-11-01> patch level 2
 L3 programming layer <2025-01-18>
  ***********
 Package rerunfilecheck Info: File `is26_marked.out' has not changed.
-(rerunfilecheck)             Checksum: 1B695144CBA83CB367AEA8FB78AEFF2F;16196.
+(rerunfilecheck)             Checksum: 3CE85835C0AE15CEF8571FDF787EB9CE;16391.
  ) 
 Here is how much of TeX's memory you used:
- 37077 strings out of 474662
- 794452 string characters out of 5751108
- 1220510 words of memory out of 5000000
- 58721 multiletter control sequences out of 15000+600000
- 601401 words of font info for 323 fonts, out of 8000000 for 9000
+ 36956 strings out of 474662
+ 793050 string characters out of 5751108
+ 1260593 words of memory out of 5000000
+ 58712 multiletter control sequences out of 15000+600000
+ 595414 words of font info for 266 fonts, out of 8000000 for 9000
  319 hyphenation exceptions out of 8191
- 84i,13n,93p,2464b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
+ 84i,13n,93p,2432b,1443s stack positions out of 10000i,1000n,20000p,200000b,200000s
 </usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx1
 0.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/cm/c
 mbx6.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/c
@@ -1498,30 +1739,28 @@ f-dist/fonts/type1/public/amsfonts/cm/cmr8.pfb></usr/local/texlive/2025basic/te
 xmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2025basi
 c/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy6.pfb></usr/local/texlive/2025b
 asic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy8.pfb></usr/local/texlive/20
-25basic/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy9.pfb></usr/local/texlive
-/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></usr/loca
-l/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10.pfb><
-/usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx0800.pf
-b></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx0900
-.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx1
-000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
-bx1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
-/sfbx1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
-per/sfbx1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm
--super/sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
-/cm-super/sfrm0900.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
-lic/cm-super/sfrm1000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
-public/cm-super/sfrm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
-e1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
-type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fon
-ts/type1/public/cm-super/sfti0900.pfb></usr/local/texlive/2025basic/texmf-dist/
+25basic/texmf-dist/fonts/type1/public/amsfonts/latxfont/lasy6.pfb></usr/local/t
+exlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msam10.pfb></us
+r/local/texlive/2025basic/texmf-dist/fonts/type1/public/amsfonts/symbols/msbm10
+.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sfbx0
+800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super/sf
+bx1000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-super
+/sfbx1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm-su
+per/sfbx1200.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public/cm
+-super/sfbx1440.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/public
+/cm-super/sfrm0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/pub
+lic/cm-super/sfrm0900.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/type1/
+public/cm-super/sfrm1000.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/typ
+e1/public/cm-super/sfrm1095.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
+type1/public/cm-super/sfrm1200.pfb></usr/local/texlive/2025basic/texmf-dist/fon
+ts/type1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/
 fonts/type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-di
 st/fonts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf
 -dist/fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on is26_marked.pdf (60 pages, 5221259 bytes).
+Output written on is26_marked.pdf (59 pages, 5217955 bytes).
 PDF statistics:
- 1597 PDF objects out of 1728 (max. 8388607)
- 1402 compressed objects within 15 object streams
- 398 named destinations out of 1000 (max. 500000)
- 62931 words of extra memory for PDF output out of 74296 (max. 10000000)
+ 1579 PDF objects out of 1728 (max. 8388607)
+ 1391 compressed objects within 14 object streams
+ 397 named destinations out of 1000 (max. 500000)
+ 56787 words of extra memory for PDF output out of 61914 (max. 10000000)
 
