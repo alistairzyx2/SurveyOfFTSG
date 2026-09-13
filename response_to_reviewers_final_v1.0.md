@@ -119,7 +119,7 @@ Yingxiao Zhang, on behalf of all co-authors
   | Jin et al. (2024), Time-LLM, ICLR | "Jin et al., 2024a" **and** "Jin et al., 2024b" | Jin et al. (2024) |
   | Cao et al. (2024), TimeDiT diffusion transformer | an incomplete stub entry **and** a complete entry, cited inconsistently across $\S$3, $\S$4, and $\S$5 | Cao et al. (2024) |
 
-  In each case we retained the entry with the correct venue and complete author list and removed the duplicate. This resolves a genuine inconsistency the reviewer would reasonably have flagged next: Figure 1 and $\S$4.2 had been citing the same PEC-W paper under two different keys, and $\S$4.4 and $\S$10.3 likewise for Time-LLM. The bibliography now contains 130 entries (from 134), each work appears exactly once, and natbib no longer emits the spurious "2025a/2025b" and "2024a/2024b" disambiguation suffixes. The manuscript recompiles with no undefined citations.
+  In each case we retained the entry with the correct venue and complete author list and removed the duplicate. This resolves a genuine inconsistency the reviewer would reasonably have flagged next: Figure 1 and $\S$4.2 had been citing the same PEC-W paper under two different keys, and $\S$4.4 and $\S$10.3 likewise for Time-LLM. The bibliography now contains 222 entries, each work appears exactly once, and natbib no longer emits the spurious "2025a/2025b" and "2024a/2024b" disambiguation suffixes. The manuscript recompiles with no undefined citations.
 
 ---
 

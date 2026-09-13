@@ -118,7 +118,7 @@ The same wording is prepared for the submission-system declaration.
 
 > *"Please ensure the references are in the standard Nature format. References should be numbered sequentially as they appear in the text, methods, tables, and figure legends using a 1, 2, 3, format. They should follow the sequence: author list, title of the paper, name of the journal, volume number, initial-final page numbers or article number (year). ... Please either provide a separate BIB/BIBL file, or recompile your LaTeX file to include this information."*
 
-**Response.** We have migrated the citation and bibliography pipeline to sequential Nature-style numerical formatting using `naturemag.bst`. Citations are numbered in first-appearance order across the text, Methods, tables, and figure legends, and the reference list contains **130** sequential entries in the Nature format. The source bibliography (`ultimate_complete.bib`) is available separately, and the LaTeX manuscript has been recompiled to verify that citations and bibliography entries render without unresolved keys or display errors.
+**Response.** We have migrated the citation and bibliography pipeline to sequential Nature-style numerical formatting using `naturemag.bst`. Citations are numbered in first-appearance order across the text, Methods, tables, and figure legends, and the reference list contains **222** sequential entries in the Nature format. The source bibliography (`ultimate_complete.bib`) is available separately, and the LaTeX manuscript has been recompiled to verify that citations and bibliography entries render without unresolved keys or display errors.
 
 ---
 

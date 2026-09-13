@@ -7,8 +7,8 @@ The present letter responds only to the peer-review comments. The manuscript has
 In brief:
 
 1. **Terminology is now unambiguous.** FTSG is reserved for the umbrella field, while FTSE, FTSI, and FTSS identify extrapolation, imputation, and synthesis, respectively.
-2. **All unresolved citation keys have been eliminated.** The compiled manuscript uses sequential Nature-style numerical citations and a 130-entry bibliography generated from the source bibliography file.
-3. **The screening arithmetic is internally consistent.** The final corpus is **130 studies**: 54 extrapolation, 29 imputation, and 47 synthesis studies. Table 8 and Figure 6 now report the corresponding retrieval and screening counts.
+2. **All unresolved citation keys have been eliminated.** The compiled manuscript uses sequential Nature-style numerical citations and a 222-entry bibliography generated from the source bibliography file.
+3. **The screening arithmetic is internally consistent.** The final corpus is **131 studies**: 54 extrapolation, 29 imputation, and 48 synthesis studies. Table 8 and Figure 6 now report the corresponding retrieval and screening counts.
 4. **Table 1 now positions this survey against six prior surveys** across task coverage, evaluation, dataset cataloguing, reference count, and publication window.
 5. **The imputation and synthesis discussion has been strengthened** with mechanism-level explanation, reported empirical evidence, and explicit limitations rather than unqualified comparative claims.
 6. **Unsupported claims have been removed or qualified.** The unverified 18-percent claim and the named public-institution claim have been removed; other results are attributed to their original studies and described only within their reported settings.
@@ -66,7 +66,7 @@ Yingxiao Zhang, on behalf of all co-authors
 
 **Response.** We sincerely apologize. The affected strings were a compilation failure that was not detected before submission. We corrected the citation pipeline and checked the compiled text rather than relying on visual inspection alone.
 
-**Changes in the manuscript.** All citations now render in sequential Nature numerical format, including citations in figures, tables, and legends. The bibliography is generated from `ultimate_complete.bib` using `naturemag.bst` and contains 130 entries. The canonical method names -- including QuantGAN, Market-GAN, CTS-GAN, MacroSynth, CoFinDiff, TRADES, DiGA, MarS, FinTSB, and FinTSBridge -- are written as reader-facing labels; no raw BibTeX key remains in the compiled manuscript. We also recompiled the source and checked the output text for the raw keys identified by the reviewer.
+**Changes in the manuscript.** All citations now render in sequential Nature numerical format, including citations in figures, tables, and legends. The bibliography is generated from `ultimate_complete.bib` using `naturemag.bst` and contains 222 entries. The canonical method names -- including QuantGAN, Market-GAN, CTS-GAN, MacroSynth, CoFinDiff, TRADES, DiGA, MarS, FinTSB, and FinTSBridge -- are written as reader-facing labels; no raw BibTeX key remains in the compiled manuscript. We also recompiled the source and checked the output text for the raw keys identified by the reviewer.
 
 ---
 
@@ -98,7 +98,7 @@ Yingxiao Zhang, on behalf of all co-authors
 
 **Response.** We accept this criticism. The novelty claim required direct comparative evidence rather than assertion, so we constructed a new comparison table from the six cited surveys.
 
-**Changes in the manuscript.** **Table 1** now compares this survey with the six prior surveys across FTSE, FTSI, and FTSS coverage; treatment of evaluation; financial dataset cataloguing; bibliography size; and publication window. The table shows that this review covers all three task formulations, provides a unified evaluation protocol, catalogs financial datasets and benchmark suites, and reviews 130 studies from 2021 to early 2026. The surrounding Introduction text limits its conclusion to what the table supports: the prior surveys do not jointly provide all of those elements.
+**Changes in the manuscript.** **Table 1** now compares this survey with the six prior surveys across FTSE, FTSI, and FTSS coverage; treatment of evaluation; financial dataset cataloguing; bibliography size; and publication window. The table shows that this review covers all three task formulations, provides a unified evaluation protocol, catalogs financial datasets and benchmark suites, and reviews 131 studies from 2021 to early 2026. The surrounding Introduction text limits its conclusion to what the table supports: the prior surveys do not jointly provide all of those elements.
 
 ---
 
@@ -108,7 +108,7 @@ Yingxiao Zhang, on behalf of all co-authors
 
 **Response.** The reviewer was right to request a full reconciliation. We re-audited the retrieval and screening record, chose one final corpus definition, and applied it consistently throughout the manuscript.
 
-**Changes in the manuscript.** The final corpus is **130 studies**, with 54 extrapolation, 29 imputation, and 47 synthesis studies. **Table 8** and **Figure 6** now report 2,568 records retrieved, 604 records retained after title/abstract screening for full-text review, and 130 studies retained after full-text review. The Methods section states the same counting rule: each retained study is assigned one primary task category, while cross-cutting work is discussed where relevant but not double-counted. The Abstract, Introduction, Results, Discussion, and Table 1 now use the same final total.
+**Changes in the manuscript.** The final corpus is **131 studies**, with 54 extrapolation, 29 imputation, and 48 synthesis studies. **Table 8** and **Figure 6** now report 2,568 records retrieved, 604 records retained after title/abstract screening for full-text review, and 131 studies retained after full-text review. The Methods section states the same counting rule: each retained study is assigned one primary task category, while cross-cutting work is discussed where relevant but not double-counted. The Abstract, Introduction, Results, Discussion, and Table 1 now use the same final total.
 
 ---
 
