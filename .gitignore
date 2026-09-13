@@ -1,1 +1,14 @@
 .DS_Store
+
+# ── 构建中间产物（保持仓库整洁）─────────────────────────────
+# 说明：仓库历史上已跟踪了根目录的 is26.aux/.blg/.log/.out/.fdb_latexmk/.fls，
+# 以及 is26.pdf / is26.bbl / is26_redline.pdf / is26_redline.bbl / Figure*.pdf。
+# 这些【已跟踪】文件不受本 .gitignore 影响，仍会正常提交；
+# 本规则只阻止【新增】的未跟踪产物被误加入版本库。
+*.aux
+*.blg
+*.log
+*.out
+*.synctex.gz
+*.fdb_latexmk
+*.fls

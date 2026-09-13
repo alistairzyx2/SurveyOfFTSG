@@ -2,46 +2,46 @@ This is BibTeX, Version 0.99d (TeX Live 2025)
 Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
 The top-level auxiliary file: is26.aux
 The style file: sn-nature.bst
-Reallocated field_info (elt_size=4) to 12548 items from 5000.
+Reallocated field_info (elt_size=4) to 11766 items from 5000.
 Database file #1: ultimate_complete.bib
-You've used 222 entries,
+You've used 199 entries,
             2835 wiz_defined-function locations,
-            2214 strings with 49514 characters,
-and the built_in function-call counts, 76604 in all, are:
-= -- 5484
-> -- 2268
+            2187 strings with 48996 characters,
+and the built_in function-call counts, 71697 in all, are:
+= -- 5240
+> -- 1988
 < -- 15
-+ -- 1134
-- -- 567
-* -- 9019
-:= -- 8506
-add.period$ -- 679
-call.type$ -- 222
-change.case$ -- 228
++ -- 994
+- -- 497
+* -- 8401
+:= -- 7840
+add.period$ -- 612
+call.type$ -- 199
+change.case$ -- 206
 chr.to.int$ -- 0
-cite$ -- 222
-duplicate$ -- 6471
-empty$ -- 6919
-format.name$ -- 745
-if$ -- 15651
+cite$ -- 199
+duplicate$ -- 5938
+empty$ -- 6595
+format.name$ -- 653
+if$ -- 14814
 int.to.chr$ -- 0
-int.to.str$ -- 222
-missing$ -- 1673
-newline$ -- 1133
-num.names$ -- 222
-pop$ -- 1700
+int.to.str$ -- 199
+missing$ -- 1544
+newline$ -- 1020
+num.names$ -- 199
+pop$ -- 1525
 preamble$ -- 1
 purify$ -- 0
 quote$ -- 0
-skip$ -- 1537
+skip$ -- 1512
 stack$ -- 0
-substring$ -- 2174
-swap$ -- 6629
+substring$ -- 2471
+swap$ -- 6140
 text.length$ -- 15
-text.prefix$ -- 225
+text.prefix$ -- 174
 top$ -- 0
 type$ -- 0
 warning$ -- 0
 while$ -- 395
-width$ -- 225
-write$ -- 2323
+width$ -- 202
+write$ -- 2109

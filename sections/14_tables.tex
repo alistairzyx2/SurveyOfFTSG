@@ -3,21 +3,21 @@
 \begin{table*}[!ht]
 \centering
 \scriptsize
-\caption{Comparison of this survey with the six prior surveys cited in the literature comparison. \textbf{FTSE/FTSI/FTSS} columns use \checkmark/\texttimes\ for whether the sub-task is a first-class topic ($\triangle$ = mentioned but no dedicated section). \textbf{Eval.} distinguishes a unified \emph{protocol} from per-paper \emph{metrics}. \textbf{Datasets} indicates whether financial benchmarks are inventoried. \textbf{\# refs} is the count of references cited in each survey. \textbf{Window} is the publication-year range of each survey's references.}
+\caption{Comparison of this survey with the six prior surveys cited in the literature comparison. \textbf{FTSE/FTSI/FTSS} columns use \checkmark/\texttimes\ for whether the sub-task is a first-class topic ($\triangle$ = mentioned but no dedicated section). \textbf{Eval.} distinguishes a unified \emph{protocol} from per-paper \emph{metrics}. \textbf{Datasets} indicates whether financial benchmarks are inventoried. \textbf{\# refs} is the count of references cited in each survey. \textbf{Window} is the publication-year range of each survey's references; for this survey it extends before the 2021--early 2026 search window because foundational statistical and econometric references are retained.}
 \label{tab:related_surveys}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{l c c c l l c l}
 \toprule
 \textbf{Survey} & \textbf{FTSE} & \textbf{FTSI} & \textbf{FTSS} & \textbf{Eval.} & \textbf{Datasets} & \textbf{\# refs} & \textbf{Window} \\
 \midrule
-\revadddec{Zhang et al.~}\citep{Survey1}            & \checkmark & \texttimes & \texttimes & None    & Multimodal TS & 93  & 2005--2024 \\
-\revadddec{Liang et al.~}\citep{Survey2}            & \checkmark & $\triangle$ & \texttimes & None    & General TS        & 123 & 2017--2024 \\
-\revadddec{Kim et al.~}\citep{Survey3}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 287 & 2000--2024 \\
-\revadddec{Kong et al.~}\citep{Survey4}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 285 & 2000--2024 \\
-\revadddec{Nie et al.~}\citep{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
-\revadddec{Arsenault et al.~}\citep{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
+Zhang et al.~\citep{Survey1}            & \checkmark & \texttimes & \texttimes & None    & Multimodal TS & 93  & 2005--2024 \\
+Liang et al.~\citep{Survey2}            & \checkmark & $\triangle$ & \texttimes & None    & General TS        & 123 & 2017--2024 \\
+Kim et al.~\citep{Survey3}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 287 & 2000--2024 \\
+Kong et al.~\citep{Survey4}            & \checkmark & \texttimes & \texttimes & Metrics & General TS    & 285 & 2000--2024 \\
+Nie et al.~\citep{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
+Arsenault et al.~\citep{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
 \midrule
-\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{\revdeldec{ 130}\revadddec{131}} & \textbf{2021--early 2026} \\
+\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{199} & \textbf{1950--2026} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -38,7 +38,7 @@
  & Diffusion Models & TimeGrad \citep{rasul2021timegrad} & Multivariate Series & CRPS, Predictive Likelihood \\
  & Foundation Models & Chronos \citep{ansari2024chronos}, FinCast \citep{zhu2025fincast} & Multi-asset & Zero-shot MSE, MAE \\
 \midrule
-\multirow{2}{*}{\textbf{Imputation}} & Tensor Methods & RegTensor \citep{zhou2023regtensor} & Fundamentals & Reconstruction Error \\
+\multirow{2}{*}{\textbf{Imputation}} & Tensor Methods & RegTensor~\citep{zhou2023regtensor} & Fundamentals & Reconstruction Error \\
  & Diffusion Models & CSDI \citep{tashiro2021csdi}, TimeDiT \citep{cao2024timedit} & Missing Prices & Temporal Coherence \\
 \midrule
 \multirow{3}{*}{\textbf{Synthesis}} & GANs & QuantGAN \citep{wiese2020} & Returns & Stylized Facts \\
@@ -145,70 +145,14 @@
 \scriptsize
 \caption{Summary of Recent Financial Time-Series Generation Benchmarks.}
 \label{tab:datasets}
-\revdelblock{ 
-
-
-\markdel{\textbf{Dataset / Benchmark} 
-\textbf{Tasks} 
-\textbf{Primary Data Sources} 
-\textbf{Split Ratio} 
-\textbf{Scale (Approx.)} }
-
-
-\markdel{\textbf{FinTSB} 
-Extrapolation / Imputation 
-Chinese A-share, NYSE, NASDAQ 
-7:1:2 
-150M points }
-
-
-\markdel{\textbf{GIFT-EVAL} 
-Forecasting 
-27 datasets (Stock, Crypto, FX, etc.) 
-Various 
-144,380 series }
-
-\markdel{\textbf{TFB} 
-Forecasting 
-Broad finance domain 
-Various 
-2.1M series }
-
-
-\markdel{\textbf{FinTSBridge} 
-Extrapolation / Imputation 
-S\&P 500, NASDAQ, FTSE, CSI 300 
-7:1:2 
-86,978 series }
-
-\markdel{\textbf{TSGBench} 
-Synthesis / Simulation 
-GOOGL, Global Exchanges 
-9:0:1 
-13,213 series }
-
-\markdel{\textbf{CTBench} 
-Synthesis 
-Cryptocurrencies on Binance 
-9:0:1 
-530 series }
-
-\markdel{\textbf{FinMultiTime} 
-Extrapolation 
-S\&P 500, HS 300 
-N/A 
-6M points }
-
-
-
-}\revaddblock{\resizebox{\textwidth}{!}{%
+\resizebox{\textwidth}{!}{%
 \begin{tabular}{p{3.5cm} c p{4.5cm} c c}
 \toprule
 \textbf{Dataset / Benchmark} & \textbf{Tasks} & \textbf{Primary Data Sources} & \textbf{Split Ratio} & \textbf{Scale (Approx.)} \\
 \midrule
 \textbf{FinTSB} \citep{hu2025fintsb} & Extrapolation / Imputation & Chinese A-share, NYSE, NASDAQ & 7:1:2 & 150M points \\
 \rowcolor{gray!10}
-\textbf{GIFT-EVAL} \citep{GIFT-EVAL} & Forecasting & 27 datasets (Stock, Crypto, FX, etc.) & Various & 144,380 series \\
+\textbf{GIFT-Eval} \citep{GIFT-Eval} & Forecasting & 27 datasets (Stock, Crypto, FX, etc.) & Various & 144,380 series \\
 \textbf{TFB} \citep{TFB} & Forecasting & Broad finance domain & Various & 2.1M series \\
 \rowcolor{gray!10}
 \textbf{FinTSBridge} \citep{wang2025fintsbridge} & Extrapolation / Imputation & S\&P 500, NASDAQ, FTSE, CSI 300 & 7:1:2 & 86,978 series \\
@@ -218,7 +162,7 @@ N/A
 \bottomrule
 \end{tabular}%
 }
-}\end{table*}
+\end{table*}
 
 \vspace{2em}
 
@@ -233,15 +177,15 @@ N/A
 \midrule
 Initial Keyword Search & 2,568 & 2,568 & N/A \\
 Title/Abstract Screening & 2,568 & 604 & Not financial data / Pure deterministic forecasting \\
-Full-text Review & 604 & \textbf{\revdeldec{ 130}\revadddec{131}} & Weak financial validation / Duplicated preprints \\
+Full-text Review & 604 & \textbf{131} & Weak financial validation / Duplicated preprints \\
 \midrule
 \multicolumn{4}{l}{\textbf{Primary Task Assignment}} \\
 \quad Extrapolation & & 54 & \\
 \quad Imputation & & 29 & \\
-\quad Synthesis / Simulation & & \revdeldec{ 47 }\revadddec{48 }& \\
+\quad Synthesis / Simulation & & 48 & \\
 \bottomrule
 \end{tabular}
 \begin{flushleft}
-\textit{Note: Each of the \revdeldec{ 130 }\revadddec{131 }retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g., forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not double-counted.}
+\textit{Note: Each of the 131 retained studies is assigned to exactly one primary task category; cross-cutting contributions (e.g., forecasting with imputation or synthesis with scenario conditioning) are discussed in the relevant sections but are not double-counted.}
 \end{flushleft}
 \end{table*}

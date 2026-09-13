@@ -3,7 +3,7 @@
 \begin{table*}[!ht]
 \centering
 \scriptsize
-\caption{Comparison of this survey with the six prior surveys cited in the literature comparison. \textbf{FTSE/FTSI/FTSS} columns use \checkmark/\texttimes\ for whether the sub-task is a first-class topic ($\triangle$ = mentioned but no dedicated section). \textbf{Eval.} distinguishes a unified \emph{protocol} from per-paper \emph{metrics}. \textbf{Datasets} indicates whether financial benchmarks are inventoried. \textbf{\# refs} is the count of references cited in each survey. \textbf{Window} is the publication-year range of each survey's references.}
+\caption{Comparison of this survey with the six prior surveys cited in the literature comparison. \textbf{FTSE/FTSI/FTSS} columns use \checkmark/\texttimes\ for whether the sub-task is a first-class topic ($\triangle$ = mentioned but no dedicated section). \textbf{Eval.} distinguishes a unified \emph{protocol} from per-paper \emph{metrics}. \textbf{Datasets} indicates whether financial benchmarks are inventoried. \textbf{\# refs} is the count of references cited in each survey. \textbf{Window} is the publication-year range of each survey's references; for this survey it extends before the 2021--early 2026 search window because foundational statistical and econometric references are retained.}
 \label{tab:related_surveys}
 \renewcommand{\arraystretch}{1.18}
 \begin{tabular}{l c c c l l c l}
@@ -17,7 +17,7 @@ Kong et al.~\citep{Survey4}            & \checkmark & \texttimes & \texttimes & 
 Nie et al.~\citep{FinSurvey1}         & \checkmark & \texttimes & \texttimes & Metrics & Financial NLP     & 318 & 2001--2024 \\
 Arsenault et al.~\citep{FinSurvey3}         & \checkmark & \texttimes & \texttimes & Metrics & Financial TS      & 115 & 2018--2023 \\
 \midrule
-\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{131} & \textbf{2021--early 2026} \\
+\textbf{This survey}      & \checkmark & \checkmark & \checkmark & \textbf{Protocol} & \textbf{Financial TS} & \textbf{199} & \textbf{1950--2026} \\
 \bottomrule
 \end{tabular}
 \end{table*}
@@ -38,8 +38,8 @@ Arsenault et al.~\citep{FinSurvey3}         & \checkmark & \texttimes & \texttim
  & Diffusion Models & TimeGrad \citep{rasul2021timegrad} & Multivariate Series & CRPS, Predictive Likelihood \\
  & Foundation Models & Chronos \citep{ansari2024chronos}, FinCast \citep{zhu2025fincast} & Multi-asset & Zero-shot MSE, MAE \\
 \midrule
-\multirow{2}{*}{\textbf{Imputation}} & Tensor Methods & RegTensor \citep{zhou2023regtensor} & Fundamentals & Reconstruction Error \\
- & Diffusion Models & CSDI \citep{tashiro2021csdi}, TimeDiT \citep{TimeDiT} & Missing Prices & Temporal Coherence \\
+\multirow{2}{*}{\textbf{Imputation}} & Tensor Methods & RegTensor~\citep{zhou2023regtensor} & Fundamentals & Reconstruction Error \\
+ & Diffusion Models & CSDI \citep{tashiro2021csdi}, TimeDiT \citep{cao2024timedit} & Missing Prices & Temporal Coherence \\
 \midrule
 \multirow{3}{*}{\textbf{Synthesis}} & GANs & QuantGAN \citep{wiese2020} & Returns & Stylized Facts \\
  & Diffusion Models & CoFinDiff \citep{tanaka2025cofindiff} & Scenarios & Distributional Fidelity \\
@@ -152,7 +152,7 @@ Arsenault et al.~\citep{FinSurvey3}         & \checkmark & \texttimes & \texttim
 \midrule
 \textbf{FinTSB} \citep{hu2025fintsb} & Extrapolation / Imputation & Chinese A-share, NYSE, NASDAQ & 7:1:2 & 150M points \\
 \rowcolor{gray!10}
-\textbf{GIFT-EVAL} \citep{GIFT-EVAL} & Forecasting & 27 datasets (Stock, Crypto, FX, etc.) & Various & 144,380 series \\
+\textbf{GIFT-Eval} \citep{GIFT-Eval} & Forecasting & 27 datasets (Stock, Crypto, FX, etc.) & Various & 144,380 series \\
 \textbf{TFB} \citep{TFB} & Forecasting & Broad finance domain & Various & 2.1M series \\
 \rowcolor{gray!10}
 \textbf{FinTSBridge} \citep{wang2025fintsbridge} & Extrapolation / Imputation & S\&P 500, NASDAQ, FTSE, CSI 300 & 7:1:2 & 86,978 series \\
@@ -182,7 +182,7 @@ Full-text Review & 604 & \textbf{131} & Weak financial validation / Duplicated p
 \multicolumn{4}{l}{\textbf{Primary Task Assignment}} \\
 \quad Extrapolation & & 54 & \\
 \quad Imputation & & 29 & \\
-\quad Synthesis / Simulation & & 47 & \\
+\quad Synthesis / Simulation & & 48 & \\
 \bottomrule
 \end{tabular}
 \begin{flushleft}

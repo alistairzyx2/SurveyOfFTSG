@@ -27,7 +27,7 @@ Synthetic sequence generation, or data synthesis, is an unconditional or conditi
 \subsection{Technique-Level Taxonomy}
 To map the rapid evolution of algorithmic approaches, the underlying generative techniques can be grouped into six families.
 
-Statistical and probabilistic methods include classical approaches such as ARIMA~\citep{box1970} and GARCH~\citep{bollerslev1986garch}, which model conditional mean and variance based on rigid mathematical assumptions.
+Statistical and probabilistic methods include classical approaches such as ARIMA~\citep{box2015time} and GARCH~\citep{bollerslev1986garch}, which model conditional mean and variance based on rigid mathematical assumptions.
 
 Discriminative deep sequence models include recurrent neural networks (RNNs)~\citep{elman1990finding} and long short-term memory (LSTM) networks~\citep{hochreiter1997lstm} optimized via pointwise loss functions.
 
@@ -37,7 +37,7 @@ Diffusion and score-based models~\citep{ho2020ddpm,song2019generative,song2021sc
 
 Foundation models and LLM-based models are recent adaptations of large pre-trained Transformers~\citep{vaswani2017attention,brown2020language} to the time-series domain, represented by models such as Chronos~\citep{ansari2024chronos}, OneFitsAll~\citep{zhou2023onefitsall}, and Time-LLM~\citep{jin2024timellm}.
 
-Controllable and multimodal generative models, including TimeWeaver~\citep{narasimhan2024timeweaver}, T2S~\citep{T2S}, and dual-sourced text--time diffusion models~\citep{lozano2023dual}, are designed to generate sequences conditioned on textual instructions, macroeconomic indicators, or specific volatility regimes.
+Controllable and multimodal generative models, including TimeWeaver~\citep{narasimhan2024timeweaver} and T2S~\citep{T2S}, are designed to generate sequences conditioned on textual instructions, macroeconomic indicators, or specific volatility regimes~\citep{wang2024mtsisurvey}.
 
 The detailed classification of FTSG methods, organized by task and technique, is summarized in Figure ~\ref{fig:taxonomy} for a clear overview.
 

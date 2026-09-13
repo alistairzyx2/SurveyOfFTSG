@@ -55,11 +55,13 @@ imputation paradigm, and it remains a baseline in many open finance
 datasets for handling missing quotes during off-hours, ticker
 delistings, and exchange halts. Subsequent work has tightened the fit
 between GAN imputation and financial time structure:
-ImputeGAN~\citep{qin2023imputegan} and
-AttnWGAIN~\citep{wang2025attn} replace generic CNN backbones with
-Informer and diagonal-masked attention respectively, both reporting
-smaller distributional drift on the K-line dataset than linear interpolation or MICE
- baselines~\citep{vanbuuren1999multiple}. Beyond price reconstruction, missing-data scenarios in
+ImputeGAN~\citep{qin2023imputegan} couples a GAN with an iterative
+gradient-based refinement step, reporting smaller distributional drift
+than case deletion, statistics-based and machine-learning
+baselines~\citep{vanbuuren1999multiple}. A complementary line of work
+replaces the convolutional generator outright: diagonal-masked attention
+has independently improved imputation accuracy on IoT sensor
+panels~\citep{wang2025attn}. Beyond price reconstruction, missing-data scenarios in
 finance also arise at the macro layer.
 FCI~\citep{herculano2025financial} uses Bayesian factor imputation to
 keep Financial Condition Indices computable during incomplete-reporting
@@ -122,13 +124,13 @@ window, and Fin-Denoiser~\citep{wang2024denoiser} supplies high-SNR
 scenarios for risk models that are sensitive to data
 artifacts.
 
-perhaps the most visible deployment of FTSS is as a training environment for RL
+Perhaps the most visible deployment of FTSS is as a training environment for RL
 trading agents. FinRL-Meta~\citep{liu2022finrlmeta} ships near-real
 market environments built from Yahoo Finance and CCXT feeds and
 demonstrates that DRL agents pre-trained on these synthetic-augmented
 environments generalize better to the held-out test year than agents
 trained only on the historical window --- a result that is reproduced
-across DOW-30, S\&P-500 and crypto-asset universes.
+across Dow-30, S\&P-500 and crypto-asset universes.
 MarS~\citep{li2025mars} extends this idea to the order level by
 generating asynchronous event streams, allowing agents to be evaluated
 on metrics such as realized spread and adverse-selection cost~\citep{glosten1985bid,huang1996dealer} that are invisible to bar-level environments. Robust Risk-Sensitive RL

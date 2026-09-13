@@ -1,8 +1,8 @@
 \section{Methods}
 \label{sec:methods}
 
-\revadddec{This review follows the reporting logic of PRISMA 2020 for transparent search, screening, eligibility assessment, and synthesis~\citep{page2021prisma}.
-}To ensure the reproducibility, transparency, and comprehensiveness of this review, we adhered to a systematic literature review methodology tailored to the intersection of artificial intelligence and quantitative finance, designed in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA 2020) guidelines\revadddec{~\citep{page2021prisma}}. The completed PRISMA 2020 checklist is provided as Supplementary Information. This section outlines our protocols for literature retrieval, inclusion/exclusion criteria, data extraction, and the dimensions utilized for synthesizing the gathered research.
+This review follows the reporting logic of PRISMA 2020 for transparent search, screening, eligibility assessment, and synthesis~\citep{page2021prisma}.
+To ensure the reproducibility, transparency, and comprehensiveness of this review, we adhered to a systematic literature review methodology tailored to the intersection of artificial intelligence and quantitative finance, designed in accordance with the Preferred Reporting Items for Systematic Reviews and Meta-Analyses (PRISMA 2020) guidelines~\citep{page2021prisma}. The completed PRISMA 2020 checklist is provided as Supplementary Information. This section outlines our protocols for literature retrieval, inclusion/exclusion criteria, data extraction, and the dimensions utilized for synthesizing the gathered research.
 
 \subsection{Literature Retrieval Strategy}
 Our primary objective was to capture the state-of-the-art advancements in financial time-series generation, particularly focusing on the paradigm shift driven by generative AI over recent years.
@@ -12,61 +12,24 @@ We conducted exhaustive searches across premier academic databases and preprint 
 To construct a robust search query, we combined terms related to the financial domain, time-series data, and generative tasks. The primary Boolean search strings included:
 (\textit{``financial time-series generation''} OR \textit{``synthetic financial data''} OR \textit{``market simulation generative model''}) AND (\textit{``financial diffusion model''} OR \textit{``financial GAN''} OR \textit{``time-series imputation finance''} OR \textit{``financial foundation models''}).
 
-Given the rapid evolution of deep generative models, we restricted our primary search window to papers published or uploaded between \revdeldec{ \textbf{2021 and early 2026 (including early-access and preprints)}}\revadddec{2021 and early 2026 (including early-access and preprints)}. We included articles from high-impact journals (e.g., \textit{Information Sciences}, \textit{Expert Systems with Applications}, \textit{Quantitative Finance}), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI), and highly cited arXiv preprints that represent significant methodological breakthroughs.
+Given the rapid evolution of deep generative models, we restricted our primary search window to papers published or uploaded between 2021 and early 2026 (including early-access and preprints). We included articles from high-impact journals (e.g., \textit{Information Sciences}, \textit{Expert Systems with Applications}, \textit{Quantitative Finance}), top-tier computer science conferences (e.g., NeurIPS, ICML, ICLR, KDD, IJCAI), and highly cited arXiv preprints that represent significant methodological breakthroughs.
 
-After full-text screening, the final corpus comprises \revdeldec{ 130 }\revadddec{131 }studies, each assigned to a unique primary task category: extrapolation (54), imputation (29), and synthesis (\revdeldec{ 47}\revadddec{48}). Multi-task or cross-cutting contributions are discussed in the relevant sections but are not double-counted in task-level comparison tables.
+After full-text screening, the final corpus comprises 131 studies, each assigned to a unique primary task category: extrapolation (54), imputation (29), and synthesis (48). Multi-task or cross-cutting contributions are discussed in the relevant sections but are not double-counted in task-level comparison tables.
 
 \subsection{Inclusion and Exclusion Criteria}
-As illustrated in Figure\revdeldec{ \ref{fig:lit_dist}, to maintain a high signal-to-noise ratio and ensure strict relevance to the core theme of FTSG, }\revadddec{~\ref{fig:lit_dist}, }all retrieved papers underwent a two-stage screening process\revdeldec{ (}\revadddec{, comprising }title/abstract screening followed by full-text review \revdeldec{ ) based on the following criteria:
-}\revaddblock{\markadd{against explicit eligibility criteria.}
+As illustrated in Figure~\ref{fig:lit_dist}, all retrieved papers underwent a two-stage screening process, comprising title/abstract screening followed by full-text review against explicit eligibility criteria.
 
-}\revdelblock{\markdel{ The following inclusion criteria were applied:}
+Studies were eligible when they explicitly formulated or addressed the generation, imputation, or fully synthetic simulation of financial time-series data, proposed novel generative architectures specifically adapted for financial contexts, or established unified evaluation protocols, benchmarks, or datasets for synthetic financial data.
 
-
-\markdel{Papers that explicitly formulate and address }}\revadddec{Studies were eligible when they explicitly formulated or addressed }the generation, imputation, or fully synthetic simulation of financial time-series data\revdelblock{\markdel{ .}
-    
-\markdel{Studies that propose }}\revadddec{, proposed }novel generative architectures \revdeldec{ (e.g., GANs, diffusion models, LLMs) }specifically adapted for financial contexts\revdelblock{\markdel{ .}
-    
-\markdel{Research that establishes }}\revadddec{, or established }unified evaluation protocols, benchmarks, or datasets for synthetic financial data.
-
-\revdelblock{\markdel{ Papers meeting any of the following exclusion criteria were removed:}
-
-
-\markdel{Purely }}\revadddec{We excluded purely }predictive or forecasting studies that treat\revadddec{ed} outputs strictly as deterministic point estimates without a generative, distributional, or probabilistic perspective. \revdeldec{ 
-General }\revadddec{We also excluded general }time-series generation papers \revdeldec{ that lack }\revadddec{without }an identifiable and empirically tested financial application\revdeldec{ (e.g., solely tested }\revadddec{, such as studies tested solely }on weather or traffic data\revdelblock{\markdel{ ).}
-    
-\markdel{Outdated }}\revadddec{, together with earlier }surveys or methodologies that \revdeldec{ do }\revadddec{did }not incorporate modern deep learning or generative AI techniques \revdeldec{ , unless }\revadddec{unless they were }necessary for historical context.
+We excluded purely predictive or forecasting studies that treated outputs strictly as deterministic point estimates without a generative, distributional, or probabilistic perspective. We also excluded general time-series generation papers without an identifiable and empirically tested financial application, such as studies tested solely on weather or traffic data, together with earlier surveys or methodologies that did not incorporate modern deep learning or generative AI techniques unless they were necessary for historical context.
 
 \subsection{Data Extraction and Coding Protocol}
-\revdelblock{\markdel{ For each paper that met the inclusion criteria, we executed a structured data extraction protocol. Two independent reviewers (authors) coded the literature to extract key metadata, minimizing subjective bias.
-The extracted fields included:}
+Two reviewers independently screened records and completed a structured extraction form; disagreements were resolved by discussion, consistent with PRISMA 2020 guidance~\citep{page2021prisma}.
 
-
-\markdel{\textbf{Task Type:} Extrapolation}}\revaddblock{\markadd{Two reviewers independently screened records and completed a structured extraction form; disagreements were resolved by discussion, consistent with PRISMA 2020 guidance~\citep{page2021prisma}.}
-
-\markadd{Task type recorded whether a study addressed extrapolation}}, imputation, micro-level synthesis, or macro-level market simulation. \revdeldec{ 
-\textbf{Model Family:} Statistical/}\revadddec{Model family classified each method as statistical or }probabilistic, discriminative deep learning, GAN-based, diffusion \revdeldec{ /}\revadddec{or }score-based, or \revdeldec{ foundation/}\revadddec{foundation-model or }LLM-based\revdeldec{ models. 
-\textbf{Data Modality:} Univariate vs. multivariate }\revadddec{. Data modality captured whether the study used univariate or multivariate series, its sampling frequency}, \revdeldec{ frequency (high-frequency order book vs. daily/monthly returns), and conditioning variables (e.g., text , macroeconomic indicators). 
-\textbf{Evaluation Metrics:} The specific }\revadddec{and any conditioning variables such as text or macroeconomic indicators. Evaluation metrics documented the }quantitative and qualitative \revdeldec{ metrics }\revadddec{measures }used to validate \revdeldec{ the generated outputs(e.g., }\revadddec{generated outputs, including }MSE, Wasserstein distance, stylized facts, \revdeldec{ downstream utility). 
-\textbf{Code/Data Availability:} Whether the authors open-sourced their codebases or utilized }\revadddec{and downstream utility. Code and data availability recorded whether authors released code or used }public benchmark datasets.
+Task type recorded whether a study addressed extrapolation, imputation, micro-level synthesis, or macro-level market simulation. Model family classified each method as statistical or probabilistic, discriminative deep learning, GAN-based, diffusion or score-based, or foundation-model or LLM-based. Data modality captured whether the study used univariate or multivariate series, its sampling frequency, and any conditioning variables such as text or macroeconomic indicators. Evaluation metrics documented the quantitative and qualitative measures used to validate generated outputs, including MSE, Wasserstein distance, stylized facts, and downstream utility. Code and data availability recorded whether authors released code or used public benchmark datasets.
 
 \subsection{Review Dimensions and Taxonomy Synthesis}
-The extracted data were synthesized \revdeldec{ and are presented }in the Results and Discussion sections along six \revdelblock{\markdel{ unified analytical dimensions:}
+The extracted data were synthesized in the Results and Discussion sections along six analytical dimensions.
 
-
-\markdel{\textbf{Task Formulation:} Defining }}\revaddblock{\markadd{analytical dimensions.}
-
-\markadd{Task formulation defined }}the mathematical boundaries and generative objectives of extrapolation, imputation, and synthesis\revdeldec{ (presented in the }\revadddec{, as presented in }Problem Formulation and \revdeldec{ A Two-Level Taxonomy subsection). 
-\textbf{Model Design:} Analyzing }\revadddec{Setup. Model design examined }how specific generative architectures \revdeldec{ are engineered to overcome }\revadddec{address }financial data challenges \revdelblock{\markdel{ (detailed across the Extrapolation, Imputation, and Synthesis subsections).}
-    
-\markdel{\textbf{Applications:} Examining how }}\revadddec{across the }extrapolation, imputation, and synthesis \revadddec{subsections. Applications examined how these tasks }support downstream quantitative workflows\revdeldec{ (presented in the Applications subsection). 
-\textbf{Evaluation Protocol:} Critiquing }\revadddec{. Evaluation protocol assessed }how the financial realism and empirical validity of generated series are quantified\revdeldec{ (presented in the Evaluation Protocols subsection). 
-\textbf{Datasets and Benchmarks:} Summarizing }\revadddec{. Datasets and benchmarks summarized }the empirical foundations \revdelblock{\markdel{ upon which generative modelsare trained and benchmarked (presented in the Data Resources and Benchmarks subsection).}
-    
-\markdel{\textbf{Open Challenges and Roadmap:} Identifying }}\revadddec{used to train and evaluate generative models. Open challenges and the roadmap identified }theoretical and practical bottlenecks requiring future research \revdeldec{ interventions (presented }\revadddec{and are discussed }in the Discussion section\revdelblock{\markdel{ ).}
-
-
-
-
-}\revadddec{.
-}By rigorously adhering to this methodology, this survey transitions from a mere enumeration of literature to a systematic, evaluation-oriented resource paper, providing a \revdeldec{ highly reliable foundation for researchers in the field}\revadddec{reproducible basis for subsequent synthesis and critical appraisal}.
+Task formulation defined the mathematical boundaries and generative objectives of extrapolation, imputation, and synthesis, as presented in Problem Formulation and Setup. Model design examined how specific generative architectures address financial data challenges across the extrapolation, imputation, and synthesis subsections. Applications examined how these tasks support downstream quantitative workflows. Evaluation protocol assessed how the financial realism and empirical validity of generated series are quantified. Datasets and benchmarks summarized the empirical foundations used to train and evaluate generative models. Open challenges and the roadmap identified theoretical and practical bottlenecks requiring future research and are discussed in the Discussion section.
+By rigorously adhering to this methodology, this survey transitions from a mere enumeration of literature to a systematic, evaluation-oriented resource paper, providing a reproducible basis for subsequent synthesis and critical appraisal.
