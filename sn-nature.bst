@@ -1592,6 +1592,8 @@ FUNCTION {misc}
     { skip$ }
   if$
   new.block
+  format.url output
+  new.block
   format.preprint output
   new.block
   format.note output

@@ -17,13 +17,6 @@
 \usepackage{float}
 \usepackage{microtype}
 
-% Tighten line-breaking tolerance so that long technical compounds
-% (e.g. "$\mu$-parameterized", "privacy-preserving") do not overflow the margin.
-\tolerance=3000
-\emergencystretch=3em
-\hbadness=10000
-\vbadness=10000
-
 \usepackage[numbers,sort&compress]{natbib}
 % Nature format: superscript citations + numbered reference list without brackets
 \setcitestyle{numbers,sort&compress,super}
@@ -36,9 +29,6 @@
 % Clean version: revision markers render as plain text (marked version redefines them in red)
 \providecommand{\revadd}[1]{#1}
 \providecommand{\revdel}[1]{}
-% \revnote is used only in the marked-up version to flag removed secondary subheadings;
-% it is deliberately invisible in the clean version.
-\providecommand{\revnote}[1]{}
 
 % Title, Authors, and Affiliations
 \title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}}
