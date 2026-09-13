@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  13 SEP 2026 21:14
+This is pdfTeX, Version 3.141592653-2.6-1.40.27 (TeX Live 2025) (preloaded format=pdflatex 2025.12.26)  13 SEP 2026 22:34
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1067,26 +1067,26 @@ r/local/texlive/2025basic/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc}]
 [23]
 
 [24]
+
+[25]
 Overfull \hbox (4.82483pt too wide) in paragraph at lines 94--95
 []\T1/cmr/m/n/10.95 (-20) The first di-rec-tion is con-di-tional speci-ficity a
 nd scenario-based eval-u-a-tion: stan-dard distribution-
  []
 
-
-
-[25]) (./sections/09_data_resources.tex
+) (./sections/09_data_resources.tex
 
 [26]
 
 [27]) (./sections/10_challenges.tex
 
-[28])
+[28]
 
-[29] (./sections/02_methodology.tex
+[29]) (./sections/02_methodology.tex
 
-[30]) (./sections/12_declarations.tex
+[30])
 
-[31])
+[31] (./sections/12_declarations.tex)
 
 [32] (./is26.bbl
 
@@ -1121,7 +1121,7 @@ n-da-men-tals and mar-ket data.
 [44])
 
 [45] (./sections/13_figures.tex
-<separate_figures/Figure1.pdf, id=1086, 682.86618pt x 341.4326pt>
+<separate_figures/Figure1.pdf, id=1088, 682.86618pt x 341.4326pt>
 File: separate_figures/Figure1.pdf Graphic file (type pdf)
 <use separate_figures/Figure1.pdf>
 Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
@@ -1129,7 +1129,7 @@ Package pdftex.def Info: separate_figures/Figure1.pdf  used on input line 5.
 
 
 [46 <./separate_figures/Figure1.pdf>]
-<separate_figures/Figure2.pdf, id=1105, 625.96059pt x 469.47095pt>
+<separate_figures/Figure2.pdf, id=1107, 625.96059pt x 469.47095pt>
 File: separate_figures/Figure2.pdf Graphic file (type pdf)
 <use separate_figures/Figure2.pdf>
 Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
@@ -1137,7 +1137,7 @@ Package pdftex.def Info: separate_figures/Figure2.pdf  used on input line 14.
 
 
 [47 <./separate_figures/Figure2.pdf>]
-<final_figures/comparison_00.png, id=1137, 1049.13303pt x 586.28023pt>
+<final_figures/comparison_00.png, id=1139, 1049.13303pt x 586.28023pt>
 File: final_figures/comparison_00.png Graphic file (type png)
 <use final_figures/comparison_00.png>
 Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
@@ -1146,7 +1146,7 @@ Package pdftex.def Info: final_figures/comparison_00.png  used on input line 23
 
 
 [48 <./final_figures/comparison_00.png>]
-<final_figures/DiffWithDiscreteContinous.pdf, id=1144, 1460.73305pt x 495.75854
+<final_figures/DiffWithDiscreteContinous.pdf, id=1146, 1460.73305pt x 495.75854
 pt>
 File: final_figures/DiffWithDiscreteContinous.pdf Graphic file (type pdf)
 <use final_figures/DiffWithDiscreteContinous.pdf>
@@ -1156,7 +1156,7 @@ nput line 32.
 
 
 [49 <./final_figures/DiffWithDiscreteContinous.pdf>]
-<final_figures/FTSA.pdf, id=1170, 547.11751pt x 204.96274pt>
+<final_figures/FTSA.pdf, id=1172, 547.11751pt x 204.96274pt>
 File: final_figures/FTSA.pdf Graphic file (type pdf)
 <use final_figures/FTSA.pdf>
 Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
@@ -1164,7 +1164,7 @@ Package pdftex.def Info: final_figures/FTSA.pdf  used on input line 41.
 
 
 [50 <./final_figures/FTSA.pdf>]
-<final_figures/filter_pipeline.png, id=1221, 2175.12625pt x 727.71875pt>
+<final_figures/filter_pipeline.png, id=1223, 2175.12625pt x 727.71875pt>
 File: final_figures/filter_pipeline.png Graphic file (type png)
 <use final_figures/filter_pipeline.png>
 Package pdftex.def Info: final_figures/filter_pipeline.png  used on input line 
@@ -1340,10 +1340,10 @@ e1/public/cm-super/sfti0800.pfb></usr/local/texlive/2025basic/texmf-dist/fonts/
 type1/public/cm-super/sfti1095.pfb></usr/local/texlive/2025basic/texmf-dist/fon
 ts/type1/public/cm-super/sftt0900.pfb></usr/local/texlive/2025basic/texmf-dist/
 fonts/type1/public/cm-super/sftt1095.pfb>
-Output written on is26.pdf (54 pages, 5146843 bytes).
+Output written on is26.pdf (54 pages, 5147250 bytes).
 PDF statistics:
- 1482 PDF objects out of 1728 (max. 8388607)
- 1300 compressed objects within 13 object streams
+ 1485 PDF objects out of 1728 (max. 8388607)
+ 1302 compressed objects within 14 object streams
  362 named destinations out of 1000 (max. 500000)
  56731 words of extra memory for PDF output out of 61914 (max. 10000000)
 

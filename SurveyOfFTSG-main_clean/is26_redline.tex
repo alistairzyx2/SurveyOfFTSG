@@ -1,7 +1,7 @@
 \documentclass[11pt,a4paper]{article}
 %DIF LATEXDIFF DIFFERENCE FILE
-%DIF DEL /tmp/redline_HIGRfR/old/flat.tex   Sun Sep 13 21:17:24 2026
-%DIF ADD /tmp/redline_HIGRfR/new/flat.tex   Sun Sep 13 21:17:24 2026
+%DIF DEL /tmp/redline_zpueL1/old/flat.tex   Sun Sep 13 22:34:29 2026
+%DIF ADD /tmp/redline_zpueL1/new/flat.tex   Sun Sep 13 22:34:29 2026
 
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
@@ -406,8 +406,8 @@ Recent literature indicates a substantial shift toward handling complex, non-ran
 \DIFdel{and Du et al.~}%DIFDELCMD < \citep{du2024}%%%
 \DIFdelend \DIFaddbegin \DIFadd{~}\citep{wang2024mtsisurvey,richter2024survey}\DIFaddend , the field is rapidly moving away from isolated point-interpolators toward unified, context-aware sequence modelers. We highlight three critical emerging trends driving this evolution.
 
-The first trend concerns unified multi-task architectures: instead of treating imputation as an isolated preprocessing step, modern models increasingly solve related financial tasks simultaneously to improve representational learning. For example, \DIFdelbegin \DIFdel{Miao et al.~}%DIFDELCMD < \citep{miao2025} %%%
-\DIFdel{propose }\DIFdelend coupled diffusion models \DIFaddbegin \DIFadd{have been developed }\DIFaddend that jointly perform forecasting and imputation, leveraging shared latent representations to enforce temporal consistency. To enhance structural robustness, \DIFdelbegin \DIFdel{Zhang et al.~}%DIFDELCMD < \citep{zhang2023imputation} %%%
+The first trend concerns unified multi-task architectures: instead of treating imputation as an isolated preprocessing step, modern models increasingly solve related financial tasks simultaneously to improve representational learning. For example, \DIFdelbegin \DIFdel{Miao }\DIFdelend \DIFaddbegin \DIFadd{CSDI~}\citep{tashiro2021csdi} \DIFadd{was designed for probabilistic imputation and extends to interpolation and forecasting within the same conditional framework, while Zhang }\DIFaddend et al.~\DIFdelbegin %DIFDELCMD < \citep{miao2025} %%%
+\DIFdel{propose coupled diffusion models that jointly perform forecasting and imputation, leveraging shared latent representations to enforce temporal consistency}\DIFdelend \DIFaddbegin \citep{Score-CDM} \DIFadd{propose a score-weighted convolutional diffusion model that uses spectral-domain convolution to adaptively change the receptive field of the score map}\DIFaddend . To enhance structural robustness, \DIFdelbegin \DIFdel{Zhang et al.~}%DIFDELCMD < \citep{zhang2023imputation} %%%
 \DIFdel{use }\DIFdelend dual-attention networks \DIFdelbegin \DIFdel{to }\DIFdelend simultaneously capture local and global dependencies, while \DIFdelbegin \DIFdel{Cai et al.~}%DIFDELCMD < \citep{cai2025} %%%
 \DIFdel{employ }\DIFdelend temporal graph networks (TGNs)~\citep{rossi2020temporal} \DIFdelbegin \DIFdel{to }\DIFdelend map dynamic cross-asset spillovers\DIFdelbegin \DIFdel{during fragmented market outages }%DIFDELCMD < \citep{chen2023b}%%%
 \DIFdel{. Furthermore, Zhang et al.~}%DIFDELCMD < \citep{zhang2025a} %%%
