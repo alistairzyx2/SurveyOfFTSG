@@ -1,4 +1,4 @@
-\subsection{Applications: Extrapolation and the Application Landscape}
+\subsection{Applications\revaddblock{: Extrapolation and the Application Landscape}}
 \label{sec:applications}
 % ---------------------------------------------------------------------
 
@@ -13,53 +13,56 @@ only on statistical fidelity.
 
 % --- 5.3.1 Applications of FTSE -------------------------------------
 
-FTSE is the most mature sub-task in deployment. The classical use-case
+\revdelblock{ \subsection{Applications of FTSE}
+}FTSE is the most mature sub-task in deployment. The classical use-case
 is to feed extrapolated point or quantile forecasts into a downstream
 decision module, and the strongest evidence that this works comes from
 the deep-reinforcement-learning (DRL) literature.
 FinRL~\citep{liu2020finrl} and its successor
 FinRL-Meta~\citep{liu2022finrlmeta} treat pretrained time-series
 forecasters (LSTM, Transformer, or more recently LLM-based adapters) as
-the observation pipeline for PPO/A2C/SAC trading agents~\citep{schulman2017proximal,mnih2016asynchronous,haarnoja2018soft} trained on
+the observation pipeline for PPO/A2C/SAC trading agents\revaddblock{~\citep{schulman2017proximal,mnih2016asynchronous,haarnoja2018soft} }trained on
 Dow-30 and S\&P-500 constituents; their empirical study reports that
 agents whose observation encoders are first fine-tuned on FTSE targets
-achieve higher Sharpe ratios~\citep{sharpe1994sharpe} and lower maximum drawdown than agents trained on
+achieve higher Sharpe \revaddblock{ratios~\citep{sharpe1994sharpe} }and lower maximum drawdown than agents trained on
 raw OHLCV. Hierarchical extensions such as
 HRPM~\citep{wang2020hrpm} couple a portfolio-management FTSE head with
 a separate order-execution head, explicitly accounting for price
 slippage when large extrapolation errors are amplified by capital
-allocation. Time-LLM~\citep{jin2024timellm} and CALF~\citep{liu2025calf} are representative financial forecasters with adapter architectures related to these workflows; direct, standardized FinRL comparisons remain limited.
+allocation. \revdelblock{ More recently, LLM-driven forecasters
+(}Time-LLM~\citep{jin2024timellm} \revdelblock{ , }\revaddblock{and }CALF~\citep{liu2025calf} \revdelblock{ ) have been
+evaluated as the predictor component inside FinRL-style pipelines, with consistent gains on A-share and crypto benchmarks}\revaddblock{are representative financial forecasters with adapter architectures related to these workflows; direct, standardized FinRL comparisons remain limited}.
 
 A second, often-overlooked use of FTSE is volatility and risk
 forecasting. TAIL-GAN~\citep{cont2025tailgan} is explicitly designed to
 satisfy the joint elicitability of Value-at-Risk and Expected Shortfall,
 and its authors plug the tail-respecting generator into a VaR back-test
-to examine coverage under VaR/ES back-testing criteria~\citep{acerbi2014expected}. On the option-pricing side,
+to \revdelblock{ demonstrate regulatory-grade coverage }\revaddblock{examine coverage under VaR/ES back-testing criteria~\citep{acerbi2014expected}}. On the option-pricing side,
 deep generative models of the underlying (e.g., quant GAN variants) have
-been used to produce Monte-Carlo paths~\citep{boyle1977options} that replace historical
+been used to produce Monte-Carlo paths\revaddblock{~\citep{boyle1977options} }that replace historical
 resampling for pricing exotic payoffs, where the FTSE tail behavior
 dominates pricing error. FTSE outputs also feed
 stochastic-portfolio-optimization engines: Hybrid CGAN for Portfolio
 Analysis~\citep{lu2022hybrid} trains a conditional GAN whose label is
-the Markowitz risk-aversion level~\citep{markowitz1952portfolio}, and the resulting synthetic future
+the Markowitz risk-aversion level\revaddblock{~\citep{markowitz1952portfolio}}, and the resulting synthetic future
 paths are scored by an optimizer that selects weights without committing
 to a single forecast.
 
 % --- 5.3.2 Applications of FTSI -------------------------------------
-\subsection{Applications: Imputation}
+\subsection{Applications\revdelblock{ of FTSI}\revaddblock{: Imputation}}
 
 FTSI is most often deployed in production at the data-engineering
 layer, where its outputs feed classical pipelines rather than a learning
-agent. Yoon et al.~\citep{yoon2018gain} introduced GAIN, the generative-adversarial
-imputation paradigm, and it remains a baseline in many open finance
+agent. \revdelblock{ GAIN}\revaddblock{Yoon et al.}~\citep{yoon2018gain} introduced \revaddblock{GAIN, }the generative-adversarial
+imputation paradigm\revdelblock{ and }\revaddblock{, and it }remains a baseline in many open finance
 datasets for handling missing quotes during off-hours, ticker
 delistings, and exchange halts. Subsequent work has tightened the fit
 between GAN imputation and financial time structure:
 ImputeGAN~\citep{qin2023imputegan} and
 AttnWGAIN~\citep{wang2025attn} replace generic CNN backbones with
 Informer and diagonal-masked attention respectively, both reporting
-smaller distributional drift on the K-line dataset than linear interpolation or MICE
- baselines~\citep{vanbuuren1999multiple}. Beyond price reconstruction, missing-data scenarios in
+smaller distributional drift on the K-line dataset than linear \revaddblock{interpolation }or MICE
+ baselines\revaddblock{~\citep{vanbuuren1999multiple}}. Beyond price reconstruction, missing-data scenarios in
 finance also arise at the macro layer.
 FCI~\citep{herculano2025financial} uses Bayesian factor imputation to
 keep Financial Condition Indices computable during incomplete-reporting
@@ -68,10 +71,12 @@ imputed macro factors can materially change the sign of the indicator
 relative to linear interpolation.
 
 A second family of applications concerns downstream classifier
-performance on financial tabular data. For instance, Emaan~\citep{emaan2025improving} reports
-that Transformer-enhanced GAN oversampling for synthesizing minority fraud transactions yields substantial gains
-in detection recall compared to heuristic oversampling methods such as
-SMOTE~\citep{chawla2002smote} on standard credit-card transaction benchmarks;
+performance on financial tabular data. For instance, \revdelblock{ evaluations of
+Transformer-enhanced GAN oversampling}\revaddblock{Emaan}~\citep{emaan2025improving} \revdelblock{ report
+that }\revaddblock{reports
+that Transformer-enhanced GAN oversampling for }synthesizing minority fraud transactions yields substantial gains
+in detection recall compared to heuristic \revdelblock{ interpolation baselines }\revaddblock{oversampling methods }such as
+SMOTE\revaddblock{~\citep{chawla2002smote} }on standard credit-card transaction benchmarks;
 similarly, in credit-scoring ensembles~\citep{liu2021classification},
 GAN-augmented minority classes materially reduce false-negative rates.
 These studies reinforce that, in the financial setting, generative
@@ -80,7 +85,7 @@ serve as value-adding pre-processing steps whose utility is judged by
 downstream predictive metrics.
 
 % --- 5.3.3 Applications of FTSS -------------------------------------
-\subsection{Applications: Synthesis}
+\subsection{Applications\revdelblock{ of FTSS}\revaddblock{: Synthesis}}
 
 FTSS is the sub-task with the broadest and most consequential deployment
 surface. We organize it along the natural lifecycle of a quantitative
@@ -89,37 +94,37 @@ strategy.
 ABIDES~\citep{byrd2019abides} and its Gym-compatible successor
 ABIDES-Gym~\citep{amrouni2021abides} are agent-based discrete-event
 simulators that wrap a synthetic limit-order-book generator in an
-OpenAI Gym interface~\citep{brockman2016openai}, enabling head-to-head backtests of RL agents that
+OpenAI Gym interface\revaddblock{~\citep{brockman2016openai}}, enabling head-to-head backtests of RL agents that
 interact with thousands of background traders.
-Balch et al.~\citep{balch2019how} compare single-agent market replay against
+\revaddblock{Balch et al.~}\citep{balch2019how} compare single-agent market replay against
 multi-agent interactive simulation and find that the interactive mode
 systematically reorders the leaderboard of public trading algorithms
 --- a striking demonstration that the choice of an FTSS simulation backbone can flip
-strategy rankings. Rollins and Cliff~\citep{rollins2020which} extend this with a threaded
+strategy rankings. \revaddblock{Rollins and Cliff~}\citep{rollins2020which} extend this with a threaded
 parallel simulator, scaling ABIDES-style order generation to high agent
 counts, and reproduce qualitatively different ``pecking orders'' of
 strategies compared with single-agent replay.
 
 GAN- and diffusion-based synthesizers are increasingly used to
-manufacture counterfactual tail scenarios that historical
+manufacture counterfactual \revdelblock{ or Black-Swan }\revaddblock{tail }scenarios that historical
 samples cannot supply. TAIL-GAN~\citep{cont2025tailgan} produces tail
 scenarios that satisfy joint VaR/ES elicitability and are consumed by
 bank-level stress-testing frameworks; the authors explicitly demonstrate
-that the synthesized tails perform well in VaR/ES back-tests where naive
-block bootstrap~\citep{politis1994stationary} performs less reliably. Hybrid CGAN for Portfolio
+that the synthesized tails \revdelblock{ pass the Basel }\revaddblock{perform well in VaR/ES }back-tests where naive
+\revdelblock{ block-bootstrap fails}\revaddblock{block bootstrap~\citep{politis1994stationary} performs less reliably}. Hybrid CGAN for Portfolio
 Analysis~\citep{lu2022hybrid} generates market scenarios conditioned on
-risk aversion, allowing a portfolio engine grounded in mean--variance optimization~\citep{markowitz1952portfolio} to be re-evaluated against
+risk aversion, allowing a portfolio engine \revaddblock{grounded in mean--variance optimization~\citep{markowitz1952portfolio} }to be re-evaluated against
 thousands of hypothetical regimes in seconds. On the macro-finance
 side, MacroSynth~\citep{alex2024macroeconomic} conditions on
 macroeconomic factors to produce co-occurring crash and bull-run
-scenarios, and the authors show that downstream mean--variance and
-risk-parity allocations~\citep{maillard2010properties} computed on the synthetic samples exhibit
+scenarios, and the authors show that downstream mean-\revaddblock{-}variance and
+risk-parity allocations\revaddblock{~\citep{maillard2010properties} }computed on the synthetic samples exhibit
 sign-consistent risk premia relative to the historical record.
 Diffusion-based generators are entering the same niche:
 CoFinDiff~\citep{tanaka2025cofindiff} is evaluated as a scenario engine
 for a portfolio whose weights are re-optimized on each generated
 window, and Fin-Denoiser~\citep{wang2024denoiser} supplies high-SNR
-scenarios for risk models that are sensitive to data
+scenarios for risk models that are \revdelblock{ notoriously }sensitive to data
 artifacts.
 
 perhaps the most visible deployment of FTSS is as a training environment for RL
@@ -131,23 +136,25 @@ trained only on the historical window --- a result that is reproduced
 across DOW-30, S\&P-500 and crypto-asset universes.
 MarS~\citep{li2025mars} extends this idea to the order level by
 generating asynchronous event streams, allowing agents to be evaluated
-on metrics such as realized spread and adverse-selection cost~\citep{glosten1985bid,huang1996dealer} that are invisible to bar-level environments. Robust Risk-Sensitive RL
+on metrics such as realized spread and adverse-selection cost\revaddblock{~\citep{glosten1985bid,huang1996dealer} }that are invisible to bar-level environments. Robust Risk-Sensitive RL
 Agents~\citep{gao2021robust} stress-test the resulting agents by
 perturbing the synthetic environment, showing that risk-aware training
 reduces performance variance by an order of magnitude across random
 seeds. Collectively, these works establish FTSS as the substrate for
 ``sim-to-real'' transfer in financial RL.
 
-In privacy-preserving data sharing and regulatory scenarios, synthetic financial data is a recognized route to overcome the friction
+\revaddblock{In privacy-preserving data sharing and regulatory scenarios, }synthetic financial data is a recognized route to overcome the friction
 between data sharing and the privacy constraints imposed by GDPR, CCPA,
-and the equivalent Chinese PIPL. Balch et al.~\citep{balch2024six} propose the Six Levels of
-Privacy framework and demonstrate empirically that synthetic equities, options and LOB
+and the equivalent Chinese PIPL. \revaddblock{Balch et al.~\citep{balch2024six} propose the }Six Levels of
+Privacy \revdelblock{ ~
+proposes a six-tier framework and demonstrates }\revaddblock{framework and demonstrate }empirically that synthetic equities, options and LOB
 samples generated by TimeGAN, QuantGAN, and diffusion variants preserve
 aggregate utility (Sharpe ratios, correlation matrices, tail-event
-counts) while reducing vulnerability to membership-inference attacks~\citep{shokri2017membership} to
-near-baseline. Boudewijn et al.~\citep{boudewijn2023privacy} formalize the corresponding
+counts) while reducing \revdelblock{ membership-inference vulnerability to }\revaddblock{vulnerability to membership-inference attacks~\citep{shokri2017membership} to
+}near-baseline. \revdelblock{ Privacy Measurement in Tabular Synthetic
+Data}\revaddblock{Boudewijn et al.}~\citep{boudewijn2023privacy} formalize\revdelblock{ s} the corresponding
 evaluation protocol that quantifies the privacy/utility frontier. On
-the regulatory side, Balch et al.~\citep{balch2024six} further argue that FTSS pipelines can
+the regulatory side, \revaddblock{Balch et al.~}\citep{balch2024six} \revaddblock{further }argue that FTSS pipelines can
 produce synthetic benchmark datasets for third-party model validation
 without exposing proprietary positions, a direction that has begun to
 attract policy and supervisory attention in public-sector pilot studies.
@@ -155,7 +162,7 @@ This shift reframes FTSG not only as a research artifact but as
 compliance infrastructure.
 
 % --- 5.3.4 Cross-cutting ---------------------------------------------
-\subsection{Cross-cutting Applications: Synthetic Datasets as Benchmarks}
+\subsection{Cross-cutting \revdelblock{ Use}\revaddblock{Applications}: Synthetic Datasets as Benchmarks}
 
 Beyond the per-task applications above, FTSG has produced a small but
 rapidly maturing ecosystem of benchmark datasets that are themselves

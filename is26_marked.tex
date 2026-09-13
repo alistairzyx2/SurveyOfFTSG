@@ -28,6 +28,11 @@
 
 \newcommand{\revadd}[1]{\textcolor{red}{#1}}
 \newcommand{\revdel}[1]{\textcolor{red}{\sout{#1}}}
+% Block markers may span several paragraphs and may contain \item / \subsection.
+% Neither \textcolor{red}{#1} ("Paragraph ended before \@textcolor was complete")
+% nor ulem's \sout can cross a paragraph break, so scope a colour group instead.
+\newcommand{\revaddblock}[1]{{\color{red}#1}}
+\newcommand{\revdelblock}[1]{{\color{red}#1}}
 % Invisible in the clean manuscript; in the marked-up version it flags each secondary
 % subheading that was removed, so the editor can verify the restructuring point by point.
 \newcommand{\revnote}[1]{\textcolor{red}{\footnotesize[#1]}}

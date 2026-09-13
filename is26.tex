@@ -26,9 +26,13 @@
 % npj Artificial Intelligence requirement: unnumbered section headings
 \setcounter{secnumdepth}{0}
 
-% Clean version: revision markers render as plain text (marked version redefines them in red)
+% Clean version: revision markers are neutralised, so this master prints the
+% revised text only.  The marked-up master redefines the same five macros in red.
 \providecommand{\revadd}[1]{#1}
 \providecommand{\revdel}[1]{}
+\providecommand{\revaddblock}[1]{#1}
+\providecommand{\revdelblock}[1]{}
+\providecommand{\revnote}[1]{}
 
 % Title, Authors, and Affiliations
 \title{\Large\textbf{Financial Time-Series Generation: A Systematic Survey of Taxonomy, Evaluation, Datasets, and Open Challenges}}
